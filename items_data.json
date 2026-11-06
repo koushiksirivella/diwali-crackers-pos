@@ -2,2203 +2,2263 @@
   {
     "id": "W_1",
     "sticker_no": "1",
-    "search_keys": [
-      "1",
-      "3 1/2 lakshmi (15p)"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 1,
     "name": "3 1/2 Lakshmi (15P)",
     "pack_details": "20",
-    "units": 20,
+    "total_units": 20,
+    "units_sold": 0,
     "rate": 150,
     "rate_plus_10": 165.0,
     "bill_total": 3000,
-    "total_plus_10": 3300.0,
-    "suggested_selling_price": 250,
     "selling_price": 250,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "1",
+      "3 1/2 lakshmi (15p)"
+    ]
   },
   {
     "id": "W_2",
     "sticker_no": "2",
-    "search_keys": [
-      "2",
-      "4\" laxmi"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 2,
     "name": "4\" Laxmi",
     "pack_details": "25",
-    "units": 25,
+    "total_units": 25,
+    "units_sold": 0,
     "rate": 150,
     "rate_plus_10": 165.0,
     "bill_total": 3750,
-    "total_plus_10": 4125.0,
-    "suggested_selling_price": 250,
     "selling_price": 250,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "2",
+      "4\" laxmi"
+    ]
   },
   {
     "id": "W_3",
     "sticker_no": "3",
-    "search_keys": [
-      "3",
-      "4\" dlx lion"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 3,
     "name": "4\" Dlx Lion",
     "pack_details": "10",
-    "units": 10,
+    "total_units": 10,
+    "units_sold": 0,
     "rate": 260,
     "rate_plus_10": 286.0,
     "bill_total": 2600,
-    "total_plus_10": 2860.0,
-    "suggested_selling_price": 400,
-    "selling_price": 400,
+    "selling_price": 380,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "3",
+      "4\" dlx lion"
+    ]
   },
   {
     "id": "W_4",
     "sticker_no": "4",
-    "search_keys": [
-      "4",
-      "gold laxmi"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 4,
     "name": "Gold Laxmi",
     "pack_details": "10",
-    "units": 10,
+    "total_units": 10,
+    "units_sold": 0,
     "rate": 280,
     "rate_plus_10": 308.0,
     "bill_total": 2800,
-    "total_plus_10": 3080.0,
-    "suggested_selling_price": 450,
-    "selling_price": 450,
+    "selling_price": 400,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "4",
+      "gold laxmi"
+    ]
   },
   {
     "id": "W_5",
     "sticker_no": "5",
-    "search_keys": [
-      "5",
-      "5\" hulk"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 5,
     "name": "5\" Hulk",
     "pack_details": "10",
-    "units": 10,
+    "total_units": 10,
+    "units_sold": 0,
     "rate": 280,
     "rate_plus_10": 308.0,
     "bill_total": 2800,
-    "total_plus_10": 3080.0,
-    "suggested_selling_price": 450,
-    "selling_price": 450,
+    "selling_price": 400,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "5",
+      "5\" hulk"
+    ]
   },
   {
     "id": "W_6",
     "sticker_no": "6",
-    "search_keys": [
-      "6",
-      "6\" bruslee"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 6,
     "name": "6\" Bruslee",
     "pack_details": "10",
-    "units": 10,
+    "total_units": 10,
+    "units_sold": 0,
     "rate": 330,
     "rate_plus_10": 363.0,
     "bill_total": 3300,
-    "total_plus_10": 3630.0,
-    "suggested_selling_price": 500,
-    "selling_price": 500,
+    "selling_price": 480,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "6",
+      "6\" bruslee"
+    ]
   },
   {
     "id": "W_7",
     "sticker_no": "7",
-    "search_keys": [
-      "7",
-      "2 sound crackers"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 7,
     "name": "2 Sound Crackers",
     "pack_details": "10",
-    "units": 10,
+    "total_units": 10,
+    "units_sold": 0,
     "rate": 280,
     "rate_plus_10": 308.0,
     "bill_total": 2800,
-    "total_plus_10": 3080.0,
-    "suggested_selling_price": 450,
-    "selling_price": 450,
+    "selling_price": 400,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "7",
+      "2 sound crackers"
+    ]
   },
   {
     "id": "W_8",
     "sticker_no": "8",
-    "search_keys": [
-      "8",
-      "3 sound colanatia"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 8,
     "name": "3 Sound Colanatia",
     "pack_details": "10",
-    "units": 10,
+    "total_units": 10,
+    "units_sold": 0,
     "rate": 350,
     "rate_plus_10": 385.0,
     "bill_total": 3500,
-    "total_plus_10": 3850.0,
-    "suggested_selling_price": 550,
-    "selling_price": 550,
+    "selling_price": 500,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "8",
+      "3 sound colanatia"
+    ]
   },
   {
     "id": "W_9",
     "sticker_no": "9",
-    "search_keys": [
-      "9",
-      "smoke bomb"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 9,
     "name": "Smoke Bomb",
     "pack_details": "10",
-    "units": 10,
+    "total_units": 10,
+    "units_sold": 0,
     "rate": 250,
     "rate_plus_10": 275.0,
     "bill_total": 2500,
-    "total_plus_10": 2750.0,
-    "suggested_selling_price": 400,
-    "selling_price": 400,
+    "selling_price": 380,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "9",
+      "smoke bomb"
+    ]
   },
   {
     "id": "W_10",
     "sticker_no": "10",
-    "search_keys": [
-      "10",
-      "28 cholasa"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 10,
     "name": "28 Cholasa",
     "pack_details": "10",
-    "units": 10,
+    "total_units": 10,
+    "units_sold": 0,
     "rate": 550,
     "rate_plus_10": 605.0,
     "bill_total": 5500,
-    "total_plus_10": 6050.0,
-    "suggested_selling_price": 850,
-    "selling_price": 850,
+    "selling_price": 750,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "10",
+      "28 cholasa"
+    ]
   },
   {
     "id": "W_11",
     "sticker_no": "11",
-    "search_keys": [
-      "11",
-      "28 gaint"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 11,
     "name": "28 Gaint",
     "pack_details": "10",
-    "units": 10,
+    "total_units": 10,
+    "units_sold": 0,
     "rate": 550,
     "rate_plus_10": 605.0,
     "bill_total": 5500,
-    "total_plus_10": 6050.0,
-    "suggested_selling_price": 850,
-    "selling_price": 850,
+    "selling_price": 750,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "11",
+      "28 gaint"
+    ]
   },
   {
     "id": "W_12",
     "sticker_no": "12",
-    "search_keys": [
-      "12",
-      "24 dlx"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 12,
     "name": "24 Dlx",
     "pack_details": "5",
-    "units": 5,
+    "total_units": 5,
+    "units_sold": 0,
     "rate": 450,
     "rate_plus_10": 495.0,
     "bill_total": 2250,
-    "total_plus_10": 2475.0,
-    "suggested_selling_price": 700,
-    "selling_price": 700,
+    "selling_price": 650,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "12",
+      "24 dlx"
+    ]
   },
   {
     "id": "W_13",
     "sticker_no": "13",
-    "search_keys": [
-      "13",
-      "50 dlx"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 13,
     "name": "50 Dlx",
     "pack_details": "5",
-    "units": 5,
+    "total_units": 5,
+    "units_sold": 0,
     "rate": 450,
     "rate_plus_10": 495.0,
     "bill_total": 2250,
-    "total_plus_10": 2475.0,
-    "suggested_selling_price": 700,
-    "selling_price": 700,
+    "selling_price": 650,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "13",
+      "50 dlx"
+    ]
   },
   {
     "id": "W_14",
     "sticker_no": "14",
-    "search_keys": [
-      "14",
-      "100 mega dlx"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 14,
     "name": "100 mega Dlx",
     "pack_details": "10",
-    "units": 10,
+    "total_units": 10,
+    "units_sold": 0,
     "rate": 350,
     "rate_plus_10": 385.0,
     "bill_total": 3500,
-    "total_plus_10": 3850.0,
-    "suggested_selling_price": 550,
-    "selling_price": 550,
+    "selling_price": 500,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "14",
+      "100 mega dlx"
+    ]
   },
   {
     "id": "W_15",
     "sticker_no": "15",
-    "search_keys": [
-      "15",
-      "18 cm pencil"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 15,
     "name": "18 cm pencil",
     "pack_details": "50",
-    "units": 50,
+    "total_units": 50,
+    "units_sold": 0,
     "rate": 70,
     "rate_plus_10": 77.0,
     "bill_total": 3500,
-    "total_plus_10": 3850.0,
-    "suggested_selling_price": 110,
     "selling_price": 110,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "15",
+      "18 cm pencil"
+    ]
   },
   {
     "id": "W_16",
     "sticker_no": "16",
-    "search_keys": [
-      "16",
-      "12 cm pencil gaint"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 16,
     "name": "12 cm Pencil Gaint",
     "pack_details": "20",
-    "units": 20,
+    "total_units": 20,
+    "units_sold": 0,
     "rate": 50,
     "rate_plus_10": 55.0,
     "bill_total": 1000,
-    "total_plus_10": 1100.0,
-    "suggested_selling_price": 80,
     "selling_price": 80,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "16",
+      "12 cm pencil gaint"
+    ]
   },
   {
     "id": "W_17",
     "sticker_no": "17",
-    "search_keys": [
-      "17",
-      "7 cm pencil"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 17,
     "name": "7 cm Pencil",
     "pack_details": "50",
-    "units": 50,
+    "total_units": 50,
+    "units_sold": 0,
     "rate": 22,
     "rate_plus_10": 24.2,
     "bill_total": 1100,
-    "total_plus_10": 1210.0,
-    "suggested_selling_price": 35,
-    "selling_price": 35,
+    "selling_price": 40,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "17",
+      "7 cm pencil"
+    ]
   },
   {
     "id": "W_18",
     "sticker_no": "18",
-    "search_keys": [
-      "18",
-      "100 wala"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 18,
     "name": "100 wala",
     "pack_details": "50",
-    "units": 50,
+    "total_units": 50,
+    "units_sold": 0,
     "rate": 27,
     "rate_plus_10": 29.7,
     "bill_total": 1350,
-    "total_plus_10": 1485.0,
-    "suggested_selling_price": 40,
-    "selling_price": 40,
+    "selling_price": 45,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "18",
+      "100 wala"
+    ]
   },
   {
     "id": "W_19",
     "sticker_no": "19",
-    "search_keys": [
-      "19",
-      "200 wala"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 19,
     "name": "200 wala",
     "pack_details": "25",
-    "units": 25,
+    "total_units": 25,
+    "units_sold": 0,
     "rate": 50,
     "rate_plus_10": 55.0,
     "bill_total": 1250,
-    "total_plus_10": 1375.0,
-    "suggested_selling_price": 80,
     "selling_price": 80,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "19",
+      "200 wala"
+    ]
   },
   {
     "id": "W_20",
     "sticker_no": "20",
-    "search_keys": [
-      "20",
-      "rocket bomb"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 20,
     "name": "Rocket Bomb",
     "pack_details": "50",
-    "units": 50,
+    "total_units": 50,
+    "units_sold": 0,
     "rate": 60,
     "rate_plus_10": 66.0,
     "bill_total": 3000,
-    "total_plus_10": 3300.0,
-    "suggested_selling_price": 90,
-    "selling_price": 90,
+    "selling_price": 100,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "20",
+      "rocket bomb"
+    ]
   },
   {
     "id": "W_21",
     "sticker_no": "21",
-    "search_keys": [
-      "21",
-      "lunik rocket"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 21,
     "name": "Lunik Rocket",
     "pack_details": "25",
-    "units": 25,
+    "total_units": 25,
+    "units_sold": 0,
     "rate": 90,
     "rate_plus_10": 99.0,
     "bill_total": 2250,
-    "total_plus_10": 2475.0,
-    "suggested_selling_price": 140,
     "selling_price": 140,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "21",
+      "lunik rocket"
+    ]
   },
   {
     "id": "W_22",
     "sticker_no": "22",
-    "search_keys": [
-      "22",
-      "music rocket"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 22,
     "name": "Music Rocket",
     "pack_details": "10",
-    "units": 10,
+    "total_units": 10,
+    "units_sold": 0,
     "rate": 120,
     "rate_plus_10": 132.0,
     "bill_total": 1200,
-    "total_plus_10": 1320.0,
-    "suggested_selling_price": 180,
     "selling_price": 180,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "22",
+      "music rocket"
+    ]
   },
   {
     "id": "W_23",
     "sticker_no": "23",
-    "search_keys": [
-      "23",
-      "flp small"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 23,
     "name": "Flp Small",
     "pack_details": "100",
-    "units": 100,
+    "total_units": 100,
+    "units_sold": 0,
     "rate": 36,
     "rate_plus_10": 39.6,
     "bill_total": 3600,
-    "total_plus_10": 3960.0,
-    "suggested_selling_price": 60,
     "selling_price": 60,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "23",
+      "flp small"
+    ]
   },
   {
     "id": "W_24",
     "sticker_no": "24",
-    "search_keys": [
-      "24",
-      "flp spl"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 24,
     "name": "Flp Spl",
     "pack_details": "125",
-    "units": 125,
+    "total_units": 125,
+    "units_sold": 0,
     "rate": 65,
     "rate_plus_10": 71.5,
     "bill_total": 8125,
-    "total_plus_10": 8937.5,
-    "suggested_selling_price": 100,
     "selling_price": 100,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "24",
+      "flp spl"
+    ]
   },
   {
     "id": "W_25",
     "sticker_no": "25",
-    "search_keys": [
-      "25",
-      "flp gaint"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 25,
     "name": "Flp Gaint",
     "pack_details": "20",
-    "units": 20,
+    "total_units": 20,
+    "units_sold": 0,
     "rate": 120,
     "rate_plus_10": 132.0,
     "bill_total": 2400,
-    "total_plus_10": 2640.0,
-    "suggested_selling_price": 180,
     "selling_price": 180,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "25",
+      "flp gaint"
+    ]
   },
   {
     "id": "W_26",
     "sticker_no": "26",
-    "search_keys": [
-      "26",
-      "wifi"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 26,
     "name": "WiFi",
     "pack_details": "10",
-    "units": 10,
+    "total_units": 10,
+    "units_sold": 0,
     "rate": 120,
     "rate_plus_10": 132.0,
     "bill_total": 1200,
-    "total_plus_10": 1320.0,
-    "suggested_selling_price": 180,
     "selling_price": 180,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "26",
+      "wifi"
+    ]
   },
   {
     "id": "W_27",
     "sticker_no": "27",
-    "search_keys": [
-      "27",
-      "5 colour mini fountain"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 27,
     "name": "5 Colour mini fountain",
     "pack_details": "30",
-    "units": 30,
+    "total_units": 30,
+    "units_sold": 0,
     "rate": 160,
     "rate_plus_10": 176.0,
     "bill_total": 4800,
-    "total_plus_10": 5280.0,
-    "suggested_selling_price": 250,
-    "selling_price": 250,
+    "selling_price": 240,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "27",
+      "5 colour mini fountain"
+    ]
   },
   {
     "id": "W_28",
     "sticker_no": "28",
-    "search_keys": [
-      "28",
-      "clk dlx royal"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 28,
     "name": "Clk Dlx Royal",
     "pack_details": "12",
-    "units": 12,
+    "total_units": 12,
+    "units_sold": 0,
     "rate": 330,
     "rate_plus_10": 363.0,
     "bill_total": 3960,
-    "total_plus_10": 4356.0,
-    "suggested_selling_price": 500,
-    "selling_price": 500,
+    "selling_price": 480,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "28",
+      "clk dlx royal"
+    ]
   },
   {
     "id": "W_29",
     "sticker_no": "29",
-    "search_keys": [
-      "29",
-      "clk dlx (leo)"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 29,
     "name": "Clk Dlx (Leo)",
     "pack_details": "12",
-    "units": 12,
+    "total_units": 12,
+    "units_sold": 0,
     "rate": 350,
     "rate_plus_10": 385.0,
     "bill_total": 4200,
-    "total_plus_10": 4620.0,
-    "suggested_selling_price": 550,
-    "selling_price": 550,
+    "selling_price": 500,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "29",
+      "clk dlx (leo)"
+    ]
   },
   {
     "id": "W_30",
     "sticker_no": "30",
-    "search_keys": [
-      "30",
-      "clk mega dlx mithra"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 30,
     "name": "Clk Mega Dlx mithra",
     "pack_details": "10",
-    "units": 10,
+    "total_units": 10,
+    "units_sold": 0,
     "rate": 330,
     "rate_plus_10": 363.0,
     "bill_total": 3300,
-    "total_plus_10": 3630.0,
-    "suggested_selling_price": 500,
-    "selling_price": 500,
+    "selling_price": 480,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "30",
+      "clk mega dlx mithra"
+    ]
   },
   {
     "id": "W_31",
     "sticker_no": "31",
-    "search_keys": [
-      "31",
-      "glc big (25p)"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 31,
     "name": "Glc Big (25P)",
     "pack_details": "24",
-    "units": 24,
+    "total_units": 24,
+    "units_sold": 0,
     "rate": 65,
     "rate_plus_10": 71.5,
     "bill_total": 1560,
-    "total_plus_10": 1716.0,
-    "suggested_selling_price": 100,
     "selling_price": 100,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "31",
+      "glc big (25p)"
+    ]
   },
   {
     "id": "W_32",
     "sticker_no": "32",
-    "search_keys": [
-      "32",
-      "glc spl leo"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 32,
     "name": "Glc Spl Leo",
     "pack_details": "75",
-    "units": 75,
+    "total_units": 75,
+    "units_sold": 0,
     "rate": 65,
     "rate_plus_10": 71.5,
     "bill_total": 4875,
-    "total_plus_10": 5362.5,
-    "suggested_selling_price": 100,
     "selling_price": 100,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "32",
+      "glc spl leo"
+    ]
   },
   {
     "id": "W_33",
     "sticker_no": "33",
-    "search_keys": [
-      "33",
-      "glc dlx"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 33,
     "name": "Glc Dlx",
     "pack_details": "75",
-    "units": 75,
+    "total_units": 75,
+    "units_sold": 0,
     "rate": 96,
     "rate_plus_10": 105.6,
     "bill_total": 7200,
-    "total_plus_10": 7920.0,
-    "suggested_selling_price": 150,
     "selling_price": 150,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "33",
+      "glc dlx"
+    ]
   },
   {
     "id": "W_34",
     "sticker_no": "34",
-    "search_keys": [
-      "34",
-      "wheel spinner"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 34,
     "name": "Wheel Spinner",
     "pack_details": "30",
-    "units": 30,
+    "total_units": 30,
+    "units_sold": 0,
     "rate": 100,
     "rate_plus_10": 110.0,
     "bill_total": 3000,
-    "total_plus_10": 3300.0,
-    "suggested_selling_price": 150,
     "selling_price": 150,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "34",
+      "wheel spinner"
+    ]
   },
   {
     "id": "W_35",
     "sticker_no": "35",
-    "search_keys": [
-      "35",
-      "spinner spl royal"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 35,
     "name": "Spinner Spl Royal",
     "pack_details": "20",
-    "units": 20,
+    "total_units": 20,
+    "units_sold": 0,
     "rate": 160,
     "rate_plus_10": 176.0,
     "bill_total": 3200,
-    "total_plus_10": 3520.0,
-    "suggested_selling_price": 250,
-    "selling_price": 250,
+    "selling_price": 240,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "35",
+      "spinner spl royal"
+    ]
   },
   {
     "id": "W_36",
     "sticker_no": "36",
-    "search_keys": [
-      "36",
-      "wire chakkar"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 36,
     "name": "Wire Chakkar",
     "pack_details": "10",
-    "units": 10,
+    "total_units": 10,
+    "units_sold": 0,
     "rate": 140,
     "rate_plus_10": 154.0,
     "bill_total": 1400,
-    "total_plus_10": 1540.0,
-    "suggested_selling_price": 200,
-    "selling_price": 200,
+    "selling_price": 220,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "36",
+      "wire chakkar"
+    ]
   },
   {
     "id": "W_37",
     "sticker_no": "37",
-    "search_keys": [
-      "37",
-      "1 1/2 twinkling"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 37,
     "name": "1 1/2 Twinkling",
     "pack_details": "100",
-    "units": 100,
+    "total_units": 100,
+    "units_sold": 0,
     "rate": 18,
     "rate_plus_10": 19.8,
     "bill_total": 1800,
-    "total_plus_10": 1980.0,
-    "suggested_selling_price": 30,
     "selling_price": 30,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "37",
+      "1 1/2 twinkling"
+    ]
   },
   {
     "id": "W_38",
     "sticker_no": "38",
-    "search_keys": [
-      "38",
-      "4\" twinkling"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 38,
     "name": "4\" Twinkling",
     "pack_details": "150",
-    "units": 150,
+    "total_units": 150,
+    "units_sold": 0,
     "rate": 60,
     "rate_plus_10": 66.0,
     "bill_total": 9000,
-    "total_plus_10": 9900.0,
-    "suggested_selling_price": 90,
-    "selling_price": 90,
+    "selling_price": 100,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "38",
+      "4\" twinkling"
+    ]
   },
   {
     "id": "W_39",
     "sticker_no": "39",
-    "search_keys": [
-      "39",
-      "hele copter"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 39,
     "name": "Hele copter",
     "pack_details": "20",
-    "units": 20,
+    "total_units": 20,
+    "units_sold": 0,
     "rate": 80,
     "rate_plus_10": 88.0,
     "bill_total": 1600,
-    "total_plus_10": 1760.0,
-    "suggested_selling_price": 120,
     "selling_price": 120,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "39",
+      "hele copter"
+    ]
   },
   {
     "id": "W_40",
     "sticker_no": "40",
-    "search_keys": [
-      "40",
-      "dola dola leo"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 40,
     "name": "Dola Dola Leo",
     "pack_details": "100",
-    "units": 100,
+    "total_units": 100,
+    "units_sold": 0,
     "rate": 38,
     "rate_plus_10": 41.8,
     "bill_total": 3800,
-    "total_plus_10": 4180.0,
-    "suggested_selling_price": 60,
     "selling_price": 60,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "40",
+      "dola dola leo"
+    ]
   },
   {
     "id": "W_41",
     "sticker_no": "41",
-    "search_keys": [
-      "41",
-      "mega kit kat"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 41,
     "name": "Mega kit kat",
     "pack_details": "50",
-    "units": 50,
+    "total_units": 50,
+    "units_sold": 0,
     "rate": 50,
     "rate_plus_10": 55.0,
     "bill_total": 2500,
-    "total_plus_10": 2750.0,
-    "suggested_selling_price": 80,
     "selling_price": 80,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "41",
+      "mega kit kat"
+    ]
   },
   {
     "id": "W_42",
     "sticker_no": "42",
-    "search_keys": [
-      "42",
-      "ganga jamuna"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 42,
     "name": "Ganga Jamuna",
     "pack_details": "30",
-    "units": 30,
+    "total_units": 30,
+    "units_sold": 0,
     "rate": 75,
     "rate_plus_10": 82.5,
     "bill_total": 2250,
-    "total_plus_10": 2475.0,
-    "suggested_selling_price": 120,
     "selling_price": 120,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "42",
+      "ganga jamuna"
+    ]
   },
   {
     "id": "W_43",
     "sticker_no": "43",
-    "search_keys": [
-      "43",
-      "flower bomb vcl"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 43,
     "name": "Flower Bomb vcl",
     "pack_details": "20",
-    "units": 20,
+    "total_units": 20,
+    "units_sold": 0,
     "rate": 150,
     "rate_plus_10": 165.0,
     "bill_total": 3000,
-    "total_plus_10": 3300.0,
-    "suggested_selling_price": 250,
-    "selling_price": 250,
+    "selling_price": 230,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "43",
+      "flower bomb vcl"
+    ]
   },
   {
     "id": "W_44",
     "sticker_no": "44",
-    "search_keys": [
-      "44",
-      "butterfly yuva"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 44,
     "name": "Butterfly Yuva",
     "pack_details": "30",
-    "units": 30,
+    "total_units": 30,
+    "units_sold": 0,
     "rate": 70,
     "rate_plus_10": 77.0,
     "bill_total": 2100,
-    "total_plus_10": 2310.0,
-    "suggested_selling_price": 110,
     "selling_price": 110,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "44",
+      "butterfly yuva"
+    ]
   },
   {
     "id": "W_45",
     "sticker_no": "45",
-    "search_keys": [
-      "45",
-      "2 comment (p) window"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 45,
     "name": "2 Comment (P) Window",
     "pack_details": "10",
-    "units": 10,
+    "total_units": 10,
+    "units_sold": 0,
     "rate": 70,
     "rate_plus_10": 77.0,
     "bill_total": 700,
-    "total_plus_10": 770.0,
-    "suggested_selling_price": 110,
     "selling_price": 110,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "45",
+      "2 comment (p) window"
+    ]
   },
   {
     "id": "W_46",
     "sticker_no": "46",
-    "search_keys": [
-      "46",
-      "7 shot (10p)"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 46,
     "name": "7 shot (10P)",
     "pack_details": "5",
-    "units": 5,
+    "total_units": 5,
+    "units_sold": 0,
     "rate": 200,
     "rate_plus_10": 220.0,
     "bill_total": 1000,
-    "total_plus_10": 1100.0,
-    "suggested_selling_price": 300,
     "selling_price": 300,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "46",
+      "7 shot (10p)"
+    ]
   },
   {
     "id": "W_47",
     "sticker_no": "47",
-    "search_keys": [
-      "47",
-      "4\" comment (1p)"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 47,
     "name": "4\" comment (1P)",
     "pack_details": "2",
-    "units": 2,
+    "total_units": 2,
+    "units_sold": 0,
     "rate": 760,
     "rate_plus_10": 836.0,
     "bill_total": 1520,
-    "total_plus_10": 1672.0,
-    "suggested_selling_price": 1150,
-    "selling_price": 1150,
+    "selling_price": 1100,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "47",
+      "4\" comment (1p)"
+    ]
   },
   {
     "id": "W_48",
     "sticker_no": "48",
-    "search_keys": [
-      "48",
-      "4\" comment (3p)"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 48,
     "name": "4\" Comment (3P)",
     "pack_details": "2",
-    "units": 2,
+    "total_units": 2,
+    "units_sold": 0,
     "rate": 900,
     "rate_plus_10": 990.0,
     "bill_total": 1800,
-    "total_plus_10": 1980.0,
-    "suggested_selling_price": 1400,
-    "selling_price": 1400,
+    "selling_price": 1300,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "48",
+      "4\" comment (3p)"
+    ]
   },
   {
     "id": "W_49",
     "sticker_no": "49",
-    "search_keys": [
-      "49",
-      "small bullet bomb"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 49,
     "name": "Small Bullet Bomb",
     "pack_details": "150",
-    "units": 150,
+    "total_units": 150,
+    "units_sold": 0,
     "rate": 13,
     "rate_plus_10": 14.3,
     "bill_total": 1950,
-    "total_plus_10": 2145.0,
-    "suggested_selling_price": 20,
-    "selling_price": 20,
+    "selling_price": 25,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "49",
+      "small bullet bomb"
+    ]
   },
   {
     "id": "W_50",
     "sticker_no": "50",
-    "search_keys": [
-      "50",
-      "solar bomb"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 50,
     "name": "Solar Bomb",
     "pack_details": "50",
-    "units": 50,
+    "total_units": 50,
+    "units_sold": 0,
     "rate": 45,
     "rate_plus_10": 49.5,
     "bill_total": 2250,
-    "total_plus_10": 2475.0,
-    "suggested_selling_price": 70,
-    "selling_price": 70,
+    "selling_price": 75,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "50",
+      "solar bomb"
+    ]
   },
   {
     "id": "W_51",
     "sticker_no": "51",
-    "search_keys": [
-      "51",
-      "classic bomb"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 51,
     "name": "Classic Bomb",
     "pack_details": "50",
-    "units": 50,
+    "total_units": 50,
+    "units_sold": 0,
     "rate": 92,
     "rate_plus_10": 101.2,
     "bill_total": 4600,
-    "total_plus_10": 5060.0,
-    "suggested_selling_price": 140,
-    "selling_price": 140,
+    "selling_price": 150,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "51",
+      "classic bomb"
+    ]
   },
   {
     "id": "W_52",
     "sticker_no": "52",
-    "search_keys": [
-      "52",
-      "military bomb"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 52,
     "name": "Military Bomb",
     "pack_details": "10",
-    "units": 10,
+    "total_units": 10,
+    "units_sold": 0,
     "rate": 165,
     "rate_plus_10": 181.5,
     "bill_total": 1650,
-    "total_plus_10": 1815.0,
-    "suggested_selling_price": 250,
     "selling_price": 250,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "52",
+      "military bomb"
+    ]
   },
   {
     "id": "W_53",
     "sticker_no": "53",
-    "search_keys": [
-      "53",
-      "marshal black"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 53,
     "name": "Marshal Black",
     "pack_details": "25",
-    "units": 25,
+    "total_units": 25,
+    "units_sold": 0,
     "rate": 160,
     "rate_plus_10": 176.0,
     "bill_total": 4000,
-    "total_plus_10": 4400.0,
-    "suggested_selling_price": 250,
-    "selling_price": 250,
+    "selling_price": 240,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "53",
+      "marshal black"
+    ]
   },
   {
     "id": "W_54",
     "sticker_no": "54",
-    "search_keys": [
-      "54",
-      "digital bomb"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 54,
     "name": "Digital Bomb",
     "pack_details": "20",
-    "units": 20,
+    "total_units": 20,
+    "units_sold": 0,
     "rate": 190,
     "rate_plus_10": 209.0,
     "bill_total": 3800,
-    "total_plus_10": 4180.0,
-    "suggested_selling_price": 300,
-    "selling_price": 300,
+    "selling_price": 280,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "54",
+      "digital bomb"
+    ]
   },
   {
     "id": "W_55",
     "sticker_no": "55",
-    "search_keys": [
-      "55",
-      "jurassic marshal"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 55,
     "name": "Jurassic Marshal",
     "pack_details": "20",
-    "units": 20,
+    "total_units": 20,
+    "units_sold": 0,
     "rate": 180,
     "rate_plus_10": 198.0,
     "bill_total": 3600,
-    "total_plus_10": 3960.0,
-    "suggested_selling_price": 300,
-    "selling_price": 300,
+    "selling_price": 270,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "55",
+      "jurassic marshal"
+    ]
   },
   {
     "id": "W_56",
     "sticker_no": "56",
-    "search_keys": [
-      "56",
-      "240 shot (jyothi)"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 56,
     "name": "240 Shot (Jyothi)",
     "pack_details": "3",
-    "units": 3,
+    "total_units": 3,
+    "units_sold": 0,
     "rate": 3100,
     "rate_plus_10": 3410.0,
     "bill_total": 9300,
-    "total_plus_10": 10230.0,
-    "suggested_selling_price": 4750,
-    "selling_price": 4750,
+    "selling_price": 4500,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "56",
+      "240 shot (jyothi)"
+    ]
   },
   {
     "id": "W_57",
     "sticker_no": "57",
-    "search_keys": [
-      "57",
-      "lamp"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 57,
     "name": "Lamp",
     "pack_details": "15",
-    "units": 15,
+    "total_units": 15,
+    "units_sold": 0,
     "rate": 250,
     "rate_plus_10": 275.0,
     "bill_total": 3750,
-    "total_plus_10": 4125.0,
-    "suggested_selling_price": 400,
-    "selling_price": 400,
+    "selling_price": 380,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "57",
+      "lamp"
+    ]
   },
   {
     "id": "W_58",
     "sticker_no": "58",
-    "search_keys": [
-      "58",
-      "50 ele"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 58,
     "name": "50 Ele",
     "pack_details": "10",
-    "units": 10,
+    "total_units": 10,
+    "units_sold": 0,
     "rate": 130,
     "rate_plus_10": 143.0,
     "bill_total": 1300,
-    "total_plus_10": 1430.0,
-    "suggested_selling_price": 200,
     "selling_price": 200,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "58",
+      "50 ele"
+    ]
   },
   {
     "id": "W_59",
     "sticker_no": "59",
-    "search_keys": [
-      "59",
-      "50 colour"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 59,
     "name": "50 Colour",
     "pack_details": "10",
-    "units": 10,
+    "total_units": 10,
+    "units_sold": 0,
     "rate": 140,
     "rate_plus_10": 154.0,
     "bill_total": 1400,
-    "total_plus_10": 1540.0,
-    "suggested_selling_price": 200,
-    "selling_price": 200,
+    "selling_price": 210,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "59",
+      "50 colour"
+    ]
   },
   {
     "id": "W_60",
     "sticker_no": "60",
-    "search_keys": [
-      "60",
-      "robin king siren"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 60,
     "name": "Robin King Siren",
     "pack_details": "5",
-    "units": 5,
+    "total_units": 5,
+    "units_sold": 0,
     "rate": 65,
     "rate_plus_10": 71.5,
     "bill_total": 325,
-    "total_plus_10": 357.5,
-    "suggested_selling_price": 100,
     "selling_price": 100,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "60",
+      "robin king siren"
+    ]
   },
   {
     "id": "W_61",
     "sticker_no": "61",
-    "search_keys": [
-      "61",
-      "dil se (1p)"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 61,
     "name": "Dil Se (1P)",
     "pack_details": "5",
-    "units": 5,
+    "total_units": 5,
+    "units_sold": 0,
     "rate": 210,
     "rate_plus_10": 231.0,
     "bill_total": 1050,
-    "total_plus_10": 1155.0,
-    "suggested_selling_price": 300,
-    "selling_price": 300,
+    "selling_price": 320,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "61",
+      "dil se (1p)"
+    ]
   },
   {
     "id": "W_62",
     "sticker_no": "62",
-    "search_keys": [
-      "62",
-      "cukoo"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 62,
     "name": "Cukoo",
     "pack_details": "5",
-    "units": 5,
+    "total_units": 5,
+    "units_sold": 0,
     "rate": 130,
     "rate_plus_10": 143.0,
     "bill_total": 650,
-    "total_plus_10": 715.0,
-    "suggested_selling_price": 200,
     "selling_price": 200,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "62",
+      "cukoo"
+    ]
   },
   {
     "id": "W_63",
     "sticker_no": "63",
-    "search_keys": [
-      "63",
-      "butterscotch"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 63,
     "name": "Butterscotch",
     "pack_details": "5",
-    "units": 5,
+    "total_units": 5,
+    "units_sold": 0,
     "rate": 230,
     "rate_plus_10": 253.0,
     "bill_total": 1150,
-    "total_plus_10": 1265.0,
-    "suggested_selling_price": 350,
     "selling_price": 350,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "63",
+      "butterscotch"
+    ]
   },
   {
     "id": "W_64",
     "sticker_no": "64",
-    "search_keys": [
-      "64",
-      "golden rabbit"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 64,
     "name": "Golden Rabbit",
     "pack_details": "5",
-    "units": 5,
+    "total_units": 5,
+    "units_sold": 0,
     "rate": 260,
     "rate_plus_10": 286.0,
     "bill_total": 1300,
-    "total_plus_10": 1430.0,
-    "suggested_selling_price": 400,
-    "selling_price": 400,
+    "selling_price": 390,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "64",
+      "golden rabbit"
+    ]
   },
   {
     "id": "W_65",
     "sticker_no": "65",
-    "search_keys": [
-      "65",
-      "speed test mithra"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 65,
     "name": "Speed Test mithra",
     "pack_details": "15",
-    "units": 15,
+    "total_units": 15,
+    "units_sold": 0,
     "rate": 125,
     "rate_plus_10": 137.5,
     "bill_total": 1875,
-    "total_plus_10": 2062.5,
-    "suggested_selling_price": 190,
     "selling_price": 190,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "65",
+      "speed test mithra"
+    ]
   },
   {
     "id": "W_66",
     "sticker_no": "66",
-    "search_keys": [
-      "66",
-      "900 cc"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 66,
     "name": "900 cc",
     "pack_details": "10",
-    "units": 10,
+    "total_units": 10,
+    "units_sold": 0,
     "rate": 130,
     "rate_plus_10": 143.0,
     "bill_total": 1300,
-    "total_plus_10": 1430.0,
-    "suggested_selling_price": 200,
     "selling_price": 200,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "66",
+      "900 cc"
+    ]
   },
   {
     "id": "W_67",
     "sticker_no": "67",
-    "search_keys": [
-      "67",
-      "turbo wheel"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 67,
     "name": "Turbo wheel",
     "pack_details": "10",
-    "units": 10,
+    "total_units": 10,
+    "units_sold": 0,
     "rate": 80,
     "rate_plus_10": 88.0,
     "bill_total": 800,
-    "total_plus_10": 880.0,
-    "suggested_selling_price": 120,
-    "selling_price": 120,
+    "selling_price": 130,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "67",
+      "turbo wheel"
+    ]
   },
   {
     "id": "W_68",
     "sticker_no": "68",
-    "search_keys": [
-      "68",
-      "top gun"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 68,
     "name": "Top Gun",
     "pack_details": "5",
-    "units": 5,
+    "total_units": 5,
+    "units_sold": 0,
     "rate": 180,
     "rate_plus_10": 198.0,
     "bill_total": 900,
-    "total_plus_10": 990.0,
-    "suggested_selling_price": 300,
-    "selling_price": 300,
+    "selling_price": 270,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "68",
+      "top gun"
+    ]
   },
   {
     "id": "W_69",
     "sticker_no": "69",
-    "search_keys": [
-      "69",
-      "pistol 58"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 69,
     "name": "Pistol 58",
     "pack_details": "5",
-    "units": 5,
+    "total_units": 5,
+    "units_sold": 0,
     "rate": 230,
     "rate_plus_10": 253.0,
     "bill_total": 1150,
-    "total_plus_10": 1265.0,
-    "suggested_selling_price": 350,
     "selling_price": 350,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "69",
+      "pistol 58"
+    ]
   },
   {
     "id": "W_70",
     "sticker_no": "70",
-    "search_keys": [
-      "70",
-      "bada peacock standard"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 70,
     "name": "Bada Peacock Standard",
     "pack_details": "5",
-    "units": 5,
+    "total_units": 5,
+    "units_sold": 0,
     "rate": 250,
     "rate_plus_10": 275.0,
     "bill_total": 1250,
-    "total_plus_10": 1375.0,
-    "suggested_selling_price": 400,
-    "selling_price": 400,
+    "selling_price": 380,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "70",
+      "bada peacock standard"
+    ]
   },
   {
     "id": "W_71",
     "sticker_no": "71",
-    "search_keys": [
-      "71",
-      "chota bhai siren"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 71,
     "name": "Chota Bhai Siren",
     "pack_details": "9",
-    "units": 9,
+    "total_units": 9,
+    "units_sold": 0,
     "rate": 170,
     "rate_plus_10": 187.0,
     "bill_total": 1530,
-    "total_plus_10": 1683.0,
-    "suggested_selling_price": 250,
-    "selling_price": 250,
+    "selling_price": 260,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "71",
+      "chota bhai siren"
+    ]
   },
   {
     "id": "W_72",
     "sticker_no": "72",
-    "search_keys": [
-      "72",
-      "big elephant"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 72,
     "name": "Big Elephant",
     "pack_details": "5",
-    "units": 5,
+    "total_units": 5,
+    "units_sold": 0,
     "rate": 200,
     "rate_plus_10": 220.0,
     "bill_total": 1000,
-    "total_plus_10": 1100.0,
-    "suggested_selling_price": 300,
     "selling_price": 300,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "72",
+      "big elephant"
+    ]
   },
   {
     "id": "W_73",
     "sticker_no": "73",
-    "search_keys": [
-      "73",
-      "bat & ball"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 73,
     "name": "Bat & Ball",
     "pack_details": "2",
-    "units": 2,
+    "total_units": 2,
+    "units_sold": 0,
     "rate": 350,
     "rate_plus_10": 385.0,
     "bill_total": 700,
-    "total_plus_10": 770.0,
-    "suggested_selling_price": 550,
-    "selling_price": 550,
+    "selling_price": 500,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "73",
+      "bat & ball"
+    ]
   },
   {
     "id": "W_74",
     "sticker_no": "74",
-    "search_keys": [
-      "74",
-      "wicked willow rocket"
-    ],
+    "lot_no": "WHITE",
     "bill_type": "white",
     "bill_name": "White Bill (Nandigama)",
     "bill_item_no": 74,
     "name": "Wicked Willow Rocket",
     "pack_details": "6",
-    "units": 6,
+    "total_units": 6,
+    "units_sold": 0,
     "rate": 300,
     "rate_plus_10": 330.0,
     "bill_total": 1800,
-    "total_plus_10": 1980.0,
-    "suggested_selling_price": 450,
     "selling_price": 450,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "74",
+      "wicked willow rocket"
+    ]
   },
   {
     "id": "P_1",
-    "sticker_no": "P1",
-    "search_keys": [
-      "p1",
-      "1",
-      "101",
-      "100 bijili"
-    ],
+    "sticker_no": "1294-1",
+    "lot_no": "1294",
     "bill_type": "pink",
-    "bill_name": "Pink Bill (Chilakaluripet)",
+    "bill_name": "Pink Bill 1294 (Chilakaluripet)",
     "bill_item_no": 1,
     "name": "100 Bijili",
     "pack_details": "1 x 300",
-    "units": 300,
+    "total_units": 300,
+    "units_sold": 0,
     "rate": 25,
     "rate_plus_10": 27.5,
     "bill_total": 7500,
-    "total_plus_10": 8250.0,
-    "suggested_selling_price": 40,
     "selling_price": 40,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "1294",
+      "1294-1",
+      "1294 1",
+      "p1",
+      "pink 1",
+      "1",
+      "100 bijili"
+    ]
   },
   {
     "id": "P_2",
-    "sticker_no": "P2",
-    "search_keys": [
-      "p2",
-      "2",
-      "102",
-      "clk ishwarya"
-    ],
+    "sticker_no": "1294-2",
+    "lot_no": "1294",
     "bill_type": "pink",
-    "bill_name": "Pink Bill (Chilakaluripet)",
+    "bill_name": "Pink Bill 1294 (Chilakaluripet)",
     "bill_item_no": 2,
     "name": "CLK Ishwarya",
     "pack_details": "1 x 60",
-    "units": 60,
+    "total_units": 60,
+    "units_sold": 0,
     "rate": 160,
     "rate_plus_10": 176.0,
     "bill_total": 9600,
-    "total_plus_10": 10560.0,
-    "suggested_selling_price": 250,
-    "selling_price": 250,
+    "selling_price": 240,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "1294",
+      "1294-2",
+      "1294 2",
+      "p2",
+      "pink 2",
+      "2",
+      "clk ishwarya"
+    ]
   },
   {
     "id": "P_3",
-    "sticker_no": "P3",
-    "search_keys": [
-      "p3",
-      "3",
-      "103",
-      "flp ashoka"
-    ],
+    "sticker_no": "1294-3",
+    "lot_no": "1294",
     "bill_type": "pink",
-    "bill_name": "Pink Bill (Chilakaluripet)",
+    "bill_name": "Pink Bill 1294 (Chilakaluripet)",
     "bill_item_no": 3,
     "name": "FLP Ashoka",
     "pack_details": "1 x 100",
-    "units": 100,
+    "total_units": 100,
+    "units_sold": 0,
     "rate": 85,
     "rate_plus_10": 93.5,
     "bill_total": 8500,
-    "total_plus_10": 9350.0,
-    "suggested_selling_price": 130,
     "selling_price": 130,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "1294",
+      "1294-3",
+      "1294 3",
+      "p3",
+      "pink 3",
+      "3",
+      "flp ashoka"
+    ]
   },
   {
     "id": "P_4",
-    "sticker_no": "P4",
-    "search_keys": [
-      "p4",
-      "4",
-      "104",
-      "7 cm electric"
-    ],
+    "sticker_no": "1294-4",
+    "lot_no": "1294",
     "bill_type": "pink",
-    "bill_name": "Pink Bill (Chilakaluripet)",
+    "bill_name": "Pink Bill 1294 (Chilakaluripet)",
     "bill_item_no": 4,
     "name": "7 CM Electric",
     "pack_details": "4",
-    "units": 4,
+    "total_units": 4,
+    "units_sold": 0,
     "rate": 1000,
     "rate_plus_10": 1100.0,
     "bill_total": 4000,
-    "total_plus_10": 4400.0,
-    "suggested_selling_price": 1550,
-    "selling_price": 1550,
+    "selling_price": 1500,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "1294",
+      "1294-4",
+      "1294 4",
+      "p4",
+      "pink 4",
+      "4",
+      "7 cm electric"
+    ]
   },
   {
     "id": "P_5",
-    "sticker_no": "P5",
-    "search_keys": [
-      "p5",
-      "5",
-      "105",
-      "15 cm colour"
-    ],
+    "sticker_no": "1294-5",
+    "lot_no": "1294",
     "bill_type": "pink",
-    "bill_name": "Pink Bill (Chilakaluripet)",
+    "bill_name": "Pink Bill 1294 (Chilakaluripet)",
     "bill_item_no": 5,
     "name": "15 CM Colour",
     "pack_details": "3 x 100",
-    "units": 300,
+    "total_units": 300,
+    "units_sold": 0,
     "rate": 30,
     "rate_plus_10": 33.0,
     "bill_total": 9000,
-    "total_plus_10": 9900.0,
-    "suggested_selling_price": 45,
-    "selling_price": 45,
+    "selling_price": 50,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "1294",
+      "1294-5",
+      "1294 5",
+      "p5",
+      "pink 5",
+      "5",
+      "15 cm colour"
+    ]
   },
   {
     "id": "P_6",
-    "sticker_no": "P6",
-    "search_keys": [
-      "p6",
-      "6",
-      "106",
-      "15 cm electric"
-    ],
+    "sticker_no": "1294-6",
+    "lot_no": "1294",
     "bill_type": "pink",
-    "bill_name": "Pink Bill (Chilakaluripet)",
+    "bill_name": "Pink Bill 1294 (Chilakaluripet)",
     "bill_item_no": 6,
     "name": "15 CM Electric",
     "pack_details": "3 x 100",
-    "units": 300,
+    "total_units": 300,
+    "units_sold": 0,
     "rate": 28,
     "rate_plus_10": 30.8,
     "bill_total": 8400,
-    "total_plus_10": 9240.0,
-    "suggested_selling_price": 45,
     "selling_price": 45,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "1294",
+      "1294-6",
+      "1294 6",
+      "p6",
+      "pink 6",
+      "6",
+      "15 cm electric"
+    ]
   },
   {
     "id": "P_7",
-    "sticker_no": "P7",
-    "search_keys": [
-      "p7",
-      "7",
-      "107",
-      "30 cm colour"
-    ],
+    "sticker_no": "1294-7",
+    "lot_no": "1294",
     "bill_type": "pink",
-    "bill_name": "Pink Bill (Chilakaluripet)",
+    "bill_name": "Pink Bill 1294 (Chilakaluripet)",
     "bill_item_no": 7,
     "name": "30 CM Colour",
     "pack_details": "3 x 100",
-    "units": 300,
+    "total_units": 300,
+    "units_sold": 0,
     "rate": 30,
     "rate_plus_10": 33.0,
     "bill_total": 9000,
-    "total_plus_10": 9900.0,
-    "suggested_selling_price": 45,
-    "selling_price": 45,
+    "selling_price": 50,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "1294",
+      "1294-7",
+      "1294 7",
+      "p7",
+      "pink 7",
+      "7",
+      "30 cm colour"
+    ]
   },
   {
     "id": "P_8",
-    "sticker_no": "P8",
-    "search_keys": [
-      "p8",
-      "8",
-      "108",
-      "30 cm electric"
-    ],
+    "sticker_no": "1294-8",
+    "lot_no": "1294",
     "bill_type": "pink",
-    "bill_name": "Pink Bill (Chilakaluripet)",
+    "bill_name": "Pink Bill 1294 (Chilakaluripet)",
     "bill_item_no": 8,
     "name": "30 CM Electric",
     "pack_details": "3 x 100",
-    "units": 300,
+    "total_units": 300,
+    "units_sold": 0,
     "rate": 28,
     "rate_plus_10": 30.8,
     "bill_total": 8400,
-    "total_plus_10": 9240.0,
-    "suggested_selling_price": 45,
     "selling_price": 45,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "1294",
+      "1294-8",
+      "1294 8",
+      "p8",
+      "pink 8",
+      "8",
+      "30 cm electric"
+    ]
   },
   {
     "id": "P_9",
-    "sticker_no": "P9",
-    "search_keys": [
-      "p9",
-      "9",
-      "109",
-      "1k wala"
-    ],
+    "sticker_no": "1294-9",
+    "lot_no": "1294",
     "bill_type": "pink",
-    "bill_name": "Pink Bill (Chilakaluripet)",
+    "bill_name": "Pink Bill 1294 (Chilakaluripet)",
     "bill_item_no": 9,
     "name": "1K Wala",
     "pack_details": "1 x 36",
-    "units": 36,
+    "total_units": 36,
+    "units_sold": 0,
     "rate": 130,
     "rate_plus_10": 143.0,
     "bill_total": 4680,
-    "total_plus_10": 5148.0,
-    "suggested_selling_price": 200,
     "selling_price": 200,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "1294",
+      "1294-9",
+      "1294 9",
+      "p9",
+      "pink 9",
+      "9",
+      "1k wala"
+    ]
   },
   {
     "id": "P_10",
-    "sticker_no": "P10",
-    "search_keys": [
-      "p10",
-      "10",
-      "110",
-      "2k wala"
-    ],
+    "sticker_no": "1294-10",
+    "lot_no": "1294",
     "bill_type": "pink",
-    "bill_name": "Pink Bill (Chilakaluripet)",
+    "bill_name": "Pink Bill 1294 (Chilakaluripet)",
     "bill_item_no": 10,
     "name": "2K Wala",
     "pack_details": "1 x 20",
-    "units": 20,
+    "total_units": 20,
+    "units_sold": 0,
     "rate": 260,
     "rate_plus_10": 286.0,
     "bill_total": 5200,
-    "total_plus_10": 5720.0,
-    "suggested_selling_price": 400,
-    "selling_price": 400,
+    "selling_price": 390,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "1294",
+      "1294-10",
+      "1294 10",
+      "p10",
+      "pink 10",
+      "10",
+      "2k wala"
+    ]
   },
   {
     "id": "P_11",
-    "sticker_no": "P11",
-    "search_keys": [
-      "p11",
-      "11",
-      "111",
-      "5k wala"
-    ],
+    "sticker_no": "1294-11",
+    "lot_no": "1294",
     "bill_type": "pink",
-    "bill_name": "Pink Bill (Chilakaluripet)",
+    "bill_name": "Pink Bill 1294 (Chilakaluripet)",
     "bill_item_no": 11,
     "name": "5K Wala",
     "pack_details": "1 x 8",
-    "units": 8,
+    "total_units": 8,
+    "units_sold": 0,
     "rate": 650,
     "rate_plus_10": 715.0,
     "bill_total": 5200,
-    "total_plus_10": 5720.0,
-    "suggested_selling_price": 1000,
-    "selling_price": 1000,
+    "selling_price": 950,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "1294",
+      "1294-11",
+      "1294 11",
+      "p11",
+      "pink 11",
+      "11",
+      "5k wala"
+    ]
   },
   {
     "id": "P_12",
-    "sticker_no": "P12",
-    "search_keys": [
-      "p12",
-      "12",
-      "112",
-      "10k wala"
-    ],
+    "sticker_no": "1294-12",
+    "lot_no": "1294",
     "bill_type": "pink",
-    "bill_name": "Pink Bill (Chilakaluripet)",
+    "bill_name": "Pink Bill 1294 (Chilakaluripet)",
     "bill_item_no": 12,
     "name": "10K Wala",
     "pack_details": "1 x 5",
-    "units": 5,
+    "total_units": 5,
+    "units_sold": 0,
     "rate": 1300,
     "rate_plus_10": 1430.0,
     "bill_total": 6500,
-    "total_plus_10": 7150.0,
-    "suggested_selling_price": 2000,
-    "selling_price": 2000,
+    "selling_price": 1900,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "1294",
+      "1294-12",
+      "1294 12",
+      "p12",
+      "pink 12",
+      "12",
+      "10k wala"
+    ]
   },
   {
     "id": "P_13",
-    "sticker_no": "P13",
-    "search_keys": [
-      "p13",
-      "13",
-      "113",
-      "30 shot"
-    ],
+    "sticker_no": "1294-13",
+    "lot_no": "1294",
     "bill_type": "pink",
-    "bill_name": "Pink Bill (Chilakaluripet)",
+    "bill_name": "Pink Bill 1294 (Chilakaluripet)",
     "bill_item_no": 13,
     "name": "30 Shot",
     "pack_details": "1 x 18",
-    "units": 18,
+    "total_units": 18,
+    "units_sold": 0,
     "rate": 380,
     "rate_plus_10": 418.0,
     "bill_total": 6840,
-    "total_plus_10": 7524.0,
-    "suggested_selling_price": 600,
-    "selling_price": 600,
+    "selling_price": 580,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "1294",
+      "1294-13",
+      "1294 13",
+      "p13",
+      "pink 13",
+      "13",
+      "30 shot"
+    ]
   },
   {
     "id": "P_14",
-    "sticker_no": "P14",
-    "search_keys": [
-      "p14",
-      "14",
-      "114",
-      "60 shot"
-    ],
+    "sticker_no": "1294-14",
+    "lot_no": "1294",
     "bill_type": "pink",
-    "bill_name": "Pink Bill (Chilakaluripet)",
+    "bill_name": "Pink Bill 1294 (Chilakaluripet)",
     "bill_item_no": 14,
     "name": "60 Shot",
     "pack_details": "1 x 12",
-    "units": 12,
+    "total_units": 12,
+    "units_sold": 0,
     "rate": 760,
     "rate_plus_10": 836.0,
     "bill_total": 9120,
-    "total_plus_10": 10032.0,
-    "suggested_selling_price": 1150,
     "selling_price": 1150,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "1294",
+      "1294-14",
+      "1294 14",
+      "p14",
+      "pink 14",
+      "14",
+      "60 shot"
+    ]
   },
   {
     "id": "P_15",
-    "sticker_no": "P15",
-    "search_keys": [
-      "p15",
-      "15",
-      "115",
-      "120 shot"
-    ],
+    "sticker_no": "1294-15",
+    "lot_no": "1294",
     "bill_type": "pink",
-    "bill_name": "Pink Bill (Chilakaluripet)",
+    "bill_name": "Pink Bill 1294 (Chilakaluripet)",
     "bill_item_no": 15,
     "name": "120 Shot",
     "pack_details": "1 x 6",
-    "units": 6,
+    "total_units": 6,
+    "units_sold": 0,
     "rate": 1520,
     "rate_plus_10": 1672.0,
     "bill_total": 9120,
-    "total_plus_10": 10032.0,
-    "suggested_selling_price": 2350,
     "selling_price": 2350,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "1294",
+      "1294-15",
+      "1294 15",
+      "p15",
+      "pink 15",
+      "15",
+      "120 shot"
+    ]
   },
   {
     "id": "P_16",
-    "sticker_no": "P16",
-    "search_keys": [
-      "p16",
-      "16",
-      "116",
-      "12 shot himalaya"
-    ],
+    "sticker_no": "1294-16",
+    "lot_no": "1294",
     "bill_type": "pink",
-    "bill_name": "Pink Bill (Chilakaluripet)",
+    "bill_name": "Pink Bill 1294 (Chilakaluripet)",
     "bill_item_no": 16,
     "name": "12 Shot Himalaya",
     "pack_details": "1 x 36",
-    "units": 36,
+    "total_units": 36,
+    "units_sold": 0,
     "rate": 138,
     "rate_plus_10": 151.8,
     "bill_total": 4968,
-    "total_plus_10": 5464.8,
-    "suggested_selling_price": 200,
-    "selling_price": 200,
+    "selling_price": 210,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "1294",
+      "1294-16",
+      "1294 16",
+      "p16",
+      "pink 16",
+      "16",
+      "12 shot himalaya"
+    ]
   },
   {
     "id": "P_17",
-    "sticker_no": "P17",
-    "search_keys": [
-      "p17",
-      "17",
-      "117",
-      "robin big kids"
-    ],
+    "sticker_no": "1294-17",
+    "lot_no": "1294",
     "bill_type": "pink",
-    "bill_name": "Pink Bill (Chilakaluripet)",
+    "bill_name": "Pink Bill 1294 (Chilakaluripet)",
     "bill_item_no": 17,
     "name": "Robin Big Kids",
     "pack_details": "1 x 60",
-    "units": 60,
+    "total_units": 60,
+    "units_sold": 0,
     "rate": 42,
     "rate_plus_10": 46.2,
     "bill_total": 2520,
-    "total_plus_10": 2772.0,
-    "suggested_selling_price": 60,
-    "selling_price": 60,
+    "selling_price": 70,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "1294",
+      "1294-17",
+      "1294 17",
+      "p17",
+      "pink 17",
+      "17",
+      "robin big kids"
+    ]
   },
   {
     "id": "P_18",
-    "sticker_no": "P18",
-    "search_keys": [
-      "p18",
-      "18",
-      "118",
-      "robin 5 star"
-    ],
+    "sticker_no": "1294-18",
+    "lot_no": "1294",
     "bill_type": "pink",
-    "bill_name": "Pink Bill (Chilakaluripet)",
+    "bill_name": "Pink Bill 1294 (Chilakaluripet)",
     "bill_item_no": 18,
     "name": "Robin 5 Star",
     "pack_details": "1 x 40",
-    "units": 40,
+    "total_units": 40,
+    "units_sold": 0,
     "rate": 125,
     "rate_plus_10": 137.5,
     "bill_total": 5000,
-    "total_plus_10": 5500.0,
-    "suggested_selling_price": 190,
     "selling_price": 190,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "1294",
+      "1294-18",
+      "1294 18",
+      "p18",
+      "pink 18",
+      "18",
+      "robin 5 star"
+    ]
   },
   {
     "id": "P_19",
-    "sticker_no": "P19",
-    "search_keys": [
-      "p19",
-      "19",
-      "119",
-      "mathabu"
-    ],
+    "sticker_no": "1294-19",
+    "lot_no": "1294",
     "bill_type": "pink",
-    "bill_name": "Pink Bill (Chilakaluripet)",
+    "bill_name": "Pink Bill 1294 (Chilakaluripet)",
     "bill_item_no": 19,
     "name": "Mathabu",
     "pack_details": "2 x 50",
-    "units": 100,
+    "total_units": 100,
+    "units_sold": 0,
     "rate": 58,
     "rate_plus_10": 63.8,
     "bill_total": 5800,
-    "total_plus_10": 6380.0,
-    "suggested_selling_price": 90,
     "selling_price": 90,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "1294",
+      "1294-19",
+      "1294 19",
+      "p19",
+      "pink 19",
+      "19",
+      "mathabu"
+    ]
   },
   {
     "id": "P_20",
-    "sticker_no": "P20",
-    "search_keys": [
-      "p20",
-      "20",
-      "120",
-      "look pots"
-    ],
+    "sticker_no": "1294-20",
+    "lot_no": "1294",
     "bill_type": "pink",
-    "bill_name": "Pink Bill (Chilakaluripet)",
+    "bill_name": "Pink Bill 1294 (Chilakaluripet)",
     "bill_item_no": 20,
     "name": "Look Pots",
     "pack_details": "2 x 100",
-    "units": 200,
+    "total_units": 200,
+    "units_sold": 0,
     "rate": 21,
     "rate_plus_10": 23.1,
     "bill_total": 4200,
-    "total_plus_10": 4620.0,
-    "suggested_selling_price": 30,
-    "selling_price": 30,
+    "selling_price": 35,
     "verified": false,
     "verified_at": null,
-    "notes": ""
+    "notes": "",
+    "search_keys": [
+      "1294",
+      "1294-20",
+      "1294 20",
+      "p20",
+      "pink 20",
+      "20",
+      "look pots"
+    ]
   }
 ]
