@@ -3,698 +3,719 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Diwali Crackers Price Finder</title>
+  <title>Diwali Crackers Checklist & Pricing Tracker</title>
   <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#0a0a0a">
+  <meta name="theme-color" content="#0b0f17">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700;800&display=swap" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
       -webkit-tap-highlight-color: transparent;
     }
 
     body {
-      background: #0d0f12;
-      color: #ffffff;
+      background: #0b0f17;
+      color: #f1f5f9;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 16px 14px;
+      padding: 12px 10px 40px 10px;
     }
 
-    .container {
+    .app-container {
       width: 100%;
-      max-width: 440px;
+      max-width: 600px;
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 12px;
     }
 
-    /* Clean Simple Header */
-    .header {
-      text-align: center;
-      padding: 10px 0 4px 0;
-    }
-
-    .header h1 {
-      font-size: 1.35rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      color: #ffffff;
-    }
-
-    .header p {
-      font-size: 0.85rem;
-      color: #94a3b8;
-      margin-top: 2px;
-    }
-
-    /* Big Search Input */
-    .search-section {
-      background: #161a22;
-      border: 2px solid #2d3748;
+    /* Top Sticky Header */
+    .top-header {
+      background: #111827;
+      border: 1px solid #1f293d;
       border-radius: 16px;
-      padding: 12px 14px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      position: sticky;
+      top: 10px;
+      z-index: 50;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    }
+
+    .header-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header-title-row h1 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #fff;
       display: flex;
       align-items: center;
-      gap: 10px;
-      transition: border-color 0.2s;
+      gap: 6px;
     }
 
-    .search-section:focus-within {
+    .progress-pill {
+      background: #064e3b;
+      border: 1px solid #10b981;
+      color: #34d399;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    /* Search Box */
+    .search-bar-wrap {
+      display: flex;
+      align-items: center;
+      background: #090d14;
+      border: 2px solid #243048;
+      border-radius: 12px;
+      padding: 8px 12px;
+      gap: 8px;
+    }
+
+    .search-bar-wrap:focus-within {
       border-color: #fbbf24;
-      box-shadow: 0 0 16px rgba(251, 191, 36, 0.2);
     }
 
-    .search-icon {
-      font-size: 1.2rem;
-      color: #fbbf24;
-    }
-
-    .search-input {
+    .search-bar-wrap input {
       width: 100%;
       background: transparent;
       border: none;
-      color: #ffffff;
-      font-size: 1.3rem;
+      color: #fff;
+      font-size: 1.1rem;
       font-weight: 700;
       outline: none;
       font-family: 'JetBrains Mono', monospace;
     }
 
-    .search-input::placeholder {
-      color: #4b5563;
-      font-size: 0.95rem;
-      font-family: 'Inter', sans-serif;
+    .search-bar-wrap input::placeholder {
+      font-size: 0.85rem;
+      color: #64748b;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 500;
     }
 
-    .btn-clear {
-      background: #242b38;
+    .clear-search-btn {
+      background: #1e293b;
       border: none;
-      color: #9ca3af;
-      width: 28px;
-      height: 28px;
+      color: #94a3b8;
+      width: 26px;
+      height: 26px;
       border-radius: 50%;
-      font-size: 0.9rem;
       cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    /* MAIN RESULT CARD */
-    .result-card {
-      background: #161b24;
-      border: 2px solid #232c3d;
-      border-radius: 20px;
-      padding: 20px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      position: relative;
-    }
-
-    .card-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .sticker-pill {
-      background: #fbbf24;
-      color: #000000;
-      font-weight: 900;
-      font-size: 1.25rem;
-      font-family: 'JetBrains Mono', monospace;
-      padding: 4px 14px;
-      border-radius: 10px;
-      letter-spacing: -0.02em;
-    }
-
-    .sticker-pill.pink {
-      background: #f43f5e;
-      color: #ffffff;
-    }
-
-    .bill-source-text {
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: #64748b;
-      letter-spacing: 0.05em;
-    }
-
-    .product-name {
-      font-size: 1.6rem;
-      font-weight: 800;
-      color: #ffffff;
-      line-height: 1.2;
-    }
-
-    .units-row {
-      display: flex;
-      gap: 12px;
-      font-size: 0.95rem;
-      color: #cbd5e1;
-    }
-
-    .units-row strong {
-      color: #fbbf24;
-      font-family: 'JetBrains Mono', monospace;
-    }
-
-    /* The Cost Box */
-    .costs-box {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      background: #0e1218;
-      border: 1px solid #242c3b;
-      border-radius: 12px;
-      padding: 12px;
-    }
-
-    .cost-item .lbl {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      color: #64748b;
-      font-weight: 700;
-      margin-bottom: 2px;
-    }
-
-    .cost-item .val {
-      font-size: 1.35rem;
-      font-weight: 800;
-      font-family: 'JetBrains Mono', monospace;
-      color: #ffffff;
-    }
-
-    .cost-item.highlight .val {
-      color: #fbbf24;
-    }
-
-    /* SELLING PRICE BANNER */
-    .sell-banner {
-      background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
-      border: 2px solid #10b981;
-      border-radius: 14px;
-      padding: 14px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .sell-banner .lbl {
-      font-size: 0.75rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: #a7f3d0;
-    }
-
-    .sell-banner .price {
-      font-size: 2.8rem;
-      font-weight: 900;
-      color: #ffffff;
-      font-family: 'JetBrains Mono', monospace;
-      line-height: 1;
-      margin: 4px 0;
-    }
-
-    .sell-banner .profit {
       font-size: 0.85rem;
-      color: #d1fae5;
-      font-weight: 600;
-    }
-
-    /* Change Price Toggle (Optional) */
-    .edit-price-btn {
-      background: transparent;
-      border: 1px dashed rgba(255,255,255,0.2);
-      color: #94a3b8;
-      border-radius: 8px;
-      padding: 6px;
-      font-size: 0.78rem;
-      cursor: pointer;
-      text-align: center;
-    }
-
-    .custom-price-input-wrap {
-      display: none;
-      margin-top: 6px;
-      gap: 8px;
-    }
-
-    .custom-price-input-wrap.open {
-      display: flex;
-    }
-
-    .custom-price-input {
-      flex: 1;
-      background: #000;
-      border: 1px solid #10b981;
-      border-radius: 8px;
-      padding: 8px 12px;
-      color: #fff;
-      font-size: 1.2rem;
-      font-weight: 800;
-      font-family: 'JetBrains Mono', monospace;
-      outline: none;
-    }
-
-    .btn-save-price {
-      background: #10b981;
-      color: #000;
-      border: none;
-      border-radius: 8px;
-      padding: 0 16px;
-      font-weight: 800;
-      cursor: pointer;
-    }
-
-    /* FAST NUMPAD */
-    .numpad {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-      margin-top: 4px;
-    }
-
-    .btn-num {
-      height: 52px;
-      background: #181d26;
-      border: 1px solid #283243;
-      border-radius: 12px;
-      color: #ffffff;
-      font-size: 1.5rem;
-      font-weight: 700;
-      font-family: 'JetBrains Mono', monospace;
       display: flex;
       align-items: center;
       justify-content: center;
-      cursor: pointer;
-      user-select: none;
-      touch-action: manipulation;
     }
 
-    .btn-num:active {
+    /* Filter Pills */
+    .filter-pills-row {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .filter-pills-row::-webkit-scrollbar { display: none; }
+
+    .f-pill {
+      background: #182234;
+      border: 1px solid #27354f;
+      color: #94a3b8;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 5px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s;
+    }
+
+    .f-pill.active {
       background: #fbbf24;
-      color: #000000;
-      transform: scale(0.95);
-    }
-
-    .btn-num.pink-key {
-      color: #f43f5e;
-      font-weight: 800;
-      font-size: 1.2rem;
-    }
-
-    .btn-num.del-key {
-      color: #94a3b8;
-      font-size: 1.1rem;
-    }
-
-    /* BOTTOM CHEATSHEET BUTTON */
-    .btn-sheet-toggle {
-      width: 100%;
-      background: #161b24;
-      border: 1px solid #283243;
-      color: #e2e8f0;
-      border-radius: 12px;
-      padding: 12px;
-      font-size: 0.9rem;
-      font-weight: 700;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 4px;
-    }
-
-    .btn-sheet-toggle:hover {
+      color: #000;
       border-color: #fbbf24;
     }
 
-    /* FULL TABLE MODAL / CHEATSHEET */
-    .table-sheet {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: #0d0f12;
-      z-index: 100;
-      flex-direction: column;
-      padding: 16px;
-      overflow-y: auto;
+    /* Summary Bar */
+    .summary-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+      background: #111827;
+      border: 1px solid #1f293d;
+      border-radius: 12px;
+      padding: 10px;
+      text-align: center;
     }
 
-    .table-sheet.open {
+    .sum-cell .lbl {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #64748b;
+      margin-bottom: 2px;
+    }
+
+    .sum-cell .val {
+      font-size: 0.95rem;
+      font-weight: 800;
+      font-family: 'JetBrains Mono', monospace;
+      color: #fff;
+    }
+
+    .sum-cell.highlight .val {
+      color: #34d399;
+    }
+
+    /* CHECKLIST ITEMS CONTAINER */
+    .checklist-container {
       display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
 
-    .table-header-row {
+    /* INDIVIDUAL ITEM CARD */
+    .item-card {
+      background: #111827;
+      border: 1.5px solid #1f293d;
+      border-radius: 14px;
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .item-card.is-ticked {
+      background: #0d1724;
+      border-color: #10b981;
+    }
+
+    /* Top Row: Checkbox + Number + Name */
+    .item-header-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Custom Checkbox */
+    .tick-box-wrap {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .custom-tick {
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      border: 2px solid #475569;
+      background: #090d14;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      font-weight: 900;
+      color: transparent;
+      transition: all 0.15s;
+    }
+
+    .item-card.is-ticked .custom-tick {
+      background: #10b981;
+      border-color: #10b981;
+      color: #000;
+    }
+
+    .box-badge {
+      background: #fbbf24;
+      color: #000;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 900;
+      font-size: 1rem;
+      padding: 3px 8px;
+      border-radius: 6px;
+      letter-spacing: -0.02em;
+      flex-shrink: 0;
+    }
+
+    .box-badge.pink {
+      background: #f43f5e;
+      color: #fff;
+    }
+
+    .item-title-wrap {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .item-title-wrap .name {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .item-title-wrap .sub {
+      font-size: 0.72rem;
+      color: #64748b;
+    }
+
+    /* The 4 Core Editable Columns Grid */
+    .item-stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1.25fr;
+      gap: 6px;
+      background: #090d14;
+      border: 1px solid #1e293b;
+      border-radius: 10px;
+      padding: 8px;
+    }
+
+    .stat-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .stat-col .lbl {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #64748b;
+      margin-bottom: 3px;
+    }
+
+    /* Editable Input Fields */
+    .stat-input {
+      width: 100%;
+      background: #162032;
+      border: 1px solid #27354f;
+      border-radius: 6px;
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 4px 6px;
+      outline: none;
+      text-align: center;
+    }
+
+    .stat-input:focus {
+      border-color: #fbbf24;
+      background: #1c283e;
+    }
+
+    /* Units Sold Counter (+ / -) */
+    .sold-counter-wrap {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .btn-step {
+      width: 22px;
+      height: 28px;
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: #cbd5e1;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-step:active {
+      background: #fbbf24;
+      color: #000;
+    }
+
+    .stat-input.sold-input {
+      width: 36px;
+      padding: 4px 2px;
+    }
+
+    /* Selling Price Column Highlight */
+    .stat-col.sell-col {
+      border-left: 1px dashed #243048;
+      padding-left: 6px;
+    }
+
+    .stat-input.sp-input {
+      background: #064e3b;
+      border-color: #059669;
+      color: #34d399;
+      font-size: 1.05rem;
+      font-weight: 800;
+    }
+
+    .stat-input.sp-input:focus {
+      border-color: #34d399;
+      box-shadow: 0 0 8px rgba(52, 211, 153, 0.4);
+    }
+
+    /* Profit Footer Row */
+    .item-footer-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 14px;
-    }
-
-    .table-header-row h2 {
-      font-size: 1.2rem;
-      font-weight: 800;
-    }
-
-    .btn-close-sheet {
-      background: #242c3b;
-      border: none;
-      color: #fff;
-      padding: 6px 14px;
-      border-radius: 8px;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .sheet-search {
-      background: #181d26;
-      border: 1px solid #283243;
-      border-radius: 10px;
-      padding: 10px 14px;
-      color: #fff;
-      font-size: 1rem;
-      margin-bottom: 12px;
-      outline: none;
-      width: 100%;
-    }
-
-    .simple-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.88rem;
-    }
-
-    .simple-table th {
-      background: #161b24;
-      color: #94a3b8;
-      text-align: left;
-      padding: 10px 8px;
       font-size: 0.75rem;
-      text-transform: uppercase;
-      border-bottom: 2px solid #283243;
-    }
-
-    .simple-table td {
-      padding: 10px 8px;
-      border-bottom: 1px solid #1f2735;
       font-family: 'JetBrains Mono', monospace;
+      color: #94a3b8;
+      padding-top: 2px;
     }
 
-    .simple-table tr:hover {
-      background: rgba(251, 191, 36, 0.05);
-    }
-
-    .td-name {
-      font-family: 'Inter', sans-serif !important;
-      font-weight: 600;
-      color: #fff;
-    }
-
-    .td-num {
-      font-weight: 800;
-      color: #fbbf24;
-    }
-
-    .td-num.pink {
-      color: #f43f5e;
-    }
-
-    .td-price {
-      font-weight: 800;
+    .profit-text {
       color: #34d399;
-      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .profit-text.negative {
+      color: #f87171;
+    }
+
+    /* Empty state */
+    .empty-state {
+      text-align: center;
+      padding: 40px 10px;
+      color: #64748b;
+      font-size: 0.95rem;
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
+  <div class="app-container">
     
-    <!-- Clean Header -->
-    <div class="header">
-      <h1>Diwali Crackers Price Finder</h1>
-      <p>Look at box sticker ➔ Type number below ➔ Write price</p>
-    </div>
-
-    <!-- Search Input Bar -->
-    <div class="search-section">
-      <span class="search-icon">🔍</span>
-      <input type="text" id="main-input" class="search-input" placeholder="Enter sticker # (e.g. 33, 1, P5)..." autocomplete="off" autofocus>
-      <button class="btn-clear" onclick="clearInput()">✕</button>
-    </div>
-
-    <!-- THE SINGLE CARD (Clean, Instant, Uncluttered) -->
-    <div class="result-card" id="card">
-      <div class="card-top">
-        <div class="sticker-pill" id="sticker-pill">#1</div>
-        <div class="bill-source-text" id="bill-source">White Bill</div>
+    <!-- STICKY TOP CONTROLS -->
+    <header class="top-header">
+      <div class="header-title-row">
+        <h1><span>🪔</span> Diwali Box Checklist</h1>
+        <div class="progress-pill" id="header-progress">0 / 94 Ticked</div>
       </div>
 
-      <div class="product-name" id="product-name">3 1/2 Lakshmi (15P)</div>
-
-      <div class="units-row">
-        <span>Units in Box: <strong id="box-units">20</strong></span>
-        <span style="color: #64748b;">•</span>
-        <span id="pack-info" style="color: #94a3b8;">Pack: 20</span>
+      <!-- Search Box: e.g. type '46' or 'GLC' -->
+      <div class="search-bar-wrap">
+        <span style="color: #fbbf24; font-size: 1rem;">🔍</span>
+        <input type="text" id="box-search" placeholder="Search Box # (e.g. 46, 33, P5) or Name..." autocomplete="off">
+        <button class="clear-search-btn" onclick="clearSearch()">✕</button>
       </div>
 
-      <!-- Cost You Paid vs Cost + 10% Overhead -->
-      <div class="costs-box">
-        <div class="cost-item">
-          <div class="lbl">Wholesale Cost</div>
-          <div class="val" id="wholesale-val">₹150</div>
-        </div>
-        <div class="cost-item highlight">
-          <div class="lbl">Cost + 10% Overhead</div>
-          <div class="val" id="cost10-val">₹165</div>
-        </div>
+      <!-- Quick Filter Pills -->
+      <div class="filter-pills-row">
+        <button class="f-pill active" onclick="setFilter('all')">All (94)</button>
+        <button class="f-pill" onclick="setFilter('pending')">Pending Boxes</button>
+        <button class="f-pill" onclick="setFilter('done')">Ticked (Done)</button>
+        <button class="f-pill" onclick="setFilter('white')">White Bill (1–74)</button>
+        <button class="f-pill" onclick="setFilter('pink')">Pink Bill (P1–P20)</button>
       </div>
+    </header>
 
-      <!-- THE SELLING PRICE (The ONLY thing to write on the box) -->
-      <div class="sell-banner">
-        <div class="lbl">Write This Price on Box:</div>
-        <div class="price" id="selling-price-val">₹250</div>
-        <div class="profit" id="profit-val">Your Profit: +₹85 / piece (+₹1,700 on box)</div>
+    <!-- LIVE SUMMARY METRICS -->
+    <section class="summary-strip">
+      <div class="sum-cell">
+        <div class="lbl">Total Units</div>
+        <div class="val" id="sum-total-units">3,925</div>
       </div>
-
-      <!-- Optional Custom Price Editor -->
-      <button class="edit-price-btn" onclick="toggleEditPrice()">✏️ Change Selling Price for this item</button>
-      <div class="custom-price-input-wrap" id="custom-price-wrap">
-        <input type="number" id="custom-price-input" class="custom-price-input" placeholder="New price">
-        <button class="btn-save-price" onclick="saveCustomPrice()">Save</button>
+      <div class="sum-cell">
+        <div class="lbl">Units Sold</div>
+        <div class="val" id="sum-units-sold">0</div>
       </div>
+      <div class="sum-cell">
+        <div class="lbl">Stock Cost</div>
+        <div class="val">₹3.32L</div>
+      </div>
+      <div class="sum-cell highlight">
+        <div class="lbl">Total Sales</div>
+        <div class="val" id="sum-total-sales">₹0</div>
+      </div>
+    </section>
 
-    </div>
+    <!-- CHECKLIST LIST (All 94 items rendered here) -->
+    <main class="checklist-container" id="checklist-items-wrap">
+      <!-- Generated by JavaScript -->
+    </main>
 
-    <!-- TOUCH NUMPAD FOR FAST 1-HAND PHONE USE -->
-    <div class="numpad">
-      <button class="btn-num" onclick="tap('1')">1</button>
-      <button class="btn-num" onclick="tap('2')">2</button>
-      <button class="btn-num" onclick="tap('3')">3</button>
-      <button class="btn-num" onclick="tap('4')">4</button>
-      <button class="btn-num" onclick="tap('5')">5</button>
-      <button class="btn-num" onclick="tap('6')">6</button>
-      <button class="btn-num" onclick="tap('7')">7</button>
-      <button class="btn-num" onclick="tap('8')">8</button>
-      <button class="btn-num" onclick="tap('9')">9</button>
-      <button class="btn-num pink-key" onclick="tap('P')">P</button>
-      <button class="btn-num" onclick="tap('0')">0</button>
-      <button class="btn-num del-key" onclick="tap('DEL')">⌫</button>
-    </div>
-
-    <!-- CHEATSHEET BUTTON -->
-    <button class="btn-sheet-toggle" onclick="openTableSheet()">
-      <span>📋</span> View Complete Cheatsheet (All 94 Items)
-    </button>
-
-  </div>
-
-  <!-- COMPLETE CHEATSHEET MODAL -->
-  <div class="table-sheet" id="table-sheet">
-    <div class="table-header-row">
-      <h2>Complete Price Cheatsheet (94 Items)</h2>
-      <button class="btn-close-sheet" onclick="closeTableSheet()">✕ Close</button>
-    </div>
-    <input type="text" class="sheet-search" id="sheet-search" placeholder="Filter by name or number..." oninput="filterSheet(this.value)">
-    <table class="simple-table">
-      <thead>
-        <tr>
-          <th>Sticker #</th>
-          <th>Item Name</th>
-          <th>Units</th>
-          <th>Wholesale</th>
-          <th>Cost + 10%</th>
-          <th>Sell Price</th>
-        </tr>
-      </thead>
-      <tbody id="sheet-tbody">
-        <!-- Rendered by JS -->
-      </tbody>
-    </table>
   </div>
 
   <script>
-    const ITEMS = [{"id": "W_1", "sticker_no": "1", "search_keys": ["1", "3 1/2 lakshmi (15p)"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 1, "name": "3 1/2 Lakshmi (15P)", "pack_details": "20", "units": 20, "rate": 150, "rate_plus_10": 165.0, "bill_total": 3000, "total_plus_10": 3300.0, "suggested_selling_price": 250, "selling_price": 250, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_2", "sticker_no": "2", "search_keys": ["2", "4\" laxmi"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 2, "name": "4\" Laxmi", "pack_details": "25", "units": 25, "rate": 150, "rate_plus_10": 165.0, "bill_total": 3750, "total_plus_10": 4125.0, "suggested_selling_price": 250, "selling_price": 250, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_3", "sticker_no": "3", "search_keys": ["3", "4\" dlx lion"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 3, "name": "4\" Dlx Lion", "pack_details": "10", "units": 10, "rate": 260, "rate_plus_10": 286.0, "bill_total": 2600, "total_plus_10": 2860.0, "suggested_selling_price": 400, "selling_price": 400, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_4", "sticker_no": "4", "search_keys": ["4", "gold laxmi"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 4, "name": "Gold Laxmi", "pack_details": "10", "units": 10, "rate": 280, "rate_plus_10": 308.0, "bill_total": 2800, "total_plus_10": 3080.0, "suggested_selling_price": 450, "selling_price": 450, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_5", "sticker_no": "5", "search_keys": ["5", "5\" hulk"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 5, "name": "5\" Hulk", "pack_details": "10", "units": 10, "rate": 280, "rate_plus_10": 308.0, "bill_total": 2800, "total_plus_10": 3080.0, "suggested_selling_price": 450, "selling_price": 450, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_6", "sticker_no": "6", "search_keys": ["6", "6\" bruslee"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 6, "name": "6\" Bruslee", "pack_details": "10", "units": 10, "rate": 330, "rate_plus_10": 363.0, "bill_total": 3300, "total_plus_10": 3630.0, "suggested_selling_price": 500, "selling_price": 500, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_7", "sticker_no": "7", "search_keys": ["7", "2 sound crackers"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 7, "name": "2 Sound Crackers", "pack_details": "10", "units": 10, "rate": 280, "rate_plus_10": 308.0, "bill_total": 2800, "total_plus_10": 3080.0, "suggested_selling_price": 450, "selling_price": 450, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_8", "sticker_no": "8", "search_keys": ["8", "3 sound colanatia"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 8, "name": "3 Sound Colanatia", "pack_details": "10", "units": 10, "rate": 350, "rate_plus_10": 385.0, "bill_total": 3500, "total_plus_10": 3850.0, "suggested_selling_price": 550, "selling_price": 550, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_9", "sticker_no": "9", "search_keys": ["9", "smoke bomb"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 9, "name": "Smoke Bomb", "pack_details": "10", "units": 10, "rate": 250, "rate_plus_10": 275.0, "bill_total": 2500, "total_plus_10": 2750.0, "suggested_selling_price": 400, "selling_price": 400, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_10", "sticker_no": "10", "search_keys": ["10", "28 cholasa"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 10, "name": "28 Cholasa", "pack_details": "10", "units": 10, "rate": 550, "rate_plus_10": 605.0, "bill_total": 5500, "total_plus_10": 6050.0, "suggested_selling_price": 850, "selling_price": 850, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_11", "sticker_no": "11", "search_keys": ["11", "28 gaint"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 11, "name": "28 Gaint", "pack_details": "10", "units": 10, "rate": 550, "rate_plus_10": 605.0, "bill_total": 5500, "total_plus_10": 6050.0, "suggested_selling_price": 850, "selling_price": 850, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_12", "sticker_no": "12", "search_keys": ["12", "24 dlx"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 12, "name": "24 Dlx", "pack_details": "5", "units": 5, "rate": 450, "rate_plus_10": 495.0, "bill_total": 2250, "total_plus_10": 2475.0, "suggested_selling_price": 700, "selling_price": 700, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_13", "sticker_no": "13", "search_keys": ["13", "50 dlx"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 13, "name": "50 Dlx", "pack_details": "5", "units": 5, "rate": 450, "rate_plus_10": 495.0, "bill_total": 2250, "total_plus_10": 2475.0, "suggested_selling_price": 700, "selling_price": 700, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_14", "sticker_no": "14", "search_keys": ["14", "100 mega dlx"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 14, "name": "100 mega Dlx", "pack_details": "10", "units": 10, "rate": 350, "rate_plus_10": 385.0, "bill_total": 3500, "total_plus_10": 3850.0, "suggested_selling_price": 550, "selling_price": 550, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_15", "sticker_no": "15", "search_keys": ["15", "18 cm pencil"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 15, "name": "18 cm pencil", "pack_details": "50", "units": 50, "rate": 70, "rate_plus_10": 77.0, "bill_total": 3500, "total_plus_10": 3850.0, "suggested_selling_price": 110, "selling_price": 110, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_16", "sticker_no": "16", "search_keys": ["16", "12 cm pencil gaint"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 16, "name": "12 cm Pencil Gaint", "pack_details": "20", "units": 20, "rate": 50, "rate_plus_10": 55.0, "bill_total": 1000, "total_plus_10": 1100.0, "suggested_selling_price": 80, "selling_price": 80, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_17", "sticker_no": "17", "search_keys": ["17", "7 cm pencil"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 17, "name": "7 cm Pencil", "pack_details": "50", "units": 50, "rate": 22, "rate_plus_10": 24.2, "bill_total": 1100, "total_plus_10": 1210.0, "suggested_selling_price": 35, "selling_price": 35, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_18", "sticker_no": "18", "search_keys": ["18", "100 wala"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 18, "name": "100 wala", "pack_details": "50", "units": 50, "rate": 27, "rate_plus_10": 29.7, "bill_total": 1350, "total_plus_10": 1485.0, "suggested_selling_price": 40, "selling_price": 40, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_19", "sticker_no": "19", "search_keys": ["19", "200 wala"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 19, "name": "200 wala", "pack_details": "25", "units": 25, "rate": 50, "rate_plus_10": 55.0, "bill_total": 1250, "total_plus_10": 1375.0, "suggested_selling_price": 80, "selling_price": 80, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_20", "sticker_no": "20", "search_keys": ["20", "rocket bomb"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 20, "name": "Rocket Bomb", "pack_details": "50", "units": 50, "rate": 60, "rate_plus_10": 66.0, "bill_total": 3000, "total_plus_10": 3300.0, "suggested_selling_price": 90, "selling_price": 90, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_21", "sticker_no": "21", "search_keys": ["21", "lunik rocket"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 21, "name": "Lunik Rocket", "pack_details": "25", "units": 25, "rate": 90, "rate_plus_10": 99.0, "bill_total": 2250, "total_plus_10": 2475.0, "suggested_selling_price": 140, "selling_price": 140, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_22", "sticker_no": "22", "search_keys": ["22", "music rocket"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 22, "name": "Music Rocket", "pack_details": "10", "units": 10, "rate": 120, "rate_plus_10": 132.0, "bill_total": 1200, "total_plus_10": 1320.0, "suggested_selling_price": 180, "selling_price": 180, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_23", "sticker_no": "23", "search_keys": ["23", "flp small"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 23, "name": "Flp Small", "pack_details": "100", "units": 100, "rate": 36, "rate_plus_10": 39.6, "bill_total": 3600, "total_plus_10": 3960.0, "suggested_selling_price": 60, "selling_price": 60, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_24", "sticker_no": "24", "search_keys": ["24", "flp spl"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 24, "name": "Flp Spl", "pack_details": "125", "units": 125, "rate": 65, "rate_plus_10": 71.5, "bill_total": 8125, "total_plus_10": 8937.5, "suggested_selling_price": 100, "selling_price": 100, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_25", "sticker_no": "25", "search_keys": ["25", "flp gaint"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 25, "name": "Flp Gaint", "pack_details": "20", "units": 20, "rate": 120, "rate_plus_10": 132.0, "bill_total": 2400, "total_plus_10": 2640.0, "suggested_selling_price": 180, "selling_price": 180, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_26", "sticker_no": "26", "search_keys": ["26", "wifi"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 26, "name": "WiFi", "pack_details": "10", "units": 10, "rate": 120, "rate_plus_10": 132.0, "bill_total": 1200, "total_plus_10": 1320.0, "suggested_selling_price": 180, "selling_price": 180, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_27", "sticker_no": "27", "search_keys": ["27", "5 colour mini fountain"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 27, "name": "5 Colour mini fountain", "pack_details": "30", "units": 30, "rate": 160, "rate_plus_10": 176.0, "bill_total": 4800, "total_plus_10": 5280.0, "suggested_selling_price": 250, "selling_price": 250, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_28", "sticker_no": "28", "search_keys": ["28", "clk dlx royal"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 28, "name": "Clk Dlx Royal", "pack_details": "12", "units": 12, "rate": 330, "rate_plus_10": 363.0, "bill_total": 3960, "total_plus_10": 4356.0, "suggested_selling_price": 500, "selling_price": 500, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_29", "sticker_no": "29", "search_keys": ["29", "clk dlx (leo)"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 29, "name": "Clk Dlx (Leo)", "pack_details": "12", "units": 12, "rate": 350, "rate_plus_10": 385.0, "bill_total": 4200, "total_plus_10": 4620.0, "suggested_selling_price": 550, "selling_price": 550, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_30", "sticker_no": "30", "search_keys": ["30", "clk mega dlx mithra"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 30, "name": "Clk Mega Dlx mithra", "pack_details": "10", "units": 10, "rate": 330, "rate_plus_10": 363.0, "bill_total": 3300, "total_plus_10": 3630.0, "suggested_selling_price": 500, "selling_price": 500, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_31", "sticker_no": "31", "search_keys": ["31", "glc big (25p)"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 31, "name": "Glc Big (25P)", "pack_details": "24", "units": 24, "rate": 65, "rate_plus_10": 71.5, "bill_total": 1560, "total_plus_10": 1716.0, "suggested_selling_price": 100, "selling_price": 100, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_32", "sticker_no": "32", "search_keys": ["32", "glc spl leo"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 32, "name": "Glc Spl Leo", "pack_details": "75", "units": 75, "rate": 65, "rate_plus_10": 71.5, "bill_total": 4875, "total_plus_10": 5362.5, "suggested_selling_price": 100, "selling_price": 100, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_33", "sticker_no": "33", "search_keys": ["33", "glc dlx"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 33, "name": "Glc Dlx", "pack_details": "75", "units": 75, "rate": 96, "rate_plus_10": 105.6, "bill_total": 7200, "total_plus_10": 7920.0, "suggested_selling_price": 150, "selling_price": 150, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_34", "sticker_no": "34", "search_keys": ["34", "wheel spinner"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 34, "name": "Wheel Spinner", "pack_details": "30", "units": 30, "rate": 100, "rate_plus_10": 110.0, "bill_total": 3000, "total_plus_10": 3300.0, "suggested_selling_price": 150, "selling_price": 150, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_35", "sticker_no": "35", "search_keys": ["35", "spinner spl royal"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 35, "name": "Spinner Spl Royal", "pack_details": "20", "units": 20, "rate": 160, "rate_plus_10": 176.0, "bill_total": 3200, "total_plus_10": 3520.0, "suggested_selling_price": 250, "selling_price": 250, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_36", "sticker_no": "36", "search_keys": ["36", "wire chakkar"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 36, "name": "Wire Chakkar", "pack_details": "10", "units": 10, "rate": 140, "rate_plus_10": 154.0, "bill_total": 1400, "total_plus_10": 1540.0, "suggested_selling_price": 200, "selling_price": 200, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_37", "sticker_no": "37", "search_keys": ["37", "1 1/2 twinkling"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 37, "name": "1 1/2 Twinkling", "pack_details": "100", "units": 100, "rate": 18, "rate_plus_10": 19.8, "bill_total": 1800, "total_plus_10": 1980.0, "suggested_selling_price": 30, "selling_price": 30, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_38", "sticker_no": "38", "search_keys": ["38", "4\" twinkling"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 38, "name": "4\" Twinkling", "pack_details": "150", "units": 150, "rate": 60, "rate_plus_10": 66.0, "bill_total": 9000, "total_plus_10": 9900.0, "suggested_selling_price": 90, "selling_price": 90, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_39", "sticker_no": "39", "search_keys": ["39", "hele copter"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 39, "name": "Hele copter", "pack_details": "20", "units": 20, "rate": 80, "rate_plus_10": 88.0, "bill_total": 1600, "total_plus_10": 1760.0, "suggested_selling_price": 120, "selling_price": 120, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_40", "sticker_no": "40", "search_keys": ["40", "dola dola leo"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 40, "name": "Dola Dola Leo", "pack_details": "100", "units": 100, "rate": 38, "rate_plus_10": 41.8, "bill_total": 3800, "total_plus_10": 4180.0, "suggested_selling_price": 60, "selling_price": 60, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_41", "sticker_no": "41", "search_keys": ["41", "mega kit kat"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 41, "name": "Mega kit kat", "pack_details": "50", "units": 50, "rate": 50, "rate_plus_10": 55.0, "bill_total": 2500, "total_plus_10": 2750.0, "suggested_selling_price": 80, "selling_price": 80, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_42", "sticker_no": "42", "search_keys": ["42", "ganga jamuna"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 42, "name": "Ganga Jamuna", "pack_details": "30", "units": 30, "rate": 75, "rate_plus_10": 82.5, "bill_total": 2250, "total_plus_10": 2475.0, "suggested_selling_price": 120, "selling_price": 120, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_43", "sticker_no": "43", "search_keys": ["43", "flower bomb vcl"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 43, "name": "Flower Bomb vcl", "pack_details": "20", "units": 20, "rate": 150, "rate_plus_10": 165.0, "bill_total": 3000, "total_plus_10": 3300.0, "suggested_selling_price": 250, "selling_price": 250, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_44", "sticker_no": "44", "search_keys": ["44", "butterfly yuva"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 44, "name": "Butterfly Yuva", "pack_details": "30", "units": 30, "rate": 70, "rate_plus_10": 77.0, "bill_total": 2100, "total_plus_10": 2310.0, "suggested_selling_price": 110, "selling_price": 110, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_45", "sticker_no": "45", "search_keys": ["45", "2 comment (p) window"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 45, "name": "2 Comment (P) Window", "pack_details": "10", "units": 10, "rate": 70, "rate_plus_10": 77.0, "bill_total": 700, "total_plus_10": 770.0, "suggested_selling_price": 110, "selling_price": 110, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_46", "sticker_no": "46", "search_keys": ["46", "7 shot (10p)"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 46, "name": "7 shot (10P)", "pack_details": "5", "units": 5, "rate": 200, "rate_plus_10": 220.0, "bill_total": 1000, "total_plus_10": 1100.0, "suggested_selling_price": 300, "selling_price": 300, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_47", "sticker_no": "47", "search_keys": ["47", "4\" comment (1p)"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 47, "name": "4\" comment (1P)", "pack_details": "2", "units": 2, "rate": 760, "rate_plus_10": 836.0, "bill_total": 1520, "total_plus_10": 1672.0, "suggested_selling_price": 1150, "selling_price": 1150, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_48", "sticker_no": "48", "search_keys": ["48", "4\" comment (3p)"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 48, "name": "4\" Comment (3P)", "pack_details": "2", "units": 2, "rate": 900, "rate_plus_10": 990.0, "bill_total": 1800, "total_plus_10": 1980.0, "suggested_selling_price": 1400, "selling_price": 1400, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_49", "sticker_no": "49", "search_keys": ["49", "small bullet bomb"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 49, "name": "Small Bullet Bomb", "pack_details": "150", "units": 150, "rate": 13, "rate_plus_10": 14.3, "bill_total": 1950, "total_plus_10": 2145.0, "suggested_selling_price": 20, "selling_price": 20, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_50", "sticker_no": "50", "search_keys": ["50", "solar bomb"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 50, "name": "Solar Bomb", "pack_details": "50", "units": 50, "rate": 45, "rate_plus_10": 49.5, "bill_total": 2250, "total_plus_10": 2475.0, "suggested_selling_price": 70, "selling_price": 70, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_51", "sticker_no": "51", "search_keys": ["51", "classic bomb"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 51, "name": "Classic Bomb", "pack_details": "50", "units": 50, "rate": 92, "rate_plus_10": 101.2, "bill_total": 4600, "total_plus_10": 5060.0, "suggested_selling_price": 140, "selling_price": 140, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_52", "sticker_no": "52", "search_keys": ["52", "military bomb"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 52, "name": "Military Bomb", "pack_details": "10", "units": 10, "rate": 165, "rate_plus_10": 181.5, "bill_total": 1650, "total_plus_10": 1815.0, "suggested_selling_price": 250, "selling_price": 250, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_53", "sticker_no": "53", "search_keys": ["53", "marshal black"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 53, "name": "Marshal Black", "pack_details": "25", "units": 25, "rate": 160, "rate_plus_10": 176.0, "bill_total": 4000, "total_plus_10": 4400.0, "suggested_selling_price": 250, "selling_price": 250, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_54", "sticker_no": "54", "search_keys": ["54", "digital bomb"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 54, "name": "Digital Bomb", "pack_details": "20", "units": 20, "rate": 190, "rate_plus_10": 209.0, "bill_total": 3800, "total_plus_10": 4180.0, "suggested_selling_price": 300, "selling_price": 300, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_55", "sticker_no": "55", "search_keys": ["55", "jurassic marshal"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 55, "name": "Jurassic Marshal", "pack_details": "20", "units": 20, "rate": 180, "rate_plus_10": 198.0, "bill_total": 3600, "total_plus_10": 3960.0, "suggested_selling_price": 300, "selling_price": 300, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_56", "sticker_no": "56", "search_keys": ["56", "240 shot (jyothi)"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 56, "name": "240 Shot (Jyothi)", "pack_details": "3", "units": 3, "rate": 3100, "rate_plus_10": 3410.0, "bill_total": 9300, "total_plus_10": 10230.0, "suggested_selling_price": 4750, "selling_price": 4750, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_57", "sticker_no": "57", "search_keys": ["57", "lamp"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 57, "name": "Lamp", "pack_details": "15", "units": 15, "rate": 250, "rate_plus_10": 275.0, "bill_total": 3750, "total_plus_10": 4125.0, "suggested_selling_price": 400, "selling_price": 400, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_58", "sticker_no": "58", "search_keys": ["58", "50 ele"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 58, "name": "50 Ele", "pack_details": "10", "units": 10, "rate": 130, "rate_plus_10": 143.0, "bill_total": 1300, "total_plus_10": 1430.0, "suggested_selling_price": 200, "selling_price": 200, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_59", "sticker_no": "59", "search_keys": ["59", "50 colour"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 59, "name": "50 Colour", "pack_details": "10", "units": 10, "rate": 140, "rate_plus_10": 154.0, "bill_total": 1400, "total_plus_10": 1540.0, "suggested_selling_price": 200, "selling_price": 200, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_60", "sticker_no": "60", "search_keys": ["60", "robin king siren"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 60, "name": "Robin King Siren", "pack_details": "5", "units": 5, "rate": 65, "rate_plus_10": 71.5, "bill_total": 325, "total_plus_10": 357.5, "suggested_selling_price": 100, "selling_price": 100, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_61", "sticker_no": "61", "search_keys": ["61", "dil se (1p)"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 61, "name": "Dil Se (1P)", "pack_details": "5", "units": 5, "rate": 210, "rate_plus_10": 231.0, "bill_total": 1050, "total_plus_10": 1155.0, "suggested_selling_price": 300, "selling_price": 300, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_62", "sticker_no": "62", "search_keys": ["62", "cukoo"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 62, "name": "Cukoo", "pack_details": "5", "units": 5, "rate": 130, "rate_plus_10": 143.0, "bill_total": 650, "total_plus_10": 715.0, "suggested_selling_price": 200, "selling_price": 200, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_63", "sticker_no": "63", "search_keys": ["63", "butterscotch"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 63, "name": "Butterscotch", "pack_details": "5", "units": 5, "rate": 230, "rate_plus_10": 253.0, "bill_total": 1150, "total_plus_10": 1265.0, "suggested_selling_price": 350, "selling_price": 350, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_64", "sticker_no": "64", "search_keys": ["64", "golden rabbit"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 64, "name": "Golden Rabbit", "pack_details": "5", "units": 5, "rate": 260, "rate_plus_10": 286.0, "bill_total": 1300, "total_plus_10": 1430.0, "suggested_selling_price": 400, "selling_price": 400, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_65", "sticker_no": "65", "search_keys": ["65", "speed test mithra"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 65, "name": "Speed Test mithra", "pack_details": "15", "units": 15, "rate": 125, "rate_plus_10": 137.5, "bill_total": 1875, "total_plus_10": 2062.5, "suggested_selling_price": 190, "selling_price": 190, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_66", "sticker_no": "66", "search_keys": ["66", "900 cc"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 66, "name": "900 cc", "pack_details": "10", "units": 10, "rate": 130, "rate_plus_10": 143.0, "bill_total": 1300, "total_plus_10": 1430.0, "suggested_selling_price": 200, "selling_price": 200, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_67", "sticker_no": "67", "search_keys": ["67", "turbo wheel"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 67, "name": "Turbo wheel", "pack_details": "10", "units": 10, "rate": 80, "rate_plus_10": 88.0, "bill_total": 800, "total_plus_10": 880.0, "suggested_selling_price": 120, "selling_price": 120, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_68", "sticker_no": "68", "search_keys": ["68", "top gun"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 68, "name": "Top Gun", "pack_details": "5", "units": 5, "rate": 180, "rate_plus_10": 198.0, "bill_total": 900, "total_plus_10": 990.0, "suggested_selling_price": 300, "selling_price": 300, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_69", "sticker_no": "69", "search_keys": ["69", "pistol 58"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 69, "name": "Pistol 58", "pack_details": "5", "units": 5, "rate": 230, "rate_plus_10": 253.0, "bill_total": 1150, "total_plus_10": 1265.0, "suggested_selling_price": 350, "selling_price": 350, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_70", "sticker_no": "70", "search_keys": ["70", "bada peacock standard"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 70, "name": "Bada Peacock Standard", "pack_details": "5", "units": 5, "rate": 250, "rate_plus_10": 275.0, "bill_total": 1250, "total_plus_10": 1375.0, "suggested_selling_price": 400, "selling_price": 400, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_71", "sticker_no": "71", "search_keys": ["71", "chota bhai siren"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 71, "name": "Chota Bhai Siren", "pack_details": "9", "units": 9, "rate": 170, "rate_plus_10": 187.0, "bill_total": 1530, "total_plus_10": 1683.0, "suggested_selling_price": 250, "selling_price": 250, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_72", "sticker_no": "72", "search_keys": ["72", "big elephant"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 72, "name": "Big Elephant", "pack_details": "5", "units": 5, "rate": 200, "rate_plus_10": 220.0, "bill_total": 1000, "total_plus_10": 1100.0, "suggested_selling_price": 300, "selling_price": 300, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_73", "sticker_no": "73", "search_keys": ["73", "bat & ball"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 73, "name": "Bat & Ball", "pack_details": "2", "units": 2, "rate": 350, "rate_plus_10": 385.0, "bill_total": 700, "total_plus_10": 770.0, "suggested_selling_price": 550, "selling_price": 550, "verified": false, "verified_at": null, "notes": ""}, {"id": "W_74", "sticker_no": "74", "search_keys": ["74", "wicked willow rocket"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 74, "name": "Wicked Willow Rocket", "pack_details": "6", "units": 6, "rate": 300, "rate_plus_10": 330.0, "bill_total": 1800, "total_plus_10": 1980.0, "suggested_selling_price": 450, "selling_price": 450, "verified": false, "verified_at": null, "notes": ""}, {"id": "P_1", "sticker_no": "P1", "search_keys": ["p1", "1", "101", "100 bijili"], "bill_type": "pink", "bill_name": "Pink Bill (Chilakaluripet)", "bill_item_no": 1, "name": "100 Bijili", "pack_details": "1 x 300", "units": 300, "rate": 25, "rate_plus_10": 27.5, "bill_total": 7500, "total_plus_10": 8250.0, "suggested_selling_price": 40, "selling_price": 40, "verified": false, "verified_at": null, "notes": ""}, {"id": "P_2", "sticker_no": "P2", "search_keys": ["p2", "2", "102", "clk ishwarya"], "bill_type": "pink", "bill_name": "Pink Bill (Chilakaluripet)", "bill_item_no": 2, "name": "CLK Ishwarya", "pack_details": "1 x 60", "units": 60, "rate": 160, "rate_plus_10": 176.0, "bill_total": 9600, "total_plus_10": 10560.0, "suggested_selling_price": 250, "selling_price": 250, "verified": false, "verified_at": null, "notes": ""}, {"id": "P_3", "sticker_no": "P3", "search_keys": ["p3", "3", "103", "flp ashoka"], "bill_type": "pink", "bill_name": "Pink Bill (Chilakaluripet)", "bill_item_no": 3, "name": "FLP Ashoka", "pack_details": "1 x 100", "units": 100, "rate": 85, "rate_plus_10": 93.5, "bill_total": 8500, "total_plus_10": 9350.0, "suggested_selling_price": 130, "selling_price": 130, "verified": false, "verified_at": null, "notes": ""}, {"id": "P_4", "sticker_no": "P4", "search_keys": ["p4", "4", "104", "7 cm electric"], "bill_type": "pink", "bill_name": "Pink Bill (Chilakaluripet)", "bill_item_no": 4, "name": "7 CM Electric", "pack_details": "4", "units": 4, "rate": 1000, "rate_plus_10": 1100.0, "bill_total": 4000, "total_plus_10": 4400.0, "suggested_selling_price": 1550, "selling_price": 1550, "verified": false, "verified_at": null, "notes": ""}, {"id": "P_5", "sticker_no": "P5", "search_keys": ["p5", "5", "105", "15 cm colour"], "bill_type": "pink", "bill_name": "Pink Bill (Chilakaluripet)", "bill_item_no": 5, "name": "15 CM Colour", "pack_details": "3 x 100", "units": 300, "rate": 30, "rate_plus_10": 33.0, "bill_total": 9000, "total_plus_10": 9900.0, "suggested_selling_price": 45, "selling_price": 45, "verified": false, "verified_at": null, "notes": ""}, {"id": "P_6", "sticker_no": "P6", "search_keys": ["p6", "6", "106", "15 cm electric"], "bill_type": "pink", "bill_name": "Pink Bill (Chilakaluripet)", "bill_item_no": 6, "name": "15 CM Electric", "pack_details": "3 x 100", "units": 300, "rate": 28, "rate_plus_10": 30.8, "bill_total": 8400, "total_plus_10": 9240.0, "suggested_selling_price": 45, "selling_price": 45, "verified": false, "verified_at": null, "notes": ""}, {"id": "P_7", "sticker_no": "P7", "search_keys": ["p7", "7", "107", "30 cm colour"], "bill_type": "pink", "bill_name": "Pink Bill (Chilakaluripet)", "bill_item_no": 7, "name": "30 CM Colour", "pack_details": "3 x 100", "units": 300, "rate": 30, "rate_plus_10": 33.0, "bill_total": 9000, "total_plus_10": 9900.0, "suggested_selling_price": 45, "selling_price": 45, "verified": false, "verified_at": null, "notes": ""}, {"id": "P_8", "sticker_no": "P8", "search_keys": ["p8", "8", "108", "30 cm electric"], "bill_type": "pink", "bill_name": "Pink Bill (Chilakaluripet)", "bill_item_no": 8, "name": "30 CM Electric", "pack_details": "3 x 100", "units": 300, "rate": 28, "rate_plus_10": 30.8, "bill_total": 8400, "total_plus_10": 9240.0, "suggested_selling_price": 45, "selling_price": 45, "verified": false, "verified_at": null, "notes": ""}, {"id": "P_9", "sticker_no": "P9", "search_keys": ["p9", "9", "109", "1k wala"], "bill_type": "pink", "bill_name": "Pink Bill (Chilakaluripet)", "bill_item_no": 9, "name": "1K Wala", "pack_details": "1 x 36", "units": 36, "rate": 130, "rate_plus_10": 143.0, "bill_total": 4680, "total_plus_10": 5148.0, "suggested_selling_price": 200, "selling_price": 200, "verified": false, "verified_at": null, "notes": ""}, {"id": "P_10", "sticker_no": "P10", "search_keys": ["p10", "10", "110", "2k wala"], "bill_type": "pink", "bill_name": "Pink Bill (Chilakaluripet)", "bill_item_no": 10, "name": "2K Wala", "pack_details": "1 x 20", "units": 20, "rate": 260, "rate_plus_10": 286.0, "bill_total": 5200, "total_plus_10": 5720.0, "suggested_selling_price": 400, "selling_price": 400, "verified": false, "verified_at": null, "notes": ""}, {"id": "P_11", "sticker_no": "P11", "search_keys": ["p11", "11", "111", "5k wala"], "bill_type": "pink", "bill_name": "Pink Bill (Chilakaluripet)", "bill_item_no": 11, "name": "5K Wala", "pack_details": "1 x 8", "units": 8, "rate": 650, "rate_plus_10": 715.0, "bill_total": 5200, "total_plus_10": 5720.0, "suggested_selling_price": 1000, "selling_price": 1000, "verified": false, "verified_at": null, "notes": ""}, {"id": "P_12", "sticker_no": "P12", "search_keys": ["p12", "12", "112", "10k wala"], "bill_type": "pink", "bill_name": "Pink Bill (Chilakaluripet)", "bill_item_no": 12, "name": "10K Wala", "pack_details": "1 x 5", "units": 5, "rate": 1300, "rate_plus_10": 1430.0, "bill_total": 6500, "total_plus_10": 7150.0, "suggested_selling_price": 2000, "selling_price": 2000, "verified": false, "verified_at": null, "notes": ""}, {"id": "P_13", "sticker_no": "P13", "search_keys": ["p13", "13", "113", "30 shot"], "bill_type": "pink", "bill_name": "Pink Bill (Chilakaluripet)", "bill_item_no": 13, "name": "30 Shot", "pack_details": "1 x 18", "units": 18, "rate": 380, "rate_plus_10": 418.0, "bill_total": 6840, "total_plus_10": 7524.0, "suggested_selling_price": 600, "selling_price": 600, "verified": false, "verified_at": null, "notes": ""}, {"id": "P_14", "sticker_no": "P14", "search_keys": ["p14", "14", "114", "60 shot"], "bill_type": "pink", "bill_name": "Pink Bill (Chilakaluripet)", "bill_item_no": 14, "name": "60 Shot", "pack_details": "1 x 12", "units": 12, "rate": 760, "rate_plus_10": 836.0, "bill_total": 9120, "total_plus_10": 10032.0, "suggested_selling_price": 1150, "selling_price": 1150, "verified": false, "verified_at": null, "notes": ""}, {"id": "P_15", "sticker_no": "P15", "search_keys": ["p15", "15", "115", "120 shot"], "bill_type": "pink", "bill_name": "Pink Bill (Chilakaluripet)", "bill_item_no": 15, "name": "120 Shot", "pack_details": "1 x 6", "units": 6, "rate": 1520, "rate_plus_10": 1672.0, "bill_total": 9120, "total_plus_10": 10032.0, "suggested_selling_price": 2350, "selling_price": 2350, "verified": false, "verified_at": null, "notes": ""}, {"id": "P_16", "sticker_no": "P16", "search_keys": ["p16", "16", "116", "12 shot himalaya"], "bill_type": "pink", "bill_name": "Pink Bill (Chilakaluripet)", "bill_item_no": 16, "name": "12 Shot Himalaya", "pack_details": "1 x 36", "units": 36, "rate": 138, "rate_plus_10": 151.8, "bill_total": 4968, "total_plus_10": 5464.8, "suggested_selling_price": 200, "selling_price": 200, "verified": false, "verified_at": null, "notes": ""}, {"id": "P_17", "sticker_no": "P17", "search_keys": ["p17", "17", "117", "robin big kids"], "bill_type": "pink", "bill_name": "Pink Bill (Chilakaluripet)", "bill_item_no": 17, "name": "Robin Big Kids", "pack_details": "1 x 60", "units": 60, "rate": 42, "rate_plus_10": 46.2, "bill_total": 2520, "total_plus_10": 2772.0, "suggested_selling_price": 60, "selling_price": 60, "verified": false, "verified_at": null, "notes": ""}, {"id": "P_18", "sticker_no": "P18", "search_keys": ["p18", "18", "118", "robin 5 star"], "bill_type": "pink", "bill_name": "Pink Bill (Chilakaluripet)", "bill_item_no": 18, "name": "Robin 5 Star", "pack_details": "1 x 40", "units": 40, "rate": 125, "rate_plus_10": 137.5, "bill_total": 5000, "total_plus_10": 5500.0, "suggested_selling_price": 190, "selling_price": 190, "verified": false, "verified_at": null, "notes": ""}, {"id": "P_19", "sticker_no": "P19", "search_keys": ["p19", "19", "119", "mathabu"], "bill_type": "pink", "bill_name": "Pink Bill (Chilakaluripet)", "bill_item_no": 19, "name": "Mathabu", "pack_details": "2 x 50", "units": 100, "rate": 58, "rate_plus_10": 63.8, "bill_total": 5800, "total_plus_10": 6380.0, "suggested_selling_price": 90, "selling_price": 90, "verified": false, "verified_at": null, "notes": ""}, {"id": "P_20", "sticker_no": "P20", "search_keys": ["p20", "20", "120", "look pots"], "bill_type": "pink", "bill_name": "Pink Bill (Chilakaluripet)", "bill_item_no": 20, "name": "Look Pots", "pack_details": "2 x 100", "units": 200, "rate": 21, "rate_plus_10": 23.1, "bill_total": 4200, "total_plus_10": 4620.0, "suggested_selling_price": 30, "selling_price": 30, "verified": false, "verified_at": null, "notes": ""}];
-    let currentItem = ITEMS[0];
+    const RAW_ITEMS = [{"id": "W_1", "sticker_no": "1", "search_keys": ["1", "3 1/2 lakshmi (15p)"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 1, "name": "3 1/2 Lakshmi (15P)", "pack_details": "20", "units": 20, "rate": 150, "rate_plus_10": 165.0, "bill_total": 3000, "total_plus_10": 3300.0, "suggested_selling_price": 250, "selling_price": 250, "verified": false, "verified_at": null, "notes": "", "total_units": 20, "units_sold": 0}, {"id": "W_2", "sticker_no": "2", "search_keys": ["2", "4\" laxmi"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 2, "name": "4\" Laxmi", "pack_details": "25", "units": 25, "rate": 150, "rate_plus_10": 165.0, "bill_total": 3750, "total_plus_10": 4125.0, "suggested_selling_price": 250, "selling_price": 250, "verified": false, "verified_at": null, "notes": "", "total_units": 25, "units_sold": 0}, {"id": "W_3", "sticker_no": "3", "search_keys": ["3", "4\" dlx lion"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 3, "name": "4\" Dlx Lion", "pack_details": "10", "units": 10, "rate": 260, "rate_plus_10": 286.0, "bill_total": 2600, "total_plus_10": 2860.0, "suggested_selling_price": 400, "selling_price": 400, "verified": false, "verified_at": null, "notes": "", "total_units": 10, "units_sold": 0}, {"id": "W_4", "sticker_no": "4", "search_keys": ["4", "gold laxmi"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 4, "name": "Gold Laxmi", "pack_details": "10", "units": 10, "rate": 280, "rate_plus_10": 308.0, "bill_total": 2800, "total_plus_10": 3080.0, "suggested_selling_price": 450, "selling_price": 450, "verified": false, "verified_at": null, "notes": "", "total_units": 10, "units_sold": 0}, {"id": "W_5", "sticker_no": "5", "search_keys": ["5", "5\" hulk"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 5, "name": "5\" Hulk", "pack_details": "10", "units": 10, "rate": 280, "rate_plus_10": 308.0, "bill_total": 2800, "total_plus_10": 3080.0, "suggested_selling_price": 450, "selling_price": 450, "verified": false, "verified_at": null, "notes": "", "total_units": 10, "units_sold": 0}, {"id": "W_6", "sticker_no": "6", "search_keys": ["6", "6\" bruslee"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 6, "name": "6\" Bruslee", "pack_details": "10", "units": 10, "rate": 330, "rate_plus_10": 363.0, "bill_total": 3300, "total_plus_10": 3630.0, "suggested_selling_price": 500, "selling_price": 500, "verified": false, "verified_at": null, "notes": "", "total_units": 10, "units_sold": 0}, {"id": "W_7", "sticker_no": "7", "search_keys": ["7", "2 sound crackers"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 7, "name": "2 Sound Crackers", "pack_details": "10", "units": 10, "rate": 280, "rate_plus_10": 308.0, "bill_total": 2800, "total_plus_10": 3080.0, "suggested_selling_price": 450, "selling_price": 450, "verified": false, "verified_at": null, "notes": "", "total_units": 10, "units_sold": 0}, {"id": "W_8", "sticker_no": "8", "search_keys": ["8", "3 sound colanatia"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 8, "name": "3 Sound Colanatia", "pack_details": "10", "units": 10, "rate": 350, "rate_plus_10": 385.0, "bill_total": 3500, "total_plus_10": 3850.0, "suggested_selling_price": 550, "selling_price": 550, "verified": false, "verified_at": null, "notes": "", "total_units": 10, "units_sold": 0}, {"id": "W_9", "sticker_no": "9", "search_keys": ["9", "smoke bomb"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 9, "name": "Smoke Bomb", "pack_details": "10", "units": 10, "rate": 250, "rate_plus_10": 275.0, "bill_total": 2500, "total_plus_10": 2750.0, "suggested_selling_price": 400, "selling_price": 400, "verified": false, "verified_at": null, "notes": "", "total_units": 10, "units_sold": 0}, {"id": "W_10", "sticker_no": "10", "search_keys": ["10", "28 cholasa"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 10, "name": "28 Cholasa", "pack_details": "10", "units": 10, "rate": 550, "rate_plus_10": 605.0, "bill_total": 5500, "total_plus_10": 6050.0, "suggested_selling_price": 850, "selling_price": 850, "verified": false, "verified_at": null, "notes": "", "total_units": 10, "units_sold": 0}, {"id": "W_11", "sticker_no": "11", "search_keys": ["11", "28 gaint"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 11, "name": "28 Gaint", "pack_details": "10", "units": 10, "rate": 550, "rate_plus_10": 605.0, "bill_total": 5500, "total_plus_10": 6050.0, "suggested_selling_price": 850, "selling_price": 850, "verified": false, "verified_at": null, "notes": "", "total_units": 10, "units_sold": 0}, {"id": "W_12", "sticker_no": "12", "search_keys": ["12", "24 dlx"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 12, "name": "24 Dlx", "pack_details": "5", "units": 5, "rate": 450, "rate_plus_10": 495.0, "bill_total": 2250, "total_plus_10": 2475.0, "suggested_selling_price": 700, "selling_price": 700, "verified": false, "verified_at": null, "notes": "", "total_units": 5, "units_sold": 0}, {"id": "W_13", "sticker_no": "13", "search_keys": ["13", "50 dlx"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 13, "name": "50 Dlx", "pack_details": "5", "units": 5, "rate": 450, "rate_plus_10": 495.0, "bill_total": 2250, "total_plus_10": 2475.0, "suggested_selling_price": 700, "selling_price": 700, "verified": false, "verified_at": null, "notes": "", "total_units": 5, "units_sold": 0}, {"id": "W_14", "sticker_no": "14", "search_keys": ["14", "100 mega dlx"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 14, "name": "100 mega Dlx", "pack_details": "10", "units": 10, "rate": 350, "rate_plus_10": 385.0, "bill_total": 3500, "total_plus_10": 3850.0, "suggested_selling_price": 550, "selling_price": 550, "verified": false, "verified_at": null, "notes": "", "total_units": 10, "units_sold": 0}, {"id": "W_15", "sticker_no": "15", "search_keys": ["15", "18 cm pencil"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 15, "name": "18 cm pencil", "pack_details": "50", "units": 50, "rate": 70, "rate_plus_10": 77.0, "bill_total": 3500, "total_plus_10": 3850.0, "suggested_selling_price": 110, "selling_price": 110, "verified": false, "verified_at": null, "notes": "", "total_units": 50, "units_sold": 0}, {"id": "W_16", "sticker_no": "16", "search_keys": ["16", "12 cm pencil gaint"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 16, "name": "12 cm Pencil Gaint", "pack_details": "20", "units": 20, "rate": 50, "rate_plus_10": 55.0, "bill_total": 1000, "total_plus_10": 1100.0, "suggested_selling_price": 80, "selling_price": 80, "verified": false, "verified_at": null, "notes": "", "total_units": 20, "units_sold": 0}, {"id": "W_17", "sticker_no": "17", "search_keys": ["17", "7 cm pencil"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 17, "name": "7 cm Pencil", "pack_details": "50", "units": 50, "rate": 22, "rate_plus_10": 24.2, "bill_total": 1100, "total_plus_10": 1210.0, "suggested_selling_price": 35, "selling_price": 35, "verified": false, "verified_at": null, "notes": "", "total_units": 50, "units_sold": 0}, {"id": "W_18", "sticker_no": "18", "search_keys": ["18", "100 wala"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 18, "name": "100 wala", "pack_details": "50", "units": 50, "rate": 27, "rate_plus_10": 29.7, "bill_total": 1350, "total_plus_10": 1485.0, "suggested_selling_price": 40, "selling_price": 40, "verified": false, "verified_at": null, "notes": "", "total_units": 50, "units_sold": 0}, {"id": "W_19", "sticker_no": "19", "search_keys": ["19", "200 wala"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 19, "name": "200 wala", "pack_details": "25", "units": 25, "rate": 50, "rate_plus_10": 55.0, "bill_total": 1250, "total_plus_10": 1375.0, "suggested_selling_price": 80, "selling_price": 80, "verified": false, "verified_at": null, "notes": "", "total_units": 25, "units_sold": 0}, {"id": "W_20", "sticker_no": "20", "search_keys": ["20", "rocket bomb"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 20, "name": "Rocket Bomb", "pack_details": "50", "units": 50, "rate": 60, "rate_plus_10": 66.0, "bill_total": 3000, "total_plus_10": 3300.0, "suggested_selling_price": 90, "selling_price": 90, "verified": false, "verified_at": null, "notes": "", "total_units": 50, "units_sold": 0}, {"id": "W_21", "sticker_no": "21", "search_keys": ["21", "lunik rocket"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 21, "name": "Lunik Rocket", "pack_details": "25", "units": 25, "rate": 90, "rate_plus_10": 99.0, "bill_total": 2250, "total_plus_10": 2475.0, "suggested_selling_price": 140, "selling_price": 140, "verified": false, "verified_at": null, "notes": "", "total_units": 25, "units_sold": 0}, {"id": "W_22", "sticker_no": "22", "search_keys": ["22", "music rocket"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 22, "name": "Music Rocket", "pack_details": "10", "units": 10, "rate": 120, "rate_plus_10": 132.0, "bill_total": 1200, "total_plus_10": 1320.0, "suggested_selling_price": 180, "selling_price": 180, "verified": false, "verified_at": null, "notes": "", "total_units": 10, "units_sold": 0}, {"id": "W_23", "sticker_no": "23", "search_keys": ["23", "flp small"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 23, "name": "Flp Small", "pack_details": "100", "units": 100, "rate": 36, "rate_plus_10": 39.6, "bill_total": 3600, "total_plus_10": 3960.0, "suggested_selling_price": 60, "selling_price": 60, "verified": false, "verified_at": null, "notes": "", "total_units": 100, "units_sold": 0}, {"id": "W_24", "sticker_no": "24", "search_keys": ["24", "flp spl"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 24, "name": "Flp Spl", "pack_details": "125", "units": 125, "rate": 65, "rate_plus_10": 71.5, "bill_total": 8125, "total_plus_10": 8937.5, "suggested_selling_price": 100, "selling_price": 100, "verified": false, "verified_at": null, "notes": "", "total_units": 125, "units_sold": 0}, {"id": "W_25", "sticker_no": "25", "search_keys": ["25", "flp gaint"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 25, "name": "Flp Gaint", "pack_details": "20", "units": 20, "rate": 120, "rate_plus_10": 132.0, "bill_total": 2400, "total_plus_10": 2640.0, "suggested_selling_price": 180, "selling_price": 180, "verified": false, "verified_at": null, "notes": "", "total_units": 20, "units_sold": 0}, {"id": "W_26", "sticker_no": "26", "search_keys": ["26", "wifi"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 26, "name": "WiFi", "pack_details": "10", "units": 10, "rate": 120, "rate_plus_10": 132.0, "bill_total": 1200, "total_plus_10": 1320.0, "suggested_selling_price": 180, "selling_price": 180, "verified": false, "verified_at": null, "notes": "", "total_units": 10, "units_sold": 0}, {"id": "W_27", "sticker_no": "27", "search_keys": ["27", "5 colour mini fountain"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 27, "name": "5 Colour mini fountain", "pack_details": "30", "units": 30, "rate": 160, "rate_plus_10": 176.0, "bill_total": 4800, "total_plus_10": 5280.0, "suggested_selling_price": 250, "selling_price": 250, "verified": false, "verified_at": null, "notes": "", "total_units": 30, "units_sold": 0}, {"id": "W_28", "sticker_no": "28", "search_keys": ["28", "clk dlx royal"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 28, "name": "Clk Dlx Royal", "pack_details": "12", "units": 12, "rate": 330, "rate_plus_10": 363.0, "bill_total": 3960, "total_plus_10": 4356.0, "suggested_selling_price": 500, "selling_price": 500, "verified": false, "verified_at": null, "notes": "", "total_units": 12, "units_sold": 0}, {"id": "W_29", "sticker_no": "29", "search_keys": ["29", "clk dlx (leo)"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 29, "name": "Clk Dlx (Leo)", "pack_details": "12", "units": 12, "rate": 350, "rate_plus_10": 385.0, "bill_total": 4200, "total_plus_10": 4620.0, "suggested_selling_price": 550, "selling_price": 550, "verified": false, "verified_at": null, "notes": "", "total_units": 12, "units_sold": 0}, {"id": "W_30", "sticker_no": "30", "search_keys": ["30", "clk mega dlx mithra"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 30, "name": "Clk Mega Dlx mithra", "pack_details": "10", "units": 10, "rate": 330, "rate_plus_10": 363.0, "bill_total": 3300, "total_plus_10": 3630.0, "suggested_selling_price": 500, "selling_price": 500, "verified": false, "verified_at": null, "notes": "", "total_units": 10, "units_sold": 0}, {"id": "W_31", "sticker_no": "31", "search_keys": ["31", "glc big (25p)"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 31, "name": "Glc Big (25P)", "pack_details": "24", "units": 24, "rate": 65, "rate_plus_10": 71.5, "bill_total": 1560, "total_plus_10": 1716.0, "suggested_selling_price": 100, "selling_price": 100, "verified": false, "verified_at": null, "notes": "", "total_units": 24, "units_sold": 0}, {"id": "W_32", "sticker_no": "32", "search_keys": ["32", "glc spl leo"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 32, "name": "Glc Spl Leo", "pack_details": "75", "units": 75, "rate": 65, "rate_plus_10": 71.5, "bill_total": 4875, "total_plus_10": 5362.5, "suggested_selling_price": 100, "selling_price": 100, "verified": false, "verified_at": null, "notes": "", "total_units": 75, "units_sold": 0}, {"id": "W_33", "sticker_no": "33", "search_keys": ["33", "glc dlx"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 33, "name": "Glc Dlx", "pack_details": "75", "units": 75, "rate": 96, "rate_plus_10": 105.6, "bill_total": 7200, "total_plus_10": 7920.0, "suggested_selling_price": 150, "selling_price": 150, "verified": false, "verified_at": null, "notes": "", "total_units": 75, "units_sold": 0}, {"id": "W_34", "sticker_no": "34", "search_keys": ["34", "wheel spinner"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 34, "name": "Wheel Spinner", "pack_details": "30", "units": 30, "rate": 100, "rate_plus_10": 110.0, "bill_total": 3000, "total_plus_10": 3300.0, "suggested_selling_price": 150, "selling_price": 150, "verified": false, "verified_at": null, "notes": "", "total_units": 30, "units_sold": 0}, {"id": "W_35", "sticker_no": "35", "search_keys": ["35", "spinner spl royal"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 35, "name": "Spinner Spl Royal", "pack_details": "20", "units": 20, "rate": 160, "rate_plus_10": 176.0, "bill_total": 3200, "total_plus_10": 3520.0, "suggested_selling_price": 250, "selling_price": 250, "verified": false, "verified_at": null, "notes": "", "total_units": 20, "units_sold": 0}, {"id": "W_36", "sticker_no": "36", "search_keys": ["36", "wire chakkar"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 36, "name": "Wire Chakkar", "pack_details": "10", "units": 10, "rate": 140, "rate_plus_10": 154.0, "bill_total": 1400, "total_plus_10": 1540.0, "suggested_selling_price": 200, "selling_price": 200, "verified": false, "verified_at": null, "notes": "", "total_units": 10, "units_sold": 0}, {"id": "W_37", "sticker_no": "37", "search_keys": ["37", "1 1/2 twinkling"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 37, "name": "1 1/2 Twinkling", "pack_details": "100", "units": 100, "rate": 18, "rate_plus_10": 19.8, "bill_total": 1800, "total_plus_10": 1980.0, "suggested_selling_price": 30, "selling_price": 30, "verified": false, "verified_at": null, "notes": "", "total_units": 100, "units_sold": 0}, {"id": "W_38", "sticker_no": "38", "search_keys": ["38", "4\" twinkling"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 38, "name": "4\" Twinkling", "pack_details": "150", "units": 150, "rate": 60, "rate_plus_10": 66.0, "bill_total": 9000, "total_plus_10": 9900.0, "suggested_selling_price": 90, "selling_price": 90, "verified": false, "verified_at": null, "notes": "", "total_units": 150, "units_sold": 0}, {"id": "W_39", "sticker_no": "39", "search_keys": ["39", "hele copter"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 39, "name": "Hele copter", "pack_details": "20", "units": 20, "rate": 80, "rate_plus_10": 88.0, "bill_total": 1600, "total_plus_10": 1760.0, "suggested_selling_price": 120, "selling_price": 120, "verified": false, "verified_at": null, "notes": "", "total_units": 20, "units_sold": 0}, {"id": "W_40", "sticker_no": "40", "search_keys": ["40", "dola dola leo"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 40, "name": "Dola Dola Leo", "pack_details": "100", "units": 100, "rate": 38, "rate_plus_10": 41.8, "bill_total": 3800, "total_plus_10": 4180.0, "suggested_selling_price": 60, "selling_price": 60, "verified": false, "verified_at": null, "notes": "", "total_units": 100, "units_sold": 0}, {"id": "W_41", "sticker_no": "41", "search_keys": ["41", "mega kit kat"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 41, "name": "Mega kit kat", "pack_details": "50", "units": 50, "rate": 50, "rate_plus_10": 55.0, "bill_total": 2500, "total_plus_10": 2750.0, "suggested_selling_price": 80, "selling_price": 80, "verified": false, "verified_at": null, "notes": "", "total_units": 50, "units_sold": 0}, {"id": "W_42", "sticker_no": "42", "search_keys": ["42", "ganga jamuna"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 42, "name": "Ganga Jamuna", "pack_details": "30", "units": 30, "rate": 75, "rate_plus_10": 82.5, "bill_total": 2250, "total_plus_10": 2475.0, "suggested_selling_price": 120, "selling_price": 120, "verified": false, "verified_at": null, "notes": "", "total_units": 30, "units_sold": 0}, {"id": "W_43", "sticker_no": "43", "search_keys": ["43", "flower bomb vcl"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 43, "name": "Flower Bomb vcl", "pack_details": "20", "units": 20, "rate": 150, "rate_plus_10": 165.0, "bill_total": 3000, "total_plus_10": 3300.0, "suggested_selling_price": 250, "selling_price": 250, "verified": false, "verified_at": null, "notes": "", "total_units": 20, "units_sold": 0}, {"id": "W_44", "sticker_no": "44", "search_keys": ["44", "butterfly yuva"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 44, "name": "Butterfly Yuva", "pack_details": "30", "units": 30, "rate": 70, "rate_plus_10": 77.0, "bill_total": 2100, "total_plus_10": 2310.0, "suggested_selling_price": 110, "selling_price": 110, "verified": false, "verified_at": null, "notes": "", "total_units": 30, "units_sold": 0}, {"id": "W_45", "sticker_no": "45", "search_keys": ["45", "2 comment (p) window"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 45, "name": "2 Comment (P) Window", "pack_details": "10", "units": 10, "rate": 70, "rate_plus_10": 77.0, "bill_total": 700, "total_plus_10": 770.0, "suggested_selling_price": 110, "selling_price": 110, "verified": false, "verified_at": null, "notes": "", "total_units": 10, "units_sold": 0}, {"id": "W_46", "sticker_no": "46", "search_keys": ["46", "7 shot (10p)"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 46, "name": "7 shot (10P)", "pack_details": "5", "units": 5, "rate": 200, "rate_plus_10": 220.0, "bill_total": 1000, "total_plus_10": 1100.0, "suggested_selling_price": 300, "selling_price": 300, "verified": false, "verified_at": null, "notes": "", "total_units": 5, "units_sold": 0}, {"id": "W_47", "sticker_no": "47", "search_keys": ["47", "4\" comment (1p)"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 47, "name": "4\" comment (1P)", "pack_details": "2", "units": 2, "rate": 760, "rate_plus_10": 836.0, "bill_total": 1520, "total_plus_10": 1672.0, "suggested_selling_price": 1150, "selling_price": 1150, "verified": false, "verified_at": null, "notes": "", "total_units": 2, "units_sold": 0}, {"id": "W_48", "sticker_no": "48", "search_keys": ["48", "4\" comment (3p)"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 48, "name": "4\" Comment (3P)", "pack_details": "2", "units": 2, "rate": 900, "rate_plus_10": 990.0, "bill_total": 1800, "total_plus_10": 1980.0, "suggested_selling_price": 1400, "selling_price": 1400, "verified": false, "verified_at": null, "notes": "", "total_units": 2, "units_sold": 0}, {"id": "W_49", "sticker_no": "49", "search_keys": ["49", "small bullet bomb"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 49, "name": "Small Bullet Bomb", "pack_details": "150", "units": 150, "rate": 13, "rate_plus_10": 14.3, "bill_total": 1950, "total_plus_10": 2145.0, "suggested_selling_price": 20, "selling_price": 20, "verified": false, "verified_at": null, "notes": "", "total_units": 150, "units_sold": 0}, {"id": "W_50", "sticker_no": "50", "search_keys": ["50", "solar bomb"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 50, "name": "Solar Bomb", "pack_details": "50", "units": 50, "rate": 45, "rate_plus_10": 49.5, "bill_total": 2250, "total_plus_10": 2475.0, "suggested_selling_price": 70, "selling_price": 70, "verified": false, "verified_at": null, "notes": "", "total_units": 50, "units_sold": 0}, {"id": "W_51", "sticker_no": "51", "search_keys": ["51", "classic bomb"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 51, "name": "Classic Bomb", "pack_details": "50", "units": 50, "rate": 92, "rate_plus_10": 101.2, "bill_total": 4600, "total_plus_10": 5060.0, "suggested_selling_price": 140, "selling_price": 140, "verified": false, "verified_at": null, "notes": "", "total_units": 50, "units_sold": 0}, {"id": "W_52", "sticker_no": "52", "search_keys": ["52", "military bomb"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 52, "name": "Military Bomb", "pack_details": "10", "units": 10, "rate": 165, "rate_plus_10": 181.5, "bill_total": 1650, "total_plus_10": 1815.0, "suggested_selling_price": 250, "selling_price": 250, "verified": false, "verified_at": null, "notes": "", "total_units": 10, "units_sold": 0}, {"id": "W_53", "sticker_no": "53", "search_keys": ["53", "marshal black"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 53, "name": "Marshal Black", "pack_details": "25", "units": 25, "rate": 160, "rate_plus_10": 176.0, "bill_total": 4000, "total_plus_10": 4400.0, "suggested_selling_price": 250, "selling_price": 250, "verified": false, "verified_at": null, "notes": "", "total_units": 25, "units_sold": 0}, {"id": "W_54", "sticker_no": "54", "search_keys": ["54", "digital bomb"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 54, "name": "Digital Bomb", "pack_details": "20", "units": 20, "rate": 190, "rate_plus_10": 209.0, "bill_total": 3800, "total_plus_10": 4180.0, "suggested_selling_price": 300, "selling_price": 300, "verified": false, "verified_at": null, "notes": "", "total_units": 20, "units_sold": 0}, {"id": "W_55", "sticker_no": "55", "search_keys": ["55", "jurassic marshal"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 55, "name": "Jurassic Marshal", "pack_details": "20", "units": 20, "rate": 180, "rate_plus_10": 198.0, "bill_total": 3600, "total_plus_10": 3960.0, "suggested_selling_price": 300, "selling_price": 300, "verified": false, "verified_at": null, "notes": "", "total_units": 20, "units_sold": 0}, {"id": "W_56", "sticker_no": "56", "search_keys": ["56", "240 shot (jyothi)"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 56, "name": "240 Shot (Jyothi)", "pack_details": "3", "units": 3, "rate": 3100, "rate_plus_10": 3410.0, "bill_total": 9300, "total_plus_10": 10230.0, "suggested_selling_price": 4750, "selling_price": 4750, "verified": false, "verified_at": null, "notes": "", "total_units": 3, "units_sold": 0}, {"id": "W_57", "sticker_no": "57", "search_keys": ["57", "lamp"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 57, "name": "Lamp", "pack_details": "15", "units": 15, "rate": 250, "rate_plus_10": 275.0, "bill_total": 3750, "total_plus_10": 4125.0, "suggested_selling_price": 400, "selling_price": 400, "verified": false, "verified_at": null, "notes": "", "total_units": 15, "units_sold": 0}, {"id": "W_58", "sticker_no": "58", "search_keys": ["58", "50 ele"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 58, "name": "50 Ele", "pack_details": "10", "units": 10, "rate": 130, "rate_plus_10": 143.0, "bill_total": 1300, "total_plus_10": 1430.0, "suggested_selling_price": 200, "selling_price": 200, "verified": false, "verified_at": null, "notes": "", "total_units": 10, "units_sold": 0}, {"id": "W_59", "sticker_no": "59", "search_keys": ["59", "50 colour"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 59, "name": "50 Colour", "pack_details": "10", "units": 10, "rate": 140, "rate_plus_10": 154.0, "bill_total": 1400, "total_plus_10": 1540.0, "suggested_selling_price": 200, "selling_price": 200, "verified": false, "verified_at": null, "notes": "", "total_units": 10, "units_sold": 0}, {"id": "W_60", "sticker_no": "60", "search_keys": ["60", "robin king siren"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 60, "name": "Robin King Siren", "pack_details": "5", "units": 5, "rate": 65, "rate_plus_10": 71.5, "bill_total": 325, "total_plus_10": 357.5, "suggested_selling_price": 100, "selling_price": 100, "verified": false, "verified_at": null, "notes": "", "total_units": 5, "units_sold": 0}, {"id": "W_61", "sticker_no": "61", "search_keys": ["61", "dil se (1p)"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 61, "name": "Dil Se (1P)", "pack_details": "5", "units": 5, "rate": 210, "rate_plus_10": 231.0, "bill_total": 1050, "total_plus_10": 1155.0, "suggested_selling_price": 300, "selling_price": 300, "verified": false, "verified_at": null, "notes": "", "total_units": 5, "units_sold": 0}, {"id": "W_62", "sticker_no": "62", "search_keys": ["62", "cukoo"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 62, "name": "Cukoo", "pack_details": "5", "units": 5, "rate": 130, "rate_plus_10": 143.0, "bill_total": 650, "total_plus_10": 715.0, "suggested_selling_price": 200, "selling_price": 200, "verified": false, "verified_at": null, "notes": "", "total_units": 5, "units_sold": 0}, {"id": "W_63", "sticker_no": "63", "search_keys": ["63", "butterscotch"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 63, "name": "Butterscotch", "pack_details": "5", "units": 5, "rate": 230, "rate_plus_10": 253.0, "bill_total": 1150, "total_plus_10": 1265.0, "suggested_selling_price": 350, "selling_price": 350, "verified": false, "verified_at": null, "notes": "", "total_units": 5, "units_sold": 0}, {"id": "W_64", "sticker_no": "64", "search_keys": ["64", "golden rabbit"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 64, "name": "Golden Rabbit", "pack_details": "5", "units": 5, "rate": 260, "rate_plus_10": 286.0, "bill_total": 1300, "total_plus_10": 1430.0, "suggested_selling_price": 400, "selling_price": 400, "verified": false, "verified_at": null, "notes": "", "total_units": 5, "units_sold": 0}, {"id": "W_65", "sticker_no": "65", "search_keys": ["65", "speed test mithra"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 65, "name": "Speed Test mithra", "pack_details": "15", "units": 15, "rate": 125, "rate_plus_10": 137.5, "bill_total": 1875, "total_plus_10": 2062.5, "suggested_selling_price": 190, "selling_price": 190, "verified": false, "verified_at": null, "notes": "", "total_units": 15, "units_sold": 0}, {"id": "W_66", "sticker_no": "66", "search_keys": ["66", "900 cc"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 66, "name": "900 cc", "pack_details": "10", "units": 10, "rate": 130, "rate_plus_10": 143.0, "bill_total": 1300, "total_plus_10": 1430.0, "suggested_selling_price": 200, "selling_price": 200, "verified": false, "verified_at": null, "notes": "", "total_units": 10, "units_sold": 0}, {"id": "W_67", "sticker_no": "67", "search_keys": ["67", "turbo wheel"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 67, "name": "Turbo wheel", "pack_details": "10", "units": 10, "rate": 80, "rate_plus_10": 88.0, "bill_total": 800, "total_plus_10": 880.0, "suggested_selling_price": 120, "selling_price": 120, "verified": false, "verified_at": null, "notes": "", "total_units": 10, "units_sold": 0}, {"id": "W_68", "sticker_no": "68", "search_keys": ["68", "top gun"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 68, "name": "Top Gun", "pack_details": "5", "units": 5, "rate": 180, "rate_plus_10": 198.0, "bill_total": 900, "total_plus_10": 990.0, "suggested_selling_price": 300, "selling_price": 300, "verified": false, "verified_at": null, "notes": "", "total_units": 5, "units_sold": 0}, {"id": "W_69", "sticker_no": "69", "search_keys": ["69", "pistol 58"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 69, "name": "Pistol 58", "pack_details": "5", "units": 5, "rate": 230, "rate_plus_10": 253.0, "bill_total": 1150, "total_plus_10": 1265.0, "suggested_selling_price": 350, "selling_price": 350, "verified": false, "verified_at": null, "notes": "", "total_units": 5, "units_sold": 0}, {"id": "W_70", "sticker_no": "70", "search_keys": ["70", "bada peacock standard"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 70, "name": "Bada Peacock Standard", "pack_details": "5", "units": 5, "rate": 250, "rate_plus_10": 275.0, "bill_total": 1250, "total_plus_10": 1375.0, "suggested_selling_price": 400, "selling_price": 400, "verified": false, "verified_at": null, "notes": "", "total_units": 5, "units_sold": 0}, {"id": "W_71", "sticker_no": "71", "search_keys": ["71", "chota bhai siren"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 71, "name": "Chota Bhai Siren", "pack_details": "9", "units": 9, "rate": 170, "rate_plus_10": 187.0, "bill_total": 1530, "total_plus_10": 1683.0, "suggested_selling_price": 250, "selling_price": 250, "verified": false, "verified_at": null, "notes": "", "total_units": 9, "units_sold": 0}, {"id": "W_72", "sticker_no": "72", "search_keys": ["72", "big elephant"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 72, "name": "Big Elephant", "pack_details": "5", "units": 5, "rate": 200, "rate_plus_10": 220.0, "bill_total": 1000, "total_plus_10": 1100.0, "suggested_selling_price": 300, "selling_price": 300, "verified": false, "verified_at": null, "notes": "", "total_units": 5, "units_sold": 0}, {"id": "W_73", "sticker_no": "73", "search_keys": ["73", "bat & ball"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 73, "name": "Bat & Ball", "pack_details": "2", "units": 2, "rate": 350, "rate_plus_10": 385.0, "bill_total": 700, "total_plus_10": 770.0, "suggested_selling_price": 550, "selling_price": 550, "verified": false, "verified_at": null, "notes": "", "total_units": 2, "units_sold": 0}, {"id": "W_74", "sticker_no": "74", "search_keys": ["74", "wicked willow rocket"], "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 74, "name": "Wicked Willow Rocket", "pack_details": "6", "units": 6, "rate": 300, "rate_plus_10": 330.0, "bill_total": 1800, "total_plus_10": 1980.0, "suggested_selling_price": 450, "selling_price": 450, "verified": false, "verified_at": null, "notes": "", "total_units": 6, "units_sold": 0}, {"id": "P_1", "sticker_no": "P1", "search_keys": ["p1", "1", "101", "100 bijili"], "bill_type": "pink", "bill_name": "Pink Bill (Chilakaluripet)", "bill_item_no": 1, "name": "100 Bijili", "pack_details": "1 x 300", "units": 300, "rate": 25, "rate_plus_10": 27.5, "bill_total": 7500, "total_plus_10": 8250.0, "suggested_selling_price": 40, "selling_price": 40, "verified": false, "verified_at": null, "notes": "", "total_units": 300, "units_sold": 0}, {"id": "P_2", "sticker_no": "P2", "search_keys": ["p2", "2", "102", "clk ishwarya"], "bill_type": "pink", "bill_name": "Pink Bill (Chilakaluripet)", "bill_item_no": 2, "name": "CLK Ishwarya", "pack_details": "1 x 60", "units": 60, "rate": 160, "rate_plus_10": 176.0, "bill_total": 9600, "total_plus_10": 10560.0, "suggested_selling_price": 250, "selling_price": 250, "verified": false, "verified_at": null, "notes": "", "total_units": 60, "units_sold": 0}, {"id": "P_3", "sticker_no": "P3", "search_keys": ["p3", "3", "103", "flp ashoka"], "bill_type": "pink", "bill_name": "Pink Bill (Chilakaluripet)", "bill_item_no": 3, "name": "FLP Ashoka", "pack_details": "1 x 100", "units": 100, "rate": 85, "rate_plus_10": 93.5, "bill_total": 8500, "total_plus_10": 9350.0, "suggested_selling_price": 130, "selling_price": 130, "verified": false, "verified_at": null, "notes": "", "total_units": 100, "units_sold": 0}, {"id": "P_4", "sticker_no": "P4", "search_keys": ["p4", "4", "104", "7 cm electric"], "bill_type": "pink", "bill_name": "Pink Bill (Chilakaluripet)", "bill_item_no": 4, "name": "7 CM Electric", "pack_details": "4", "units": 4, "rate": 1000, "rate_plus_10": 1100.0, "bill_total": 4000, "total_plus_10": 4400.0, "suggested_selling_price": 1550, "selling_price": 1550, "verified": false, "verified_at": null, "notes": "", "total_units": 4, "units_sold": 0}, {"id": "P_5", "sticker_no": "P5", "search_keys": ["p5", "5", "105", "15 cm colour"], "bill_type": "pink", "bill_name": "Pink Bill (Chilakaluripet)", "bill_item_no": 5, "name": "15 CM Colour", "pack_details": "3 x 100", "units": 300, "rate": 30, "rate_plus_10": 33.0, "bill_total": 9000, "total_plus_10": 9900.0, "suggested_selling_price": 45, "selling_price": 45, "verified": false, "verified_at": null, "notes": "", "total_units": 300, "units_sold": 0}, {"id": "P_6", "sticker_no": "P6", "search_keys": ["p6", "6", "106", "15 cm electric"], "bill_type": "pink", "bill_name": "Pink Bill (Chilakaluripet)", "bill_item_no": 6, "name": "15 CM Electric", "pack_details": "3 x 100", "units": 300, "rate": 28, "rate_plus_10": 30.8, "bill_total": 8400, "total_plus_10": 9240.0, "suggested_selling_price": 45, "selling_price": 45, "verified": false, "verified_at": null, "notes": "", "total_units": 300, "units_sold": 0}, {"id": "P_7", "sticker_no": "P7", "search_keys": ["p7", "7", "107", "30 cm colour"], "bill_type": "pink", "bill_name": "Pink Bill (Chilakaluripet)", "bill_item_no": 7, "name": "30 CM Colour", "pack_details": "3 x 100", "units": 300, "rate": 30, "rate_plus_10": 33.0, "bill_total": 9000, "total_plus_10": 9900.0, "suggested_selling_price": 45, "selling_price": 45, "verified": false, "verified_at": null, "notes": "", "total_units": 300, "units_sold": 0}, {"id": "P_8", "sticker_no": "P8", "search_keys": ["p8", "8", "108", "30 cm electric"], "bill_type": "pink", "bill_name": "Pink Bill (Chilakaluripet)", "bill_item_no": 8, "name": "30 CM Electric", "pack_details": "3 x 100", "units": 300, "rate": 28, "rate_plus_10": 30.8, "bill_total": 8400, "total_plus_10": 9240.0, "suggested_selling_price": 45, "selling_price": 45, "verified": false, "verified_at": null, "notes": "", "total_units": 300, "units_sold": 0}, {"id": "P_9", "sticker_no": "P9", "search_keys": ["p9", "9", "109", "1k wala"], "bill_type": "pink", "bill_name": "Pink Bill (Chilakaluripet)", "bill_item_no": 9, "name": "1K Wala", "pack_details": "1 x 36", "units": 36, "rate": 130, "rate_plus_10": 143.0, "bill_total": 4680, "total_plus_10": 5148.0, "suggested_selling_price": 200, "selling_price": 200, "verified": false, "verified_at": null, "notes": "", "total_units": 36, "units_sold": 0}, {"id": "P_10", "sticker_no": "P10", "search_keys": ["p10", "10", "110", "2k wala"], "bill_type": "pink", "bill_name": "Pink Bill (Chilakaluripet)", "bill_item_no": 10, "name": "2K Wala", "pack_details": "1 x 20", "units": 20, "rate": 260, "rate_plus_10": 286.0, "bill_total": 5200, "total_plus_10": 5720.0, "suggested_selling_price": 400, "selling_price": 400, "verified": false, "verified_at": null, "notes": "", "total_units": 20, "units_sold": 0}, {"id": "P_11", "sticker_no": "P11", "search_keys": ["p11", "11", "111", "5k wala"], "bill_type": "pink", "bill_name": "Pink Bill (Chilakaluripet)", "bill_item_no": 11, "name": "5K Wala", "pack_details": "1 x 8", "units": 8, "rate": 650, "rate_plus_10": 715.0, "bill_total": 5200, "total_plus_10": 5720.0, "suggested_selling_price": 1000, "selling_price": 1000, "verified": false, "verified_at": null, "notes": "", "total_units": 8, "units_sold": 0}, {"id": "P_12", "sticker_no": "P12", "search_keys": ["p12", "12", "112", "10k wala"], "bill_type": "pink", "bill_name": "Pink Bill (Chilakaluripet)", "bill_item_no": 12, "name": "10K Wala", "pack_details": "1 x 5", "units": 5, "rate": 1300, "rate_plus_10": 1430.0, "bill_total": 6500, "total_plus_10": 7150.0, "suggested_selling_price": 2000, "selling_price": 2000, "verified": false, "verified_at": null, "notes": "", "total_units": 5, "units_sold": 0}, {"id": "P_13", "sticker_no": "P13", "search_keys": ["p13", "13", "113", "30 shot"], "bill_type": "pink", "bill_name": "Pink Bill (Chilakaluripet)", "bill_item_no": 13, "name": "30 Shot", "pack_details": "1 x 18", "units": 18, "rate": 380, "rate_plus_10": 418.0, "bill_total": 6840, "total_plus_10": 7524.0, "suggested_selling_price": 600, "selling_price": 600, "verified": false, "verified_at": null, "notes": "", "total_units": 18, "units_sold": 0}, {"id": "P_14", "sticker_no": "P14", "search_keys": ["p14", "14", "114", "60 shot"], "bill_type": "pink", "bill_name": "Pink Bill (Chilakaluripet)", "bill_item_no": 14, "name": "60 Shot", "pack_details": "1 x 12", "units": 12, "rate": 760, "rate_plus_10": 836.0, "bill_total": 9120, "total_plus_10": 10032.0, "suggested_selling_price": 1150, "selling_price": 1150, "verified": false, "verified_at": null, "notes": "", "total_units": 12, "units_sold": 0}, {"id": "P_15", "sticker_no": "P15", "search_keys": ["p15", "15", "115", "120 shot"], "bill_type": "pink", "bill_name": "Pink Bill (Chilakaluripet)", "bill_item_no": 15, "name": "120 Shot", "pack_details": "1 x 6", "units": 6, "rate": 1520, "rate_plus_10": 1672.0, "bill_total": 9120, "total_plus_10": 10032.0, "suggested_selling_price": 2350, "selling_price": 2350, "verified": false, "verified_at": null, "notes": "", "total_units": 6, "units_sold": 0}, {"id": "P_16", "sticker_no": "P16", "search_keys": ["p16", "16", "116", "12 shot himalaya"], "bill_type": "pink", "bill_name": "Pink Bill (Chilakaluripet)", "bill_item_no": 16, "name": "12 Shot Himalaya", "pack_details": "1 x 36", "units": 36, "rate": 138, "rate_plus_10": 151.8, "bill_total": 4968, "total_plus_10": 5464.8, "suggested_selling_price": 200, "selling_price": 200, "verified": false, "verified_at": null, "notes": "", "total_units": 36, "units_sold": 0}, {"id": "P_17", "sticker_no": "P17", "search_keys": ["p17", "17", "117", "robin big kids"], "bill_type": "pink", "bill_name": "Pink Bill (Chilakaluripet)", "bill_item_no": 17, "name": "Robin Big Kids", "pack_details": "1 x 60", "units": 60, "rate": 42, "rate_plus_10": 46.2, "bill_total": 2520, "total_plus_10": 2772.0, "suggested_selling_price": 60, "selling_price": 60, "verified": false, "verified_at": null, "notes": "", "total_units": 60, "units_sold": 0}, {"id": "P_18", "sticker_no": "P18", "search_keys": ["p18", "18", "118", "robin 5 star"], "bill_type": "pink", "bill_name": "Pink Bill (Chilakaluripet)", "bill_item_no": 18, "name": "Robin 5 Star", "pack_details": "1 x 40", "units": 40, "rate": 125, "rate_plus_10": 137.5, "bill_total": 5000, "total_plus_10": 5500.0, "suggested_selling_price": 190, "selling_price": 190, "verified": false, "verified_at": null, "notes": "", "total_units": 40, "units_sold": 0}, {"id": "P_19", "sticker_no": "P19", "search_keys": ["p19", "19", "119", "mathabu"], "bill_type": "pink", "bill_name": "Pink Bill (Chilakaluripet)", "bill_item_no": 19, "name": "Mathabu", "pack_details": "2 x 50", "units": 100, "rate": 58, "rate_plus_10": 63.8, "bill_total": 5800, "total_plus_10": 6380.0, "suggested_selling_price": 90, "selling_price": 90, "verified": false, "verified_at": null, "notes": "", "total_units": 100, "units_sold": 0}, {"id": "P_20", "sticker_no": "P20", "search_keys": ["p20", "20", "120", "look pots"], "bill_type": "pink", "bill_name": "Pink Bill (Chilakaluripet)", "bill_item_no": 20, "name": "Look Pots", "pack_details": "2 x 100", "units": 200, "rate": 21, "rate_plus_10": 23.1, "bill_total": 4200, "total_plus_10": 4620.0, "suggested_selling_price": 30, "selling_price": 30, "verified": false, "verified_at": null, "notes": "", "total_units": 200, "units_sold": 0}];
 
-    // Load saved prices if user edited any
-    const savedCustomPrices = JSON.parse(localStorage.getItem('diwali_custom_prices') || '{}');
-    ITEMS.forEach(it => {
-      if (savedCustomPrices[it.id] !== undefined) {
-        it.selling_price = savedCustomPrices[it.id];
-      }
-    });
+    let items = [];
+    let currentFilter = 'all';
 
-    const input = document.getElementById('main-input');
-
-    input.addEventListener('input', (e) => {
-      lookup(e.target.value.trim());
-    });
-
-    function tap(val) {
-      if (val === 'DEL') {
-        input.value = input.value.slice(0, -1);
+    // Initialize from LocalStorage or Default
+    function init() {
+      const saved = localStorage.getItem('diwali_checklist_items_v4');
+      if (saved) {
+        try {
+          items = JSON.parse(saved);
+        } catch(e) {
+          items = JSON.parse(JSON.stringify(RAW_ITEMS));
+        }
       } else {
-        input.value += val;
+        items = JSON.parse(JSON.stringify(RAW_ITEMS));
       }
-      lookup(input.value.trim());
+
+      // Setup Search Listener
+      const searchInput = document.getElementById('box-search');
+      searchInput.addEventListener('input', (e) => {
+        renderList(e.target.value.trim());
+      });
+
+      renderList();
+      updateGlobalSummary();
     }
 
-    function clearInput() {
+    function saveState() {
+      localStorage.setItem('diwali_checklist_items_v4', JSON.stringify(items));
+      updateGlobalSummary();
+    }
+
+    // Render Checklist Items
+    function renderList(query = '') {
+      const container = document.getElementById('checklist-items-wrap');
+      container.innerHTML = '';
+      const q = query.toLowerCase();
+
+      let visibleCount = 0;
+
+      items.forEach((item, index) => {
+        // Filter by Tab
+        if (currentFilter === 'pending' && item.verified) return;
+        if (currentFilter === 'done' && !item.verified) return;
+        if (currentFilter === 'white' && item.bill_type !== 'white') return;
+        if (currentFilter === 'pink' && item.bill_type !== 'pink') return;
+
+        // Filter by Search Query
+        if (q) {
+          const matchNo = item.sticker_no.toLowerCase() === q || item.sticker_no.toLowerCase().includes(q);
+          const matchName = item.name.toLowerCase().includes(q);
+          if (!matchNo && !matchName) return;
+        }
+
+        visibleCount++;
+
+        const isPink = item.bill_type === 'pink';
+        const costPlus10 = item.rate_plus_10;
+        const profitPerUnit = (item.selling_price || 0) - costPlus10;
+        const totalProfit = Math.round(profitPerUnit * item.total_units);
+
+        const card = document.createElement('div');
+        card.className = `item-card ${item.verified ? 'is-ticked' : ''}`;
+        card.id = `card-idx-${index}`;
+
+        card.innerHTML = `
+          <!-- Header Row: Tickbox + Box # + Name -->
+          <div class="item-header-row">
+            <div class="tick-box-wrap" onclick="toggleTick(${index})">
+              <div class="custom-tick">${item.verified ? '✓' : ''}</div>
+            </div>
+
+            <div class="box-badge ${isPink ? 'pink' : ''}">
+              #${item.sticker_no}
+            </div>
+
+            <div class="item-title-wrap">
+              <div class="name">${item.name}</div>
+              <div class="sub">${item.bill_name} • Pack: ${item.pack_details}</div>
+            </div>
+          </div>
+
+          <!-- 4 Editable Columns Specified by You -->
+          <div class="item-stats-grid">
+            
+            <!-- 1. Total Units (How many you have) -->
+            <div class="stat-col">
+              <span class="lbl">Total Units</span>
+              <input type="number" class="stat-input" value="${item.total_units}" 
+                onchange="updateTotalUnits(${index}, this.value)">
+            </div>
+
+            <!-- 2. Units Sold (How many you sell) -->
+            <div class="stat-col">
+              <span class="lbl">Sold Units</span>
+              <div class="sold-counter-wrap">
+                <button class="btn-step" onclick="stepSold(${index}, -1)">-</button>
+                <input type="number" class="stat-input sold-input" value="${item.units_sold || 0}" 
+                  onchange="updateSoldUnits(${index}, this.value)">
+                <button class="btn-step" onclick="stepSold(${index}, 1)">+</button>
+              </div>
+            </div>
+
+            <!-- 3. Wholesale Rate (How much rate you got) -->
+            <div class="stat-col">
+              <span class="lbl">Wholesale Rate</span>
+              <div style="font-family: 'JetBrains Mono', monospace; font-weight: 800; font-size: 0.95rem; text-align: center; color: #cbd5e1; padding-top: 4px;">
+                ₹${item.rate}
+              </div>
+              <span style="font-size: 0.65rem; color: #fbbf24; text-align: center;">+10%: ₹${Math.round(costPlus10)}</span>
+            </div>
+
+            <!-- 4. Selling Price (How much you are going to sell) -->
+            <div class="stat-col sell-col">
+              <span class="lbl" style="color: #34d399;">Sell Price (₹)</span>
+              <input type="number" class="stat-input sp-input" value="${item.selling_price || 0}" 
+                onchange="updateSellingPrice(${index}, this.value)">
+            </div>
+
+          </div>
+
+          <!-- Live Profit & Stock Left Bar -->
+          <div class="item-footer-row">
+            <span>Left in Stock: <strong>${item.total_units - (item.units_sold || 0)}</strong></span>
+            <span class="profit-text ${profitPerUnit < 0 ? 'negative' : ''}">
+              Profit: ${profitPerUnit >= 0 ? '+' : ''}₹${Math.round(profitPerUnit)}/pc (Box: ${totalProfit >= 0 ? '+' : ''}₹${totalProfit.toLocaleString('en-IN')})
+            </span>
+          </div>
+        `;
+
+        container.appendChild(card);
+      });
+
+      if (visibleCount === 0) {
+        container.innerHTML = `
+          <div class="empty-state">
+            No box found matching "<strong>${query}</strong>".<br>
+            Try searching a number like <strong>46</strong>, <strong>33</strong>, or <strong>P5</strong>.
+          </div>
+        `;
+      }
+    }
+
+    // Checkbox Toggle
+    function toggleTick(index) {
+      items[index].verified = !items[index].verified;
+      saveState();
+      
+      const card = document.getElementById(`card-idx-${index}`);
+      if (card) {
+        if (items[index].verified) {
+          card.classList.add('is-ticked');
+          card.querySelector('.custom-tick').textContent = '✓';
+        } else {
+          card.classList.remove('is-ticked');
+          card.querySelector('.custom-tick').textContent = '';
+        }
+      }
+      updateHeaderProgress();
+    }
+
+    // Editable Inputs Handlers
+    function updateTotalUnits(index, val) {
+      items[index].total_units = parseInt(val) || 0;
+      saveState();
+      renderCardFooter(index);
+    }
+
+    function updateSoldUnits(index, val) {
+      items[index].units_sold = parseInt(val) || 0;
+      saveState();
+      renderCardFooter(index);
+    }
+
+    function stepSold(index, delta) {
+      let current = items[index].units_sold || 0;
+      current += delta;
+      if (current < 0) current = 0;
+      if (current > items[index].total_units) current = items[index].total_units;
+      items[index].units_sold = current;
+      saveState();
+
+      const card = document.getElementById(`card-idx-${index}`);
+      if (card) {
+        card.querySelector('.sold-input').value = current;
+      }
+      renderCardFooter(index);
+    }
+
+    function updateSellingPrice(index, val) {
+      items[index].selling_price = parseFloat(val) || 0;
+      saveState();
+      renderCardFooter(index);
+    }
+
+    function renderCardFooter(index) {
+      const item = items[index];
+      const card = document.getElementById(`card-idx-${index}`);
+      if (!card) return;
+
+      const profitPerUnit = (item.selling_price || 0) - item.rate_plus_10;
+      const totalProfit = Math.round(profitPerUnit * item.total_units);
+      const remaining = item.total_units - (item.units_sold || 0);
+
+      const footer = card.querySelector('.item-footer-row');
+      footer.innerHTML = `
+        <span>Left in Stock: <strong>${remaining}</strong></span>
+        <span class="profit-text ${profitPerUnit < 0 ? 'negative' : ''}">
+          Profit: ${profitPerUnit >= 0 ? '+' : ''}₹${Math.round(profitPerUnit)}/pc (Box: ${totalProfit >= 0 ? '+' : ''}₹${totalProfit.toLocaleString('en-IN')})
+        </span>
+      `;
+    }
+
+    // Filter Buttons
+    function setFilter(filterType) {
+      currentFilter = filterType;
+      document.querySelectorAll('.f-pill').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+      const q = document.getElementById('box-search').value.trim();
+      renderList(q);
+    }
+
+    function clearSearch() {
+      const input = document.getElementById('box-search');
       input.value = '';
       input.focus();
+      renderList('');
     }
 
-    function lookup(term) {
-      if (!term) return;
-      const q = term.toLowerCase();
-
-      // 1. Exact sticker match
-      let match = ITEMS.find(it => it.sticker_no.toLowerCase() === q);
-
-      // 2. Exact match without 'p'
-      if (!match) {
-        match = ITEMS.find(it => it.search_keys && it.search_keys.includes(q));
-      }
-
-      // 3. Name contains
-      if (!match) {
-        match = ITEMS.find(it => it.name.toLowerCase().includes(q));
-      }
-
-      if (match) {
-        renderCard(match);
-      }
+    // Header & Summary Metrics
+    function updateHeaderProgress() {
+      const tickedCount = items.filter(i => i.verified).length;
+      document.getElementById('header-progress').textContent = `${tickedCount} / ${items.length} Ticked`;
     }
 
-    function renderCard(item) {
-      currentItem = item;
-      const pill = document.getElementById('sticker-pill');
-      pill.textContent = '#' + item.sticker_no;
-      if (item.bill_type === 'pink') {
-        pill.className = 'sticker-pill pink';
-        document.getElementById('bill-source').textContent = 'Pink Bill (Chinna Pasumarru)';
-      } else {
-        pill.className = 'sticker-pill';
-        document.getElementById('bill-source').textContent = 'White Bill (Nandigama)';
-      }
+    function updateGlobalSummary() {
+      updateHeaderProgress();
 
-      document.getElementById('product-name').textContent = item.name;
-      document.getElementById('box-units').textContent = item.units;
-      document.getElementById('pack-info').textContent = 'Pack: ' + item.pack_details;
-      document.getElementById('wholesale-val').textContent = '₹' + item.rate;
-      document.getElementById('cost10-val').textContent = '₹' + Math.round(item.rate_plus_10);
-      document.getElementById('selling-price-val').textContent = '₹' + item.selling_price;
+      let totalUnits = 0;
+      let totalSold = 0;
+      let totalSales = 0;
 
-      const profitPerUnit = item.selling_price - item.rate_plus_10;
-      const totalBoxProfit = Math.round(profitPerUnit * item.units);
-      document.getElementById('profit-val').textContent = 
-        `Your Profit: +₹${Math.round(profitPerUnit)} / piece (+₹${totalBoxProfit.toLocaleString('en-IN')} on box)`;
-    }
-
-    function toggleEditPrice() {
-      const wrap = document.getElementById('custom-price-wrap');
-      wrap.classList.toggle('open');
-      if (wrap.classList.contains('open')) {
-        const pInput = document.getElementById('custom-price-input');
-        pInput.value = currentItem.selling_price;
-        pInput.focus();
-      }
-    }
-
-    function saveCustomPrice() {
-      const newP = parseFloat(document.getElementById('custom-price-input').value);
-      if (newP && newP > 0) {
-        currentItem.selling_price = newP;
-        savedCustomPrices[currentItem.id] = newP;
-        localStorage.setItem('diwali_custom_prices', JSON.stringify(savedCustomPrices));
-        renderCard(currentItem);
-        renderSheetTable();
-        document.getElementById('custom-price-wrap').classList.remove('open');
-      }
-    }
-
-    // Cheatsheet modal
-    function openTableSheet() {
-      renderSheetTable();
-      document.getElementById('table-sheet').classList.add('open');
-    }
-
-    function closeTableSheet() {
-      document.getElementById('table-sheet').classList.remove('open');
-    }
-
-    function renderSheetTable(filter = '') {
-      const tbody = document.getElementById('sheet-tbody');
-      tbody.innerHTML = '';
-      const f = filter.toLowerCase();
-
-      ITEMS.forEach(it => {
-        if (f && !it.name.toLowerCase().includes(f) && !it.sticker_no.toLowerCase().includes(f)) {
-          return;
-        }
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-          <td class="td-num ${it.bill_type==='pink'?'pink':''}">#${it.sticker_no}</td>
-          <td class="td-name">${it.name}</td>
-          <td>${it.units}</td>
-          <td>₹${it.rate}</td>
-          <td style="color:#fbbf24">₹${Math.round(it.rate_plus_10)}</td>
-          <td class="td-price">₹${it.selling_price}</td>
-        `;
-        tr.onclick = () => {
-          renderCard(it);
-          input.value = it.sticker_no;
-          closeTableSheet();
-        };
-        tbody.appendChild(tr);
+      items.forEach(i => {
+        totalUnits += (i.total_units || 0);
+        totalSold += (i.units_sold || 0);
+        totalSales += (i.selling_price || 0) * (i.total_units || 0);
       });
+
+      document.getElementById('sum-total-units').textContent = totalUnits.toLocaleString('en-IN');
+      document.getElementById('sum-units-sold').textContent = totalSold.toLocaleString('en-IN');
+      document.getElementById('sum-total-sales').textContent = '₹' + Math.round(totalSales).toLocaleString('en-IN');
     }
 
-    function filterSheet(val) {
-      renderSheetTable(val);
-    }
-
-    // Initial render
-    renderCard(ITEMS[0]);
+    window.addEventListener('DOMContentLoaded', init);
   </script>
 </body>
 </html>
