@@ -1,0 +1,21 @@
+{
+  "name": "diwali-crackers-scanner-pos",
+  "version": "2.0.0",
+  "description": "Ultra-fast mobile Diwali Crackers Box Verifier, Pricing Engine & Quick POS for Nandigama Stall",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve -l 3000 .",
+    "start": "npx serve -l 3000 .",
+    "build": "echo 'Production static build ready for Vercel'"
+  },
+  "keywords": [
+    "diwali",
+    "crackers",
+    "pos",
+    "inventory",
+    "pricing-scanner",
+    "mobile-first"
+  ],
+  "author": "Koushik AI Automation",
+  "license": "MIT"
+}

@@ -1,0 +1,3 @@
+@echo off
+echo Opening Diwali Crackers Smart Pricing Web App in your default browser...
+start "" "%~dp0index.html"
