@@ -22,7 +22,8 @@
 - **Pink Bill Total**: ₹1,33,548 (20 items, 2,205 units)
 - **White Bill Total**: ₹1,98,970 (74 items, 1,720 units)
 - **Combined Stock Value**: ₹3,32,518 (94 items, 3,925 total units)
-- **Stock Value with +10% Overhead**: ₹3,65,769.80
+- **Stock Value with +10% Overhead**: ₹3,65,770 (3x Selling Revenue = ₹10,96,627)
+- **Stock Value with +20% Final Cost**: ₹3,99,022 (3x Selling Revenue = ₹11,97,390)
 
 ### 2. Operational & Shed Expenses
 - **Auto Transportation**: ₹10,000

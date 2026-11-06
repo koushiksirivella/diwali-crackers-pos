@@ -13,14 +13,20 @@
     "rate": 150,
     "rate_plus_10": 165.0,
     "bill_total": 3000,
-    "selling_price": 250,
+    "selling_price": 540,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "1",
       "3 1/2 lakshmi (15p)"
-    ]
+    ],
+    "rate_plus_20": 180.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 180.0,
+    "selling_price_10_3x": 495,
+    "selling_price_20_3x": 540
   },
   {
     "id": "W_2",
@@ -36,14 +42,20 @@
     "rate": 150,
     "rate_plus_10": 165.0,
     "bill_total": 3750,
-    "selling_price": 250,
+    "selling_price": 540,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "2",
       "4\" laxmi"
-    ]
+    ],
+    "rate_plus_20": 180.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 180.0,
+    "selling_price_10_3x": 495,
+    "selling_price_20_3x": 540
   },
   {
     "id": "W_3",
@@ -59,14 +71,20 @@
     "rate": 260,
     "rate_plus_10": 286.0,
     "bill_total": 2600,
-    "selling_price": 380,
+    "selling_price": 936,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "3",
       "4\" dlx lion"
-    ]
+    ],
+    "rate_plus_20": 312.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 312.0,
+    "selling_price_10_3x": 858,
+    "selling_price_20_3x": 936
   },
   {
     "id": "W_4",
@@ -82,14 +100,20 @@
     "rate": 280,
     "rate_plus_10": 308.0,
     "bill_total": 2800,
-    "selling_price": 400,
+    "selling_price": 1008,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "4",
       "gold laxmi"
-    ]
+    ],
+    "rate_plus_20": 336.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 336.0,
+    "selling_price_10_3x": 924,
+    "selling_price_20_3x": 1008
   },
   {
     "id": "W_5",
@@ -105,14 +129,20 @@
     "rate": 280,
     "rate_plus_10": 308.0,
     "bill_total": 2800,
-    "selling_price": 400,
+    "selling_price": 1008,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "5",
       "5\" hulk"
-    ]
+    ],
+    "rate_plus_20": 336.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 336.0,
+    "selling_price_10_3x": 924,
+    "selling_price_20_3x": 1008
   },
   {
     "id": "W_6",
@@ -128,14 +158,20 @@
     "rate": 330,
     "rate_plus_10": 363.0,
     "bill_total": 3300,
-    "selling_price": 480,
+    "selling_price": 1188,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "6",
       "6\" bruslee"
-    ]
+    ],
+    "rate_plus_20": 396.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 396.0,
+    "selling_price_10_3x": 1089,
+    "selling_price_20_3x": 1188
   },
   {
     "id": "W_7",
@@ -151,14 +187,20 @@
     "rate": 280,
     "rate_plus_10": 308.0,
     "bill_total": 2800,
-    "selling_price": 400,
+    "selling_price": 1008,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "7",
       "2 sound crackers"
-    ]
+    ],
+    "rate_plus_20": 336.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 336.0,
+    "selling_price_10_3x": 924,
+    "selling_price_20_3x": 1008
   },
   {
     "id": "W_8",
@@ -174,14 +216,20 @@
     "rate": 350,
     "rate_plus_10": 385.0,
     "bill_total": 3500,
-    "selling_price": 500,
+    "selling_price": 1260,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "8",
       "3 sound colanatia"
-    ]
+    ],
+    "rate_plus_20": 420.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 420.0,
+    "selling_price_10_3x": 1155,
+    "selling_price_20_3x": 1260
   },
   {
     "id": "W_9",
@@ -197,14 +245,20 @@
     "rate": 250,
     "rate_plus_10": 275.0,
     "bill_total": 2500,
-    "selling_price": 380,
+    "selling_price": 900,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "9",
       "smoke bomb"
-    ]
+    ],
+    "rate_plus_20": 300.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 300.0,
+    "selling_price_10_3x": 825,
+    "selling_price_20_3x": 900
   },
   {
     "id": "W_10",
@@ -220,14 +274,20 @@
     "rate": 550,
     "rate_plus_10": 605.0,
     "bill_total": 5500,
-    "selling_price": 750,
+    "selling_price": 1980,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "10",
       "28 cholasa"
-    ]
+    ],
+    "rate_plus_20": 660.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 660.0,
+    "selling_price_10_3x": 1815,
+    "selling_price_20_3x": 1980
   },
   {
     "id": "W_11",
@@ -243,14 +303,20 @@
     "rate": 550,
     "rate_plus_10": 605.0,
     "bill_total": 5500,
-    "selling_price": 750,
+    "selling_price": 1980,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "11",
       "28 gaint"
-    ]
+    ],
+    "rate_plus_20": 660.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 660.0,
+    "selling_price_10_3x": 1815,
+    "selling_price_20_3x": 1980
   },
   {
     "id": "W_12",
@@ -266,14 +332,20 @@
     "rate": 450,
     "rate_plus_10": 495.0,
     "bill_total": 2250,
-    "selling_price": 650,
+    "selling_price": 1620,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "12",
       "24 dlx"
-    ]
+    ],
+    "rate_plus_20": 540.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 540.0,
+    "selling_price_10_3x": 1485,
+    "selling_price_20_3x": 1620
   },
   {
     "id": "W_13",
@@ -289,14 +361,20 @@
     "rate": 450,
     "rate_plus_10": 495.0,
     "bill_total": 2250,
-    "selling_price": 650,
+    "selling_price": 1620,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "13",
       "50 dlx"
-    ]
+    ],
+    "rate_plus_20": 540.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 540.0,
+    "selling_price_10_3x": 1485,
+    "selling_price_20_3x": 1620
   },
   {
     "id": "W_14",
@@ -312,14 +390,20 @@
     "rate": 350,
     "rate_plus_10": 385.0,
     "bill_total": 3500,
-    "selling_price": 500,
+    "selling_price": 1260,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "14",
       "100 mega dlx"
-    ]
+    ],
+    "rate_plus_20": 420.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 420.0,
+    "selling_price_10_3x": 1155,
+    "selling_price_20_3x": 1260
   },
   {
     "id": "W_15",
@@ -335,14 +419,20 @@
     "rate": 70,
     "rate_plus_10": 77.0,
     "bill_total": 3500,
-    "selling_price": 110,
+    "selling_price": 252,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "15",
       "18 cm pencil"
-    ]
+    ],
+    "rate_plus_20": 84.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 84.0,
+    "selling_price_10_3x": 231,
+    "selling_price_20_3x": 252
   },
   {
     "id": "W_16",
@@ -358,14 +448,20 @@
     "rate": 50,
     "rate_plus_10": 55.0,
     "bill_total": 1000,
-    "selling_price": 80,
+    "selling_price": 180,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "16",
       "12 cm pencil gaint"
-    ]
+    ],
+    "rate_plus_20": 60.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 60.0,
+    "selling_price_10_3x": 165,
+    "selling_price_20_3x": 180
   },
   {
     "id": "W_17",
@@ -381,14 +477,20 @@
     "rate": 22,
     "rate_plus_10": 24.2,
     "bill_total": 1100,
-    "selling_price": 40,
+    "selling_price": 79,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "17",
       "7 cm pencil"
-    ]
+    ],
+    "rate_plus_20": 26.4,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 26.4,
+    "selling_price_10_3x": 73,
+    "selling_price_20_3x": 79
   },
   {
     "id": "W_18",
@@ -404,14 +506,20 @@
     "rate": 27,
     "rate_plus_10": 29.7,
     "bill_total": 1350,
-    "selling_price": 45,
+    "selling_price": 97,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "18",
       "100 wala"
-    ]
+    ],
+    "rate_plus_20": 32.4,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 32.4,
+    "selling_price_10_3x": 89,
+    "selling_price_20_3x": 97
   },
   {
     "id": "W_19",
@@ -427,14 +535,20 @@
     "rate": 50,
     "rate_plus_10": 55.0,
     "bill_total": 1250,
-    "selling_price": 80,
+    "selling_price": 180,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "19",
       "200 wala"
-    ]
+    ],
+    "rate_plus_20": 60.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 60.0,
+    "selling_price_10_3x": 165,
+    "selling_price_20_3x": 180
   },
   {
     "id": "W_20",
@@ -450,14 +564,20 @@
     "rate": 60,
     "rate_plus_10": 66.0,
     "bill_total": 3000,
-    "selling_price": 100,
+    "selling_price": 216,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "20",
       "rocket bomb"
-    ]
+    ],
+    "rate_plus_20": 72.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 72.0,
+    "selling_price_10_3x": 198,
+    "selling_price_20_3x": 216
   },
   {
     "id": "W_21",
@@ -473,14 +593,20 @@
     "rate": 90,
     "rate_plus_10": 99.0,
     "bill_total": 2250,
-    "selling_price": 140,
+    "selling_price": 324,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "21",
       "lunik rocket"
-    ]
+    ],
+    "rate_plus_20": 108.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 108.0,
+    "selling_price_10_3x": 297,
+    "selling_price_20_3x": 324
   },
   {
     "id": "W_22",
@@ -496,14 +622,20 @@
     "rate": 120,
     "rate_plus_10": 132.0,
     "bill_total": 1200,
-    "selling_price": 180,
+    "selling_price": 432,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "22",
       "music rocket"
-    ]
+    ],
+    "rate_plus_20": 144.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 144.0,
+    "selling_price_10_3x": 396,
+    "selling_price_20_3x": 432
   },
   {
     "id": "W_23",
@@ -519,14 +651,20 @@
     "rate": 36,
     "rate_plus_10": 39.6,
     "bill_total": 3600,
-    "selling_price": 60,
+    "selling_price": 130,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "23",
       "flp small"
-    ]
+    ],
+    "rate_plus_20": 43.2,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 43.2,
+    "selling_price_10_3x": 119,
+    "selling_price_20_3x": 130
   },
   {
     "id": "W_24",
@@ -542,14 +680,20 @@
     "rate": 65,
     "rate_plus_10": 71.5,
     "bill_total": 8125,
-    "selling_price": 100,
+    "selling_price": 234,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "24",
       "flp spl"
-    ]
+    ],
+    "rate_plus_20": 78.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 78.0,
+    "selling_price_10_3x": 214,
+    "selling_price_20_3x": 234
   },
   {
     "id": "W_25",
@@ -565,14 +709,20 @@
     "rate": 120,
     "rate_plus_10": 132.0,
     "bill_total": 2400,
-    "selling_price": 180,
+    "selling_price": 432,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "25",
       "flp gaint"
-    ]
+    ],
+    "rate_plus_20": 144.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 144.0,
+    "selling_price_10_3x": 396,
+    "selling_price_20_3x": 432
   },
   {
     "id": "W_26",
@@ -588,14 +738,20 @@
     "rate": 120,
     "rate_plus_10": 132.0,
     "bill_total": 1200,
-    "selling_price": 180,
+    "selling_price": 432,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "26",
       "wifi"
-    ]
+    ],
+    "rate_plus_20": 144.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 144.0,
+    "selling_price_10_3x": 396,
+    "selling_price_20_3x": 432
   },
   {
     "id": "W_27",
@@ -611,14 +767,20 @@
     "rate": 160,
     "rate_plus_10": 176.0,
     "bill_total": 4800,
-    "selling_price": 240,
+    "selling_price": 576,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "27",
       "5 colour mini fountain"
-    ]
+    ],
+    "rate_plus_20": 192.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 192.0,
+    "selling_price_10_3x": 528,
+    "selling_price_20_3x": 576
   },
   {
     "id": "W_28",
@@ -634,14 +796,20 @@
     "rate": 330,
     "rate_plus_10": 363.0,
     "bill_total": 3960,
-    "selling_price": 480,
+    "selling_price": 1188,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "28",
       "clk dlx royal"
-    ]
+    ],
+    "rate_plus_20": 396.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 396.0,
+    "selling_price_10_3x": 1089,
+    "selling_price_20_3x": 1188
   },
   {
     "id": "W_29",
@@ -657,14 +825,20 @@
     "rate": 350,
     "rate_plus_10": 385.0,
     "bill_total": 4200,
-    "selling_price": 500,
+    "selling_price": 1260,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "29",
       "clk dlx (leo)"
-    ]
+    ],
+    "rate_plus_20": 420.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 420.0,
+    "selling_price_10_3x": 1155,
+    "selling_price_20_3x": 1260
   },
   {
     "id": "W_30",
@@ -680,14 +854,20 @@
     "rate": 330,
     "rate_plus_10": 363.0,
     "bill_total": 3300,
-    "selling_price": 480,
+    "selling_price": 1188,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "30",
       "clk mega dlx mithra"
-    ]
+    ],
+    "rate_plus_20": 396.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 396.0,
+    "selling_price_10_3x": 1089,
+    "selling_price_20_3x": 1188
   },
   {
     "id": "W_31",
@@ -703,14 +883,20 @@
     "rate": 65,
     "rate_plus_10": 71.5,
     "bill_total": 1560,
-    "selling_price": 100,
+    "selling_price": 234,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "31",
       "glc big (25p)"
-    ]
+    ],
+    "rate_plus_20": 78.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 78.0,
+    "selling_price_10_3x": 214,
+    "selling_price_20_3x": 234
   },
   {
     "id": "W_32",
@@ -726,14 +912,20 @@
     "rate": 65,
     "rate_plus_10": 71.5,
     "bill_total": 4875,
-    "selling_price": 100,
+    "selling_price": 234,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "32",
       "glc spl leo"
-    ]
+    ],
+    "rate_plus_20": 78.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 78.0,
+    "selling_price_10_3x": 214,
+    "selling_price_20_3x": 234
   },
   {
     "id": "W_33",
@@ -749,14 +941,20 @@
     "rate": 96,
     "rate_plus_10": 105.6,
     "bill_total": 7200,
-    "selling_price": 150,
+    "selling_price": 346,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "33",
       "glc dlx"
-    ]
+    ],
+    "rate_plus_20": 115.2,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 115.2,
+    "selling_price_10_3x": 317,
+    "selling_price_20_3x": 346
   },
   {
     "id": "W_34",
@@ -772,14 +970,20 @@
     "rate": 100,
     "rate_plus_10": 110.0,
     "bill_total": 3000,
-    "selling_price": 150,
+    "selling_price": 360,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "34",
       "wheel spinner"
-    ]
+    ],
+    "rate_plus_20": 120.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 120.0,
+    "selling_price_10_3x": 330,
+    "selling_price_20_3x": 360
   },
   {
     "id": "W_35",
@@ -795,14 +999,20 @@
     "rate": 160,
     "rate_plus_10": 176.0,
     "bill_total": 3200,
-    "selling_price": 240,
+    "selling_price": 576,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "35",
       "spinner spl royal"
-    ]
+    ],
+    "rate_plus_20": 192.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 192.0,
+    "selling_price_10_3x": 528,
+    "selling_price_20_3x": 576
   },
   {
     "id": "W_36",
@@ -818,14 +1028,20 @@
     "rate": 140,
     "rate_plus_10": 154.0,
     "bill_total": 1400,
-    "selling_price": 220,
+    "selling_price": 504,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "36",
       "wire chakkar"
-    ]
+    ],
+    "rate_plus_20": 168.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 168.0,
+    "selling_price_10_3x": 462,
+    "selling_price_20_3x": 504
   },
   {
     "id": "W_37",
@@ -841,14 +1057,20 @@
     "rate": 18,
     "rate_plus_10": 19.8,
     "bill_total": 1800,
-    "selling_price": 30,
+    "selling_price": 65,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "37",
       "1 1/2 twinkling"
-    ]
+    ],
+    "rate_plus_20": 21.6,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 21.6,
+    "selling_price_10_3x": 59,
+    "selling_price_20_3x": 65
   },
   {
     "id": "W_38",
@@ -864,14 +1086,20 @@
     "rate": 60,
     "rate_plus_10": 66.0,
     "bill_total": 9000,
-    "selling_price": 100,
+    "selling_price": 216,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "38",
       "4\" twinkling"
-    ]
+    ],
+    "rate_plus_20": 72.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 72.0,
+    "selling_price_10_3x": 198,
+    "selling_price_20_3x": 216
   },
   {
     "id": "W_39",
@@ -887,14 +1115,20 @@
     "rate": 80,
     "rate_plus_10": 88.0,
     "bill_total": 1600,
-    "selling_price": 120,
+    "selling_price": 288,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "39",
       "hele copter"
-    ]
+    ],
+    "rate_plus_20": 96.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 96.0,
+    "selling_price_10_3x": 264,
+    "selling_price_20_3x": 288
   },
   {
     "id": "W_40",
@@ -910,14 +1144,20 @@
     "rate": 38,
     "rate_plus_10": 41.8,
     "bill_total": 3800,
-    "selling_price": 60,
+    "selling_price": 137,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "40",
       "dola dola leo"
-    ]
+    ],
+    "rate_plus_20": 45.6,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 45.6,
+    "selling_price_10_3x": 125,
+    "selling_price_20_3x": 137
   },
   {
     "id": "W_41",
@@ -933,14 +1173,20 @@
     "rate": 50,
     "rate_plus_10": 55.0,
     "bill_total": 2500,
-    "selling_price": 80,
+    "selling_price": 180,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "41",
       "mega kit kat"
-    ]
+    ],
+    "rate_plus_20": 60.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 60.0,
+    "selling_price_10_3x": 165,
+    "selling_price_20_3x": 180
   },
   {
     "id": "W_42",
@@ -956,14 +1202,20 @@
     "rate": 75,
     "rate_plus_10": 82.5,
     "bill_total": 2250,
-    "selling_price": 120,
+    "selling_price": 270,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "42",
       "ganga jamuna"
-    ]
+    ],
+    "rate_plus_20": 90.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 90.0,
+    "selling_price_10_3x": 248,
+    "selling_price_20_3x": 270
   },
   {
     "id": "W_43",
@@ -979,14 +1231,20 @@
     "rate": 150,
     "rate_plus_10": 165.0,
     "bill_total": 3000,
-    "selling_price": 230,
+    "selling_price": 540,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "43",
       "flower bomb vcl"
-    ]
+    ],
+    "rate_plus_20": 180.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 180.0,
+    "selling_price_10_3x": 495,
+    "selling_price_20_3x": 540
   },
   {
     "id": "W_44",
@@ -1002,14 +1260,20 @@
     "rate": 70,
     "rate_plus_10": 77.0,
     "bill_total": 2100,
-    "selling_price": 110,
+    "selling_price": 252,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "44",
       "butterfly yuva"
-    ]
+    ],
+    "rate_plus_20": 84.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 84.0,
+    "selling_price_10_3x": 231,
+    "selling_price_20_3x": 252
   },
   {
     "id": "W_45",
@@ -1025,14 +1289,20 @@
     "rate": 70,
     "rate_plus_10": 77.0,
     "bill_total": 700,
-    "selling_price": 110,
+    "selling_price": 252,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "45",
       "2 comment (p) window"
-    ]
+    ],
+    "rate_plus_20": 84.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 84.0,
+    "selling_price_10_3x": 231,
+    "selling_price_20_3x": 252
   },
   {
     "id": "W_46",
@@ -1048,14 +1318,20 @@
     "rate": 200,
     "rate_plus_10": 220.0,
     "bill_total": 1000,
-    "selling_price": 300,
+    "selling_price": 720,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "46",
       "7 shot (10p)"
-    ]
+    ],
+    "rate_plus_20": 240.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 240.0,
+    "selling_price_10_3x": 660,
+    "selling_price_20_3x": 720
   },
   {
     "id": "W_47",
@@ -1071,14 +1347,20 @@
     "rate": 760,
     "rate_plus_10": 836.0,
     "bill_total": 1520,
-    "selling_price": 1100,
+    "selling_price": 2736,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "47",
       "4\" comment (1p)"
-    ]
+    ],
+    "rate_plus_20": 912.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 912.0,
+    "selling_price_10_3x": 2508,
+    "selling_price_20_3x": 2736
   },
   {
     "id": "W_48",
@@ -1094,14 +1376,20 @@
     "rate": 900,
     "rate_plus_10": 990.0,
     "bill_total": 1800,
-    "selling_price": 1300,
+    "selling_price": 3240,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "48",
       "4\" comment (3p)"
-    ]
+    ],
+    "rate_plus_20": 1080.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 1080.0,
+    "selling_price_10_3x": 2970,
+    "selling_price_20_3x": 3240
   },
   {
     "id": "W_49",
@@ -1117,14 +1405,20 @@
     "rate": 13,
     "rate_plus_10": 14.3,
     "bill_total": 1950,
-    "selling_price": 25,
+    "selling_price": 47,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "49",
       "small bullet bomb"
-    ]
+    ],
+    "rate_plus_20": 15.6,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 15.6,
+    "selling_price_10_3x": 43,
+    "selling_price_20_3x": 47
   },
   {
     "id": "W_50",
@@ -1140,14 +1434,20 @@
     "rate": 45,
     "rate_plus_10": 49.5,
     "bill_total": 2250,
-    "selling_price": 75,
+    "selling_price": 162,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "50",
       "solar bomb"
-    ]
+    ],
+    "rate_plus_20": 54.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 54.0,
+    "selling_price_10_3x": 148,
+    "selling_price_20_3x": 162
   },
   {
     "id": "W_51",
@@ -1163,14 +1463,20 @@
     "rate": 92,
     "rate_plus_10": 101.2,
     "bill_total": 4600,
-    "selling_price": 150,
+    "selling_price": 331,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "51",
       "classic bomb"
-    ]
+    ],
+    "rate_plus_20": 110.4,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 110.4,
+    "selling_price_10_3x": 304,
+    "selling_price_20_3x": 331
   },
   {
     "id": "W_52",
@@ -1186,14 +1492,20 @@
     "rate": 165,
     "rate_plus_10": 181.5,
     "bill_total": 1650,
-    "selling_price": 250,
+    "selling_price": 594,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "52",
       "military bomb"
-    ]
+    ],
+    "rate_plus_20": 198.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 198.0,
+    "selling_price_10_3x": 544,
+    "selling_price_20_3x": 594
   },
   {
     "id": "W_53",
@@ -1209,14 +1521,20 @@
     "rate": 160,
     "rate_plus_10": 176.0,
     "bill_total": 4000,
-    "selling_price": 240,
+    "selling_price": 576,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "53",
       "marshal black"
-    ]
+    ],
+    "rate_plus_20": 192.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 192.0,
+    "selling_price_10_3x": 528,
+    "selling_price_20_3x": 576
   },
   {
     "id": "W_54",
@@ -1232,14 +1550,20 @@
     "rate": 190,
     "rate_plus_10": 209.0,
     "bill_total": 3800,
-    "selling_price": 280,
+    "selling_price": 684,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "54",
       "digital bomb"
-    ]
+    ],
+    "rate_plus_20": 228.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 228.0,
+    "selling_price_10_3x": 627,
+    "selling_price_20_3x": 684
   },
   {
     "id": "W_55",
@@ -1255,14 +1579,20 @@
     "rate": 180,
     "rate_plus_10": 198.0,
     "bill_total": 3600,
-    "selling_price": 270,
+    "selling_price": 648,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "55",
       "jurassic marshal"
-    ]
+    ],
+    "rate_plus_20": 216.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 216.0,
+    "selling_price_10_3x": 594,
+    "selling_price_20_3x": 648
   },
   {
     "id": "W_56",
@@ -1278,14 +1608,20 @@
     "rate": 3100,
     "rate_plus_10": 3410.0,
     "bill_total": 9300,
-    "selling_price": 4500,
+    "selling_price": 11160,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "56",
       "240 shot (jyothi)"
-    ]
+    ],
+    "rate_plus_20": 3720.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 3720.0,
+    "selling_price_10_3x": 10230,
+    "selling_price_20_3x": 11160
   },
   {
     "id": "W_57",
@@ -1301,14 +1637,20 @@
     "rate": 250,
     "rate_plus_10": 275.0,
     "bill_total": 3750,
-    "selling_price": 380,
+    "selling_price": 900,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "57",
       "lamp"
-    ]
+    ],
+    "rate_plus_20": 300.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 300.0,
+    "selling_price_10_3x": 825,
+    "selling_price_20_3x": 900
   },
   {
     "id": "W_58",
@@ -1324,14 +1666,20 @@
     "rate": 130,
     "rate_plus_10": 143.0,
     "bill_total": 1300,
-    "selling_price": 200,
+    "selling_price": 468,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "58",
       "50 ele"
-    ]
+    ],
+    "rate_plus_20": 156.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 156.0,
+    "selling_price_10_3x": 429,
+    "selling_price_20_3x": 468
   },
   {
     "id": "W_59",
@@ -1347,14 +1695,20 @@
     "rate": 140,
     "rate_plus_10": 154.0,
     "bill_total": 1400,
-    "selling_price": 210,
+    "selling_price": 504,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "59",
       "50 colour"
-    ]
+    ],
+    "rate_plus_20": 168.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 168.0,
+    "selling_price_10_3x": 462,
+    "selling_price_20_3x": 504
   },
   {
     "id": "W_60",
@@ -1370,14 +1724,20 @@
     "rate": 65,
     "rate_plus_10": 71.5,
     "bill_total": 325,
-    "selling_price": 100,
+    "selling_price": 234,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "60",
       "robin king siren"
-    ]
+    ],
+    "rate_plus_20": 78.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 78.0,
+    "selling_price_10_3x": 214,
+    "selling_price_20_3x": 234
   },
   {
     "id": "W_61",
@@ -1393,14 +1753,20 @@
     "rate": 210,
     "rate_plus_10": 231.0,
     "bill_total": 1050,
-    "selling_price": 320,
+    "selling_price": 756,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "61",
       "dil se (1p)"
-    ]
+    ],
+    "rate_plus_20": 252.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 252.0,
+    "selling_price_10_3x": 693,
+    "selling_price_20_3x": 756
   },
   {
     "id": "W_62",
@@ -1416,14 +1782,20 @@
     "rate": 130,
     "rate_plus_10": 143.0,
     "bill_total": 650,
-    "selling_price": 200,
+    "selling_price": 468,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "62",
       "cukoo"
-    ]
+    ],
+    "rate_plus_20": 156.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 156.0,
+    "selling_price_10_3x": 429,
+    "selling_price_20_3x": 468
   },
   {
     "id": "W_63",
@@ -1439,14 +1811,20 @@
     "rate": 230,
     "rate_plus_10": 253.0,
     "bill_total": 1150,
-    "selling_price": 350,
+    "selling_price": 828,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "63",
       "butterscotch"
-    ]
+    ],
+    "rate_plus_20": 276.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 276.0,
+    "selling_price_10_3x": 759,
+    "selling_price_20_3x": 828
   },
   {
     "id": "W_64",
@@ -1462,14 +1840,20 @@
     "rate": 260,
     "rate_plus_10": 286.0,
     "bill_total": 1300,
-    "selling_price": 390,
+    "selling_price": 936,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "64",
       "golden rabbit"
-    ]
+    ],
+    "rate_plus_20": 312.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 312.0,
+    "selling_price_10_3x": 858,
+    "selling_price_20_3x": 936
   },
   {
     "id": "W_65",
@@ -1485,14 +1869,20 @@
     "rate": 125,
     "rate_plus_10": 137.5,
     "bill_total": 1875,
-    "selling_price": 190,
+    "selling_price": 450,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "65",
       "speed test mithra"
-    ]
+    ],
+    "rate_plus_20": 150.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 150.0,
+    "selling_price_10_3x": 412,
+    "selling_price_20_3x": 450
   },
   {
     "id": "W_66",
@@ -1508,14 +1898,20 @@
     "rate": 130,
     "rate_plus_10": 143.0,
     "bill_total": 1300,
-    "selling_price": 200,
+    "selling_price": 468,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "66",
       "900 cc"
-    ]
+    ],
+    "rate_plus_20": 156.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 156.0,
+    "selling_price_10_3x": 429,
+    "selling_price_20_3x": 468
   },
   {
     "id": "W_67",
@@ -1531,14 +1927,20 @@
     "rate": 80,
     "rate_plus_10": 88.0,
     "bill_total": 800,
-    "selling_price": 130,
+    "selling_price": 288,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "67",
       "turbo wheel"
-    ]
+    ],
+    "rate_plus_20": 96.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 96.0,
+    "selling_price_10_3x": 264,
+    "selling_price_20_3x": 288
   },
   {
     "id": "W_68",
@@ -1554,14 +1956,20 @@
     "rate": 180,
     "rate_plus_10": 198.0,
     "bill_total": 900,
-    "selling_price": 270,
+    "selling_price": 648,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "68",
       "top gun"
-    ]
+    ],
+    "rate_plus_20": 216.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 216.0,
+    "selling_price_10_3x": 594,
+    "selling_price_20_3x": 648
   },
   {
     "id": "W_69",
@@ -1577,14 +1985,20 @@
     "rate": 230,
     "rate_plus_10": 253.0,
     "bill_total": 1150,
-    "selling_price": 350,
+    "selling_price": 828,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "69",
       "pistol 58"
-    ]
+    ],
+    "rate_plus_20": 276.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 276.0,
+    "selling_price_10_3x": 759,
+    "selling_price_20_3x": 828
   },
   {
     "id": "W_70",
@@ -1600,14 +2014,20 @@
     "rate": 250,
     "rate_plus_10": 275.0,
     "bill_total": 1250,
-    "selling_price": 380,
+    "selling_price": 900,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "70",
       "bada peacock standard"
-    ]
+    ],
+    "rate_plus_20": 300.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 300.0,
+    "selling_price_10_3x": 825,
+    "selling_price_20_3x": 900
   },
   {
     "id": "W_71",
@@ -1623,14 +2043,20 @@
     "rate": 170,
     "rate_plus_10": 187.0,
     "bill_total": 1530,
-    "selling_price": 260,
+    "selling_price": 612,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "71",
       "chota bhai siren"
-    ]
+    ],
+    "rate_plus_20": 204.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 204.0,
+    "selling_price_10_3x": 561,
+    "selling_price_20_3x": 612
   },
   {
     "id": "W_72",
@@ -1646,14 +2072,20 @@
     "rate": 200,
     "rate_plus_10": 220.0,
     "bill_total": 1000,
-    "selling_price": 300,
+    "selling_price": 720,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "72",
       "big elephant"
-    ]
+    ],
+    "rate_plus_20": 240.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 240.0,
+    "selling_price_10_3x": 660,
+    "selling_price_20_3x": 720
   },
   {
     "id": "W_73",
@@ -1669,14 +2101,20 @@
     "rate": 350,
     "rate_plus_10": 385.0,
     "bill_total": 700,
-    "selling_price": 500,
+    "selling_price": 1260,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "73",
       "bat & ball"
-    ]
+    ],
+    "rate_plus_20": 420.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 420.0,
+    "selling_price_10_3x": 1155,
+    "selling_price_20_3x": 1260
   },
   {
     "id": "W_74",
@@ -1692,14 +2130,20 @@
     "rate": 300,
     "rate_plus_10": 330.0,
     "bill_total": 1800,
-    "selling_price": 450,
+    "selling_price": 1080,
     "verified": false,
     "verified_at": null,
     "notes": "",
     "search_keys": [
       "74",
       "wicked willow rocket"
-    ]
+    ],
+    "rate_plus_20": 360.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 360.0,
+    "selling_price_10_3x": 990,
+    "selling_price_20_3x": 1080
   },
   {
     "id": "P_1",
@@ -1715,7 +2159,7 @@
     "rate": 25,
     "rate_plus_10": 27.5,
     "bill_total": 7500,
-    "selling_price": 40,
+    "selling_price": 90,
     "verified": false,
     "verified_at": null,
     "notes": "",
@@ -1727,7 +2171,13 @@
       "pink 1",
       "1",
       "100 bijili"
-    ]
+    ],
+    "rate_plus_20": 30.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 30.0,
+    "selling_price_10_3x": 82,
+    "selling_price_20_3x": 90
   },
   {
     "id": "P_2",
@@ -1743,7 +2193,7 @@
     "rate": 160,
     "rate_plus_10": 176.0,
     "bill_total": 9600,
-    "selling_price": 240,
+    "selling_price": 576,
     "verified": false,
     "verified_at": null,
     "notes": "",
@@ -1755,7 +2205,13 @@
       "pink 2",
       "2",
       "clk ishwarya"
-    ]
+    ],
+    "rate_plus_20": 192.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 192.0,
+    "selling_price_10_3x": 528,
+    "selling_price_20_3x": 576
   },
   {
     "id": "P_3",
@@ -1771,7 +2227,7 @@
     "rate": 85,
     "rate_plus_10": 93.5,
     "bill_total": 8500,
-    "selling_price": 130,
+    "selling_price": 306,
     "verified": false,
     "verified_at": null,
     "notes": "",
@@ -1783,7 +2239,13 @@
       "pink 3",
       "3",
       "flp ashoka"
-    ]
+    ],
+    "rate_plus_20": 102.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 102.0,
+    "selling_price_10_3x": 280,
+    "selling_price_20_3x": 306
   },
   {
     "id": "P_4",
@@ -1799,7 +2261,7 @@
     "rate": 1000,
     "rate_plus_10": 1100.0,
     "bill_total": 4000,
-    "selling_price": 1500,
+    "selling_price": 3600,
     "verified": false,
     "verified_at": null,
     "notes": "",
@@ -1811,7 +2273,13 @@
       "pink 4",
       "4",
       "7 cm electric"
-    ]
+    ],
+    "rate_plus_20": 1200.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 1200.0,
+    "selling_price_10_3x": 3300,
+    "selling_price_20_3x": 3600
   },
   {
     "id": "P_5",
@@ -1827,7 +2295,7 @@
     "rate": 30,
     "rate_plus_10": 33.0,
     "bill_total": 9000,
-    "selling_price": 50,
+    "selling_price": 108,
     "verified": false,
     "verified_at": null,
     "notes": "",
@@ -1839,7 +2307,13 @@
       "pink 5",
       "5",
       "15 cm colour"
-    ]
+    ],
+    "rate_plus_20": 36.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 36.0,
+    "selling_price_10_3x": 99,
+    "selling_price_20_3x": 108
   },
   {
     "id": "P_6",
@@ -1855,7 +2329,7 @@
     "rate": 28,
     "rate_plus_10": 30.8,
     "bill_total": 8400,
-    "selling_price": 45,
+    "selling_price": 101,
     "verified": false,
     "verified_at": null,
     "notes": "",
@@ -1867,7 +2341,13 @@
       "pink 6",
       "6",
       "15 cm electric"
-    ]
+    ],
+    "rate_plus_20": 33.6,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 33.6,
+    "selling_price_10_3x": 92,
+    "selling_price_20_3x": 101
   },
   {
     "id": "P_7",
@@ -1883,7 +2363,7 @@
     "rate": 30,
     "rate_plus_10": 33.0,
     "bill_total": 9000,
-    "selling_price": 50,
+    "selling_price": 108,
     "verified": false,
     "verified_at": null,
     "notes": "",
@@ -1895,7 +2375,13 @@
       "pink 7",
       "7",
       "30 cm colour"
-    ]
+    ],
+    "rate_plus_20": 36.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 36.0,
+    "selling_price_10_3x": 99,
+    "selling_price_20_3x": 108
   },
   {
     "id": "P_8",
@@ -1911,7 +2397,7 @@
     "rate": 28,
     "rate_plus_10": 30.8,
     "bill_total": 8400,
-    "selling_price": 45,
+    "selling_price": 101,
     "verified": false,
     "verified_at": null,
     "notes": "",
@@ -1923,7 +2409,13 @@
       "pink 8",
       "8",
       "30 cm electric"
-    ]
+    ],
+    "rate_plus_20": 33.6,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 33.6,
+    "selling_price_10_3x": 92,
+    "selling_price_20_3x": 101
   },
   {
     "id": "P_9",
@@ -1939,7 +2431,7 @@
     "rate": 130,
     "rate_plus_10": 143.0,
     "bill_total": 4680,
-    "selling_price": 200,
+    "selling_price": 468,
     "verified": false,
     "verified_at": null,
     "notes": "",
@@ -1951,7 +2443,13 @@
       "pink 9",
       "9",
       "1k wala"
-    ]
+    ],
+    "rate_plus_20": 156.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 156.0,
+    "selling_price_10_3x": 429,
+    "selling_price_20_3x": 468
   },
   {
     "id": "P_10",
@@ -1967,7 +2465,7 @@
     "rate": 260,
     "rate_plus_10": 286.0,
     "bill_total": 5200,
-    "selling_price": 390,
+    "selling_price": 936,
     "verified": false,
     "verified_at": null,
     "notes": "",
@@ -1979,7 +2477,13 @@
       "pink 10",
       "10",
       "2k wala"
-    ]
+    ],
+    "rate_plus_20": 312.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 312.0,
+    "selling_price_10_3x": 858,
+    "selling_price_20_3x": 936
   },
   {
     "id": "P_11",
@@ -1995,7 +2499,7 @@
     "rate": 650,
     "rate_plus_10": 715.0,
     "bill_total": 5200,
-    "selling_price": 950,
+    "selling_price": 2340,
     "verified": false,
     "verified_at": null,
     "notes": "",
@@ -2007,7 +2511,13 @@
       "pink 11",
       "11",
       "5k wala"
-    ]
+    ],
+    "rate_plus_20": 780.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 780.0,
+    "selling_price_10_3x": 2145,
+    "selling_price_20_3x": 2340
   },
   {
     "id": "P_12",
@@ -2023,7 +2533,7 @@
     "rate": 1300,
     "rate_plus_10": 1430.0,
     "bill_total": 6500,
-    "selling_price": 1900,
+    "selling_price": 4680,
     "verified": false,
     "verified_at": null,
     "notes": "",
@@ -2035,7 +2545,13 @@
       "pink 12",
       "12",
       "10k wala"
-    ]
+    ],
+    "rate_plus_20": 1560.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 1560.0,
+    "selling_price_10_3x": 4290,
+    "selling_price_20_3x": 4680
   },
   {
     "id": "P_13",
@@ -2051,7 +2567,7 @@
     "rate": 380,
     "rate_plus_10": 418.0,
     "bill_total": 6840,
-    "selling_price": 580,
+    "selling_price": 1368,
     "verified": false,
     "verified_at": null,
     "notes": "",
@@ -2063,7 +2579,13 @@
       "pink 13",
       "13",
       "30 shot"
-    ]
+    ],
+    "rate_plus_20": 456.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 456.0,
+    "selling_price_10_3x": 1254,
+    "selling_price_20_3x": 1368
   },
   {
     "id": "P_14",
@@ -2079,7 +2601,7 @@
     "rate": 760,
     "rate_plus_10": 836.0,
     "bill_total": 9120,
-    "selling_price": 1150,
+    "selling_price": 2736,
     "verified": false,
     "verified_at": null,
     "notes": "",
@@ -2091,7 +2613,13 @@
       "pink 14",
       "14",
       "60 shot"
-    ]
+    ],
+    "rate_plus_20": 912.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 912.0,
+    "selling_price_10_3x": 2508,
+    "selling_price_20_3x": 2736
   },
   {
     "id": "P_15",
@@ -2107,7 +2635,7 @@
     "rate": 1520,
     "rate_plus_10": 1672.0,
     "bill_total": 9120,
-    "selling_price": 2350,
+    "selling_price": 5472,
     "verified": false,
     "verified_at": null,
     "notes": "",
@@ -2119,7 +2647,13 @@
       "pink 15",
       "15",
       "120 shot"
-    ]
+    ],
+    "rate_plus_20": 1824.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 1824.0,
+    "selling_price_10_3x": 5016,
+    "selling_price_20_3x": 5472
   },
   {
     "id": "P_16",
@@ -2135,7 +2669,7 @@
     "rate": 138,
     "rate_plus_10": 151.8,
     "bill_total": 4968,
-    "selling_price": 210,
+    "selling_price": 497,
     "verified": false,
     "verified_at": null,
     "notes": "",
@@ -2147,7 +2681,13 @@
       "pink 16",
       "16",
       "12 shot himalaya"
-    ]
+    ],
+    "rate_plus_20": 165.6,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 165.6,
+    "selling_price_10_3x": 455,
+    "selling_price_20_3x": 497
   },
   {
     "id": "P_17",
@@ -2163,7 +2703,7 @@
     "rate": 42,
     "rate_plus_10": 46.2,
     "bill_total": 2520,
-    "selling_price": 70,
+    "selling_price": 151,
     "verified": false,
     "verified_at": null,
     "notes": "",
@@ -2175,7 +2715,13 @@
       "pink 17",
       "17",
       "robin big kids"
-    ]
+    ],
+    "rate_plus_20": 50.4,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 50.4,
+    "selling_price_10_3x": 139,
+    "selling_price_20_3x": 151
   },
   {
     "id": "P_18",
@@ -2191,7 +2737,7 @@
     "rate": 125,
     "rate_plus_10": 137.5,
     "bill_total": 5000,
-    "selling_price": 190,
+    "selling_price": 450,
     "verified": false,
     "verified_at": null,
     "notes": "",
@@ -2203,7 +2749,13 @@
       "pink 18",
       "18",
       "robin 5 star"
-    ]
+    ],
+    "rate_plus_20": 150.0,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 150.0,
+    "selling_price_10_3x": 412,
+    "selling_price_20_3x": 450
   },
   {
     "id": "P_19",
@@ -2219,7 +2771,7 @@
     "rate": 58,
     "rate_plus_10": 63.8,
     "bill_total": 5800,
-    "selling_price": 90,
+    "selling_price": 209,
     "verified": false,
     "verified_at": null,
     "notes": "",
@@ -2231,7 +2783,13 @@
       "pink 19",
       "19",
       "mathabu"
-    ]
+    ],
+    "rate_plus_20": 69.6,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 69.6,
+    "selling_price_10_3x": 191,
+    "selling_price_20_3x": 209
   },
   {
     "id": "P_20",
@@ -2247,7 +2805,7 @@
     "rate": 21,
     "rate_plus_10": 23.1,
     "bill_total": 4200,
-    "selling_price": 35,
+    "selling_price": 76,
     "verified": false,
     "verified_at": null,
     "notes": "",
@@ -2259,6 +2817,12 @@
       "pink 20",
       "20",
       "look pots"
-    ]
+    ],
+    "rate_plus_20": 25.2,
+    "overhead_pct": 20,
+    "multiplier": 3,
+    "final_cost": 25.2,
+    "selling_price_10_3x": 69,
+    "selling_price_20_3x": 76
   }
 ]
