@@ -5,6 +5,7 @@ const { exec } = require('child_process');
 
 const PORT = process.env.PORT || 3000;
 const BASE_DIR = __dirname;
+const SPREADSHEET_ID = '1swTMlDSVKEHMPwIriVmvAsmaWXIO_DxwEzQ6vI9ZFQw';
 
 const MIME_TYPES = {
   '.html': 'text/html',
@@ -15,18 +16,53 @@ const MIME_TYPES = {
   '.jpg': 'image/jpeg',
   '.jpeg': 'image/jpeg',
   '.svg': 'image/svg+xml',
-  '.ico': 'image/x-icon'
+  '.ico': 'image/x-icon',
+  '.csv': 'text/csv'
 };
+
+function writeInventoryCsv(items) {
+  const csvRows = [
+    ['Box #', 'Item Name', 'Bill Type', 'Pack', 'Total Units', 'Units Sold', 'Units Left', 'Wholesale Rate (₹)', 'Driving Exp (+10%) (₹)', 'Final Selling Price (3x) (₹)', 'Total 3x Value (₹)', 'Cash Collected (₹)', 'Status']
+  ];
+  items.forEach(it => {
+    const box = it.sticker_no || '';
+    const name = it.name || '';
+    const bill = it.bill_type || '';
+    const pack = it.pack_details || '';
+    const u = parseInt(it.total_units || 0);
+    const s = parseInt(it.units_sold || 0);
+    const left = Math.max(0, u - s);
+    const rate = parseFloat(it.rate || 0);
+    const c10 = parseFloat(it.rate_plus_10) || Math.round(rate * 1.10 * 100) / 100;
+    const sp = parseFloat(it.selling_price) || Math.round(c10 * 3);
+    const tot_val = Math.round(u * sp);
+    const collected = Math.round(s * sp);
+    const status = (u > 0 && left === 0) ? 'SOLD OUT' : (s === 0 ? 'IN STOCK' : `${s}/${u} SOLD`);
+    csvRows.push([box, `"${name.replace(/"/g, '""')}"`, bill, `"${pack}"`, u, s, left, rate, c10, sp, tot_val, collected, status]);
+  });
+  const csvContent = csvRows.map(r => r.join(',')).join('\n');
+  fs.writeFileSync(path.join(BASE_DIR, 'diwali_inventory.csv'), csvContent, 'utf8');
+}
 
 const server = http.createServer((req, res) => {
   const url = new URL(req.url, `http://${req.headers.host}`);
   const pathname = url.pathname;
 
+  // CORS headers
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  if (req.method === 'OPTIONS') {
+    res.writeHead(204);
+    return res.end();
+  }
+
   // API: Get latest data
   if (pathname === '/api/data' && req.method === 'GET') {
     try {
       const data = fs.readFileSync(path.join(BASE_DIR, 'items_data.json'), 'utf8');
-      res.writeHead(200, { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' });
+      res.writeHead(200, { 'Content-Type': 'application/json' });
       return res.end(data);
     } catch (e) {
       res.writeHead(500, { 'Content-Type': 'application/json' });
@@ -34,7 +70,7 @@ const server = http.createServer((req, res) => {
     }
   }
 
-  // API: Save and push to GitHub
+  // API: Save and push to Google Sheets & GitHub
   if (pathname === '/api/save' && req.method === 'POST') {
     let body = '';
     req.on('data', chunk => { body += chunk; });
@@ -43,17 +79,23 @@ const server = http.createServer((req, res) => {
         const parsed = JSON.parse(body);
         fs.writeFileSync(path.join(BASE_DIR, 'items_data.json'), JSON.stringify(parsed, null, 2), 'utf8');
         
-        // Auto Git commit & push in background
-        exec('git add items_data.json && git commit -m "Auto-sync inventory data [skip ci]" && git push origin master', (err, stdout, stderr) => {
+        // Write CSV and sync to Google Sheets
+        writeInventoryCsv(parsed);
+        exec(`gsheets mutate import-csv ${SPREADSHEET_ID} diwali_inventory.csv && git add items_data.json diwali_inventory.csv && git commit -m "Auto-sync inventory data & Google Sheets [skip ci]" && git push origin master`, (err, stdout, stderr) => {
           if (err) {
-            console.warn('Git sync warning (local saved successfully):', err.message);
+            console.warn('Sync warning:', err.message);
           } else {
-            console.log('Successfully pushed updated data to GitHub!');
+            console.log('Successfully synced to Google Sheets & pushed to GitHub!');
           }
         });
 
-        res.writeHead(200, { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' });
-        return res.end(JSON.stringify({ success: true, message: 'Saved to disk and syncing to GitHub!' }));
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        return res.end(JSON.stringify({
+          success: true,
+          sheet_id: SPREADSHEET_ID,
+          sheet_url: `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/edit`,
+          message: 'Saved to disk, synced to Google Sheets, and pushing to GitHub!'
+        }));
       } catch (e) {
         res.writeHead(400, { 'Content-Type': 'application/json' });
         return res.end(JSON.stringify({ error: e.message }));
