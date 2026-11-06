@@ -1293,6 +1293,52 @@
         </div>
       </div>
 
+      <!-- ========================================================
+           NEW SECTION: MOBILE-OPTIMIZED LIVE SALES & NUMBERS SUMMARY
+           ======================================================== -->
+      <div class="pos-live-summary-section" style="margin-bottom:14px; background:var(--background-surface); border:1.5px solid var(--line); border-radius:8px; padding:12px 14px; box-shadow:0 4px 20px rgba(0,0,0,0.4);">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:10px;">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="font-size:1.1rem;">📊</span>
+            <div>
+              <h2 class="mono-2 up" style="font-size:0.85rem; color:#fff; font-weight:900; margin:0; letter-spacing:0.04em;">LIVE SALES &amp; INVENTORY NUMBERS</h2>
+              <span class="mono" style="font-size:0.68rem; color:var(--label-3);">Exact live financials calculated across all boxes &amp; bills</span>
+            </div>
+          </div>
+          <div style="display:flex; align-items:center; gap:6px;">
+            <span class="pill-sheets" style="background:rgba(0,255,133,0.1); border-color:var(--accent-emerald); color:var(--accent-emerald); font-size:0.72rem; padding:3px 8px;" id="pos-summary-badge">
+              ● CLOUD LIVE SYNC
+            </span>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(140px, 1fr)); gap:10px;">
+          <div class="pos-card" style="padding:10px 12px; border-left:3px solid var(--accent-emerald); background:rgba(0,255,133,0.03);">
+            <span class="mono-2 up" style="font-size:0.62rem; color:var(--label-3); display:block; margin-bottom:2px;">EXACT CASH COLLECTED</span>
+            <div class="mono" style="font-size:1.35rem; font-weight:900; color:var(--accent-emerald);" id="pos-sum-cash">₹0</div>
+            <span class="mono" style="font-size:0.68rem; color:var(--accent-cyan); display:block; margin-top:2px;" id="pos-sum-sold-units">0 Units Sold</span>
+          </div>
+
+          <div class="pos-card" style="padding:10px 12px; border-left:3px solid var(--accent-gold); background:rgba(255,230,0,0.03);">
+            <span class="mono-2 up" style="font-size:0.62rem; color:var(--label-3); display:block; margin-bottom:2px;">REMAINING TO SELL</span>
+            <div class="mono" style="font-size:1.35rem; font-weight:900; color:var(--accent-gold);" id="pos-sum-remaining">₹0</div>
+            <span class="mono" style="font-size:0.68rem; color:var(--label-2); display:block; margin-top:2px;" id="pos-sum-rem-units">0 Units Left</span>
+          </div>
+
+          <div class="pos-card" style="padding:10px 12px; border-left:3px solid var(--selection-bg); background:rgba(192,254,4,0.03);">
+            <span class="mono-2 up" style="font-size:0.62rem; color:var(--label-3); display:block; margin-bottom:2px;">TOTAL STOCK VALUE</span>
+            <div class="mono" style="font-size:1.35rem; font-weight:900; color:var(--selection-bg);" id="pos-sum-total-val">₹0</div>
+            <span class="mono" style="font-size:0.68rem; color:var(--label-3); display:block; margin-top:2px;" id="pos-sum-total-units">0 Total Units</span>
+          </div>
+
+          <div class="pos-card" style="padding:10px 12px; border-left:3px solid var(--accent-cyan); background:rgba(0,240,255,0.03);">
+            <span class="mono-2 up" style="font-size:0.62rem; color:var(--label-3); display:block; margin-bottom:2px;">WHOLESALE PROCUREMENT</span>
+            <div class="mono" style="font-size:1.35rem; font-weight:900; color:#fff;" id="pos-sum-wholesale">₹3,32,518</div>
+            <span class="mono" style="font-size:0.68rem; color:var(--label-3); display:block; margin-top:2px;">+20% Landed: <strong id="pos-sum-landed" style="color:var(--accent-gold);">₹3,99,022</strong></span>
+          </div>
+        </div>
+      </div>
+
       <!-- STAFF POS CARDS CONTAINER -->
       <div class="cards-grid" id="staff-pos-container">
         <!-- Rendered dynamically -->
@@ -2212,6 +2258,15 @@
       if (elBarLeft) elBarLeft.textContent = `₹${Math.round(remCash).toLocaleString('en-IN')} (${remUnits.toLocaleString('en-IN')} units left)`;
       const elBarFill = document.getElementById('pos-how-much-bar');
       if (elBarFill) elBarFill.style.width = `${soldPct}%`;
+
+      // Update the new dedicated mobile-optimized summary section
+      const setEl = (id, txt) => { const el = document.getElementById(id); if (el) el.textContent = txt; };
+      setEl('pos-sum-cash', `₹${Math.round(totalCash).toLocaleString('en-IN')}`);
+      setEl('pos-sum-sold-units', `${totalSold.toLocaleString('en-IN')} Units Sold (${soldPct}%)`);
+      setEl('pos-sum-remaining', `₹${Math.round(remCash).toLocaleString('en-IN')}`);
+      setEl('pos-sum-rem-units', `${remUnits.toLocaleString('en-IN')} Units Left`);
+      setEl('pos-sum-total-val', `₹${Math.round(totalPotentialCash).toLocaleString('en-IN')}`);
+      setEl('pos-sum-total-units', `${totalAllUnits.toLocaleString('en-IN')} Total Units (${items.length} Boxes)`);
     }
 
     function recordStaffSale(index, delta, btnEl) {
