@@ -22,23 +22,24 @@ const MIME_TYPES = {
 
 function writeInventoryCsv(items) {
   const csvRows = [
-    ['Box #', 'Item Name', 'Bill Type', 'Pack', 'Total Units', 'Units Sold', 'Units Left', 'Wholesale Rate (₹)', 'Driving Exp (+10%) (₹)', 'Final Selling Price (3x) (₹)', 'Total 3x Value (₹)', 'Cash Collected (₹)', 'Status']
+    ['Box #', 'Bill S.No', 'Item Name', 'Bill Source', 'Pack Details', 'Total Units', 'Units Sold', 'Units In Stock', 'Wholesale Rate (₹)', 'Landed Cost (+20%) (₹)', 'Final Selling Price (3x) (₹)', 'Total Inventory Value (₹)', 'Cash Collected (₹)', 'Status']
   ];
-  items.forEach(it => {
-    const box = it.sticker_no || '';
+  items.forEach((it, idx) => {
+    const box = it.box_no || (idx + 1);
+    const billSno = it.bill_item_no || (idx + 1);
     const name = it.name || '';
-    const bill = it.bill_type || '';
-    const pack = it.pack_details || '';
+    const bill = it.bill_type === 'pink' ? 'Pink Bill (Chilakaluripet)' : 'White Bill (Nandigama)';
+    const pack = it.pack_details || '1';
     const u = parseInt(it.total_units || 0);
     const s = parseInt(it.units_sold || 0);
     const left = Math.max(0, u - s);
     const rate = parseFloat(it.rate || 0);
-    const c10 = parseFloat(it.rate_plus_10) || Math.round(rate * 1.10 * 100) / 100;
-    const sp = parseFloat(it.selling_price) || Math.round(c10 * 3);
+    const c20 = parseFloat(it.rate_plus_20) || Math.round(rate * 1.20 * 100) / 100;
+    const sp = parseFloat(it.selling_price) || Math.round(c20 * 3);
     const tot_val = Math.round(u * sp);
     const collected = Math.round(s * sp);
     const status = (u > 0 && left === 0) ? 'SOLD OUT' : (s === 0 ? 'IN STOCK' : `${s}/${u} SOLD`);
-    csvRows.push([box, `"${name.replace(/"/g, '""')}"`, bill, `"${pack}"`, u, s, left, rate, c10, sp, tot_val, collected, status]);
+    csvRows.push([box, billSno, `"${name.replace(/"/g, '""')}"`, `"${bill}"`, `"${pack}"`, u, s, left, rate, c20, sp, tot_val, collected, status]);
   });
   const csvContent = csvRows.map(r => r.join(',')).join('\n');
   fs.writeFileSync(path.join(BASE_DIR, 'diwali_inventory.csv'), csvContent, 'utf8');
@@ -77,10 +78,11 @@ const server = http.createServer((req, res) => {
     req.on('end', () => {
       try {
         const parsed = JSON.parse(body);
-        fs.writeFileSync(path.join(BASE_DIR, 'items_data.json'), JSON.stringify(parsed, null, 2), 'utf8');
+        const itemsArray = Array.isArray(parsed) ? parsed : (Array.isArray(parsed.items) ? parsed.items : []);
+        fs.writeFileSync(path.join(BASE_DIR, 'items_data.json'), JSON.stringify(itemsArray, null, 2), 'utf8');
         
         // Write CSV and sync to Google Sheets
-        writeInventoryCsv(parsed);
+        writeInventoryCsv(itemsArray);
         exec(`gsheets mutate import-csv ${SPREADSHEET_ID} diwali_inventory.csv && git add items_data.json diwali_inventory.csv && git commit -m "Auto-sync inventory data & Google Sheets [skip ci]" && git push origin master`, (err, stdout, stderr) => {
           if (err) {
             console.warn('Sync warning:', err.message);
