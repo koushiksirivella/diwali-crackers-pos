@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Diwali Crackers Checklist & Pricing Tracker</title>
+  <title>Diwali Crackers Checklist & Voice Finder</title>
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#0b0f17">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700;800&display=swap" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
@@ -66,6 +66,12 @@
       gap: 6px;
     }
 
+    .header-actions-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
     .progress-pill {
       background: #064e3b;
       border: 1px solid #10b981;
@@ -77,15 +83,16 @@
       border-radius: 999px;
     }
 
-    /* Search Box */
+    /* Search & Voice Bar */
     .search-bar-wrap {
       display: flex;
       align-items: center;
       background: #090d14;
       border: 2px solid #243048;
       border-radius: 12px;
-      padding: 8px 12px;
+      padding: 6px 10px;
       gap: 8px;
+      position: relative;
     }
 
     .search-bar-wrap:focus-within {
@@ -110,6 +117,42 @@
       font-weight: 500;
     }
 
+    /* Voice Recognition Button */
+    .btn-voice-mic {
+      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+      border: 1.5px solid #475569;
+      color: #f1f5f9;
+      border-radius: 10px;
+      padding: 6px 12px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+
+    .btn-voice-mic:hover {
+      border-color: #fbbf24;
+      color: #fbbf24;
+    }
+
+    .btn-voice-mic.listening {
+      background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+      border-color: #f87171;
+      color: #fff;
+      animation: pulseMic 1.2s infinite alternate;
+      box-shadow: 0 0 15px rgba(239, 68, 68, 0.6);
+    }
+
+    @keyframes pulseMic {
+      from { transform: scale(1); }
+      to { transform: scale(1.06); }
+    }
+
     .clear-search-btn {
       background: #1e293b;
       border: none;
@@ -122,6 +165,25 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* Voice Status Banner */
+    .voice-status-banner {
+      display: none;
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      color: #fca5a5;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 8px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .voice-status-banner.active {
+      display: flex;
     }
 
     /* Filter Pills */
@@ -208,6 +270,18 @@
       border-color: #10b981;
     }
 
+    .item-card.voice-matched {
+      border-color: #fbbf24;
+      box-shadow: 0 0 20px rgba(251, 191, 36, 0.35);
+      animation: pulseGlow 1.5s ease;
+    }
+
+    @keyframes pulseGlow {
+      0% { transform: scale(0.98); }
+      50% { transform: scale(1.02); }
+      100% { transform: scale(1); }
+    }
+
     /* Top Row: Checkbox + Number + Name */
     .item-header-row {
       display: flex;
@@ -215,7 +289,6 @@
       gap: 10px;
     }
 
-    /* Custom Checkbox */
     .tick-box-wrap {
       cursor: pointer;
       display: flex;
@@ -305,7 +378,6 @@
       margin-bottom: 3px;
     }
 
-    /* Editable Input Fields */
     .stat-input {
       width: 100%;
       background: #162032;
@@ -325,7 +397,6 @@
       background: #1c283e;
     }
 
-    /* Units Sold Counter (+ / -) */
     .sold-counter-wrap {
       display: flex;
       align-items: center;
@@ -357,7 +428,6 @@
       padding: 4px 2px;
     }
 
-    /* Selling Price Column Highlight */
     .stat-col.sell-col {
       border-left: 1px dashed #243048;
       padding-left: 6px;
@@ -376,7 +446,6 @@
       box-shadow: 0 0 8px rgba(52, 211, 153, 0.4);
     }
 
-    /* Profit Footer Row */
     .item-footer-row {
       display: flex;
       justify-content: space-between;
@@ -396,7 +465,6 @@
       color: #f87171;
     }
 
-    /* Empty state */
     .empty-state {
       text-align: center;
       padding: 40px 10px;
@@ -413,14 +481,29 @@
     <header class="top-header">
       <div class="header-title-row">
         <h1><span>🪔</span> Diwali Box Checklist</h1>
-        <div class="progress-pill" id="header-progress">0 / 94 Ticked</div>
+        <div class="header-actions-group">
+          <div class="progress-pill" id="header-progress">0 / 94 Ticked</div>
+        </div>
       </div>
 
-      <!-- Search Box: e.g. type '46' or 'GLC' -->
+      <!-- Search & Voice Bar -->
       <div class="search-bar-wrap">
         <span style="color: #fbbf24; font-size: 1rem;">🔍</span>
-        <input type="text" id="box-search" placeholder="Search Box # (e.g. 46, 33, P5) or Name..." autocomplete="off">
+        <input type="text" id="box-search" placeholder="Speak or Type Box # (e.g. 46) or Name..." autocomplete="off">
+        
+        <!-- Voice Search Trigger -->
+        <button class="btn-voice-mic" id="btn-voice-search" onclick="toggleVoiceSearch()" title="Say a box number (e.g. '46') or item name (e.g. 'GLC Deluxe')">
+          <span id="mic-icon">🎙️</span>
+          <span id="mic-label">Voice</span>
+        </button>
+
         <button class="clear-search-btn" onclick="clearSearch()">✕</button>
+      </div>
+
+      <!-- Live Voice Status Banner -->
+      <div class="voice-status-banner" id="voice-banner">
+        <span id="voice-status-text">🔴 Listening... Say a number like "46" or item name</span>
+        <button class="clear-search-btn" style="width: 20px; height: 20px; font-size: 0.7rem;" onclick="stopVoiceSearch()">✕</button>
       </div>
 
       <!-- Quick Filter Pills -->
@@ -466,7 +549,58 @@
     let items = [];
     let currentFilter = 'all';
 
-    // Initialize from LocalStorage or Default
+    // Number Words Dictionary for Spoken Recognition
+    const NUMBER_WORDS = {
+      'zero': 0, 'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5,
+      'six': 6, 'seven': 7, 'eight': 8, 'nine': 9, 'ten': 10,
+      'eleven': 11, 'twelve': 12, 'thirteen': 13, 'fourteen': 14, 'fifteen': 15,
+      'sixteen': 16, 'seventeen': 17, 'eighteen': 18, 'nineteen': 19, 'twenty': 20,
+      'thirty': 30, 'forty': 40, 'fifty': 50, 'sixty': 60, 'seventy': 70,
+      'eighty': 80, 'ninety': 90, 'hundred': 100
+    };
+
+    function parseSpokenWords(str) {
+      let clean = str.toLowerCase()
+        .replace(/box\s*number/g, '')
+        .replace(/box/g, '')
+        .replace(/number/g, '')
+        .replace(/item/g, '')
+        .trim();
+
+      // Check pink prefix
+      let hasPink = false;
+      if (clean.includes('pink') || clean.startsWith('p ') || clean.startsWith('p-')) {
+        hasPink = true;
+        clean = clean.replace(/pink/g, '').replace(/p[- ]/g, '').trim();
+      }
+
+      // Check if direct digits exist
+      const digitMatch = clean.match(/\d+/);
+      if (digitMatch) {
+        return (hasPink ? 'P' : '') + digitMatch[0];
+      }
+
+      // Check spoken composite numbers (e.g. "forty six" -> 46)
+      const words = clean.split(/[\s-]+/);
+      let total = 0;
+      let isNumber = false;
+
+      for (let w of words) {
+        if (NUMBER_WORDS[w] !== undefined) {
+          isNumber = true;
+          total += NUMBER_WORDS[w];
+        }
+      }
+
+      if (isNumber && total > 0) {
+        return (hasPink ? 'P' : '') + total.toString();
+      }
+
+      // Return clean name string for name-based lookup
+      return clean;
+    }
+
+    // Init App State
     function init() {
       const saved = localStorage.getItem('diwali_checklist_items_v4');
       if (saved) {
@@ -479,7 +613,6 @@
         items = JSON.parse(JSON.stringify(RAW_ITEMS));
       }
 
-      // Setup Search Listener
       const searchInput = document.getElementById('box-search');
       searchInput.addEventListener('input', (e) => {
         renderList(e.target.value.trim());
@@ -501,19 +634,19 @@
       const q = query.toLowerCase();
 
       let visibleCount = 0;
+      let matchedIndex = -1;
 
       items.forEach((item, index) => {
-        // Filter by Tab
         if (currentFilter === 'pending' && item.verified) return;
         if (currentFilter === 'done' && !item.verified) return;
         if (currentFilter === 'white' && item.bill_type !== 'white') return;
         if (currentFilter === 'pink' && item.bill_type !== 'pink') return;
 
-        // Filter by Search Query
         if (q) {
           const matchNo = item.sticker_no.toLowerCase() === q || item.sticker_no.toLowerCase().includes(q);
           const matchName = item.name.toLowerCase().includes(q);
           if (!matchNo && !matchName) return;
+          if (matchedIndex === -1) matchedIndex = index;
         }
 
         visibleCount++;
@@ -544,17 +677,14 @@
             </div>
           </div>
 
-          <!-- 4 Editable Columns Specified by You -->
+          <!-- 4 Core Columns -->
           <div class="item-stats-grid">
-            
-            <!-- 1. Total Units (How many you have) -->
             <div class="stat-col">
               <span class="lbl">Total Units</span>
               <input type="number" class="stat-input" value="${item.total_units}" 
                 onchange="updateTotalUnits(${index}, this.value)">
             </div>
 
-            <!-- 2. Units Sold (How many you sell) -->
             <div class="stat-col">
               <span class="lbl">Sold Units</span>
               <div class="sold-counter-wrap">
@@ -565,27 +695,24 @@
               </div>
             </div>
 
-            <!-- 3. Wholesale Rate (How much rate you got) -->
             <div class="stat-col">
-              <span class="lbl">Wholesale Rate</span>
+              <span class="lbl">Wholesale</span>
               <div style="font-family: 'JetBrains Mono', monospace; font-weight: 800; font-size: 0.95rem; text-align: center; color: #cbd5e1; padding-top: 4px;">
                 ₹${item.rate}
               </div>
               <span style="font-size: 0.65rem; color: #fbbf24; text-align: center;">+10%: ₹${Math.round(costPlus10)}</span>
             </div>
 
-            <!-- 4. Selling Price (How much you are going to sell) -->
             <div class="stat-col sell-col">
               <span class="lbl" style="color: #34d399;">Sell Price (₹)</span>
               <input type="number" class="stat-input sp-input" value="${item.selling_price || 0}" 
                 onchange="updateSellingPrice(${index}, this.value)">
             </div>
-
           </div>
 
-          <!-- Live Profit & Stock Left Bar -->
+          <!-- Profit & Stock Remaining -->
           <div class="item-footer-row">
-            <span>Left in Stock: <strong>${item.total_units - (item.units_sold || 0)}</strong></span>
+            <span>Remaining: <strong>${item.total_units - (item.units_sold || 0)}</strong></span>
             <span class="profit-text ${profitPerUnit < 0 ? 'negative' : ''}">
               Profit: ${profitPerUnit >= 0 ? '+' : ''}₹${Math.round(profitPerUnit)}/pc (Box: ${totalProfit >= 0 ? '+' : ''}₹${totalProfit.toLocaleString('en-IN')})
             </span>
@@ -599,10 +726,12 @@
         container.innerHTML = `
           <div class="empty-state">
             No box found matching "<strong>${query}</strong>".<br>
-            Try searching a number like <strong>46</strong>, <strong>33</strong>, or <strong>P5</strong>.
+            Say or type a number like <strong>46</strong>, <strong>33</strong>, or a name like <strong>7 shot</strong>, <strong>Hulk</strong>.
           </div>
         `;
       }
+
+      return matchedIndex;
     }
 
     // Checkbox Toggle
@@ -623,7 +752,6 @@
       updateHeaderProgress();
     }
 
-    // Editable Inputs Handlers
     function updateTotalUnits(index, val) {
       items[index].total_units = parseInt(val) || 0;
       saveState();
@@ -668,14 +796,13 @@
 
       const footer = card.querySelector('.item-footer-row');
       footer.innerHTML = `
-        <span>Left in Stock: <strong>${remaining}</strong></span>
+        <span>Remaining: <strong>${remaining}</strong></span>
         <span class="profit-text ${profitPerUnit < 0 ? 'negative' : ''}">
           Profit: ${profitPerUnit >= 0 ? '+' : ''}₹${Math.round(profitPerUnit)}/pc (Box: ${totalProfit >= 0 ? '+' : ''}₹${totalProfit.toLocaleString('en-IN')})
         </span>
       `;
     }
 
-    // Filter Buttons
     function setFilter(filterType) {
       currentFilter = filterType;
       document.querySelectorAll('.f-pill').forEach(btn => btn.classList.remove('active'));
@@ -691,7 +818,6 @@
       renderList('');
     }
 
-    // Header & Summary Metrics
     function updateHeaderProgress() {
       const tickedCount = items.filter(i => i.verified).length;
       document.getElementById('header-progress').textContent = `${tickedCount} / ${items.length} Ticked`;
@@ -713,6 +839,98 @@
       document.getElementById('sum-total-units').textContent = totalUnits.toLocaleString('en-IN');
       document.getElementById('sum-units-sold').textContent = totalSold.toLocaleString('en-IN');
       document.getElementById('sum-total-sales').textContent = '₹' + Math.round(totalSales).toLocaleString('en-IN');
+    }
+
+    // =========================================================================
+    // VOICE RECOGNITION SEARCH ENGINE (Number & Name)
+    // =========================================================================
+    let recognition = null;
+    let isListening = false;
+
+    if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+      const SpeechClass = window.SpeechRecognition || window.webkitSpeechRecognition;
+      recognition = new SpeechClass();
+      recognition.continuous = false;
+      recognition.interimResults = false;
+      recognition.lang = 'en-IN'; // Indian English / Telugu accented English
+
+      recognition.onstart = function() {
+        isListening = true;
+        document.getElementById('btn-voice-search').classList.add('listening');
+        document.getElementById('mic-label').textContent = 'Listening';
+        const banner = document.getElementById('voice-banner');
+        banner.classList.add('active');
+        document.getElementById('voice-status-text').textContent = '🔴 Listening... Say number (e.g. "46") or name (e.g. "7 Shot")';
+      };
+
+      recognition.onresult = function(event) {
+        const transcript = event.results[0][0].transcript;
+        const parsed = parseSpokenWords(transcript);
+        
+        document.getElementById('box-search').value = parsed;
+        const matchedIdx = renderList(parsed);
+
+        stopVoiceSearch();
+
+        if (matchedIdx !== -1) {
+          const matchedItem = items[matchedIdx];
+          const card = document.getElementById(`card-idx-${matchedIdx}`);
+          if (card) {
+            card.classList.add('voice-matched');
+            card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+          // Voice feedback speak back
+          speakVoiceResult(matchedItem);
+        }
+      };
+
+      recognition.onerror = function(event) {
+        console.warn('Speech recognition error:', event.error);
+        stopVoiceSearch();
+      };
+
+      recognition.onend = function() {
+        stopVoiceSearch();
+      };
+    }
+
+    function toggleVoiceSearch() {
+      if (!recognition) {
+        alert("Voice recognition is supported in Chrome, Edge, and Safari on Android & iPhone. Please use a supported browser!");
+        return;
+      }
+
+      if (isListening) {
+        stopVoiceSearch();
+      } else {
+        try {
+          recognition.start();
+        } catch(e) {
+          stopVoiceSearch();
+        }
+      }
+    }
+
+    function stopVoiceSearch() {
+      isListening = false;
+      const btn = document.getElementById('btn-voice-search');
+      if (btn) btn.classList.remove('listening');
+      const label = document.getElementById('mic-label');
+      if (label) label.textContent = 'Voice';
+      const banner = document.getElementById('voice-banner');
+      if (banner) banner.classList.remove('active');
+      if (recognition) {
+        try { recognition.stop(); } catch(e) {}
+      }
+    }
+
+    function speakVoiceResult(item) {
+      if (!('speechSynthesis' in window)) return;
+      window.speechSynthesis.cancel();
+      const text = `${item.name}, Box ${item.sticker_no}, ${item.total_units} units, wholesale rate ₹${item.rate}, selling at ₹${item.selling_price}`;
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.rate = 1.05;
+      window.speechSynthesis.speak(utterance);
     }
 
     window.addEventListener('DOMContentLoaded', init);
