@@ -3,552 +3,537 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Diwali Crackers Financial OS — Live P&L, Excel Spreadsheet & 3x Inventory</title>
+  <title>DIWALI CRACKERS OS // HAOQI ARCHITECTURAL BLUEPRINT [94 SKUs]</title>
   <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#07090e">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#0f1111">
+  
   <!-- SheetJS for Native Excel (.xlsx) Import & Export -->
   <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+
   <style>
-    /* -------------------------------------------------------------------------
-       DESIGN SYSTEM (Inspired by websites/exp: Haoqi, Cutroom, Koushik AI OS)
-       Obsidian canvas, precision micro-lines, tabular numerals, velvet glow.
-       ------------------------------------------------------------------------- */
-    :root {
-      --bg: #07090e;
-      --bg-surface: #0d111a;
-      --bg-elevated: #131926;
-      --bg-card: rgba(13, 17, 26, 0.82);
-      --bg-glass: rgba(19, 25, 38, 0.65);
-      
-      --border: rgba(255, 255, 255, 0.08);
-      --border-subtle: rgba(255, 255, 255, 0.04);
-      --border-focus: #fbbf24;
-      
-      --text-1: #f8fafc;
-      --text-2: #cbd5e1;
-      --text-3: #94a3b8;
-      --text-dim: #64748b;
-      
-      --gold: #f59e0b;
-      --gold-bright: #fbbf24;
-      --gold-glow: rgba(245, 158, 11, 0.22);
-      
-      --emerald: #10b981;
-      --emerald-bright: #34d399;
-      --emerald-glow: rgba(16, 185, 129, 0.2);
-      
-      --rose: #f43f5e;
-      --rose-bright: #f87171;
-      --rose-glow: rgba(244, 63, 94, 0.2);
-      
-      --cyan: #0ea5e9;
-      --cyan-bright: #38bdf8;
-      
-      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-      --font-mono: 'JetBrains Mono', monospace;
-      
-      --radius-sm: 8px;
-      --radius-md: 12px;
-      --radius-lg: 18px;
-      --radius-full: 9999px;
-      
-      --shadow-soft: 0 16px 40px -12px rgba(0, 0, 0, 0.85);
-      --shadow-glow: 0 0 25px -5px rgba(245, 158, 11, 0.18);
+    /* =========================================================================
+       HAOQI ARCHITECTURAL BLUEPRINT DESIGN SYSTEM (01 root in websites/exp)
+       Self-hosted TikTok Sans, Geist Mono, Departure Mono.
+       12-column precision grid, 4-step opacity hierarchy, dotted hover hits,
+       acid lime selection, razor hairline borders, raw technical confidence.
+       ========================================================================= */
+
+    @font-face {
+      font-family: 'TikTok Sans';
+      src: url('assets/fonts/TikTokSans.ttf') format('truetype-variations');
+      font-weight: 100 900;
+      font-stretch: 75% 125%;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Geist Mono';
+      src: url('assets/fonts/GeistMono.ttf') format('truetype-variations');
+      font-weight: 100 900;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Departure Mono';
+      src: url('assets/fonts/DepartureMono-Regular.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
     }
 
-    * {
+    :root {
+      --font-sans: 'TikTok Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+      --font-mono-2: 'Departure Mono', 'Geist Mono', ui-monospace, monospace;
+
+      color-scheme: dark;
+      --label: 255, 255, 255;
+      --label-d: 230, 232, 232;
+      --background-deep: 15, 17, 17; /* #0f1111 Haoqi dark mode */
+      --background-elevated: #181b1b;
+      --background-card: #131515;
+
+      --label-1: rgba(var(--label), 1);
+      --label-2: rgba(var(--label-d), 0.65);
+      --label-3: rgba(var(--label-d), 0.35);
+      --label-4: rgba(var(--label-d), 0.16);
+      
+      --line: rgba(var(--label-d), 0.1);
+      --line-strong: rgba(var(--label-d), 0.24);
+
+      --selection-bg: #c0fe04; /* Haoqi signature acid lime */
+      --accent-gold: #f59e0b;
+      --accent-mint: #34d399;
+      --accent-rose: #f87171;
+      --accent-cyan: #38bdf8;
+
+      --cubic-66: cubic-bezier(0.66, 0, 0.01, 1);
+      --grid-pad: clamp(10px, 2.5vw, 32px);
+    }
+
+    *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: var(--font-sans);
       -webkit-tap-highlight-color: transparent;
     }
 
+    ::selection {
+      background: var(--selection-bg);
+      color: #000;
+    }
+
     body {
-      background: var(--bg);
-      background-image: 
-        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(245, 158, 11, 0.08), transparent 70%),
-        radial-gradient(ellipse 60% 40% at 100% 20%, rgba(16, 185, 129, 0.05), transparent 60%);
-      color: var(--text-1);
+      background: rgb(var(--background-deep));
+      color: var(--label-1);
+      font-family: var(--font-sans);
+      font-size: 14px;
+      line-height: 1.45;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 10px 10px 90px 10px;
+      padding: 8px 8px 80px 8px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: 24px 24px;
     }
 
-    .app-shell {
+    .shell {
       width: 100%;
-      max-width: 1440px;
+      max-width: 1420px;
       display: flex;
       flex-direction: column;
       gap: 12px;
     }
 
     /* -------------------------------------------------------------------------
-       STICKY COMMAND HEADER & FINANCIAL TELEMETRY HUD
+       HAOQI PRIMITIVES: .mono, .mono-2, .hit, .display, .tnum, .up
        ------------------------------------------------------------------------- */
-    .command-header {
-      background: rgba(13, 17, 26, 0.92);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 12px 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      position: sticky;
-      top: 8px;
-      z-index: 90;
-      box-shadow: var(--shadow-soft);
+    .mono   { font-family: var(--font-mono); }
+    .mono-2 { font-family: var(--font-mono-2); }
+    .up     { text-transform: uppercase; }
+    .tnum   { font-variant-numeric: tabular-nums; }
+
+    .display {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 1;
+      font-variation-settings: 'wght' 700, 'wdth' 120;
     }
 
-    .top-meta-row {
+    /* The dotted hover box from Haoqi site.css */
+    .hit {
+      position: relative;
+      cursor: pointer;
+      pointer-events: auto;
+    }
+    .hit::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border: 1.5px dotted transparent;
+      pointer-events: none;
+      transition: border-color .15s ease;
+      border-radius: 4px;
+    }
+    @media (hover: hover) {
+      .hit:hover::before { border-color: var(--selection-bg); }
+    }
+    .hit:active::before { border-color: var(--selection-bg); }
+
+    /* -------------------------------------------------------------------------
+       STICKY TOP BLUEPRINT CHROME (Header & Telemetry HUD)
+       ------------------------------------------------------------------------- */
+    .blueprint-header {
+      background: rgba(15, 17, 17, 0.94);
+      border: 1px solid var(--line-strong);
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      position: sticky;
+      top: 6px;
+      z-index: 80;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .blueprint-top-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 12px;
       flex-wrap: wrap;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 10px;
     }
 
-    .brand-group {
+    .header-ident {
       display: flex;
-      align-items: center;
-      gap: 10px;
+      align-items: baseline;
+      gap: 8px;
     }
 
-    .brand-icon {
-      width: 36px;
-      height: 36px;
-      background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(244, 63, 94, 0.15));
-      border: 1px solid rgba(245, 158, 11, 0.4);
-      border-radius: 10px;
-      display: grid;
-      place-items: center;
-      font-size: 1.15rem;
-    }
-
-    .brand-text h1 {
-      font-size: 1.05rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .brand-text .subtext {
-      font-size: 0.68rem;
-      font-family: var(--font-mono);
-      color: var(--text-dim);
-      text-transform: uppercase;
+    .header-ident .code-tag {
+      font-family: var(--font-mono-2);
+      font-size: 0.72rem;
+      color: var(--selection-bg);
+      background: rgba(192, 254, 4, 0.1);
+      padding: 2px 6px;
+      border: 1px solid rgba(192, 254, 4, 0.3);
       letter-spacing: 0.05em;
     }
 
-    .status-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 3px 9px;
-      border-radius: var(--radius-full);
-      background: rgba(16, 185, 129, 0.12);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      font-size: 0.72rem;
-      font-weight: 700;
-      color: var(--emerald-bright);
+    .header-ident h1 {
+      font-family: var(--font-sans);
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      font-variation-settings: 'wght' 800, 'wdth' 115;
+    }
+
+    .header-ident .meta {
       font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--label-3);
     }
 
-    .status-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--emerald-bright);
-      box-shadow: 0 0 10px var(--emerald-bright);
-      animation: pulseDot 2s infinite ease-in-out;
-    }
-
-    @keyframes pulseDot {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(0.85); }
-    }
-
-    .top-actions-group {
+    .header-controls {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       flex-wrap: wrap;
     }
 
-    .btn-pill {
-      background: var(--bg-elevated);
-      border: 1px solid var(--border);
-      color: var(--text-2);
-      font-size: 0.76rem;
-      font-weight: 700;
+    /* HAOQI BLUEPRINT BUTTONS */
+    .btn-bp {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: var(--background-elevated);
+      border: 1px solid var(--line);
+      color: var(--label-2);
       padding: 6px 12px;
-      border-radius: var(--radius-sm);
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      transition: all 0.15s cubic-bezier(0.66, 0, 0.01, 1);
+      transition: all .15s ease;
     }
-
-    .btn-pill:hover {
-      border-color: var(--gold-bright);
-      color: #fff;
-      background: rgba(245, 158, 11, 0.1);
+    .btn-bp:hover {
+      color: var(--label-1);
+      border-color: var(--label-1);
+      background: rgba(255, 255, 255, 0.06);
     }
-
-    .btn-pill.primary {
-      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    .btn-bp.accent {
+      background: var(--selection-bg);
       color: #000;
-      border-color: var(--gold-bright);
-      font-weight: 800;
+      border-color: var(--selection-bg);
+      font-weight: 700;
     }
-    .btn-pill.primary:hover {
+    .btn-bp.accent:hover {
       filter: brightness(1.1);
     }
 
-    .btn-pill.sync-ok {
-      background: rgba(16, 185, 129, 0.15);
-      border-color: var(--emerald);
-      color: var(--emerald-bright);
-    }
-
-    /* TELEMETRY HUD TILES (5-cell financial matrix) */
-    .telemetry-grid {
+    /* -------------------------------------------------------------------------
+       5-TIER TELEMETRY HUD (The core financial telemetry numbers)
+       ------------------------------------------------------------------------- */
+    .telemetry-row {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 8px;
     }
-
     @media (max-width: 1024px) {
-      .telemetry-grid { grid-template-columns: repeat(3, 1fr); }
+      .telemetry-row { grid-template-columns: repeat(3, 1fr); }
     }
     @media (max-width: 640px) {
-      .telemetry-grid { grid-template-columns: repeat(2, 1fr); }
+      .telemetry-row { grid-template-columns: repeat(2, 1fr); }
     }
 
-    .hud-cell {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 8px 12px;
+    .hud-block {
+      background: var(--background-card);
+      border: 1px solid var(--line);
+      padding: 8px 10px;
       display: flex;
       flex-direction: column;
       gap: 2px;
-      transition: border-color 0.2s;
     }
 
-    .hud-cell:hover {
-      border-color: rgba(255, 255, 255, 0.16);
-    }
-
-    .hud-label {
+    .hud-block .hud-tag {
+      font-family: var(--font-mono-2);
       font-size: 0.62rem;
-      font-weight: 800;
+      color: var(--label-3);
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      color: var(--text-dim);
+      display: flex;
+      justify-content: space-between;
     }
 
-    .hud-value {
-      font-size: 1.05rem;
-      font-weight: 900;
+    .hud-block .hud-num {
       font-family: var(--font-mono);
+      font-size: 1.15rem;
+      font-weight: 700;
       letter-spacing: -0.02em;
       font-variant-numeric: tabular-nums;
-      color: #fff;
+      color: var(--label-1);
     }
 
-    .hud-sub {
+    .hud-block .hud-footer {
+      font-family: var(--font-mono);
       font-size: 0.65rem;
-      color: var(--text-3);
+      color: var(--label-3);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
 
     /* -------------------------------------------------------------------------
-       SEGMENTED NAVIGATION CONTROLS
+       SEGMENTED BLUEPRINT NAVIGATION TABS
        ------------------------------------------------------------------------- */
-    .nav-ribbon {
+    .bp-nav {
       display: flex;
-      gap: 6px;
-      background: var(--bg);
-      padding: 4px;
-      border-radius: var(--radius-md);
-      border: 1px solid var(--border);
+      gap: 4px;
+      background: var(--background-card);
+      border: 1px solid var(--line);
+      padding: 3px;
       overflow-x: auto;
       scrollbar-width: none;
     }
-    .nav-ribbon::-webkit-scrollbar { display: none; }
+    .bp-nav::-webkit-scrollbar { display: none; }
 
-    .nav-tab {
+    .bp-tab {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
       background: transparent;
-      border: none;
-      color: var(--text-3);
-      font-size: 0.78rem;
-      font-weight: 700;
-      padding: 8px 14px;
-      border-radius: var(--radius-sm);
+      border: 1px solid transparent;
+      color: var(--label-3);
+      padding: 7px 12px;
       cursor: pointer;
       display: flex;
       align-items: center;
       gap: 6px;
       white-space: nowrap;
-      transition: all 0.15s;
+      transition: all 0.15s ease;
     }
 
-    .nav-tab:hover {
-      color: #fff;
-      background: rgba(255, 255, 255, 0.04);
+    .bp-tab:hover {
+      color: var(--label-1);
+      background: rgba(255, 255, 255, 0.03);
     }
 
-    .nav-tab.active {
-      background: var(--bg-elevated);
-      color: var(--gold-bright);
-      border: 1px solid rgba(245, 158, 11, 0.35);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    .bp-tab.active {
+      background: var(--background-elevated);
+      color: var(--selection-bg);
+      border-color: rgba(192, 254, 4, 0.35);
     }
 
-    .nav-tab .badge {
+    .bp-tab .badge {
+      font-family: var(--font-mono-2);
       font-size: 0.65rem;
-      font-family: var(--font-mono);
-      padding: 1px 6px;
-      border-radius: 999px;
+      padding: 1px 5px;
       background: rgba(255, 255, 255, 0.08);
-      color: inherit;
+      color: var(--label-2);
+    }
+    .bp-tab.active .badge {
+      background: rgba(192, 254, 4, 0.2);
+      color: var(--selection-bg);
     }
 
     /* -------------------------------------------------------------------------
-       SEARCH & VOICE DISCOVERY BAR
+       TECHNICAL SEARCH & VOICE DISCOVERY BAR
        ------------------------------------------------------------------------- */
-    .discovery-bar {
+    .search-telemetry-bar {
       display: flex;
       align-items: center;
-      background: var(--bg);
-      border: 1.5px solid var(--border);
-      border-radius: var(--radius-md);
+      background: var(--background-card);
+      border: 1px solid var(--line);
       padding: 6px 12px;
-      gap: 10px;
+      gap: 8px;
     }
 
-    .discovery-bar:focus-within {
-      border-color: var(--gold-bright);
-      box-shadow: var(--shadow-glow);
+    .search-telemetry-bar:focus-within {
+      border-color: var(--selection-bg);
     }
 
-    .discovery-bar input {
+    .search-telemetry-bar input {
       width: 100%;
       background: transparent;
       border: none;
-      color: #fff;
+      color: var(--label-1);
+      font-family: var(--font-mono);
       font-size: 0.95rem;
       font-weight: 600;
       outline: none;
-      font-family: var(--font-mono);
     }
 
-    .discovery-bar input::placeholder {
+    .search-telemetry-bar input::placeholder {
       font-family: var(--font-sans);
       font-size: 0.82rem;
-      color: var(--text-dim);
-      font-weight: 500;
+      color: var(--label-3);
     }
 
-    .btn-mic-trigger {
-      background: var(--bg-elevated);
-      border: 1px solid var(--border);
-      color: var(--text-2);
-      border-radius: var(--radius-sm);
-      padding: 5px 10px;
-      font-size: 0.74rem;
+    .btn-voice-tech {
+      background: var(--background-elevated);
+      border: 1px solid var(--line);
+      color: var(--label-2);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
       font-weight: 700;
+      padding: 4px 10px;
       cursor: pointer;
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: 5px;
-      flex-shrink: 0;
-      transition: all 0.2s;
+      gap: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
     }
 
-    .btn-mic-trigger.listening {
-      background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
-      border-color: #fca5a5;
+    .btn-voice-tech.listening {
+      background: #dc2626;
+      border-color: #f87171;
       color: #fff;
       animation: pulseMic 1.2s infinite alternate;
     }
 
     @keyframes pulseMic {
-      from { transform: scale(1); }
-      to { transform: scale(1.06); }
+      from { opacity: 1; }
+      to { opacity: 0.45; }
     }
-
-    .voice-ticker {
-      display: none;
-      background: rgba(239, 68, 68, 0.12);
-      border: 1px solid rgba(239, 68, 68, 0.35);
-      border-radius: var(--radius-sm);
-      padding: 6px 12px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: #fca5a5;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .voice-ticker.active { display: flex; }
 
     /* -------------------------------------------------------------------------
-       CARD CONTAINERS & PANELS
+       BLUEPRINT PANELS & CARDS
        ------------------------------------------------------------------------- */
-    .tab-view {
+    .tab-section {
       display: none;
       flex-direction: column;
-      gap: 14px;
+      gap: 12px;
     }
-    .tab-view.active { display: flex; }
+    .tab-section.active { display: flex; }
 
-    .glass-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 18px 20px;
+    .bp-card {
+      background: var(--background-card);
+      border: 1px solid var(--line);
+      padding: 16px 18px;
       display: flex;
       flex-direction: column;
-      gap: 14px;
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      gap: 12px;
+      position: relative;
     }
 
-    .card-header-line {
+    .bp-card-head {
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: baseline;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 8px;
       gap: 10px;
       flex-wrap: wrap;
     }
 
-    .card-header-line h2 {
-      font-size: 1rem;
-      font-weight: 800;
-      color: #fff;
+    .bp-card-head h2 {
+      font-family: var(--font-mono-2);
+      font-size: 0.86rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--label-1);
       display: flex;
       align-items: center;
-      gap: 8px;
-      letter-spacing: -0.01em;
+      gap: 6px;
     }
 
-    .card-header-line p {
-      font-size: 0.75rem;
-      color: var(--text-3);
+    .bp-card-head .coord {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--label-3);
     }
 
     /* -------------------------------------------------------------------------
-       EXECUTIVE 4 QUESTIONS KPI SUITE
+       EXECUTIVE 4 QUESTIONS: ARCHITECTURAL MATRIX
        ------------------------------------------------------------------------- */
-    .quad-grid {
+    .bp-quad-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
+      gap: 10px;
     }
     @media (max-width: 768px) {
-      .quad-grid { grid-template-columns: 1fr; }
+      .bp-quad-grid { grid-template-columns: 1fr; }
     }
 
-    .quad-card {
-      background: var(--bg);
-      border: 1.5px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 16px;
+    .bp-quad-box {
+      background: rgba(255, 255, 255, 0.015);
+      border: 1px solid var(--line);
+      padding: 14px 16px;
       display: flex;
       flex-direction: column;
-      gap: 6px;
-      position: relative;
-      overflow: hidden;
+      gap: 4px;
+      border-left: 3px solid var(--line-strong);
     }
+    .bp-quad-box.exp { border-left-color: var(--accent-rose); }
+    .bp-quad-box.need { border-left-color: var(--accent-gold); }
+    .bp-quad-box.loss { border-left-color: #ef4444; }
+    .bp-quad-box.profit { border-left-color: var(--selection-bg); }
 
-    .quad-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-    }
-    .quad-card.expenses::before { background: var(--rose-bright); }
-    .quad-card.sales::before { background: var(--gold-bright); }
-    .quad-card.loss::before { background: var(--rose); }
-    .quad-card.profit::before { background: var(--emerald-bright); }
-
-    .quad-eyebrow {
-      font-size: 0.68rem;
-      font-weight: 800;
+    .bp-quad-tag {
+      font-family: var(--font-mono-2);
+      font-size: 0.65rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
+      color: var(--label-3);
     }
 
-    .quad-hero {
-      font-size: 1.6rem;
-      font-weight: 900;
+    .bp-quad-hero {
       font-family: var(--font-mono);
+      font-size: 1.7rem;
+      font-weight: 700;
       letter-spacing: -0.03em;
       font-variant-numeric: tabular-nums;
     }
 
-    .quad-desc {
-      font-size: 0.75rem;
-      color: var(--text-3);
+    .bp-quad-desc {
+      font-size: 0.74rem;
+      color: var(--label-2);
       line-height: 1.45;
     }
 
-    /* BREAK-EVEN PROGRESS METER */
-    .meter-box {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 14px 16px;
+    /* BREAK-EVEN RECOVERY METER */
+    .recovery-strip {
+      background: rgba(255, 255, 255, 0.015);
+      border: 1px solid var(--line);
+      padding: 12px 14px;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 6px;
     }
 
-    .meter-label-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.78rem;
-      font-weight: 800;
-    }
-
-    .meter-track {
+    .recovery-bar-bg {
       width: 100%;
-      height: 14px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-full);
-      overflow: hidden;
+      height: 8px;
+      background: var(--background-deep);
+      border: 1px solid var(--line);
       position: relative;
     }
 
-    .meter-bar {
+    .recovery-bar-fill {
       height: 100%;
       width: 0%;
-      background: linear-gradient(90deg, #f59e0b 0%, #10b981 100%);
-      transition: width 0.4s cubic-bezier(0.66, 0, 0.01, 1);
+      background: var(--selection-bg);
+      transition: width 0.4s var(--cubic-66);
     }
 
     /* -------------------------------------------------------------------------
        TRUE EXCEL-STYLE INTERACTIVE DATA SPREADSHEET (94 Items)
        ------------------------------------------------------------------------- */
-    .spreadsheet-toolbar {
+    .bp-table-toolbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -556,505 +541,396 @@
       flex-wrap: wrap;
     }
 
-    .pill-filter-group {
+    .bp-filter-pills {
       display: flex;
-      gap: 5px;
+      gap: 4px;
       overflow-x: auto;
       scrollbar-width: none;
     }
-    .pill-filter-group::-webkit-scrollbar { display: none; }
+    .bp-filter-pills::-webkit-scrollbar { display: none; }
 
-    .tbl-pill {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      color: var(--text-3);
-      font-size: 0.72rem;
-      font-weight: 700;
-      padding: 4px 10px;
-      border-radius: var(--radius-sm);
+    .bp-f-btn {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      background: var(--background-elevated);
+      border: 1px solid var(--line);
+      color: var(--label-3);
+      padding: 4px 8px;
       cursor: pointer;
       white-space: nowrap;
     }
-    .tbl-pill.active {
-      background: var(--gold-bright);
+    .bp-f-btn.active {
+      background: var(--label-1);
       color: #000;
-      border-color: var(--gold-bright);
+      border-color: var(--label-1);
     }
 
-    .spreadsheet-container {
+    .bp-table-wrap {
       width: 100%;
       overflow-x: auto;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      background: var(--bg);
+      border: 1px solid var(--line);
+      background: var(--background-deep);
     }
 
-    .excel-table {
+    .bp-table {
       width: 100%;
       border-collapse: collapse;
+      font-family: var(--font-mono);
       font-size: 0.78rem;
+      font-variant-numeric: tabular-nums;
       min-width: 1100px;
     }
 
-    .excel-table th {
-      background: #0b0f17;
-      color: var(--text-3);
-      font-size: 0.66rem;
-      font-weight: 800;
+    .bp-table th {
+      background: #101212;
+      color: var(--label-3);
+      font-family: var(--font-mono-2);
+      font-size: 0.65rem;
+      font-weight: 400;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      padding: 10px 8px;
+      padding: 8px 6px;
       text-align: left;
-      border-bottom: 1.5px solid var(--border);
+      border-bottom: 1px solid var(--line-strong);
+      border-right: 1px solid var(--line);
       position: sticky;
       top: 0;
       z-index: 10;
-      user-select: none;
     }
 
-    .excel-table th.num, .excel-table td.num {
+    .bp-table th.num, .bp-table td.num {
       text-align: right;
     }
 
-    .excel-table td {
-      padding: 6px 6px;
-      border-bottom: 1px solid var(--border-subtle);
-      border-right: 1px solid var(--border-subtle);
+    .bp-table td {
+      padding: 4px 6px;
+      border-bottom: 1px solid var(--line);
+      border-right: 1px solid var(--line);
       vertical-align: middle;
-      color: var(--text-2);
+      color: var(--label-2);
     }
 
-    .excel-table tr:hover td {
+    .bp-table tr:hover td {
       background: rgba(255, 255, 255, 0.02);
     }
 
-    .excel-table tr.row-verified td {
-      background: rgba(16, 185, 129, 0.03);
+    .bp-table tr.ticked-row td {
+      background: rgba(192, 254, 4, 0.02);
     }
 
-    .excel-table tr.row-has-sold td {
-      background: rgba(14, 165, 233, 0.04);
+    .bp-table tr.sold-row td {
+      background: rgba(56, 189, 248, 0.03);
     }
 
     /* INLINE SPREADSHEET CELL INPUT */
-    .cell-input {
+    .bp-cell-input {
       width: 100%;
       background: transparent;
       border: 1px solid transparent;
-      border-radius: 4px;
-      padding: 4px 6px;
       color: inherit;
-      font-size: inherit;
       font-family: inherit;
+      font-size: inherit;
+      padding: 3px 4px;
       outline: none;
-      transition: background 0.15s, border-color 0.15s;
+      transition: background 0.1s, border-color 0.1s;
     }
 
-    .cell-input:focus {
-      background: #141b28;
-      border-color: var(--gold-bright);
+    .bp-cell-input:focus {
+      background: #1c1f1f;
+      border-color: var(--selection-bg);
       color: #fff;
-      box-shadow: 0 0 8px rgba(245, 158, 11, 0.35);
     }
 
-    .cell-input.num-cell {
+    .bp-cell-input.num-in {
       text-align: right;
-      font-family: var(--font-mono);
+      font-weight: 600;
+    }
+
+    .bp-cell-input.sp-in {
+      color: var(--selection-bg);
       font-weight: 700;
+      background: rgba(192, 254, 4, 0.06);
+    }
+    .bp-cell-input.sp-in:focus {
+      background: rgba(192, 254, 4, 0.15);
     }
 
-    .cell-input.sp-cell {
-      color: var(--emerald-bright);
-      font-weight: 800;
-      background: rgba(16, 185, 129, 0.08);
-      border-color: rgba(16, 185, 129, 0.25);
-    }
-    .cell-input.sp-cell:focus {
-      background: rgba(16, 185, 129, 0.2);
-      border-color: var(--emerald-bright);
-    }
-
-    .badge-tag {
-      display: inline-block;
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-family: var(--font-mono);
-      font-weight: 800;
-      font-size: 0.72rem;
-      letter-spacing: -0.02em;
-    }
-    .badge-tag.white { background: rgba(255, 255, 255, 0.12); color: #fff; }
-    .badge-tag.pink { background: rgba(244, 63, 94, 0.2); color: var(--rose-bright); border: 1px solid rgba(244, 63, 94, 0.4); }
-
-    .stepper-mini {
+    .stepper-tech {
       display: inline-flex;
       align-items: center;
-      gap: 2px;
+      gap: 1px;
     }
 
-    .btn-step-mini {
-      width: 22px;
-      height: 24px;
-      background: var(--bg-elevated);
-      border: 1px solid var(--border);
-      color: var(--text-2);
-      border-radius: 4px;
+    .btn-step-tech {
+      width: 20px;
+      height: 22px;
+      background: var(--background-elevated);
+      border: 1px solid var(--line);
+      color: var(--label-2);
       cursor: pointer;
       display: grid;
       place-items: center;
-      font-size: 0.8rem;
-      font-weight: 800;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
     }
-    .btn-step-mini:active {
-      background: var(--gold-bright);
+    .btn-step-tech:active {
+      background: var(--selection-bg);
       color: #000;
     }
 
+    .badge-bp {
+      font-family: var(--font-mono-2);
+      font-size: 0.68rem;
+      padding: 1px 5px;
+      display: inline-block;
+      letter-spacing: -0.02em;
+    }
+    .badge-bp.white { border: 1px solid var(--line-strong); color: #fff; }
+    .badge-bp.pink { border: 1px solid rgba(248, 113, 113, 0.4); color: var(--accent-rose); background: rgba(248, 113, 113, 0.1); }
+
     /* -------------------------------------------------------------------------
-       MOBILE CARD SCANNER & CHECKLIST
+       MOBILE CARDS SCANNER
        ------------------------------------------------------------------------- */
-    .mobile-cards-wrap {
+    .mobile-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 10px;
+      gap: 8px;
     }
 
-    .box-card {
-      background: var(--bg-surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
+    .m-card {
+      background: var(--background-card);
+      border: 1px solid var(--line);
       padding: 12px;
       display: flex;
       flex-direction: column;
       gap: 8px;
-      position: relative;
-      transition: all 0.2s;
     }
-
-    .box-card.is-ticked {
-      border-color: var(--emerald);
-      background: rgba(16, 185, 129, 0.04);
-    }
-
-    .box-card.has-sales {
-      border-color: var(--cyan);
-    }
-
-    .box-card.voice-active {
-      border-color: var(--gold-bright);
-      box-shadow: 0 0 25px var(--gold-glow);
-    }
-
-    .box-card-top {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .tick-checkbox {
-      width: 24px;
-      height: 24px;
-      border-radius: 6px;
-      border: 2px solid #475569;
-      background: var(--bg);
-      display: grid;
-      place-items: center;
-      cursor: pointer;
-      font-weight: 900;
-      color: transparent;
-      flex-shrink: 0;
-    }
-    .box-card.is-ticked .tick-checkbox {
-      background: var(--emerald);
-      border-color: var(--emerald);
-      color: #000;
-    }
+    .m-card.is-ticked { border-color: rgba(192, 254, 4, 0.4); }
+    .m-card.has-sold { border-color: rgba(56, 189, 248, 0.4); }
+    .m-card.voice-active { border-color: var(--selection-bg); box-shadow: 0 0 18px rgba(192, 254, 4, 0.25); }
 
     /* -------------------------------------------------------------------------
-       EXPENSES & FORMULA TILES
+       ITEMIZED EXPENSES LEDGER ROWS
        ------------------------------------------------------------------------- */
-    .formula-banner {
-      background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(13, 17, 26, 0.95) 100%);
-      border: 1px solid rgba(245, 158, 11, 0.3);
-      border-radius: var(--radius-md);
-      padding: 12px 16px;
+    .exp-item-row {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .formula-inputs {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .formula-box {
-      display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      padding: 4px 8px;
-      border-radius: var(--radius-sm);
-      font-size: 0.74rem;
-      font-weight: 700;
-      color: var(--text-2);
+      background: rgba(255, 255, 255, 0.015);
+      border: 1px solid var(--line);
+      padding: 6px 10px;
     }
 
-    .formula-box input {
-      width: 50px;
-      background: var(--bg-elevated);
-      border: 1px solid var(--border);
-      color: var(--gold-bright);
-      font-family: var(--font-mono);
-      font-weight: 800;
-      text-align: center;
-      border-radius: 4px;
-      padding: 2px 4px;
-      outline: none;
-    }
-
-    /* EXPENSE ROWS */
-    .expense-line {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 8px 12px;
-    }
-
-    .expense-line input[type="text"] {
+    .exp-item-row input[type="text"] {
       flex: 1;
       background: transparent;
       border: 1px solid transparent;
-      color: #fff;
-      font-weight: 600;
+      color: var(--label-1);
+      font-family: var(--font-sans);
       font-size: 0.82rem;
-      outline: none;
+      font-weight: 500;
       padding: 2px 4px;
-      border-radius: 4px;
-    }
-    .expense-line input[type="text"]:focus {
-      background: var(--bg-elevated);
-      border-color: var(--gold-bright);
-    }
-
-    .expense-line input[type="number"] {
-      width: 110px;
-      background: var(--bg-elevated);
-      border: 1px solid var(--border);
-      color: var(--rose-bright);
-      font-family: var(--font-mono);
-      font-weight: 800;
-      font-size: 0.9rem;
-      text-align: right;
-      padding: 4px 8px;
-      border-radius: 4px;
       outline: none;
     }
-
-    .btn-del {
-      background: transparent;
-      border: none;
-      color: var(--text-dim);
-      font-size: 0.9rem;
-      cursor: pointer;
-      padding: 4px;
+    .exp-item-row input[type="text"]:focus {
+      background: var(--background-elevated);
+      border-color: var(--selection-bg);
     }
-    .btn-del:hover { color: var(--rose-bright); }
+
+    .exp-item-row input[type="number"] {
+      width: 105px;
+      background: var(--background-elevated);
+      border: 1px solid var(--line);
+      color: var(--accent-rose);
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-align: right;
+      padding: 3px 6px;
+      outline: none;
+    }
   </style>
 </head>
 <body>
 
-  <div class="app-shell">
+  <div class="shell">
 
     <!-- ===================================================================
-         STICKY TOP HUD & TELEMETRY
+         BLUEPRINT HEADER & TELEMETRY HUD
          =================================================================== -->
-    <header class="command-header">
-      <div class="top-meta-row">
-        <div class="brand-group">
-          <div class="brand-icon">🪔</div>
-          <div class="brand-text">
-            <h1>Diwali Crackers OS <span style="font-size:0.75rem; color:var(--gold-bright); font-weight:700;">PRO</span></h1>
-            <div class="subtext">Seasonal Inventory &amp; Live Financial Command Center</div>
-          </div>
-          <div class="status-badge">
-            <span class="status-dot"></span>
-            <span id="sync-hud-status">LIVE SYNCED</span>
-          </div>
+    <header class="blueprint-header">
+      <div class="blueprint-top-bar">
+        <div class="header-ident">
+          <span class="code-tag mono-2">[SYS-01 // NANDIGAMA]</span>
+          <h1 class="display">Diwali Crackers OS</h1>
+          <span class="meta mono">[94 SKUs // CHILAKALURIPET]</span>
         </div>
 
-        <div class="top-actions-group">
-          <button class="btn-pill" onclick="exportNativeExcel()" title="Download as Native .xlsx Spreadsheet">
-            📊 Export .xlsx
+        <div class="header-controls">
+          <button class="btn-bp hit" onclick="exportNativeExcel()" title="Export real .xlsx spreadsheet">
+            [EXPORT .XLSX]
           </button>
-          <label class="btn-pill" style="cursor:pointer;" title="Import your custom Excel or CSV sheet">
-            📥 Import .xlsx/.csv
+          <label class="btn-bp hit" style="cursor:pointer;" title="Import custom Excel or CSV">
+            [IMPORT .XLSX/.CSV]
             <input type="file" accept=".xlsx,.xls,.csv" style="display:none;" onchange="importSpreadsheetFile(event)">
           </label>
-          <button class="btn-pill primary" onclick="addNewProduct()" title="Add custom box">
-            ➕ Add Box
+          <button class="btn-bp accent hit" onclick="addNewProduct()" title="Add custom box">
+            [+ ADD BOX]
           </button>
-          <button class="btn-pill" id="btn-cloud-sync" onclick="syncDataToServer(true)">
-            ☁️ Save &amp; Push
+          <button class="btn-bp hit" id="btn-cloud-sync" onclick="syncDataToServer(true)">
+            [CLOUD SYNC]
           </button>
         </div>
       </div>
 
-      <!-- ALWAYS-VISIBLE 5-METRIC FINANCIAL TELEMETRY HUD -->
-      <div class="telemetry-grid">
-        <div class="hud-cell">
-          <span class="hud-label">1. Total Expenses</span>
-          <span class="hud-value" style="color:var(--rose-bright);" id="hud-total-expenses">₹4,07,218</span>
-          <span class="hud-sub" id="hud-exp-sub">Stock ₹3.32L + Shed ₹74.7K</span>
+      <!-- 5-TIER TELEMETRY HUD -->
+      <div class="telemetry-row">
+        <div class="hud-block">
+          <div class="hud-tag"><span>[01] TOTAL CAPITAL OUTLAY</span><span>EXP</span></div>
+          <div class="hud-num tnum" style="color:var(--accent-rose);" id="hud-total-expenses">₹4,07,218</div>
+          <div class="hud-footer mono" id="hud-exp-sub">Stock ₹3.32L + Shed ₹74.7K</div>
         </div>
 
-        <div class="hud-cell">
-          <span class="hud-label">2. Sales Collected</span>
-          <span class="hud-value" style="color:var(--cyan-bright);" id="hud-sales-collected">₹0</span>
-          <span class="hud-sub" id="hud-units-sub">0 / 3,925 units sold</span>
+        <div class="hud-block">
+          <div class="hud-tag"><span>[02] CASH IN HAND</span><span>REV</span></div>
+          <div class="hud-num tnum" style="color:var(--accent-cyan);" id="hud-sales-collected">₹0</div>
+          <div class="hud-footer mono" id="hud-units-sub">0 / 3,925 units sold</div>
         </div>
 
-        <div class="hud-cell">
-          <span class="hud-label">3. Break-Even Deficit</span>
-          <span class="hud-value" style="color:var(--gold-bright);" id="hud-breakeven-deficit">₹4,07,218</span>
-          <span class="hud-sub" id="hud-deficit-sub">Needed to recover 100%</span>
+        <div class="hud-block">
+          <div class="hud-tag"><span>[03] BREAK-EVEN DEFICIT</span><span>TARGET</span></div>
+          <div class="hud-num tnum" style="color:var(--accent-gold);" id="hud-breakeven-deficit">₹4,07,218</div>
+          <div class="hud-footer mono" id="hud-deficit-sub">Needed to recover 100%</div>
         </div>
 
-        <div class="hud-cell" id="hud-net-cell">
-          <span class="hud-label" id="hud-net-title">4. Current Net Cash</span>
-          <span class="hud-value" style="color:var(--rose-bright);" id="hud-net-val">-₹4,07,218</span>
-          <span class="hud-sub" id="hud-net-sub">Cash vs Total Capital</span>
+        <div class="hud-block" id="hud-net-box">
+          <div class="hud-tag"><span id="hud-net-tag">[04] NET DEFICIT POSITION</span><span>P&amp;L</span></div>
+          <div class="hud-num tnum" style="color:var(--accent-rose);" id="hud-net-val">-₹4,07,218</div>
+          <div class="hud-footer mono" id="hud-net-sub">Cash vs Total Capital</div>
         </div>
 
-        <div class="hud-cell">
-          <span class="hud-label">5. 3x Full Potential</span>
-          <span class="hud-value" style="color:var(--emerald-bright);" id="hud-target-val">₹11,97,390</span>
-          <span class="hud-sub" id="hud-profit-sub">Net Profit: +₹7,90,172</span>
+        <div class="hud-block">
+          <div class="hud-tag"><span>[05] 3X POTENTIAL REVENUE</span><span>MAX</span></div>
+          <div class="hud-num tnum" style="color:var(--selection-bg);" id="hud-target-val">₹11,97,390</div>
+          <div class="hud-footer mono" id="hud-profit-sub">Full 3x Profit: +₹7,90,172</div>
         </div>
       </div>
 
-      <!-- NAVIGATION RIBBON -->
-      <nav class="nav-ribbon">
-        <button class="nav-tab active" id="tab-btn-dash" onclick="switchTab('dash')">
-          📊 Financial Command Center
+      <!-- SEGMENTED BLUEPRINT NAVIGATION -->
+      <nav class="bp-nav">
+        <button class="bp-tab active hit" id="tab-btn-dash" onclick="switchTab('dash')">
+          [01] Financial Command Center
         </button>
-        <button class="nav-tab" id="tab-btn-sheet" onclick="switchTab('sheet')">
-          📑 Excel Spreadsheet <span class="badge" id="tab-badge-items">94</span>
+        <button class="bp-tab hit" id="tab-btn-sheet" onclick="switchTab('sheet')">
+          [02] Interactive Excel Spreadsheet <span class="badge" id="tab-badge-items">94</span>
         </button>
-        <button class="nav-tab" id="tab-btn-cards" onclick="switchTab('cards')">
-          📱 Box Cards &amp; Scanner
+        <button class="bp-tab hit" id="tab-btn-cards" onclick="switchTab('cards')">
+          [03] Box Cards &amp; Scanner
         </button>
-        <button class="nav-tab" id="tab-btn-expenses" onclick="switchTab('expenses')">
-          🧾 Itemized Expenses
+        <button class="bp-tab hit" id="tab-btn-expenses" onclick="switchTab('expenses')">
+          [04] Itemized Expenses Ledger
         </button>
-        <button class="nav-tab" id="tab-btn-sync" onclick="switchTab('sync')">
-          🟢 Google Sheets &amp; Cloud
+        <button class="bp-tab hit" id="tab-btn-sync" onclick="switchTab('sync')">
+          [05] Google Sheets &amp; Cloud Connect
         </button>
       </nav>
 
-      <!-- GLOBAL SEARCH & VOICE BAR -->
-      <div class="discovery-bar">
-        <span style="color:var(--gold-bright); font-size:1rem;">🔍</span>
-        <input type="text" id="global-search-input" placeholder="Search Box Number (e.g. 46, 1294, P1) or Item Name..." autocomplete="off">
-        <button class="btn-mic-trigger" id="btn-voice-trigger" onclick="toggleVoiceSearch()" title="Say a box number (46, 1294) or item name">
-          <span id="mic-icon">🎙️</span>
-          <span id="mic-text">Voice</span>
+      <!-- SEARCH & VOICE DISCOVERY -->
+      <div class="search-telemetry-bar">
+        <span class="mono-2" style="color:var(--selection-bg); font-size:0.8rem;">[LOOKUP]</span>
+        <input type="text" id="global-search-input" placeholder="Search Box # (46, 1294, P1) or Item Name..." autocomplete="off">
+        <button class="btn-voice-tech hit" id="btn-voice-trigger" onclick="toggleVoiceSearch()">
+          <span id="mic-text">🎙️ [VOICE]</span>
         </button>
-        <button class="btn-del" onclick="clearGlobalSearch()" style="font-size:0.8rem;">✕</button>
+        <button class="btn-bp" onclick="clearGlobalSearch()" style="padding:2px 8px; font-size:0.7rem;">✕</button>
       </div>
 
-      <!-- VOICE STATUS TICKER -->
-      <div class="voice-ticker" id="voice-status-ticker">
-        <span id="voice-status-text">🔴 Listening... Say a box number like "46" or "1294", or product name</span>
-        <button class="btn-del" onclick="stopVoiceSearch()">✕</button>
+      <div id="voice-status-ticker" style="display:none; background:rgba(239, 68, 68, 0.15); border:1px solid #f87171; padding:4px 8px; font-family:var(--font-mono); font-size:0.7rem; color:#fca5a5; justify-content:space-between; align-items:center;">
+        <span>🔴 LISTENING... Say box number (e.g. "46" or "1294") or item name</span>
+        <button class="btn-bp" onclick="stopVoiceSearch()" style="padding:1px 6px; font-size:0.65rem;">✕</button>
       </div>
     </header>
 
     <!-- ===================================================================
-         TAB 1: FINANCIAL COMMAND CENTER (All 4 Core Questions Answered)
+         SECTION 1: FINANCIAL COMMAND CENTER (All 4 Core Questions)
          =================================================================== -->
-    <section class="tab-view active" id="view-dash">
+    <section class="tab-section active" id="view-dash">
       
       <!-- 4 Core Executive Metric Cards -->
-      <div class="quad-grid">
-        <!-- 1. Complete Expenses -->
-        <div class="quad-card expenses">
-          <span class="quad-eyebrow" style="color:var(--rose-bright);">1. What Complete Expenses Are</span>
-          <div class="quad-hero" style="color:var(--rose-bright);" id="qc-expenses">₹4,07,218</div>
-          <div class="quad-desc" id="qc-exp-desc">
-            • Stock Bill: <strong>₹3,32,518</strong> (White Bill ₹1.99L + Pink 1294 ₹1.34L)<br>
+      <div class="bp-quad-grid">
+        <!-- 1. What Complete Expenses Are -->
+        <div class="bp-quad-box exp">
+          <span class="bp-quad-tag">[Q1] What Complete Expenses Are</span>
+          <div class="bp-quad-hero tnum" style="color:var(--accent-rose);" id="qc-expenses">₹4,07,218</div>
+          <div class="bp-quad-desc" id="qc-exp-desc">
+            • Crackers Stock Bill: <strong>₹3,32,518</strong> (White ₹1.99L + Pink 1294 ₹1.34L)<br>
             • Shed, Permissions, Labour &amp; Auto: <strong>₹74,700</strong> (Includes ₹500 Return Auto)
           </div>
         </div>
 
         <!-- 2. Sales Needed to Cover Everything -->
-        <div class="quad-card sales">
-          <span class="quad-eyebrow" style="color:var(--gold-bright);">2. Sales Needed to Cover Everything</span>
-          <div class="quad-hero" style="color:var(--gold-bright);" id="qc-needed">₹4,07,218</div>
-          <div class="quad-desc" id="qc-needed-desc">
-            • Actual Sales Completed: <strong style="color:var(--cyan-bright);">₹0</strong><br>
-            • You only need to sell <strong style="color:var(--gold-bright);" id="qc-be-pct">34.0%</strong> of stock at 3x price to recover 100% of all expenses!
+        <div class="bp-quad-box need">
+          <span class="bp-quad-tag">[Q2] Sales Needed to Cover Everything</span>
+          <div class="bp-quad-hero tnum" style="color:var(--accent-gold);" id="qc-needed">₹4,07,218</div>
+          <div class="bp-quad-desc" id="qc-needed-desc">
+            • Actual Sales Completed: <strong style="color:var(--accent-cyan);">₹0</strong><br>
+            • Only <strong style="color:var(--accent-gold);" id="qc-be-pct">34.0%</strong> of stock at 3x price covers 100% of all expenses!
           </div>
         </div>
 
-        <!-- 3. Money Position If Losses Occur -->
-        <div class="quad-card loss" id="qc-loss-box">
-          <span class="quad-eyebrow" style="color:#fda4af;" id="qc-loss-title">3. Money Position If Stopped Now (Deficit)</span>
-          <div class="quad-hero" style="color:var(--rose);" id="qc-current-cash">-₹4,07,218</div>
-          <div class="quad-desc" id="qc-loss-desc">
-            • Cash Collected: <strong>₹0</strong><br>
-            • Remaining Unsold Stock Value: <strong>₹11,97,390</strong> (at 3x) | <strong>₹3,32,518</strong> (at Wholesale Cost)
+        <!-- 3. Money Position If Stopped Now (Losses) -->
+        <div class="bp-quad-box loss" id="qc-loss-box">
+          <span class="bp-quad-tag" id="qc-loss-title">[Q3] Money Position If Stopped Now (Deficit)</span>
+          <div class="bp-quad-hero tnum" style="color:#ef4444;" id="qc-current-cash">-₹4,07,218</div>
+          <div class="bp-quad-desc" id="qc-loss-desc">
+            • Cash Collected in Hand: <strong>₹0</strong><br>
+            • Remaining Unsold Stock Value: <strong>₹11,97,390</strong> (3x) | <strong>₹3,32,518</strong> (Wholesale)
           </div>
         </div>
 
         <!-- 4. How Much Profit -->
-        <div class="quad-card profit">
-          <span class="quad-eyebrow" style="color:var(--emerald-bright);">4. How Much Profit We Make</span>
-          <div class="quad-hero" style="color:var(--emerald-bright);" id="qc-profit-hero">+₹7,90,172</div>
-          <div class="quad-desc" id="qc-profit-desc">
-            • Profit Margin on Units Sold So Far: <strong style="color:var(--emerald-bright);">+₹0</strong><br>
-            • 100% Sell-Out Net Profit: <strong>+₹7,90,172</strong> after paying back every single rupee of capital!
+        <div class="bp-quad-box profit">
+          <span class="bp-quad-tag">[Q4] How Much Profit We Make</span>
+          <div class="bp-quad-hero tnum" style="color:var(--selection-bg);" id="qc-profit-hero">+₹7,90,172</div>
+          <div class="bp-quad-desc" id="qc-profit-desc">
+            • Profit Margin on Units Sold So Far: <strong style="color:var(--selection-bg);">+₹0</strong><br>
+            • 100% Sell-Out Net Cash Profit: <strong>+₹7,90,172</strong> after paying back every rupee of investment!
           </div>
         </div>
       </div>
 
-      <!-- Break-Even Progress Meter -->
-      <div class="meter-box">
-        <div class="meter-label-row">
-          <span>🎯 Total Expense Recovery Meter (Sales vs ₹4,07,218 Outlay)</span>
-          <span style="font-family:var(--font-mono); color:var(--gold-bright);" id="meter-label">₹0 / ₹4,07,218 (0.0%)</span>
+      <!-- Break-Even Recovery Meter -->
+      <div class="recovery-strip">
+        <div style="display:flex; justify-content:space-between; font-family:var(--font-mono-2); font-size:0.75rem; text-transform:uppercase;">
+          <span>[EXPENSE RECOVERY METER] Sales vs ₹4,07,218 Capital Outlay</span>
+          <span style="color:var(--selection-bg);" id="meter-label">₹0 / ₹4,07,218 (0.0%)</span>
         </div>
-        <div class="meter-track">
-          <div class="meter-bar" id="meter-progress-bar"></div>
+        <div class="recovery-bar-bg">
+          <div class="recovery-bar-fill" id="meter-progress-bar"></div>
         </div>
-        <div style="font-size:0.72rem; color:var(--text-3);" id="meter-hint">
-          Every single sale moves this bar forward. Once the bar hits 100% (₹4,07,218), all stock &amp; stall costs are fully paid off and every subsequent rupee is pure profit!
+        <div class="mono" style="font-size:0.68rem; color:var(--label-3);">
+          Every sale drives this meter. At 100% (₹4,07,218), all stock and stall costs are paid off; all future sales are 100% pure profit.
         </div>
       </div>
 
-      <!-- Profit & Loss Scenario Matrix ("How much money we will have if we get losses") -->
-      <div class="glass-card">
-        <div class="card-header-line">
-          <h2>🛡️ Stress Test &amp; Loss Scenario Projections</h2>
-          <p>Clear financial breakdown if sales stop at different sell-through percentages:</p>
+      <!-- Stress-Test & Loss Projections Matrix -->
+      <div class="bp-card">
+        <div class="bp-card-head">
+          <h2><span>[MATRIX-01]</span> Stress Test &amp; Loss Scenario Projections</h2>
+          <span class="coord mono-2">INDEX: RISK-VAL</span>
         </div>
 
-        <div class="spreadsheet-container">
-          <table class="excel-table">
+        <div class="bp-table-wrap">
+          <table class="bp-table">
             <thead>
               <tr>
                 <th>Stock Sell-Through Scenario</th>
                 <th class="num">Cash Collected</th>
-                <th class="num">All Expenses Paid</th>
-                <th class="num">Net Cash Profit / Loss</th>
+                <th class="num">Expenses Paid</th>
+                <th class="num">Net Profit / Loss</th>
                 <th class="num">Unsold Stock (Wholesale Cost)</th>
               </tr>
             </thead>
@@ -1065,13 +941,13 @@
         </div>
 
         <!-- Interactive What-If Slider -->
-        <div style="background:var(--bg); border:1px solid var(--border); border-radius:var(--radius-md); padding:12px; display:flex; flex-direction:column; gap:8px;">
-          <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.78rem; font-weight:800;">
-            <span style="color:var(--gold-bright);">🎛️ Interactive "What-If" Calculator: If we sell <span id="slider-pct-disp">50</span>% of stock:</span>
-            <span id="slider-status-badge" style="font-family:var(--font-mono); color:var(--emerald-bright);">+₹1,91,477 PROFIT</span>
+        <div style="background:var(--background-deep); border:1px solid var(--line); padding:10px 12px; display:flex; flex-direction:column; gap:6px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; font-family:var(--font-mono-2); font-size:0.76rem; text-transform:uppercase;">
+            <span>[SIMULATOR] If we sell <span id="slider-pct-disp" style="color:var(--selection-bg);">50</span>% of stock:</span>
+            <span id="slider-status-badge" style="color:var(--selection-bg);">+₹1,91,477 PROFIT</span>
           </div>
-          <input type="range" id="what-if-slider" min="0" max="100" value="50" style="width:100%; accent-color:var(--gold-bright); cursor:pointer;" oninput="onWhatIfSliderChange()">
-          <div style="display:flex; justify-content:space-between; font-size:0.72rem; color:var(--text-3); font-family:var(--font-mono);" id="slider-metrics-line">
+          <input type="range" id="what-if-slider" min="0" max="100" value="50" style="width:100%; accent-color:var(--selection-bg); cursor:pointer;" oninput="onWhatIfSliderChange()">
+          <div class="mono" style="display:flex; justify-content:space-between; font-size:0.68rem; color:var(--label-3);" id="slider-metrics-line">
             <span>Cash Sales: ₹5,98,695</span>
             <span>Expenses: ₹4,07,218</span>
             <span>Unsold Stock Cost: ₹1,66,259</span>
@@ -1079,13 +955,14 @@
         </div>
       </div>
 
-      <!-- Wholesale vs Final Cost vs 3x Selling Matrix -->
-      <div class="glass-card">
-        <div class="card-header-line">
-          <h2>📈 Wholesale vs Overhead Tiers vs 3x Selling Value</h2>
+      <!-- Wholesale vs Final Cost vs 3x Value -->
+      <div class="bp-card">
+        <div class="bp-card-head">
+          <h2><span>[MATRIX-02]</span> Wholesale vs Overhead Tiers vs 3x Value</h2>
+          <span class="coord mono-2">INDEX: COST-BENCHMARK</span>
         </div>
-        <div class="spreadsheet-container">
-          <table class="excel-table">
+        <div class="bp-table-wrap">
+          <table class="bp-table">
             <thead>
               <tr>
                 <th>Tier</th>
@@ -1107,7 +984,7 @@
                 <td class="num" id="tier-c10-pink">₹1,46,903</td>
                 <td class="num" id="tier-c10-total">₹3,65,770</td>
               </tr>
-              <tr style="color:var(--gold-bright);">
+              <tr style="color:var(--accent-gold);">
                 <td><strong>3. Cost + 20% Final Cost</strong></td>
                 <td class="num" id="tier-c20-white">₹2,38,764</td>
                 <td class="num" id="tier-c20-pink">₹1,60,258</td>
@@ -1119,17 +996,17 @@
                 <td class="num" id="tier-sp10-pink">₹4,40,026</td>
                 <td class="num" id="tier-sp10-total">₹10,96,627</td>
               </tr>
-              <tr style="color:var(--emerald-bright); background:rgba(16,185,129,0.05);">
+              <tr style="color:var(--selection-bg); background:rgba(192, 254, 4, 0.04);">
                 <td><strong>5. 3x Selling (+20% Final × 3)</strong></td>
                 <td class="num" id="tier-sp20-white">₹7,16,610</td>
                 <td class="num" id="tier-sp20-pink">₹4,80,780</td>
                 <td class="num" id="tier-sp20-total">₹11,97,390</td>
               </tr>
-              <tr style="color:#fff; font-weight:800;">
+              <tr style="color:#fff; font-weight:700;">
                 <td><strong>6. Active Inventory Total</strong></td>
                 <td class="num" id="tier-cur-white">₹7,16,610</td>
                 <td class="num" id="tier-cur-pink">₹4,80,780</td>
-                <td class="num" style="color:var(--emerald-bright);" id="tier-cur-total">₹11,97,390</td>
+                <td class="num" style="color:var(--selection-bg);" id="tier-cur-total">₹11,97,390</td>
               </tr>
             </tbody>
           </table>
@@ -1138,75 +1015,74 @@
     </section>
 
     <!-- ===================================================================
-         TAB 2: TRUE EXCEL-STYLE INTERACTIVE SPREADSHEET (94 Items)
+         SECTION 2: INTERACTIVE EXCEL SPREADSHEET (94 Items)
          =================================================================== -->
-    <section class="tab-view" id="view-sheet">
+    <section class="tab-section" id="view-sheet">
       
-      <!-- Global Formula & Bulk Markup Toolbar -->
-      <div class="formula-banner">
-        <div style="display:flex; align-items:center; gap:8px;">
-          <span style="font-size:1.1rem;">⚡</span>
-          <div>
-            <strong style="color:var(--gold-bright); font-size:0.85rem;">Global Pricing Engine</strong>
-            <div style="font-size:0.7rem; color:var(--text-3);">Update overhead % and multiplier across all 94 items in 1 click:</div>
+      <!-- Global Formula Engine -->
+      <div class="bp-card" style="padding:10px 14px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; flex-wrap:wrap;">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span class="code-tag mono-2">[ENGINE]</span>
+            <span class="mono-2 up" style="font-size:0.78rem;">Global Pricing Formula (Apply to All 94 Items):</span>
           </div>
-        </div>
 
-        <div class="formula-inputs">
-          <div class="formula-box">
-            <span>Overhead: +</span>
-            <input type="number" id="g-overhead-input" value="20" step="1">
-            <span>%</span>
+          <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap;">
+            <div style="display:inline-flex; align-items:center; gap:4px; font-family:var(--font-mono); font-size:0.72rem; color:var(--label-2);">
+              <span>Overhead: +</span>
+              <input type="number" id="g-overhead-input" value="20" style="width:48px; background:var(--background-elevated); border:1px solid var(--line); color:var(--selection-bg); font-family:var(--font-mono); text-align:center; padding:2px;">
+              <span>%</span>
+            </div>
+            <div style="display:inline-flex; align-items:center; gap:4px; font-family:var(--font-mono); font-size:0.72rem; color:var(--label-2);">
+              <span>Markup: ×</span>
+              <input type="number" id="g-multiplier-input" value="3" step="0.1" style="width:48px; background:var(--background-elevated); border:1px solid var(--line); color:var(--selection-bg); font-family:var(--font-mono); text-align:center; padding:2px;">
+              <span>x</span>
+            </div>
+            <button class="btn-bp accent hit" onclick="applyGlobalFormula()">[APPLY ALL]</button>
+            <button class="btn-bp hit" onclick="setPresetMarkup(10, 3)">[+10% ×3]</button>
+            <button class="btn-bp hit" onclick="setPresetMarkup(20, 3)">[+20% ×3]</button>
+            <button class="btn-bp hit" onclick="setPresetMarkup(20, 2)">[+20% ×2]</button>
           </div>
-          <div class="formula-box">
-            <span>Markup: ×</span>
-            <input type="number" id="g-multiplier-input" value="3" step="0.1">
-            <span>x</span>
-          </div>
-          <button class="btn-pill primary" onclick="applyGlobalFormula()">Apply to All</button>
-          <button class="btn-pill" onclick="setPresetMarkup(10, 3)">+10% ×3</button>
-          <button class="btn-pill" onclick="setPresetMarkup(20, 3)">+20% ×3</button>
-          <button class="btn-pill" onclick="setPresetMarkup(20, 2)">+20% ×2</button>
         </div>
       </div>
 
-      <!-- Spreadsheet Toolbar with Quick Filters -->
-      <div class="spreadsheet-toolbar">
-        <div class="pill-filter-group">
-          <button class="tbl-pill active" onclick="setSheetFilter('all', this)">All Items (94)</button>
-          <button class="tbl-pill" onclick="setSheetFilter('sold', this)">Sold Items 💰</button>
-          <button class="tbl-pill" onclick="setSheetFilter('white', this)">White Bill (1–74)</button>
-          <button class="tbl-pill" onclick="setSheetFilter('pink', this)">Pink Bill 1294 (20)</button>
-          <button class="tbl-pill" onclick="setSheetFilter('pending', this)">Pending Verification</button>
-          <button class="tbl-pill" onclick="setSheetFilter('verified', this)">Verified ✓</button>
+      <!-- Toolbar -->
+      <div class="bp-table-toolbar">
+        <div class="bp-filter-pills">
+          <button class="bp-f-btn active hit" onclick="setSheetFilter('all', this)">All SKUs (94)</button>
+          <button class="bp-f-btn hit" onclick="setSheetFilter('sold', this)">Has Sales 💰</button>
+          <button class="bp-f-btn hit" onclick="setSheetFilter('white', this)">White Bill (1–74)</button>
+          <button class="bp-f-btn hit" onclick="setSheetFilter('pink', this)">Pink Bill 1294 (20)</button>
+          <button class="bp-f-btn hit" onclick="setSheetFilter('pending', this)">Pending Box</button>
+          <button class="bp-f-btn hit" onclick="setSheetFilter('verified', this)">Verified ✓</button>
         </div>
 
         <div style="display:flex; gap:6px;">
-          <button class="btn-pill" onclick="exportNativeExcel()">📊 Export Excel (.xlsx)</button>
-          <button class="btn-pill" onclick="copyTableForGoogleSheets()">📋 Copy for Sheets</button>
+          <button class="btn-bp hit" onclick="exportNativeExcel()">[EXPORT .XLSX]</button>
+          <button class="btn-bp hit" onclick="copyTableForGoogleSheets()">[COPY FOR SHEETS]</button>
         </div>
       </div>
 
       <!-- Live Editable Spreadsheet Table -->
-      <div class="spreadsheet-container">
-        <table class="excel-table" id="excel-data-table">
+      <div class="bp-table-wrap">
+        <table class="bp-table" id="excel-data-table">
           <thead>
             <tr>
-              <th style="width:40px;">✓</th>
-              <th style="width:90px;">Box / Sticker</th>
-              <th style="min-width:200px;">Product Name</th>
-              <th style="width:90px;">Pack</th>
-              <th class="num" style="width:80px;">Total Pcs</th>
-              <th class="num" style="width:130px;">Units Sold</th>
-              <th class="num" style="width:80px;">Pcs Left</th>
-              <th class="num" style="width:100px;">Wholesale (₹)</th>
-              <th class="num" style="width:90px;">+10% Cost</th>
-              <th class="num" style="width:105px;">Final Cost (+20%)</th>
-              <th class="num" style="width:125px;">Sell Price (3x)</th>
-              <th class="num" style="width:115px;">Box 3x Value</th>
-              <th class="num" style="width:115px;">Sold Cash</th>
+              <th style="width:36px;">✓</th>
+              <th style="width:80px;">Box #</th>
+              <th style="min-width:210px;">Item Description</th>
+              <th style="width:85px;">Pack</th>
+              <th class="num" style="width:75px;">Units</th>
+              <th class="num" style="width:120px;">Units Sold</th>
+              <th class="num" style="width:75px;">Left</th>
+              <th class="num" style="width:95px;">Wholesale (₹)</th>
+              <th class="num" style="width:85px;">+10% Cost</th>
+              <th class="num" style="width:100px;">Final (+20%)</th>
+              <th class="num" style="width:115px;">Sell Price (3x)</th>
+              <th class="num" style="width:110px;">Box 3x Val</th>
+              <th class="num" style="width:110px;">Sold Cash</th>
               <th class="num" style="width:105px;">Sold Profit</th>
-              <th style="width:50px;"></th>
+              <th style="width:40px;"></th>
             </tr>
           </thead>
           <tbody id="spreadsheet-tbody">
@@ -1217,107 +1093,106 @@
     </section>
 
     <!-- ===================================================================
-         TAB 3: MOBILE CARDS & SCANNER POS
+         SECTION 3: MOBILE CARDS & SCANNER
          =================================================================== -->
-    <section class="tab-view" id="view-cards">
-      <div class="card-header-line">
-        <h2>📱 Mobile Box Checklist &amp; Voice POS</h2>
-        <p>Large tap targets for box verification and recording sales while walking the stall:</p>
+    <section class="tab-section" id="view-cards">
+      <div class="bp-card-head">
+        <h2><span>[CARDS]</span> Box Checklist &amp; Mobile Scanner</h2>
+        <span class="coord mono-2">OPTIMIZED: TOUCH / MOBILE</span>
       </div>
 
-      <div class="mobile-cards-wrap" id="mobile-cards-container">
+      <div class="mobile-grid" id="mobile-cards-container">
         <!-- Rendered by JavaScript -->
       </div>
     </section>
 
     <!-- ===================================================================
-         TAB 4: ITEMIZED EXPENSES LEDGER (Includes ₹500 Return Auto)
+         SECTION 4: ITEMIZED EXPENSES LEDGER
          =================================================================== -->
-    <section class="tab-view" id="view-expenses">
-      <div class="glass-card">
-        <div class="card-header-line">
-          <h2>🧾 Complete Itemized Expenses Ledger</h2>
-          <button class="btn-pill primary" onclick="addNewExpense()">➕ Add Expense Item</button>
+    <section class="tab-section" id="view-expenses">
+      <div class="bp-card">
+        <div class="bp-card-head">
+          <h2><span>[EXPENSES-LEDGER]</span> Complete Outlay Breakdown</h2>
+          <button class="btn-bp accent hit" onclick="addNewExpense()">[+ ADD EXPENSE ITEM]</button>
         </div>
-        <p style="font-size:0.75rem; color:var(--text-3);">
-          Edit any expense amount or description. Every change updates the total ₹4,07,218 capital outlay, break-even targets, and net profit dynamically:
-        </p>
+        <div class="mono" style="font-size:0.72rem; color:var(--label-3);">
+          Edit any amount or line item. Every change recalculates the ₹4,07,218 total outlay, break-even targets, and net margin in real time:
+        </div>
 
         <!-- Fixed Fireworks Stock Bill Reference -->
-        <div class="expense-line" style="background:var(--bg-elevated); border-color:#334155;">
+        <div class="exp-item-row" style="background:var(--background-elevated); border-color:var(--line-strong);">
           <div style="flex:1;">
-            <strong style="color:#fff; font-size:0.84rem;">📦 Fireworks Stock Purchase Bill</strong>
-            <div style="font-size:0.7rem; color:var(--text-3);">White Bill: ₹1,98,970 + Pink Bill 1294: ₹1,33,548 (Paid: ₹2,20,000 | Pending: ₹1,12,518)</div>
+            <strong style="color:#fff; font-family:var(--font-mono); font-size:0.8rem;">📦 FIREWORKS STOCK PURCHASE BILL</strong>
+            <div class="mono" style="font-size:0.68rem; color:var(--label-3);">White Bill: ₹1,98,970 + Pink Bill 1294: ₹1,33,548 (Paid: ₹2,20,000 | Pending Wholesaler: ₹1,12,518)</div>
           </div>
-          <div style="font-family:var(--font-mono); font-size:1rem; font-weight:900; color:#fff;" id="exp-stock-cell">₹3,32,518</div>
+          <div class="mono tnum" style="font-size:0.95rem; font-weight:700; color:#fff;" id="exp-stock-cell">₹3,32,518</div>
         </div>
 
-        <!-- Editable Operational Expenses List -->
-        <div id="editable-expenses-list" style="display:flex; flex-direction:column; gap:6px;">
-          <!-- Populated by JS -->
-        </div>
+        <!-- Dynamic Expenses List -->
+        <div id="editable-expenses-list" style="display:flex; flex-direction:column; gap:6px;"></div>
 
-        <!-- Grand Total Summary Box -->
-        <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(244,63,94,0.08); border:1.5px solid rgba(244,63,94,0.3); border-radius:var(--radius-md); padding:14px 18px; margin-top:8px;">
+        <!-- Grand Total Ledger Footer -->
+        <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(248, 113, 113, 0.08); border:1px solid rgba(248, 113, 113, 0.3); padding:12px 14px; margin-top:6px;">
           <div>
-            <div style="font-size:0.9rem; font-weight:800; color:#fff;">GRAND TOTAL CAPITAL INVESTMENT</div>
-            <div style="font-size:0.72rem; color:var(--rose-bright);" id="exp-ledger-sub">Stock ₹3,32,518 + Operational &amp; Shed ₹74,700</div>
+            <div class="mono-2 up" style="font-size:0.85rem; font-weight:700; color:#fff;">GRAND TOTAL CAPITAL INVESTMENT</div>
+            <div class="mono" style="font-size:0.7rem; color:var(--accent-rose);" id="exp-ledger-sub">Stock ₹3,32,518 + Operational &amp; Shed ₹74,700</div>
           </div>
-          <div style="font-family:var(--font-mono); font-size:1.4rem; font-weight:900; color:var(--rose-bright);" id="exp-ledger-grand-total">₹4,07,218</div>
+          <div class="mono tnum" style="font-size:1.35rem; font-weight:700; color:var(--accent-rose);" id="exp-ledger-grand-total">₹4,07,218</div>
         </div>
       </div>
     </section>
 
     <!-- ===================================================================
-         TAB 5: GOOGLE SHEETS & EXCEL SYNC
+         SECTION 5: GOOGLE SHEETS & EXCEL SYNC
          =================================================================== -->
-    <section class="tab-view" id="view-sync">
-      <div class="glass-card">
-        <div class="card-header-line">
-          <h2>🟢 Google Sheets &amp; Native Excel (.xlsx) Sync</h2>
+    <section class="tab-section" id="view-sync">
+      <div class="bp-card">
+        <div class="bp-card-head">
+          <h2><span>[CONNECT]</span> Google Sheets &amp; Native Excel (.xlsx) Two-Way Sync</h2>
+          <span class="coord mono-2">PROTO: SHEETJS + APPS-SCRIPT</span>
         </div>
 
-        <!-- Way 1: Native Excel Download & Upload -->
-        <div style="background:var(--bg); border:1px solid var(--border); border-radius:var(--radius-md); padding:14px; display:flex; flex-direction:column; gap:8px;">
-          <strong style="color:var(--emerald-bright); font-size:0.85rem;">📊 Way 1: Native Excel (.xlsx) Two-Way Support</strong>
-          <p style="font-size:0.75rem; color:var(--text-3);">
-            Download genuine Excel spreadsheets formatted with formulas, or upload an edited sheet to update prices and stock automatically.
-          </p>
-          <div style="display:flex; gap:8px; flex-wrap:wrap;">
-            <button class="btn-pill primary" onclick="exportNativeExcel()">📊 Download .xlsx Spreadsheet</button>
-            <label class="btn-pill" style="cursor:pointer;">
-              📥 Upload Edited .xlsx / .csv
+        <!-- Native Excel Support -->
+        <div style="background:var(--background-deep); border:1px solid var(--line); padding:12px; display:flex; flex-direction:column; gap:6px;">
+          <div class="mono-2 up" style="color:var(--selection-bg); font-size:0.78rem;">[01] Native Excel (.xlsx) Multi-Sheet Support</div>
+          <div class="mono" style="font-size:0.72rem; color:var(--label-2);">
+            Export true .xlsx workbooks with all 94 products and expense ledger, or upload your edited Excel file to update prices and stock automatically.
+          </div>
+          <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:4px;">
+            <button class="btn-bp accent hit" onclick="exportNativeExcel()">[EXPORT .XLSX FILE]</button>
+            <label class="btn-bp hit" style="cursor:pointer;">
+              [UPLOAD .XLSX / .CSV]
               <input type="file" accept=".xlsx,.xls,.csv" style="display:none;" onchange="importSpreadsheetFile(event)">
             </label>
-            <button class="btn-pill" onclick="exportCSV()">📄 Download .csv</button>
-            <button class="btn-pill" onclick="exportJSON()">📦 Download JSON Backup</button>
+            <button class="btn-bp hit" onclick="exportCSV()">[EXPORT .CSV]</button>
+            <button class="btn-bp hit" onclick="exportJSON()">[EXPORT JSON BACKUP]</button>
           </div>
         </div>
 
-        <!-- Way 2: 1-Click Copy for Google Sheets -->
-        <div style="background:var(--bg); border:1px solid var(--border); border-radius:var(--radius-md); padding:14px; display:flex; flex-direction:column; gap:8px;">
-          <strong style="color:var(--gold-bright); font-size:0.85rem;">⚡ Way 2: 1-Click Copy &amp; Paste to Google Sheets</strong>
-          <p style="font-size:0.75rem; color:var(--text-3);">
-            Copies all 94 rows to your clipboard in Google Sheets tabular format. Open any Google Sheet and press <strong>Ctrl+V</strong>!
-          </p>
-          <div style="display:flex; gap:8px; flex-wrap:wrap;">
-            <button class="btn-pill primary" onclick="copyTableForGoogleSheets()">📋 Copy All 94 Rows for Google Sheets</button>
-            <a href="https://sheets.new" target="_blank" class="btn-pill" style="text-decoration:none;">➕ Open New Google Sheet (sheets.new) ↗</a>
+        <!-- 1-Click Copy for Google Sheets -->
+        <div style="background:var(--background-deep); border:1px solid var(--line); padding:12px; display:flex; flex-direction:column; gap:6px;">
+          <div class="mono-2 up" style="color:var(--accent-gold); font-size:0.78rem;">[02] Instant 1-Click Copy &amp; Paste for Google Sheets</div>
+          <div class="mono" style="font-size:0.72rem; color:var(--label-2);">
+            Copies all 94 rows in spreadsheet format. Open any Google Sheet and press <strong>Ctrl+V</strong>.
+          </div>
+          <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:4px;">
+            <button class="btn-bp hit" onclick="copyTableForGoogleSheets()">[COPY 94 ROWS TO CLIPBOARD]</button>
+            <a href="https://sheets.new" target="_blank" class="btn-bp hit" style="text-decoration:none;">[OPEN SHEETS.NEW ↗]</a>
           </div>
         </div>
 
-        <!-- Way 3: Live 2-Way Webhook -->
-        <div style="background:var(--bg); border:1px solid var(--border); border-radius:var(--radius-md); padding:14px; display:flex; flex-direction:column; gap:8px;">
-          <strong style="color:#fff; font-size:0.85rem;">🔄 Way 3: Live 2-Way Google Apps Script Webhook</strong>
-          <input type="url" id="webhook-url-input" class="cell-input" style="background:var(--bg-elevated); border:1px solid var(--border); padding:8px;" placeholder="Paste Google Apps Script Web App URL (https://script.google.com/macros/s/.../exec)" oninput="saveWebhookSetting(this.value)">
-          <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
-            <button class="btn-pill primary" onclick="pushToGoogleWebhook()">⬆️ Push to Google Sheet</button>
-            <button class="btn-pill" onclick="pullFromGoogleWebhook()">⬇️ Pull from Google Sheet</button>
-            <label style="font-size:0.75rem; color:var(--text-3); display:flex; align-items:center; gap:6px; cursor:pointer;">
+        <!-- Webhook Sync -->
+        <div style="background:var(--background-deep); border:1px solid var(--line); padding:12px; display:flex; flex-direction:column; gap:6px;">
+          <div class="mono-2 up" style="color:#fff; font-size:0.78rem;">[03] Live 2-Way Google Apps Script Webhook</div>
+          <input type="url" id="webhook-url-input" class="bp-cell-input" style="background:var(--background-elevated); border:1px solid var(--line); padding:6px 8px; font-size:0.78rem;" placeholder="Paste Google Apps Script Web App URL (https://script.google.com/macros/s/.../exec)" oninput="saveWebhookSetting(this.value)">
+          <div style="display:flex; gap:6px; flex-wrap:wrap; align-items:center; margin-top:4px;">
+            <button class="btn-bp hit" onclick="pushToGoogleWebhook()">[PUSH TO GOOGLE SHEET]</button>
+            <button class="btn-bp hit" onclick="pullFromGoogleWebhook()">[PULL FROM GOOGLE SHEET]</button>
+            <label class="mono" style="font-size:0.72rem; color:var(--label-3); display:flex; align-items:center; gap:4px; cursor:pointer;">
               <input type="checkbox" id="autosync-check" onchange="toggleAutoSyncSetting(this.checked)"> Auto-sync on Save
             </label>
           </div>
-          <div id="webhook-status-display" style="font-size:0.72rem; color:var(--gold-bright); font-family:var(--font-mono);"></div>
+          <div id="webhook-status-display" class="mono" style="font-size:0.7rem; color:var(--selection-bg); margin-top:2px;"></div>
         </div>
       </div>
     </section>
@@ -1325,23 +1200,22 @@
   </div>
 
   <script>
-    /* -------------------------------------------------------------------------
-       DATA ENGINE & INITIAL STATE
-       ------------------------------------------------------------------------- */
+    /* =========================================================================
+       APPLICATION DATA ENGINE & LOCAL PERSISTENCE
+       ========================================================================= */
     const RAW_ITEMS = [{"id": "W_1", "sticker_no": "1", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 1, "name": "3 1/2 Lakshmi (15P)", "pack_details": "20", "total_units": 20, "units_sold": 0, "rate": 150, "rate_plus_10": 165.0, "bill_total": 3000, "selling_price": 540, "verified": false, "verified_at": null, "notes": "", "search_keys": ["1", "3 1/2 lakshmi (15p)"], "rate_plus_20": 180.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 180.0, "selling_price_10_3x": 495, "selling_price_20_3x": 540}, {"id": "W_2", "sticker_no": "2", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 2, "name": "4\" Laxmi", "pack_details": "25", "total_units": 25, "units_sold": 0, "rate": 150, "rate_plus_10": 165.0, "bill_total": 3750, "selling_price": 540, "verified": false, "verified_at": null, "notes": "", "search_keys": ["2", "4\" laxmi"], "rate_plus_20": 180.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 180.0, "selling_price_10_3x": 495, "selling_price_20_3x": 540}, {"id": "W_3", "sticker_no": "3", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 3, "name": "4\" Dlx Lion", "pack_details": "10", "total_units": 10, "units_sold": 0, "rate": 260, "rate_plus_10": 286.0, "bill_total": 2600, "selling_price": 936, "verified": false, "verified_at": null, "notes": "", "search_keys": ["3", "4\" dlx lion"], "rate_plus_20": 312.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 312.0, "selling_price_10_3x": 858, "selling_price_20_3x": 936}, {"id": "W_4", "sticker_no": "4", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 4, "name": "Gold Laxmi", "pack_details": "10", "total_units": 10, "units_sold": 0, "rate": 280, "rate_plus_10": 308.0, "bill_total": 2800, "selling_price": 1008, "verified": false, "verified_at": null, "notes": "", "search_keys": ["4", "gold laxmi"], "rate_plus_20": 336.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 336.0, "selling_price_10_3x": 924, "selling_price_20_3x": 1008}, {"id": "W_5", "sticker_no": "5", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 5, "name": "5\" Hulk", "pack_details": "10", "total_units": 10, "units_sold": 0, "rate": 280, "rate_plus_10": 308.0, "bill_total": 2800, "selling_price": 1008, "verified": false, "verified_at": null, "notes": "", "search_keys": ["5", "5\" hulk"], "rate_plus_20": 336.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 336.0, "selling_price_10_3x": 924, "selling_price_20_3x": 1008}, {"id": "W_6", "sticker_no": "6", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 6, "name": "6\" Bruslee", "pack_details": "10", "total_units": 10, "units_sold": 0, "rate": 330, "rate_plus_10": 363.0, "bill_total": 3300, "selling_price": 1188, "verified": false, "verified_at": null, "notes": "", "search_keys": ["6", "6\" bruslee"], "rate_plus_20": 396.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 396.0, "selling_price_10_3x": 1089, "selling_price_20_3x": 1188}, {"id": "W_7", "sticker_no": "7", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 7, "name": "2 Sound Crackers", "pack_details": "10", "total_units": 10, "units_sold": 0, "rate": 280, "rate_plus_10": 308.0, "bill_total": 2800, "selling_price": 1008, "verified": false, "verified_at": null, "notes": "", "search_keys": ["7", "2 sound crackers"], "rate_plus_20": 336.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 336.0, "selling_price_10_3x": 924, "selling_price_20_3x": 1008}, {"id": "W_8", "sticker_no": "8", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 8, "name": "3 Sound Colanatia", "pack_details": "10", "total_units": 10, "units_sold": 0, "rate": 350, "rate_plus_10": 385.0, "bill_total": 3500, "selling_price": 1260, "verified": false, "verified_at": null, "notes": "", "search_keys": ["8", "3 sound colanatia"], "rate_plus_20": 420.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 420.0, "selling_price_10_3x": 1155, "selling_price_20_3x": 1260}, {"id": "W_9", "sticker_no": "9", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 9, "name": "Smoke Bomb", "pack_details": "10", "total_units": 10, "units_sold": 0, "rate": 250, "rate_plus_10": 275.0, "bill_total": 2500, "selling_price": 900, "verified": false, "verified_at": null, "notes": "", "search_keys": ["9", "smoke bomb"], "rate_plus_20": 300.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 300.0, "selling_price_10_3x": 825, "selling_price_20_3x": 900}, {"id": "W_10", "sticker_no": "10", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 10, "name": "28 Cholasa", "pack_details": "10", "total_units": 10, "units_sold": 0, "rate": 550, "rate_plus_10": 605.0, "bill_total": 5500, "selling_price": 1980, "verified": false, "verified_at": null, "notes": "", "search_keys": ["10", "28 cholasa"], "rate_plus_20": 660.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 660.0, "selling_price_10_3x": 1815, "selling_price_20_3x": 1980}, {"id": "W_11", "sticker_no": "11", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 11, "name": "28 Gaint", "pack_details": "10", "total_units": 10, "units_sold": 0, "rate": 550, "rate_plus_10": 605.0, "bill_total": 5500, "selling_price": 1980, "verified": false, "verified_at": null, "notes": "", "search_keys": ["11", "28 gaint"], "rate_plus_20": 660.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 660.0, "selling_price_10_3x": 1815, "selling_price_20_3x": 1980}, {"id": "W_12", "sticker_no": "12", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 12, "name": "24 Dlx", "pack_details": "5", "total_units": 5, "units_sold": 0, "rate": 450, "rate_plus_10": 495.0, "bill_total": 2250, "selling_price": 1620, "verified": false, "verified_at": null, "notes": "", "search_keys": ["12", "24 dlx"], "rate_plus_20": 540.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 540.0, "selling_price_10_3x": 1485, "selling_price_20_3x": 1620}, {"id": "W_13", "sticker_no": "13", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 13, "name": "50 Dlx", "pack_details": "5", "total_units": 5, "units_sold": 0, "rate": 450, "rate_plus_10": 495.0, "bill_total": 2250, "selling_price": 1620, "verified": false, "verified_at": null, "notes": "", "search_keys": ["13", "50 dlx"], "rate_plus_20": 540.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 540.0, "selling_price_10_3x": 1485, "selling_price_20_3x": 1620}, {"id": "W_14", "sticker_no": "14", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 14, "name": "100 mega Dlx", "pack_details": "10", "total_units": 10, "units_sold": 0, "rate": 350, "rate_plus_10": 385.0, "bill_total": 3500, "selling_price": 1260, "verified": false, "verified_at": null, "notes": "", "search_keys": ["14", "100 mega dlx"], "rate_plus_20": 420.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 420.0, "selling_price_10_3x": 1155, "selling_price_20_3x": 1260}, {"id": "W_15", "sticker_no": "15", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 15, "name": "18 cm pencil", "pack_details": "50", "total_units": 50, "units_sold": 0, "rate": 70, "rate_plus_10": 77.0, "bill_total": 3500, "selling_price": 252, "verified": false, "verified_at": null, "notes": "", "search_keys": ["15", "18 cm pencil"], "rate_plus_20": 84.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 84.0, "selling_price_10_3x": 231, "selling_price_20_3x": 252}, {"id": "W_16", "sticker_no": "16", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 16, "name": "12 cm Pencil Gaint", "pack_details": "20", "total_units": 20, "units_sold": 0, "rate": 50, "rate_plus_10": 55.0, "bill_total": 1000, "selling_price": 180, "verified": false, "verified_at": null, "notes": "", "search_keys": ["16", "12 cm pencil gaint"], "rate_plus_20": 60.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 60.0, "selling_price_10_3x": 165, "selling_price_20_3x": 180}, {"id": "W_17", "sticker_no": "17", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 17, "name": "7 cm Pencil", "pack_details": "50", "total_units": 50, "units_sold": 0, "rate": 22, "rate_plus_10": 24.2, "bill_total": 1100, "selling_price": 79, "verified": false, "verified_at": null, "notes": "", "search_keys": ["17", "7 cm pencil"], "rate_plus_20": 26.4, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 26.4, "selling_price_10_3x": 73, "selling_price_20_3x": 79}, {"id": "W_18", "sticker_no": "18", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 18, "name": "100 wala", "pack_details": "50", "total_units": 50, "units_sold": 0, "rate": 27, "rate_plus_10": 29.7, "bill_total": 1350, "selling_price": 97, "verified": false, "verified_at": null, "notes": "", "search_keys": ["18", "100 wala"], "rate_plus_20": 32.4, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 32.4, "selling_price_10_3x": 89, "selling_price_20_3x": 97}, {"id": "W_19", "sticker_no": "19", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 19, "name": "200 wala", "pack_details": "25", "total_units": 25, "units_sold": 0, "rate": 50, "rate_plus_10": 55.0, "bill_total": 1250, "selling_price": 180, "verified": false, "verified_at": null, "notes": "", "search_keys": ["19", "200 wala"], "rate_plus_20": 60.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 60.0, "selling_price_10_3x": 165, "selling_price_20_3x": 180}, {"id": "W_20", "sticker_no": "20", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 20, "name": "Rocket Bomb", "pack_details": "50", "total_units": 50, "units_sold": 0, "rate": 60, "rate_plus_10": 66.0, "bill_total": 3000, "selling_price": 216, "verified": false, "verified_at": null, "notes": "", "search_keys": ["20", "rocket bomb"], "rate_plus_20": 72.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 72.0, "selling_price_10_3x": 198, "selling_price_20_3x": 216}, {"id": "W_21", "sticker_no": "21", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 21, "name": "Lunik Rocket", "pack_details": "25", "total_units": 25, "units_sold": 0, "rate": 90, "rate_plus_10": 99.0, "bill_total": 2250, "selling_price": 324, "verified": false, "verified_at": null, "notes": "", "search_keys": ["21", "lunik rocket"], "rate_plus_20": 108.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 108.0, "selling_price_10_3x": 297, "selling_price_20_3x": 324}, {"id": "W_22", "sticker_no": "22", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 22, "name": "Music Rocket", "pack_details": "10", "total_units": 10, "units_sold": 0, "rate": 120, "rate_plus_10": 132.0, "bill_total": 1200, "selling_price": 432, "verified": false, "verified_at": null, "notes": "", "search_keys": ["22", "music rocket"], "rate_plus_20": 144.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 144.0, "selling_price_10_3x": 396, "selling_price_20_3x": 432}, {"id": "W_23", "sticker_no": "23", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 23, "name": "Flp Small", "pack_details": "100", "total_units": 100, "units_sold": 0, "rate": 36, "rate_plus_10": 39.6, "bill_total": 3600, "selling_price": 130, "verified": false, "verified_at": null, "notes": "", "search_keys": ["23", "flp small"], "rate_plus_20": 43.2, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 43.2, "selling_price_10_3x": 119, "selling_price_20_3x": 130}, {"id": "W_24", "sticker_no": "24", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 24, "name": "Flp Spl", "pack_details": "125", "total_units": 125, "units_sold": 0, "rate": 65, "rate_plus_10": 71.5, "bill_total": 8125, "selling_price": 234, "verified": false, "verified_at": null, "notes": "", "search_keys": ["24", "flp spl"], "rate_plus_20": 78.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 78.0, "selling_price_10_3x": 214, "selling_price_20_3x": 234}, {"id": "W_25", "sticker_no": "25", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 25, "name": "Flp Gaint", "pack_details": "20", "total_units": 20, "units_sold": 0, "rate": 120, "rate_plus_10": 132.0, "bill_total": 2400, "selling_price": 432, "verified": false, "verified_at": null, "notes": "", "search_keys": ["25", "flp gaint"], "rate_plus_20": 144.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 144.0, "selling_price_10_3x": 396, "selling_price_20_3x": 432}, {"id": "W_26", "sticker_no": "26", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 26, "name": "WiFi", "pack_details": "10", "total_units": 10, "units_sold": 0, "rate": 120, "rate_plus_10": 132.0, "bill_total": 1200, "selling_price": 432, "verified": false, "verified_at": null, "notes": "", "search_keys": ["26", "wifi"], "rate_plus_20": 144.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 144.0, "selling_price_10_3x": 396, "selling_price_20_3x": 432}, {"id": "W_27", "sticker_no": "27", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 27, "name": "5 Colour mini fountain", "pack_details": "30", "total_units": 30, "units_sold": 0, "rate": 160, "rate_plus_10": 176.0, "bill_total": 4800, "selling_price": 576, "verified": false, "verified_at": null, "notes": "", "search_keys": ["27", "5 colour mini fountain"], "rate_plus_20": 192.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 192.0, "selling_price_10_3x": 528, "selling_price_20_3x": 576}, {"id": "W_28", "sticker_no": "28", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 28, "name": "Clk Dlx Royal", "pack_details": "12", "total_units": 12, "units_sold": 0, "rate": 330, "rate_plus_10": 363.0, "bill_total": 3960, "selling_price": 1188, "verified": false, "verified_at": null, "notes": "", "search_keys": ["28", "clk dlx royal"], "rate_plus_20": 396.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 396.0, "selling_price_10_3x": 1089, "selling_price_20_3x": 1188}, {"id": "W_29", "sticker_no": "29", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 29, "name": "Clk Dlx (Leo)", "pack_details": "12", "total_units": 12, "units_sold": 0, "rate": 350, "rate_plus_10": 385.0, "bill_total": 4200, "selling_price": 1260, "verified": false, "verified_at": null, "notes": "", "search_keys": ["29", "clk dlx (leo)"], "rate_plus_20": 420.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 420.0, "selling_price_10_3x": 1155, "selling_price_20_3x": 1260}, {"id": "W_30", "sticker_no": "30", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 30, "name": "Clk Mega Dlx mithra", "pack_details": "10", "total_units": 10, "units_sold": 0, "rate": 330, "rate_plus_10": 363.0, "bill_total": 3300, "selling_price": 1188, "verified": false, "verified_at": null, "notes": "", "search_keys": ["30", "clk mega dlx mithra"], "rate_plus_20": 396.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 396.0, "selling_price_10_3x": 1089, "selling_price_20_3x": 1188}, {"id": "W_31", "sticker_no": "31", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 31, "name": "Glc Big (25P)", "pack_details": "24", "total_units": 24, "units_sold": 0, "rate": 65, "rate_plus_10": 71.5, "bill_total": 1560, "selling_price": 234, "verified": false, "verified_at": null, "notes": "", "search_keys": ["31", "glc big (25p)"], "rate_plus_20": 78.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 78.0, "selling_price_10_3x": 214, "selling_price_20_3x": 234}, {"id": "W_32", "sticker_no": "32", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 32, "name": "Glc Spl Leo", "pack_details": "75", "total_units": 75, "units_sold": 0, "rate": 65, "rate_plus_10": 71.5, "bill_total": 4875, "selling_price": 234, "verified": false, "verified_at": null, "notes": "", "search_keys": ["32", "glc spl leo"], "rate_plus_20": 78.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 78.0, "selling_price_10_3x": 214, "selling_price_20_3x": 234}, {"id": "W_33", "sticker_no": "33", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 33, "name": "Glc Dlx", "pack_details": "75", "total_units": 75, "units_sold": 0, "rate": 96, "rate_plus_10": 105.6, "bill_total": 7200, "selling_price": 346, "verified": false, "verified_at": null, "notes": "", "search_keys": ["33", "glc dlx"], "rate_plus_20": 115.2, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 115.2, "selling_price_10_3x": 317, "selling_price_20_3x": 346}, {"id": "W_34", "sticker_no": "34", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 34, "name": "Wheel Spinner", "pack_details": "30", "total_units": 30, "units_sold": 0, "rate": 100, "rate_plus_10": 110.0, "bill_total": 3000, "selling_price": 360, "verified": false, "verified_at": null, "notes": "", "search_keys": ["34", "wheel spinner"], "rate_plus_20": 120.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 120.0, "selling_price_10_3x": 330, "selling_price_20_3x": 360}, {"id": "W_35", "sticker_no": "35", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 35, "name": "Spinner Spl Royal", "pack_details": "20", "total_units": 20, "units_sold": 0, "rate": 160, "rate_plus_10": 176.0, "bill_total": 3200, "selling_price": 576, "verified": false, "verified_at": null, "notes": "", "search_keys": ["35", "spinner spl royal"], "rate_plus_20": 192.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 192.0, "selling_price_10_3x": 528, "selling_price_20_3x": 576}, {"id": "W_36", "sticker_no": "36", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 36, "name": "Wire Chakkar", "pack_details": "10", "total_units": 10, "units_sold": 0, "rate": 140, "rate_plus_10": 154.0, "bill_total": 1400, "selling_price": 504, "verified": false, "verified_at": null, "notes": "", "search_keys": ["36", "wire chakkar"], "rate_plus_20": 168.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 168.0, "selling_price_10_3x": 462, "selling_price_20_3x": 504}, {"id": "W_37", "sticker_no": "37", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 37, "name": "1 1/2 Twinkling", "pack_details": "100", "total_units": 100, "units_sold": 0, "rate": 18, "rate_plus_10": 19.8, "bill_total": 1800, "selling_price": 65, "verified": false, "verified_at": null, "notes": "", "search_keys": ["37", "1 1/2 twinkling"], "rate_plus_20": 21.6, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 21.6, "selling_price_10_3x": 59, "selling_price_20_3x": 65}, {"id": "W_38", "sticker_no": "38", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 38, "name": "4\" Twinkling", "pack_details": "150", "total_units": 150, "units_sold": 0, "rate": 60, "rate_plus_10": 66.0, "bill_total": 9000, "selling_price": 216, "verified": false, "verified_at": null, "notes": "", "search_keys": ["38", "4\" twinkling"], "rate_plus_20": 72.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 72.0, "selling_price_10_3x": 198, "selling_price_20_3x": 216}, {"id": "W_39", "sticker_no": "39", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 39, "name": "Hele copter", "pack_details": "20", "total_units": 20, "units_sold": 0, "rate": 80, "rate_plus_10": 88.0, "bill_total": 1600, "selling_price": 288, "verified": false, "verified_at": null, "notes": "", "search_keys": ["39", "hele copter"], "rate_plus_20": 96.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 96.0, "selling_price_10_3x": 264, "selling_price_20_3x": 288}, {"id": "W_40", "sticker_no": "40", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 40, "name": "Dola Dola Leo", "pack_details": "100", "total_units": 100, "units_sold": 0, "rate": 38, "rate_plus_10": 41.8, "bill_total": 3800, "selling_price": 137, "verified": false, "verified_at": null, "notes": "", "search_keys": ["40", "dola dola leo"], "rate_plus_20": 45.6, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 45.6, "selling_price_10_3x": 125, "selling_price_20_3x": 137}, {"id": "W_41", "sticker_no": "41", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 41, "name": "Mega kit kat", "pack_details": "50", "total_units": 50, "units_sold": 0, "rate": 50, "rate_plus_10": 55.0, "bill_total": 2500, "selling_price": 180, "verified": false, "verified_at": null, "notes": "", "search_keys": ["41", "mega kit kat"], "rate_plus_20": 60.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 60.0, "selling_price_10_3x": 165, "selling_price_20_3x": 180}, {"id": "W_42", "sticker_no": "42", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 42, "name": "Ganga Jamuna", "pack_details": "30", "total_units": 30, "units_sold": 0, "rate": 75, "rate_plus_10": 82.5, "bill_total": 2250, "selling_price": 270, "verified": false, "verified_at": null, "notes": "", "search_keys": ["42", "ganga jamuna"], "rate_plus_20": 90.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 90.0, "selling_price_10_3x": 248, "selling_price_20_3x": 270}, {"id": "W_43", "sticker_no": "43", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 43, "name": "Flower Bomb vcl", "pack_details": "20", "total_units": 20, "units_sold": 0, "rate": 150, "rate_plus_10": 165.0, "bill_total": 3000, "selling_price": 540, "verified": false, "verified_at": null, "notes": "", "search_keys": ["43", "flower bomb vcl"], "rate_plus_20": 180.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 180.0, "selling_price_10_3x": 495, "selling_price_20_3x": 540}, {"id": "W_44", "sticker_no": "44", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 44, "name": "Butterfly Yuva", "pack_details": "30", "total_units": 30, "units_sold": 0, "rate": 70, "rate_plus_10": 77.0, "bill_total": 2100, "selling_price": 252, "verified": false, "verified_at": null, "notes": "", "search_keys": ["44", "butterfly yuva"], "rate_plus_20": 84.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 84.0, "selling_price_10_3x": 231, "selling_price_20_3x": 252}, {"id": "W_45", "sticker_no": "45", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 45, "name": "2 Comment (P) Window", "pack_details": "10", "total_units": 10, "units_sold": 0, "rate": 70, "rate_plus_10": 77.0, "bill_total": 700, "selling_price": 252, "verified": false, "verified_at": null, "notes": "", "search_keys": ["45", "2 comment (p) window"], "rate_plus_20": 84.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 84.0, "selling_price_10_3x": 231, "selling_price_20_3x": 252}, {"id": "W_46", "sticker_no": "46", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 46, "name": "7 shot (10P)", "pack_details": "5", "total_units": 5, "units_sold": 0, "rate": 200, "rate_plus_10": 220.0, "bill_total": 1000, "selling_price": 720, "verified": false, "verified_at": null, "notes": "", "search_keys": ["46", "7 shot (10p)"], "rate_plus_20": 240.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 240.0, "selling_price_10_3x": 660, "selling_price_20_3x": 720}, {"id": "W_47", "sticker_no": "47", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 47, "name": "4\" comment (1P)", "pack_details": "2", "total_units": 2, "units_sold": 0, "rate": 760, "rate_plus_10": 836.0, "bill_total": 1520, "selling_price": 2736, "verified": false, "verified_at": null, "notes": "", "search_keys": ["47", "4\" comment (1p)"], "rate_plus_20": 912.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 912.0, "selling_price_10_3x": 2508, "selling_price_20_3x": 2736}, {"id": "W_48", "sticker_no": "48", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 48, "name": "4\" Comment (3P)", "pack_details": "2", "total_units": 2, "units_sold": 0, "rate": 900, "rate_plus_10": 990.0, "bill_total": 1800, "selling_price": 3240, "verified": false, "verified_at": null, "notes": "", "search_keys": ["48", "4\" comment (3p)"], "rate_plus_20": 1080.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 1080.0, "selling_price_10_3x": 2970, "selling_price_20_3x": 3240}, {"id": "W_49", "sticker_no": "49", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 49, "name": "Small Bullet Bomb", "pack_details": "150", "total_units": 150, "units_sold": 0, "rate": 13, "rate_plus_10": 14.3, "bill_total": 1950, "selling_price": 47, "verified": false, "verified_at": null, "notes": "", "search_keys": ["49", "small bullet bomb"], "rate_plus_20": 15.6, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 15.6, "selling_price_10_3x": 43, "selling_price_20_3x": 47}, {"id": "W_50", "sticker_no": "50", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 50, "name": "Solar Bomb", "pack_details": "50", "total_units": 50, "units_sold": 0, "rate": 45, "rate_plus_10": 49.5, "bill_total": 2250, "selling_price": 162, "verified": false, "verified_at": null, "notes": "", "search_keys": ["50", "solar bomb"], "rate_plus_20": 54.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 54.0, "selling_price_10_3x": 148, "selling_price_20_3x": 162}, {"id": "W_51", "sticker_no": "51", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 51, "name": "Classic Bomb", "pack_details": "50", "total_units": 50, "units_sold": 0, "rate": 92, "rate_plus_10": 101.2, "bill_total": 4600, "selling_price": 331, "verified": false, "verified_at": null, "notes": "", "search_keys": ["51", "classic bomb"], "rate_plus_20": 110.4, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 110.4, "selling_price_10_3x": 304, "selling_price_20_3x": 331}, {"id": "W_52", "sticker_no": "52", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 52, "name": "Military Bomb", "pack_details": "10", "total_units": 10, "units_sold": 0, "rate": 165, "rate_plus_10": 181.5, "bill_total": 1650, "selling_price": 594, "verified": false, "verified_at": null, "notes": "", "search_keys": ["52", "military bomb"], "rate_plus_20": 198.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 198.0, "selling_price_10_3x": 544, "selling_price_20_3x": 594}, {"id": "W_53", "sticker_no": "53", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 53, "name": "Marshal Black", "pack_details": "25", "total_units": 25, "units_sold": 0, "rate": 160, "rate_plus_10": 176.0, "bill_total": 4000, "selling_price": 576, "verified": false, "verified_at": null, "notes": "", "search_keys": ["53", "marshal black"], "rate_plus_20": 192.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 192.0, "selling_price_10_3x": 528, "selling_price_20_3x": 576}, {"id": "W_54", "sticker_no": "54", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 54, "name": "Digital Bomb", "pack_details": "20", "total_units": 20, "units_sold": 0, "rate": 190, "rate_plus_10": 209.0, "bill_total": 3800, "selling_price": 684, "verified": false, "verified_at": null, "notes": "", "search_keys": ["54", "digital bomb"], "rate_plus_20": 228.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 228.0, "selling_price_10_3x": 627, "selling_price_20_3x": 684}, {"id": "W_55", "sticker_no": "55", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 55, "name": "Jurassic Marshal", "pack_details": "20", "total_units": 20, "units_sold": 0, "rate": 180, "rate_plus_10": 198.0, "bill_total": 3600, "selling_price": 648, "verified": false, "verified_at": null, "notes": "", "search_keys": ["55", "jurassic marshal"], "rate_plus_20": 216.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 216.0, "selling_price_10_3x": 594, "selling_price_20_3x": 648}, {"id": "W_56", "sticker_no": "56", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 56, "name": "240 Shot (Jyothi)", "pack_details": "3", "total_units": 3, "units_sold": 0, "rate": 3100, "rate_plus_10": 3410.0, "bill_total": 9300, "selling_price": 11160, "verified": false, "verified_at": null, "notes": "", "search_keys": ["56", "240 shot (jyothi)"], "rate_plus_20": 3720.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 3720.0, "selling_price_10_3x": 10230, "selling_price_20_3x": 11160}, {"id": "W_57", "sticker_no": "57", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 57, "name": "Lamp", "pack_details": "15", "total_units": 15, "units_sold": 0, "rate": 250, "rate_plus_10": 275.0, "bill_total": 3750, "selling_price": 900, "verified": false, "verified_at": null, "notes": "", "search_keys": ["57", "lamp"], "rate_plus_20": 300.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 300.0, "selling_price_10_3x": 825, "selling_price_20_3x": 900}, {"id": "W_58", "sticker_no": "58", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 58, "name": "50 Ele", "pack_details": "10", "total_units": 10, "units_sold": 0, "rate": 130, "rate_plus_10": 143.0, "bill_total": 1300, "selling_price": 468, "verified": false, "verified_at": null, "notes": "", "search_keys": ["58", "50 ele"], "rate_plus_20": 156.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 156.0, "selling_price_10_3x": 429, "selling_price_20_3x": 468}, {"id": "W_59", "sticker_no": "59", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 59, "name": "50 Colour", "pack_details": "10", "total_units": 10, "units_sold": 0, "rate": 140, "rate_plus_10": 154.0, "bill_total": 1400, "selling_price": 504, "verified": false, "verified_at": null, "notes": "", "search_keys": ["59", "50 colour"], "rate_plus_20": 168.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 168.0, "selling_price_10_3x": 462, "selling_price_20_3x": 504}, {"id": "W_60", "sticker_no": "60", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 60, "name": "Robin King Siren", "pack_details": "5", "total_units": 5, "units_sold": 0, "rate": 65, "rate_plus_10": 71.5, "bill_total": 325, "selling_price": 234, "verified": false, "verified_at": null, "notes": "", "search_keys": ["60", "robin king siren"], "rate_plus_20": 78.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 78.0, "selling_price_10_3x": 214, "selling_price_20_3x": 234}, {"id": "W_61", "sticker_no": "61", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 61, "name": "Dil Se (1P)", "pack_details": "5", "total_units": 5, "units_sold": 0, "rate": 210, "rate_plus_10": 231.0, "bill_total": 1050, "selling_price": 756, "verified": false, "verified_at": null, "notes": "", "search_keys": ["61", "dil se (1p)"], "rate_plus_20": 252.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 252.0, "selling_price_10_3x": 693, "selling_price_20_3x": 756}, {"id": "W_62", "sticker_no": "62", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 62, "name": "Cukoo", "pack_details": "5", "total_units": 5, "units_sold": 0, "rate": 130, "rate_plus_10": 143.0, "bill_total": 650, "selling_price": 468, "verified": false, "verified_at": null, "notes": "", "search_keys": ["62", "cukoo"], "rate_plus_20": 156.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 156.0, "selling_price_10_3x": 429, "selling_price_20_3x": 468}, {"id": "W_63", "sticker_no": "63", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 63, "name": "Butterscotch", "pack_details": "5", "total_units": 5, "units_sold": 0, "rate": 230, "rate_plus_10": 253.0, "bill_total": 1150, "selling_price": 828, "verified": false, "verified_at": null, "notes": "", "search_keys": ["63", "butterscotch"], "rate_plus_20": 276.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 276.0, "selling_price_10_3x": 759, "selling_price_20_3x": 828}, {"id": "W_64", "sticker_no": "64", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 64, "name": "Golden Rabbit", "pack_details": "5", "total_units": 5, "units_sold": 0, "rate": 260, "rate_plus_10": 286.0, "bill_total": 1300, "selling_price": 936, "verified": false, "verified_at": null, "notes": "", "search_keys": ["64", "golden rabbit"], "rate_plus_20": 312.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 312.0, "selling_price_10_3x": 858, "selling_price_20_3x": 936}, {"id": "W_65", "sticker_no": "65", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 65, "name": "Speed Test mithra", "pack_details": "15", "total_units": 15, "units_sold": 0, "rate": 125, "rate_plus_10": 137.5, "bill_total": 1875, "selling_price": 450, "verified": false, "verified_at": null, "notes": "", "search_keys": ["65", "speed test mithra"], "rate_plus_20": 150.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 150.0, "selling_price_10_3x": 412, "selling_price_20_3x": 450}, {"id": "W_66", "sticker_no": "66", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 66, "name": "900 cc", "pack_details": "10", "total_units": 10, "units_sold": 0, "rate": 130, "rate_plus_10": 143.0, "bill_total": 1300, "selling_price": 468, "verified": false, "verified_at": null, "notes": "", "search_keys": ["66", "900 cc"], "rate_plus_20": 156.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 156.0, "selling_price_10_3x": 429, "selling_price_20_3x": 468}, {"id": "W_67", "sticker_no": "67", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 67, "name": "Turbo wheel", "pack_details": "10", "total_units": 10, "units_sold": 0, "rate": 80, "rate_plus_10": 88.0, "bill_total": 800, "selling_price": 288, "verified": false, "verified_at": null, "notes": "", "search_keys": ["67", "turbo wheel"], "rate_plus_20": 96.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 96.0, "selling_price_10_3x": 264, "selling_price_20_3x": 288}, {"id": "W_68", "sticker_no": "68", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 68, "name": "Top Gun", "pack_details": "5", "total_units": 5, "units_sold": 0, "rate": 180, "rate_plus_10": 198.0, "bill_total": 900, "selling_price": 648, "verified": false, "verified_at": null, "notes": "", "search_keys": ["68", "top gun"], "rate_plus_20": 216.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 216.0, "selling_price_10_3x": 594, "selling_price_20_3x": 648}, {"id": "W_69", "sticker_no": "69", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 69, "name": "Pistol 58", "pack_details": "5", "total_units": 5, "units_sold": 0, "rate": 230, "rate_plus_10": 253.0, "bill_total": 1150, "selling_price": 828, "verified": false, "verified_at": null, "notes": "", "search_keys": ["69", "pistol 58"], "rate_plus_20": 276.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 276.0, "selling_price_10_3x": 759, "selling_price_20_3x": 828}, {"id": "W_70", "sticker_no": "70", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 70, "name": "Bada Peacock Standard", "pack_details": "5", "total_units": 5, "units_sold": 0, "rate": 250, "rate_plus_10": 275.0, "bill_total": 1250, "selling_price": 900, "verified": false, "verified_at": null, "notes": "", "search_keys": ["70", "bada peacock standard"], "rate_plus_20": 300.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 300.0, "selling_price_10_3x": 825, "selling_price_20_3x": 900}, {"id": "W_71", "sticker_no": "71", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 71, "name": "Chota Bhai Siren", "pack_details": "9", "total_units": 9, "units_sold": 0, "rate": 170, "rate_plus_10": 187.0, "bill_total": 1530, "selling_price": 612, "verified": false, "verified_at": null, "notes": "", "search_keys": ["71", "chota bhai siren"], "rate_plus_20": 204.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 204.0, "selling_price_10_3x": 561, "selling_price_20_3x": 612}, {"id": "W_72", "sticker_no": "72", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 72, "name": "Big Elephant", "pack_details": "5", "total_units": 5, "units_sold": 0, "rate": 200, "rate_plus_10": 220.0, "bill_total": 1000, "selling_price": 720, "verified": false, "verified_at": null, "notes": "", "search_keys": ["72", "big elephant"], "rate_plus_20": 240.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 240.0, "selling_price_10_3x": 660, "selling_price_20_3x": 720}, {"id": "W_73", "sticker_no": "73", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 73, "name": "Bat & Ball", "pack_details": "2", "total_units": 2, "units_sold": 0, "rate": 350, "rate_plus_10": 385.0, "bill_total": 700, "selling_price": 1260, "verified": false, "verified_at": null, "notes": "", "search_keys": ["73", "bat & ball"], "rate_plus_20": 420.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 420.0, "selling_price_10_3x": 1155, "selling_price_20_3x": 1260}, {"id": "W_74", "sticker_no": "74", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 74, "name": "Wicked Willow Rocket", "pack_details": "6", "total_units": 6, "units_sold": 0, "rate": 300, "rate_plus_10": 330.0, "bill_total": 1800, "selling_price": 1080, "verified": false, "verified_at": null, "notes": "", "search_keys": ["74", "wicked willow rocket"], "rate_plus_20": 360.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 360.0, "selling_price_10_3x": 990, "selling_price_20_3x": 1080}, {"id": "P_1", "sticker_no": "1294-1", "lot_no": "1294", "bill_type": "pink", "bill_name": "Pink Bill 1294 (Chilakaluripet)", "bill_item_no": 1, "name": "100 Bijili", "pack_details": "1 x 300", "total_units": 300, "units_sold": 0, "rate": 25, "rate_plus_10": 27.5, "bill_total": 7500, "selling_price": 90, "verified": false, "verified_at": null, "notes": "", "search_keys": ["1294", "1294-1", "1294 1", "p1", "pink 1", "1", "100 bijili"], "rate_plus_20": 30.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 30.0, "selling_price_10_3x": 82, "selling_price_20_3x": 90}, {"id": "P_2", "sticker_no": "1294-2", "lot_no": "1294", "bill_type": "pink", "bill_name": "Pink Bill 1294 (Chilakaluripet)", "bill_item_no": 2, "name": "CLK Ishwarya", "pack_details": "1 x 60", "total_units": 60, "units_sold": 0, "rate": 160, "rate_plus_10": 176.0, "bill_total": 9600, "selling_price": 576, "verified": false, "verified_at": null, "notes": "", "search_keys": ["1294", "1294-2", "1294 2", "p2", "pink 2", "2", "clk ishwarya"], "rate_plus_20": 192.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 192.0, "selling_price_10_3x": 528, "selling_price_20_3x": 576}, {"id": "P_3", "sticker_no": "1294-3", "lot_no": "1294", "bill_type": "pink", "bill_name": "Pink Bill 1294 (Chilakaluripet)", "bill_item_no": 3, "name": "FLP Ashoka", "pack_details": "1 x 100", "total_units": 100, "units_sold": 0, "rate": 85, "rate_plus_10": 93.5, "bill_total": 8500, "selling_price": 306, "verified": false, "verified_at": null, "notes": "", "search_keys": ["1294", "1294-3", "1294 3", "p3", "pink 3", "3", "flp ashoka"], "rate_plus_20": 102.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 102.0, "selling_price_10_3x": 280, "selling_price_20_3x": 306}, {"id": "P_4", "sticker_no": "1294-4", "lot_no": "1294", "bill_type": "pink", "bill_name": "Pink Bill 1294 (Chilakaluripet)", "bill_item_no": 4, "name": "7 CM Electric", "pack_details": "4", "total_units": 4, "units_sold": 0, "rate": 1000, "rate_plus_10": 1100.0, "bill_total": 4000, "selling_price": 3600, "verified": false, "verified_at": null, "notes": "", "search_keys": ["1294", "1294-4", "1294 4", "p4", "pink 4", "4", "7 cm electric"], "rate_plus_20": 1200.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 1200.0, "selling_price_10_3x": 3300, "selling_price_20_3x": 3600}, {"id": "P_5", "sticker_no": "1294-5", "lot_no": "1294", "bill_type": "pink", "bill_name": "Pink Bill 1294 (Chilakaluripet)", "bill_item_no": 5, "name": "15 CM Colour", "pack_details": "3 x 100", "total_units": 300, "units_sold": 0, "rate": 30, "rate_plus_10": 33.0, "bill_total": 9000, "selling_price": 108, "verified": false, "verified_at": null, "notes": "", "search_keys": ["1294", "1294-5", "1294 5", "p5", "pink 5", "5", "15 cm colour"], "rate_plus_20": 36.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 36.0, "selling_price_10_3x": 99, "selling_price_20_3x": 108}, {"id": "P_6", "sticker_no": "1294-6", "lot_no": "1294", "bill_type": "pink", "bill_name": "Pink Bill 1294 (Chilakaluripet)", "bill_item_no": 6, "name": "15 CM Electric", "pack_details": "3 x 100", "total_units": 300, "units_sold": 0, "rate": 28, "rate_plus_10": 30.8, "bill_total": 8400, "selling_price": 101, "verified": false, "verified_at": null, "notes": "", "search_keys": ["1294", "1294-6", "1294 6", "p6", "pink 6", "6", "15 cm electric"], "rate_plus_20": 33.6, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 33.6, "selling_price_10_3x": 92, "selling_price_20_3x": 101}, {"id": "P_7", "sticker_no": "1294-7", "lot_no": "1294", "bill_type": "pink", "bill_name": "Pink Bill 1294 (Chilakaluripet)", "bill_item_no": 7, "name": "30 CM Colour", "pack_details": "3 x 100", "total_units": 300, "units_sold": 0, "rate": 30, "rate_plus_10": 33.0, "bill_total": 9000, "selling_price": 108, "verified": false, "verified_at": null, "notes": "", "search_keys": ["1294", "1294-7", "1294 7", "p7", "pink 7", "7", "30 cm colour"], "rate_plus_20": 36.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 36.0, "selling_price_10_3x": 99, "selling_price_20_3x": 108}, {"id": "P_8", "sticker_no": "1294-8", "lot_no": "1294", "bill_type": "pink", "bill_name": "Pink Bill 1294 (Chilakaluripet)", "bill_item_no": 8, "name": "30 CM Electric", "pack_details": "3 x 100", "total_units": 300, "units_sold": 0, "rate": 28, "rate_plus_10": 30.8, "bill_total": 8400, "selling_price": 101, "verified": false, "verified_at": null, "notes": "", "search_keys": ["1294", "1294-8", "1294 8", "p8", "pink 8", "8", "30 cm electric"], "rate_plus_20": 33.6, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 33.6, "selling_price_10_3x": 92, "selling_price_20_3x": 101}, {"id": "P_9", "sticker_no": "1294-9", "lot_no": "1294", "bill_type": "pink", "bill_name": "Pink Bill 1294 (Chilakaluripet)", "bill_item_no": 9, "name": "1K Wala", "pack_details": "1 x 36", "total_units": 36, "units_sold": 0, "rate": 130, "rate_plus_10": 143.0, "bill_total": 4680, "selling_price": 468, "verified": false, "verified_at": null, "notes": "", "search_keys": ["1294", "1294-9", "1294 9", "p9", "pink 9", "9", "1k wala"], "rate_plus_20": 156.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 156.0, "selling_price_10_3x": 429, "selling_price_20_3x": 468}, {"id": "P_10", "sticker_no": "1294-10", "lot_no": "1294", "bill_type": "pink", "bill_name": "Pink Bill 1294 (Chilakaluripet)", "bill_item_no": 10, "name": "2K Wala", "pack_details": "1 x 20", "total_units": 20, "units_sold": 0, "rate": 260, "rate_plus_10": 286.0, "bill_total": 5200, "selling_price": 936, "verified": false, "verified_at": null, "notes": "", "search_keys": ["1294", "1294-10", "1294 10", "p10", "pink 10", "10", "2k wala"], "rate_plus_20": 312.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 312.0, "selling_price_10_3x": 858, "selling_price_20_3x": 936}, {"id": "P_11", "sticker_no": "1294-11", "lot_no": "1294", "bill_type": "pink", "bill_name": "Pink Bill 1294 (Chilakaluripet)", "bill_item_no": 11, "name": "5K Wala", "pack_details": "1 x 8", "total_units": 8, "units_sold": 0, "rate": 650, "rate_plus_10": 715.0, "bill_total": 5200, "selling_price": 2340, "verified": false, "verified_at": null, "notes": "", "search_keys": ["1294", "1294-11", "1294 11", "p11", "pink 11", "11", "5k wala"], "rate_plus_20": 780.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 780.0, "selling_price_10_3x": 2145, "selling_price_20_3x": 2340}, {"id": "P_12", "sticker_no": "1294-12", "lot_no": "1294", "bill_type": "pink", "bill_name": "Pink Bill 1294 (Chilakaluripet)", "bill_item_no": 12, "name": "10K Wala", "pack_details": "1 x 5", "total_units": 5, "units_sold": 0, "rate": 1300, "rate_plus_10": 1430.0, "bill_total": 6500, "selling_price": 4680, "verified": false, "verified_at": null, "notes": "", "search_keys": ["1294", "1294-12", "1294 12", "p12", "pink 12", "12", "10k wala"], "rate_plus_20": 1560.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 1560.0, "selling_price_10_3x": 4290, "selling_price_20_3x": 4680}, {"id": "P_13", "sticker_no": "1294-13", "lot_no": "1294", "bill_type": "pink", "bill_name": "Pink Bill 1294 (Chilakaluripet)", "bill_item_no": 13, "name": "30 Shot", "pack_details": "1 x 18", "total_units": 18, "units_sold": 0, "rate": 380, "rate_plus_10": 418.0, "bill_total": 6840, "selling_price": 1368, "verified": false, "verified_at": null, "notes": "", "search_keys": ["1294", "1294-13", "1294 13", "p13", "pink 13", "13", "30 shot"], "rate_plus_20": 456.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 456.0, "selling_price_10_3x": 1254, "selling_price_20_3x": 1368}, {"id": "P_14", "sticker_no": "1294-14", "lot_no": "1294", "bill_type": "pink", "bill_name": "Pink Bill 1294 (Chilakaluripet)", "bill_item_no": 14, "name": "60 Shot", "pack_details": "1 x 12", "total_units": 12, "units_sold": 0, "rate": 760, "rate_plus_10": 836.0, "bill_total": 9120, "selling_price": 2736, "verified": false, "verified_at": null, "notes": "", "search_keys": ["1294", "1294-14", "1294 14", "p14", "pink 14", "14", "60 shot"], "rate_plus_20": 912.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 912.0, "selling_price_10_3x": 2508, "selling_price_20_3x": 2736}, {"id": "P_15", "sticker_no": "1294-15", "lot_no": "1294", "bill_type": "pink", "bill_name": "Pink Bill 1294 (Chilakaluripet)", "bill_item_no": 15, "name": "120 Shot", "pack_details": "1 x 6", "total_units": 6, "units_sold": 0, "rate": 1520, "rate_plus_10": 1672.0, "bill_total": 9120, "selling_price": 5472, "verified": false, "verified_at": null, "notes": "", "search_keys": ["1294", "1294-15", "1294 15", "p15", "pink 15", "15", "120 shot"], "rate_plus_20": 1824.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 1824.0, "selling_price_10_3x": 5016, "selling_price_20_3x": 5472}, {"id": "P_16", "sticker_no": "1294-16", "lot_no": "1294", "bill_type": "pink", "bill_name": "Pink Bill 1294 (Chilakaluripet)", "bill_item_no": 16, "name": "12 Shot Himalaya", "pack_details": "1 x 36", "total_units": 36, "units_sold": 0, "rate": 138, "rate_plus_10": 151.8, "bill_total": 4968, "selling_price": 497, "verified": false, "verified_at": null, "notes": "", "search_keys": ["1294", "1294-16", "1294 16", "p16", "pink 16", "16", "12 shot himalaya"], "rate_plus_20": 165.6, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 165.6, "selling_price_10_3x": 455, "selling_price_20_3x": 497}, {"id": "P_17", "sticker_no": "1294-17", "lot_no": "1294", "bill_type": "pink", "bill_name": "Pink Bill 1294 (Chilakaluripet)", "bill_item_no": 17, "name": "Robin Big Kids", "pack_details": "1 x 60", "total_units": 60, "units_sold": 0, "rate": 42, "rate_plus_10": 46.2, "bill_total": 2520, "selling_price": 151, "verified": false, "verified_at": null, "notes": "", "search_keys": ["1294", "1294-17", "1294 17", "p17", "pink 17", "17", "robin big kids"], "rate_plus_20": 50.4, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 50.4, "selling_price_10_3x": 139, "selling_price_20_3x": 151}, {"id": "P_18", "sticker_no": "1294-18", "lot_no": "1294", "bill_type": "pink", "bill_name": "Pink Bill 1294 (Chilakaluripet)", "bill_item_no": 18, "name": "Robin 5 Star", "pack_details": "1 x 40", "total_units": 40, "units_sold": 0, "rate": 125, "rate_plus_10": 137.5, "bill_total": 5000, "selling_price": 450, "verified": false, "verified_at": null, "notes": "", "search_keys": ["1294", "1294-18", "1294 18", "p18", "pink 18", "18", "robin 5 star"], "rate_plus_20": 150.0, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 150.0, "selling_price_10_3x": 412, "selling_price_20_3x": 450}, {"id": "P_19", "sticker_no": "1294-19", "lot_no": "1294", "bill_type": "pink", "bill_name": "Pink Bill 1294 (Chilakaluripet)", "bill_item_no": 19, "name": "Mathabu", "pack_details": "2 x 50", "total_units": 100, "units_sold": 0, "rate": 58, "rate_plus_10": 63.8, "bill_total": 5800, "selling_price": 209, "verified": false, "verified_at": null, "notes": "", "search_keys": ["1294", "1294-19", "1294 19", "p19", "pink 19", "19", "mathabu"], "rate_plus_20": 69.6, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 69.6, "selling_price_10_3x": 191, "selling_price_20_3x": 209}, {"id": "P_20", "sticker_no": "1294-20", "lot_no": "1294", "bill_type": "pink", "bill_name": "Pink Bill 1294 (Chilakaluripet)", "bill_item_no": 20, "name": "Look Pots", "pack_details": "2 x 100", "total_units": 200, "units_sold": 0, "rate": 21, "rate_plus_10": 23.1, "bill_total": 4200, "selling_price": 76, "verified": false, "verified_at": null, "notes": "", "search_keys": ["1294", "1294-20", "1294 20", "p20", "pink 20", "20", "look pots"], "rate_plus_20": 25.2, "overhead_pct": 20.0, "multiplier": 3.0, "final_cost": 25.2, "selling_price_10_3x": 69, "selling_price_20_3x": 76}];
     const DEFAULT_EXPENSES = [{"id": "exp_1", "name": "Bolero Max Auto Transport (Chilakaluripet → Nandigama)", "amount": 10000, "category": "Transport"}, {"id": "exp_2", "name": "Unloading Labour (4 Workers × ₹500)", "amount": 2000, "category": "Labour"}, {"id": "exp_3", "name": "Car Petrol (Up & Down Trip)", "amount": 2200, "category": "Transport"}, {"id": "exp_4", "name": "Workers Food & Tiffin", "amount": 1000, "category": "Food"}, {"id": "exp_5", "name": "Return Auto Charge (ఆటో ఆయనకి ఇచ్చాం ₹500)", "amount": 500, "category": "Transport"}, {"id": "exp_6", "name": "Shed Setup & Ground Preparation", "amount": 3000, "category": "Shed"}, {"id": "exp_7", "name": "Wooden Poles & Tarpaulin Advance", "amount": 5000, "category": "Shed"}, {"id": "exp_8", "name": "Ropes & Miscellaneous Hardware", "amount": 1000, "category": "Shed"}, {"id": "exp_9", "name": "Official Shed Permissions & Licensing", "amount": 50000, "category": "Permissions"}];
 
-    const STORAGE_KEY = 'diwali_master_v7';
-    const EXPENSES_KEY = 'diwali_expenses_v7';
-    const WEBHOOK_KEY = 'diwali_webhook_v7';
-    const AUTOSYNC_KEY = 'diwali_autosync_v7';
+    const STORAGE_KEY = 'diwali_master_haoqi_v1';
+    const EXPENSES_KEY = 'diwali_expenses_haoqi_v1';
+    const WEBHOOK_KEY = 'diwali_webhook_haoqi_v1';
+    const AUTOSYNC_KEY = 'diwali_autosync_haoqi_v1';
 
     let items = [];
     let expensesList = [];
     let currentFilter = 'all';
 
     function initData() {
-      // 1. Try loading persistent local storage first
       const savedItems = localStorage.getItem(STORAGE_KEY);
       if (savedItems) {
         try {
@@ -1353,7 +1227,6 @@
         items = JSON.parse(JSON.stringify(RAW_ITEMS));
       }
 
-      // 2. Load itemized expenses
       const savedExp = localStorage.getItem(EXPENSES_KEY);
       if (savedExp) {
         try {
@@ -1374,7 +1247,6 @@
         document.getElementById('autosync-check').checked = true;
       }
 
-      // Search input listener
       const searchInp = document.getElementById('global-search-input');
       searchInp.addEventListener('input', (e) => {
         const val = e.target.value.trim();
@@ -1392,12 +1264,9 @@
       recalcAndRenderAll();
     }
 
-    /* -------------------------------------------------------------------------
-       TAB SWITCHING
-       ------------------------------------------------------------------------- */
     function switchTab(tabId) {
-      document.querySelectorAll('.tab-view').forEach(v => v.classList.remove('active'));
-      document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-section').forEach(v => v.classList.remove('active'));
+      document.querySelectorAll('.bp-tab').forEach(t => t.classList.remove('active'));
 
       document.getElementById('view-' + tabId).classList.add('active');
       document.getElementById('tab-btn-' + tabId).classList.add('active');
@@ -1407,9 +1276,9 @@
       if (tabId === 'cards') renderMobileCards(q);
     }
 
-    /* -------------------------------------------------------------------------
-       MASTER FINANCIAL RECALCULATION & HUD UPDATE
-       ------------------------------------------------------------------------- */
+    /* =========================================================================
+       FINANCIAL TELEMETRY CALCULATOR & HUD UPDATE
+       ========================================================================= */
     let gTotals = {
       wsTotal: 332518,
       opExp: 74700,
@@ -1492,52 +1361,52 @@
       document.getElementById('hud-exp-sub').textContent = `Stock ${fmt(wsTotal)} + Shed ${fmt(opExp)}`;
 
       document.getElementById('hud-sales-collected').textContent = fmt(salesCollected);
-      document.getElementById('hud-units-sub').textContent = `${soldUnits.toLocaleString('en-IN')} / ${totalUnits.toLocaleString('en-IN')} units sold`;
+      document.getElementById('hud-units-sub').textContent = `${soldUnits.toLocaleString('en-IN')} / ${totalUnits.toLocaleString('en-IN')} sold`;
 
-      document.getElementById('hud-breakeven-deficit').textContent = breakevenDeficit > 0 ? fmt(breakevenDeficit) : '₹0 (COVERED!)';
-      document.getElementById('hud-breakeven-deficit').style.color = breakevenDeficit > 0 ? 'var(--gold-bright)' : 'var(--emerald-bright)';
-      document.getElementById('hud-deficit-sub').textContent = breakevenDeficit > 0 ? `Sell ${beStockPct}% stock to break even` : '100% Expenses Covered ✓';
+      document.getElementById('hud-breakeven-deficit').textContent = breakevenDeficit > 0 ? fmt(breakevenDeficit) : '₹0 (COVERED)';
+      document.getElementById('hud-breakeven-deficit').style.color = breakevenDeficit > 0 ? 'var(--accent-gold)' : 'var(--selection-bg)';
+      document.getElementById('hud-deficit-sub').textContent = breakevenDeficit > 0 ? `Sell ${beStockPct}% stock to break even` : '100% Capital Covered ✓';
 
       const hudNetVal = document.getElementById('hud-net-val');
-      const hudNetTitle = document.getElementById('hud-net-title');
+      const hudNetTag = document.getElementById('hud-net-tag');
       if (currentNetCash < 0) {
-        hudNetTitle.textContent = '4. Net Deficit';
+        hudNetTag.textContent = '[04] NET DEFICIT POSITION';
         hudNetVal.textContent = '-₹' + Math.abs(currentNetCash).toLocaleString('en-IN');
-        hudNetVal.style.color = 'var(--rose-bright)';
+        hudNetVal.style.color = 'var(--accent-rose)';
       } else {
-        hudNetTitle.textContent = '4. Net Cash Profit!';
+        hudNetTag.textContent = '[04] NET CASH PROFIT!';
         hudNetVal.textContent = '+₹' + currentNetCash.toLocaleString('en-IN');
-        hudNetVal.style.color = 'var(--emerald-bright)';
+        hudNetVal.style.color = 'var(--selection-bg)';
       }
-      document.getElementById('hud-net-sub').textContent = `Sold Profit Margin: +${fmt(realizedProfit)}`;
+      document.getElementById('hud-net-sub').textContent = `Sold Margin: +${fmt(realizedProfit)}`;
 
       document.getElementById('hud-target-val').textContent = fmt(fullTargetRev);
-      document.getElementById('hud-profit-sub').textContent = `Full 3x Profit: +${fmt(fullNetProfit)}`;
+      document.getElementById('hud-profit-sub').textContent = `3x Net Profit: +${fmt(fullNetProfit)}`;
 
       // 2. Executive 4 Cards
       document.getElementById('qc-expenses').textContent = fmt(totalInvestment);
       document.getElementById('qc-exp-desc').innerHTML = `
-        • Stock Bill: <strong>${fmt(wsTotal)}</strong> (White Bill ₹1.99L + Pink 1294 ₹1.34L)<br>
+        • Stock Bill: <strong>${fmt(wsTotal)}</strong> (White ₹1.99L + Pink 1294 ₹1.34L)<br>
         • Shed, Permissions, Labour &amp; Auto: <strong>${fmt(opExp)}</strong> (Includes ₹500 Return Auto)
       `;
 
       document.getElementById('qc-needed').textContent = breakevenDeficit > 0 ? fmt(breakevenDeficit) : '₹0 (Covered!)';
       document.getElementById('qc-be-pct').textContent = beStockPct + '%';
       document.getElementById('qc-needed-desc').innerHTML = `
-        • Actual Sales Done: <strong style="color:var(--cyan-bright);">${fmt(salesCollected)}</strong> (${soldUnits} units sold)<br>
+        • Actual Sales Done: <strong style="color:var(--accent-cyan);">${fmt(salesCollected)}</strong> (${soldUnits} units sold)<br>
         • You only need <strong>${beStockPct}%</strong> of total 3x sales (${fmt(totalInvestment)}) to cover 100% of all expenses!
       `;
 
       const qcLoss = document.getElementById('qc-current-cash');
       const qcLossTitle = document.getElementById('qc-loss-title');
       if (currentNetCash < 0) {
-        qcLossTitle.textContent = '3. Money Position If Stopped Now (Deficit)';
+        qcLossTitle.textContent = '[Q3] Money Position If Stopped Now (Deficit)';
         qcLoss.textContent = '-₹' + Math.abs(currentNetCash).toLocaleString('en-IN');
-        qcLoss.style.color = 'var(--rose)';
+        qcLoss.style.color = '#ef4444';
       } else {
-        qcLossTitle.textContent = '3. Money Position If Stopped Now (Surplus Profit!)';
+        qcLossTitle.textContent = '[Q3] Money Position If Stopped Now (Surplus Profit!)';
         qcLoss.textContent = '+₹' + currentNetCash.toLocaleString('en-IN');
-        qcLoss.style.color = 'var(--emerald-bright)';
+        qcLoss.style.color = 'var(--selection-bg)';
       }
       document.getElementById('qc-loss-desc').innerHTML = `
         • Cash in Hand: <strong>${fmt(salesCollected)}</strong><br>
@@ -1546,8 +1415,8 @@
 
       document.getElementById('qc-profit-hero').textContent = soldUnits > 0 ? '+' + fmt(realizedProfit) : '+' + fmt(fullNetProfit);
       document.getElementById('qc-profit-desc').innerHTML = `
-        • Margin on Units Sold So Far: <strong style="color:var(--emerald-bright);">+${fmt(realizedProfit)}</strong><br>
-        • 100% Sell-Out Profit: <strong>+${fmt(fullNetProfit)} Net Cash</strong> over ₹${totalInvestment.toLocaleString('en-IN')} total investment!
+        • Margin on Units Sold So Far: <strong style="color:var(--selection-bg);">+${fmt(realizedProfit)}</strong><br>
+        • 100% Sell-Out Profit: <strong>+${fmt(fullNetProfit)} Net Cash</strong> over ₹${totalInvestment.toLocaleString('en-IN')} total capital!
       `;
 
       // 3. Break-Even Meter
@@ -1612,16 +1481,16 @@
         const cash = Math.round(target * sc.p);
         const net = cash - inv;
         const unsoldCost = Math.round(wsTotal * (1 - sc.p));
-        const color = net < 0 ? 'var(--rose-bright)' : (net === 0 ? 'var(--gold-bright)' : 'var(--emerald-bright)');
+        const color = net < 0 ? 'var(--accent-rose)' : (net === 0 ? 'var(--accent-gold)' : 'var(--selection-bg)');
         const badge = net < 0 ? `-₹${Math.abs(net).toLocaleString('en-IN')} (DEFICIT)` : `+₹${net.toLocaleString('en-IN')} (PROFIT)`;
 
         return `
           <tr>
-            <td><strong>${sc.label}</strong></td>
-            <td class="num" style="color:var(--cyan-bright);">${fmt(cash)}</td>
-            <td class="num">${fmt(inv)}</td>
-            <td class="num" style="color:${color}; font-weight:800;">${badge}</td>
-            <td class="num" style="color:var(--text-3);">${fmt(unsoldCost)}</td>
+            <td><strong class="mono-2">[${sc.label}]</strong></td>
+            <td class="num tnum" style="color:var(--accent-cyan);">${fmt(cash)}</td>
+            <td class="num tnum">${fmt(inv)}</td>
+            <td class="num tnum" style="color:${color}; font-weight:700;">${badge}</td>
+            <td class="num tnum" style="color:var(--label-3);">${fmt(unsoldCost)}</td>
           </tr>
         `;
       }).join('');
@@ -1640,22 +1509,22 @@
       const badge = document.getElementById('slider-status-badge');
       if (net < 0) {
         badge.textContent = `-₹${Math.abs(net).toLocaleString('en-IN')} DEFICIT`;
-        badge.style.color = 'var(--rose-bright)';
+        badge.style.color = 'var(--accent-rose)';
       } else {
         badge.textContent = `+₹${net.toLocaleString('en-IN')} PROFIT`;
-        badge.style.color = 'var(--emerald-bright)';
+        badge.style.color = 'var(--selection-bg)';
       }
 
       document.getElementById('slider-metrics-line').innerHTML = `
         <span>Cash Sales: <strong>₹${cash.toLocaleString('en-IN')}</strong></span>
-        <span>All Expenses: <strong>₹${gTotals.totalInvestment.toLocaleString('en-IN')}</strong></span>
+        <span>Expenses: <strong>₹${gTotals.totalInvestment.toLocaleString('en-IN')}</strong></span>
         <span>Unsold Stock Cost: <strong>₹${leftCost.toLocaleString('en-IN')}</strong></span>
       `;
     }
 
-    /* -------------------------------------------------------------------------
-       TRUE EXCEL SPREADSHEET TABLE RENDERING & CELL-BY-CELL INLINE EDITING
-       ------------------------------------------------------------------------- */
+    /* =========================================================================
+       TRUE EXCEL-STYLE INTERACTIVE SPREADSHEET TABLE (94 Items)
+       ========================================================================= */
     function renderSpreadsheet(query = '') {
       const tbody = document.getElementById('spreadsheet-tbody');
       if (!tbody) return;
@@ -1690,65 +1559,65 @@
 
         const tr = document.createElement('tr');
         tr.id = `sheet-row-${index}`;
-        if (item.verified) tr.classList.add('row-verified');
-        if (s > 0) tr.classList.add('row-has-sold');
+        if (item.verified) tr.classList.add('ticked-row');
+        if (s > 0) tr.classList.add('sold-row');
 
         tr.innerHTML = `
           <td>
-            <input type="checkbox" ${item.verified ? 'checked' : ''} onchange="toggleVerified(${index}, this.checked)" style="cursor:pointer; accent-color:var(--emerald);">
+            <input type="checkbox" ${item.verified ? 'checked' : ''} onchange="toggleVerified(${index}, this.checked)" style="cursor:pointer; accent-color:var(--selection-bg);">
           </td>
           <td>
-            <span class="badge-tag ${isPink ? 'pink' : 'white'}">#${escapeAttr(item.sticker_no)}</span>
+            <span class="badge-bp ${isPink ? 'pink' : 'white'}">#${escapeAttr(item.sticker_no)}</span>
           </td>
           <td>
-            <input type="text" class="cell-input" value="${escapeAttr(item.name)}"
+            <input type="text" class="bp-cell-input" value="${escapeAttr(item.name)}"
               oninput="onCellUpdate(${index}, 'name', this.value)" title="Click to edit product name">
           </td>
           <td>
-            <input type="text" class="cell-input" value="${escapeAttr(item.pack_details || '')}"
-              oninput="onCellUpdate(${index}, 'pack_details', this.value)" style="width:70px;" title="Pack size">
+            <input type="text" class="bp-cell-input" value="${escapeAttr(item.pack_details || '')}"
+              oninput="onCellUpdate(${index}, 'pack_details', this.value)" style="width:65px;">
           </td>
           <td class="num">
-            <input type="number" class="cell-input num-cell" value="${u}" style="width:65px;"
+            <input type="number" class="bp-cell-input num-in" value="${u}" style="width:55px;"
               oninput="onCellUpdate(${index}, 'total_units', this.value)">
           </td>
           <td class="num">
-            <div class="stepper-mini">
-              <button class="btn-step-mini" onclick="stepItemSold(${index}, -1)">−</button>
-              <input type="number" class="cell-input num-cell" value="${s}" style="width:50px; color:var(--cyan-bright);"
+            <div class="stepper-tech">
+              <button class="btn-step-tech" onclick="stepItemSold(${index}, -1)">−</button>
+              <input type="number" class="bp-cell-input num-in" value="${s}" style="width:45px; color:var(--accent-cyan);"
                 oninput="onCellUpdate(${index}, 'units_sold', this.value)">
-              <button class="btn-step-mini" onclick="stepItemSold(${index}, 1)">+</button>
+              <button class="btn-step-tech" onclick="stepItemSold(${index}, 1)">+</button>
             </div>
           </td>
-          <td class="num" style="font-family:var(--font-mono); font-weight:700;" id="cell-rem-${index}">
+          <td class="num tnum" style="font-weight:700;" id="cell-rem-${index}">
             ${rem}
           </td>
           <td class="num">
-            <input type="number" class="cell-input num-cell" value="${rate}" style="width:80px;" step="any"
+            <input type="number" class="bp-cell-input num-in" value="${rate}" style="width:75px;" step="any"
               oninput="onWholesaleRateChange(${index}, this.value)">
           </td>
-          <td class="num" style="font-family:var(--font-mono); color:var(--text-3);" id="cell-c10-${index}">
+          <td class="num tnum" style="color:var(--label-3);" id="cell-c10-${index}">
             ₹${c10}
           </td>
           <td class="num">
-            <input type="number" class="cell-input num-cell" value="${fc}" style="width:85px; color:var(--gold-bright);" step="any"
+            <input type="number" class="bp-cell-input num-in" value="${fc}" style="width:75px; color:var(--accent-gold);" step="any"
               oninput="onFinalCostChange(${index}, this.value)">
           </td>
           <td class="num">
-            <input type="number" class="cell-input num-cell sp-cell" value="${sp}" style="width:85px;" step="any"
+            <input type="number" class="bp-cell-input num-in sp-in" value="${sp}" style="width:80px;" step="any"
               oninput="onSellingPriceChange(${index}, this.value)">
           </td>
-          <td class="num" style="font-family:var(--font-mono); font-weight:700;" id="cell-boxval-${index}">
+          <td class="num tnum" style="font-weight:700;" id="cell-boxval-${index}">
             ₹${boxVal.toLocaleString('en-IN')}
           </td>
-          <td class="num" style="font-family:var(--font-mono); font-weight:800; color:var(--cyan-bright);" id="cell-soldrev-${index}">
+          <td class="num tnum" style="font-weight:700; color:var(--accent-cyan);" id="cell-soldrev-${index}">
             ₹${soldRev.toLocaleString('en-IN')}
           </td>
-          <td class="num" style="font-family:var(--font-mono); font-weight:800; color:${soldProfit >= 0 ? 'var(--emerald-bright)' : 'var(--rose-bright)'};" id="cell-profit-${index}">
+          <td class="num tnum" style="font-weight:700; color:${soldProfit >= 0 ? 'var(--selection-bg)' : 'var(--accent-rose)'};" id="cell-profit-${index}">
             ${soldProfit >= 0 ? '+' : ''}₹${soldProfit.toLocaleString('en-IN')}
           </td>
           <td>
-            <button class="btn-del" onclick="deleteItem(${index})" title="Delete item">🗑️</button>
+            <button class="btn-bp hit" onclick="deleteItem(${index})" style="padding:1px 5px; font-size:0.65rem;" title="Delete SKU">✕</button>
           </td>
         `;
 
@@ -1758,7 +1627,7 @@
 
     function setSheetFilter(filt, btnEl) {
       currentFilter = filt;
-      document.querySelectorAll('.tbl-pill').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.bp-f-btn').forEach(b => b.classList.remove('active'));
       if (btnEl) btnEl.classList.add('active');
       renderSpreadsheet(document.getElementById('global-search-input').value.trim());
     }
@@ -1851,18 +1720,18 @@
       const profitCell = document.getElementById(`cell-profit-${index}`);
       if (profitCell) {
         profitCell.textContent = (soldProfit >= 0 ? '+' : '') + '₹' + soldProfit.toLocaleString('en-IN');
-        profitCell.style.color = soldProfit >= 0 ? 'var(--emerald-bright)' : 'var(--rose-bright)';
+        profitCell.style.color = soldProfit >= 0 ? 'var(--selection-bg)' : 'var(--accent-rose)';
       }
 
       const row = document.getElementById(`sheet-row-${index}`);
       if (row) {
-        if (it.verified) row.classList.add('row-verified'); else row.classList.remove('row-verified');
-        if (s > 0) row.classList.add('row-has-sold'); else row.classList.remove('row-has-sold');
+        if (it.verified) row.classList.add('ticked-row'); else row.classList.remove('ticked-row');
+        if (s > 0) row.classList.add('sold-row'); else row.classList.remove('sold-row');
       }
     }
 
     function deleteItem(index) {
-      if (!confirm(`Delete "${items[index].name}" (#${items[index].sticker_no})?`)) return;
+      if (!confirm(`Delete SKU "${items[index].name}" (#${items[index].sticker_no})?`)) return;
       items.splice(index, 1);
       saveState();
       renderSpreadsheet(document.getElementById('global-search-input').value.trim());
@@ -1946,47 +1815,45 @@
         const profit = Math.round((sp - fc) * s);
 
         const card = document.createElement('div');
-        card.className = `box-card ${item.verified ? 'is-ticked' : ''} ${s > 0 ? 'has-sales' : ''}`;
+        card.className = `m-card ${item.verified ? 'is-ticked' : ''} ${s > 0 ? 'has-sold' : ''}`;
         card.id = `card-idx-${index}`;
 
         card.innerHTML = `
-          <div class="box-card-top">
-            <div class="tick-checkbox" onclick="toggleVerified(${index}, ${!item.verified})">
-              ${item.verified ? '✓' : ''}
-            </div>
-            <span class="badge-tag ${isPink ? 'pink' : 'white'}">#${escapeAttr(item.sticker_no)}</span>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <input type="checkbox" ${item.verified ? 'checked' : ''} onchange="toggleVerified(${index}, this.checked)" style="cursor:pointer; accent-color:var(--selection-bg);">
+            <span class="badge-bp ${isPink ? 'pink' : 'white'}">#${escapeAttr(item.sticker_no)}</span>
             <div style="flex:1; min-width:0;">
-              <strong style="color:#fff; font-size:0.9rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; display:block;">
+              <strong style="color:#fff; font-size:0.88rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; display:block;">
                 ${escapeAttr(item.name)}
               </strong>
-              <div style="font-size:0.68rem; color:var(--text-3);">
-                Pack: ${escapeAttr(item.pack_details || '1')} • Wholesale: ₹${item.rate}
+              <div class="mono" style="font-size:0.68rem; color:var(--label-3);">
+                Pack: ${escapeAttr(item.pack_details || '1')} • Wholesale: ₹${item.rate} • Final: ₹${fc}
               </div>
             </div>
           </div>
 
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; background:var(--bg); border:1px solid var(--border); border-radius:var(--radius-sm); padding:8px;">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; background:var(--background-deep); border:1px solid var(--line); padding:6px 8px;">
             <div>
-              <span style="font-size:0.62rem; text-transform:uppercase; color:var(--text-dim); font-weight:700;">Units Sold / Total</span>
-              <div class="stepper-mini" style="margin-top:2px;">
-                <button class="btn-step-mini" onclick="stepItemSold(${index}, -1)">−</button>
-                <input type="number" class="cell-input num-cell" value="${s}" style="width:50px; color:var(--cyan-bright);"
+              <span class="mono-2 up" style="font-size:0.6rem; color:var(--label-3);">Sold / Total Units</span>
+              <div class="stepper-tech" style="margin-top:2px;">
+                <button class="btn-step-tech" onclick="stepItemSold(${index}, -1)">−</button>
+                <input type="number" class="bp-cell-input num-in" value="${s}" style="width:45px; color:var(--accent-cyan);"
                   oninput="onCellUpdate(${index}, 'units_sold', this.value)">
-                <button class="btn-step-mini" onclick="stepItemSold(${index}, 1)">+</button>
-                <span style="font-size:0.75rem; color:var(--text-3); margin-left:4px;">/${u}</span>
+                <button class="btn-step-tech" onclick="stepItemSold(${index}, 1)">+</button>
+                <span class="mono" style="font-size:0.75rem; color:var(--label-3); margin-left:4px;">/${u}</span>
               </div>
             </div>
 
             <div>
-              <span style="font-size:0.62rem; text-transform:uppercase; color:var(--text-dim); font-weight:700;">Retail Selling (3x)</span>
-              <input type="number" class="cell-input num-cell sp-cell" value="${sp}" style="margin-top:2px;"
+              <span class="mono-2 up" style="font-size:0.6rem; color:var(--label-3);">Selling Price (3x)</span>
+              <input type="number" class="bp-cell-input num-in sp-in" value="${sp}" style="margin-top:2px;"
                 oninput="onSellingPriceChange(${index}, this.value)">
             </div>
           </div>
 
-          <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.72rem; font-family:var(--font-mono); color:var(--text-3);">
-            <span>Remaining: <strong style="color:#fff;">${rem}</strong></span>
-            <span style="color:${profit >= 0 ? 'var(--emerald-bright)' : 'var(--rose-bright)'}; font-weight:700;">
+          <div class="mono" style="display:flex; justify-content:space-between; align-items:center; font-size:0.7rem; color:var(--label-3);">
+            <span>Left: <strong style="color:#fff;">${rem}</strong></span>
+            <span style="color:${profit >= 0 ? 'var(--selection-bg)' : 'var(--accent-rose)'}; font-weight:700;">
               Sold Profit: ${profit >= 0 ? '+' : ''}₹${profit.toLocaleString('en-IN')}
             </span>
           </div>
@@ -2004,10 +1871,10 @@
       if (!listWrap) return;
 
       listWrap.innerHTML = expensesList.map((exp, idx) => `
-        <div class="expense-line">
-          <input type="text" value="${escapeAttr(exp.name)}" oninput="updateExpenseItem(${idx}, 'name', this.value)" title="Expense description">
-          <input type="number" value="${exp.amount}" oninput="updateExpenseItem(${idx}, 'amount', this.value)" title="Expense amount (₹)">
-          <button class="btn-del" onclick="deleteExpenseItem(${idx})" title="Delete expense">✕</button>
+        <div class="exp-item-row">
+          <input type="text" value="${escapeAttr(exp.name)}" oninput="updateExpenseItem(${idx}, 'name', this.value)" title="Expense item">
+          <input type="number" value="${exp.amount}" oninput="updateExpenseItem(${idx}, 'amount', this.value)" title="Amount in Rs">
+          <button class="btn-bp hit" onclick="deleteExpenseItem(${idx})" style="padding:2px 6px; font-size:0.65rem;" title="Delete">✕</button>
         </div>
       `).join('');
     }
@@ -2036,7 +1903,7 @@
     }
 
     /* -------------------------------------------------------------------------
-       EXCEL (.XLSX) NATIVE IMPORT & EXPORT ENGINE (SheetJS)
+       NATIVE EXCEL (.XLSX) IMPORT & EXPORT ENGINE (SheetJS)
        ------------------------------------------------------------------------- */
     function exportNativeExcel() {
       if (typeof XLSX === 'undefined') {
@@ -2077,13 +1944,12 @@
       const workbook = XLSX.utils.book_new();
       XLSX.utils.book_append_sheet(workbook, worksheet, 'Diwali_Inventory_3x');
 
-      // Add Expenses sheet as well!
       const expRows = expensesList.map(x => ({ 'Expense_Description': x.name, 'Amount_Rs': x.amount }));
       expRows.unshift({ 'Expense_Description': 'Stock Purchase (White + Pink)', 'Amount_Rs': gTotals.wsTotal });
       const expSheet = XLSX.utils.json_to_sheet(expRows);
       XLSX.utils.book_append_sheet(workbook, expSheet, 'Expenses_Ledger');
 
-      XLSX.writeFile(workbook, `Diwali_Crackers_Master_Sales_${new Date().toISOString().slice(0,10)}.xlsx`);
+      XLSX.writeFile(workbook, `Diwali_Crackers_Blueprint_Master_${new Date().toISOString().slice(0,10)}.xlsx`);
     }
 
     function importSpreadsheetFile(event) {
@@ -2212,12 +2078,12 @@
       });
 
       navigator.clipboard.writeText(tsv).then(() => {
-        alert('Copied all 94 rows to clipboard! Open Google Sheets (sheets.new) and press Ctrl+V to paste.');
+        alert('Copied all 94 rows to clipboard in Google Sheets format! Open Google Sheets (sheets.new) and press Ctrl+V.');
       });
     }
 
     /* -------------------------------------------------------------------------
-       SERVER & GOOGLE SHEETS WEBHOOK SYNC
+       SERVER & WEBHOOK
        ------------------------------------------------------------------------- */
     function saveWebhookSetting(val) {
       localStorage.setItem(WEBHOOK_KEY, val.trim());
@@ -2230,7 +2096,7 @@
     async function syncDataToServer(showAlert = false) {
       saveState();
       const btn = document.getElementById('btn-cloud-sync');
-      btn.textContent = 'Syncing...';
+      btn.textContent = '[SYNCING...]';
 
       if (localStorage.getItem(AUTOSYNC_KEY) === 'true') {
         pushToGoogleWebhook(true);
@@ -2243,18 +2109,16 @@
           body: JSON.stringify(items)
         });
         if (res.ok) {
-          btn.classList.add('sync-ok');
-          btn.textContent = 'Synced ✓';
+          btn.textContent = '[SYNCED ✓]';
           if (showAlert) alert('Saved and pushed to GitHub!');
-          setTimeout(() => { btn.textContent = '☁️ Save & Push'; }, 3000);
+          setTimeout(() => { btn.textContent = '[CLOUD SYNC]'; }, 3000);
           return;
         }
       } catch(e) {}
 
-      btn.classList.add('sync-ok');
-      btn.textContent = 'Saved Local ✓';
-      if (showAlert) alert('Saved to device storage!');
-      setTimeout(() => { btn.textContent = '☁️ Save & Push'; }, 2500);
+      btn.textContent = '[SAVED LOCAL ✓]';
+      if (showAlert) alert('Saved to local browser storage!');
+      setTimeout(() => { btn.textContent = '[CLOUD SYNC]'; }, 2500);
     }
 
     async function pushToGoogleWebhook(silent = false) {
@@ -2329,8 +2193,8 @@
       recognition.onstart = function() {
         isListening = true;
         document.getElementById('btn-voice-trigger').classList.add('listening');
-        document.getElementById('mic-text').textContent = 'Listening';
-        document.getElementById('voice-status-ticker').classList.add('active');
+        document.getElementById('mic-text').textContent = '🔴 [LISTENING...]';
+        document.getElementById('voice-status-ticker').style.display = 'flex';
       };
 
       recognition.onresult = function(event) {
@@ -2370,7 +2234,7 @@
     }
 
     function toggleVoiceSearch() {
-      if (!recognition) { alert('Voice search is supported in Chrome/Safari on mobile and desktop.'); return; }
+      if (!recognition) { alert('Voice search supported in Chrome & Safari on mobile/desktop.'); return; }
       if (isListening) stopVoiceSearch();
       else recognition.start();
     }
@@ -2380,9 +2244,9 @@
       const btn = document.getElementById('btn-voice-trigger');
       if (btn) btn.classList.remove('listening');
       const text = document.getElementById('mic-text');
-      if (text) text.textContent = 'Voice';
+      if (text) text.textContent = '🎙️ [VOICE]';
       const ticker = document.getElementById('voice-status-ticker');
-      if (ticker) ticker.classList.remove('active');
+      if (ticker) ticker.style.display = 'none';
       if (recognition) { try { recognition.stop(); } catch(e) {} }
     }
 
