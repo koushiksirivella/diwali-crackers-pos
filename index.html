@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>DIWALI CRACKERS OS // LIVE PRICING & INVENTORY SYSTEM [94 SKUs]</title>
+  <title>DIWALI CRACKERS OS // SHOP POS & SECURE ADMIN [94 SKUs]</title>
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#0f1111">
   
@@ -174,6 +174,28 @@
       flex-wrap: wrap;
     }
 
+    /* Mode Pill (Staff vs Admin) */
+    .mode-badge-pill {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      padding: 4px 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid var(--line);
+      background: var(--background-elevated);
+      cursor: pointer;
+    }
+    .mode-badge-pill.locked {
+      color: var(--accent-gold);
+      border-color: rgba(250, 204, 21, 0.3);
+    }
+    .mode-badge-pill.unlocked {
+      color: var(--selection-bg);
+      border-color: rgba(192, 254, 4, 0.4);
+      background: rgba(192, 254, 4, 0.1);
+    }
+
     .bp-search-bar {
       display: flex;
       align-items: center;
@@ -181,9 +203,9 @@
       border: 1px solid var(--line);
       padding: 2px 8px;
       gap: 6px;
-      min-width: 200px;
+      min-width: 180px;
       flex: 1;
-      max-width: 360px;
+      max-width: 320px;
     }
 
     .bp-search-bar input {
@@ -303,6 +325,9 @@
       background: rgba(192, 254, 4, 0.2);
       color: var(--selection-bg);
     }
+    .bp-tab.admin-locked {
+      opacity: 0.7;
+    }
 
     /* Main Container */
     main.bp-main {
@@ -358,7 +383,100 @@
       padding: 14px;
     }
 
-    /* MASTER PRICING ENGINE HERO BANNER */
+    /* =========================================================================
+       STAFF SALES POS INTERFACE (PUBLIC / CLEAN)
+       ========================================================================= */
+    .staff-hero-bar {
+      background: linear-gradient(180deg, #161c1c 0%, #101414 100%);
+      border: 1px solid var(--line-accent);
+      padding: 14px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .staff-pos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 12px;
+    }
+    @media (max-width: 480px) {
+      .staff-pos-grid { grid-template-columns: 1fr; }
+    }
+
+    .pos-card {
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      position: relative;
+      transition: all 120ms ease;
+    }
+    .pos-card:hover {
+      border-color: var(--line-bright);
+      background: var(--card-hover);
+    }
+    .pos-card.sold-out {
+      opacity: 0.45;
+      filter: grayscale(0.8);
+    }
+    .pos-card.highlight-focus {
+      border-color: var(--selection-bg) !important;
+      box-shadow: 0 0 16px rgba(192, 254, 4, 0.35);
+    }
+
+    .pos-price-banner {
+      background: rgba(192, 254, 4, 0.08);
+      border: 1px solid rgba(192, 254, 4, 0.3);
+      padding: 8px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .pos-price-val {
+      font-family: var(--font-mono);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--selection-bg);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .pos-actions-row {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .btn-sell-quick {
+      flex: 1;
+      padding: 8px 4px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      background: var(--background-deep);
+      border: 1px solid var(--line);
+      color: #fff;
+      cursor: pointer;
+      text-align: center;
+    }
+    .btn-sell-quick:hover {
+      background: rgba(192, 254, 4, 0.15);
+      border-color: var(--selection-bg);
+      color: var(--selection-bg);
+    }
+    .btn-sell-quick.primary {
+      background: var(--selection-bg);
+      color: #000;
+      border-color: var(--selection-bg);
+    }
+    .btn-sell-quick.primary:hover {
+      filter: brightness(1.1);
+    }
+
+    /* MASTER PRICING ENGINE HERO BANNER (ADMIN ONLY) */
     .pricing-engine-hero {
       background: linear-gradient(180deg, #151818 0%, #101212 100%);
       border: 1px solid var(--line-accent);
@@ -384,32 +502,9 @@
       align-items: center;
       gap: 6px;
     }
-    .formula-step strong {
-      color: #fff;
-    }
-    .formula-step.highlight strong {
-      color: var(--selection-bg);
-      font-size: 0.95rem;
-    }
-    .formula-arrow {
-      color: var(--label-3);
-      font-weight: bold;
-    }
-
-    .pricing-controls-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .controls-inputs-wrap {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
+    .formula-step strong { color: #fff; }
+    .formula-step.highlight strong { color: var(--selection-bg); font-size: 0.95rem; }
+    .formula-arrow { color: var(--label-3); font-weight: bold; }
 
     .control-pill-input {
       display: inline-flex;
@@ -434,74 +529,14 @@
       padding: 2px 4px;
     }
 
-    /* View Switcher Bar */
-    .view-switcher-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      padding: 8px 0;
-      border-bottom: 1px solid var(--line);
-    }
-    .view-mode-btns {
-      display: flex;
-      gap: 4px;
-    }
-    .view-mode-btn {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      padding: 6px 12px;
-      background: var(--background-elevated);
-      color: var(--label-3);
-      border: 1px solid var(--line);
-      cursor: pointer;
-    }
-    .view-mode-btn.active {
-      background: rgba(192, 254, 4, 0.15);
-      border-color: var(--selection-bg);
-      color: var(--selection-bg);
-      font-weight: 700;
-    }
-
-    /* Filter Pills */
-    .filter-pills-row {
-      display: flex;
-      gap: 6px;
-      overflow-x: auto;
-      scrollbar-width: none;
-      padding: 2px 0;
-    }
-    .filter-pills-row::-webkit-scrollbar { display: none; }
-    .f-pill {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      padding: 4px 10px;
-      background: var(--background-elevated);
-      border: 1px solid var(--line);
-      color: var(--label-2);
-      cursor: pointer;
-      white-space: nowrap;
-    }
-    .f-pill.active {
-      background: #fff;
-      color: #000;
-      border-color: #fff;
-      font-weight: 700;
-    }
-
-    /* =========================================================================
-       CARD VIEW: THE UNMISSABLE PRODUCT PRICE & SALES EDITOR (MOBILE OPTIMIZED)
-       ========================================================================= */
+    /* Cards Grid */
     .cards-grid-container {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
       gap: 12px;
     }
     @media (max-width: 480px) {
-      .cards-grid-container {
-        grid-template-columns: 1fr;
-      }
+      .cards-grid-container { grid-template-columns: 1fr; }
     }
 
     .prod-card {
@@ -517,22 +552,6 @@
     .prod-card:hover {
       border-color: var(--line-bright);
       background: var(--card-hover);
-    }
-    .prod-card.ticked {
-      border-color: rgba(192, 254, 4, 0.4);
-    }
-    .prod-card.has-sales {
-      border-left: 3px solid var(--accent-cyan);
-    }
-    .prod-card.highlight-focus {
-      border-color: var(--selection-bg) !important;
-      box-shadow: 0 0 16px rgba(192, 254, 4, 0.35);
-    }
-
-    .prod-card-header {
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
     }
 
     .box-badge {
@@ -551,64 +570,6 @@
       color: var(--accent-rose);
     }
 
-    .prod-title-wrap {
-      flex: 1;
-      min-width: 0;
-    }
-    .prod-title-input {
-      background: transparent;
-      border: 1px solid transparent;
-      color: #fff;
-      font-family: var(--font-sans);
-      font-weight: 700;
-      font-size: 0.95rem;
-      width: 100%;
-      padding: 2px 4px;
-    }
-    .prod-title-input:hover, .prod-title-input:focus {
-      background: var(--background-deep);
-      border-color: var(--line);
-    }
-
-    .prod-meta-line {
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      color: var(--label-3);
-      margin-top: 2px;
-    }
-
-    /* THE EDITABLE PRICING MATRIX BOX */
-    .prod-pricing-matrix {
-      background: var(--background-deep);
-      border: 1px solid var(--line);
-      padding: 8px 10px;
-      display: grid;
-      grid-template-columns: 1fr auto 1fr auto 1.3fr;
-      align-items: center;
-      gap: 6px;
-    }
-    @media (max-width: 400px) {
-      .prod-pricing-matrix {
-        grid-template-columns: 1fr 1fr;
-        gap: 8px;
-      }
-      .prod-pricing-matrix .math-sym {
-        display: none;
-      }
-    }
-
-    .price-unit-col {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-    .price-unit-col label {
-      font-family: var(--font-mono-2);
-      font-size: 0.58rem;
-      color: var(--label-3);
-      text-transform: uppercase;
-    }
-
     .bp-input-num {
       background: var(--background-elevated);
       border: 1px solid var(--line);
@@ -620,11 +581,7 @@
       width: 100%;
       font-variant-numeric: tabular-nums;
     }
-    .bp-input-num:focus {
-      border-color: var(--selection-bg);
-    }
 
-    /* 3X FINAL SELLING PRICE INPUT (STANDOUT STYLING) */
     .bp-input-sell {
       background: rgba(192, 254, 4, 0.1);
       border: 1.5px solid var(--selection-bg) !important;
@@ -636,115 +593,8 @@
       width: 100%;
       outline: none;
     }
-    .bp-input-sell:focus {
-      background: rgba(192, 254, 4, 0.2);
-      box-shadow: 0 0 10px rgba(192, 254, 4, 0.4);
-    }
 
-    .cost-badge-c10 {
-      font-family: var(--font-mono);
-      font-size: 0.82rem;
-      color: var(--accent-gold);
-      padding: 4px 2px;
-      font-variant-numeric: tabular-nums;
-    }
-
-    .math-sym {
-      font-family: var(--font-mono-2);
-      font-size: 0.72rem;
-      color: var(--label-4);
-      text-align: center;
-    }
-
-    /* Quick micro adjusters row */
-    .micro-adjust-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
-    .micro-btns {
-      display: flex;
-      gap: 4px;
-    }
-    .btn-micro {
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      padding: 2px 6px;
-      background: var(--background-deep);
-      border: 1px solid var(--line);
-      color: var(--label-2);
-      cursor: pointer;
-    }
-    .btn-micro:hover {
-      background: rgba(255, 255, 255, 0.08);
-      color: #fff;
-    }
-    .btn-micro.reset {
-      color: var(--selection-bg);
-      border-color: rgba(192, 254, 4, 0.3);
-    }
-
-    /* Stock & Sales Row */
-    .prod-stock-sales-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      background: rgba(0, 0, 0, 0.25);
-      border: 1px solid var(--line);
-      padding: 8px 10px;
-    }
-
-    .stepper-wrap {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      margin-top: 2px;
-    }
-    .btn-step {
-      width: 28px;
-      height: 28px;
-      background: var(--background-elevated);
-      border: 1px solid var(--line);
-      color: #fff;
-      font-family: var(--font-mono);
-      font-size: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-    }
-    .btn-step:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: var(--selection-bg);
-    }
-    .stepper-in {
-      width: 48px;
-      height: 28px;
-      text-align: center;
-      background: var(--background-deep);
-      border: 1px solid var(--line);
-      color: var(--accent-cyan);
-      font-family: var(--font-mono);
-      font-weight: 700;
-      font-size: 0.85rem;
-    }
-
-    .prod-card-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      color: var(--label-3);
-      padding-top: 4px;
-      border-top: 1px solid rgba(255, 255, 255, 0.04);
-    }
-
-    /* =========================================================================
-       TABLE VIEW: FULL SPREADSHEET (EXCEL STYLE GRID)
-       ========================================================================= */
+    /* Spreadsheet Table */
     .bp-table-wrap {
       width: 100%;
       overflow-x: auto;
@@ -776,24 +626,14 @@
       border-bottom: 1px solid var(--line-bright);
       border-right: 1px solid var(--line);
     }
-    .bp-table th.num, .bp-table td.num {
-      text-align: right;
-    }
+    .bp-table th.num, .bp-table td.num { text-align: right; }
     .bp-table td {
       padding: 4px 8px;
       border-bottom: 1px solid var(--line);
       border-right: 1px solid var(--line);
       font-variant-numeric: tabular-nums;
     }
-    .bp-table tr:hover td {
-      background: rgba(255, 255, 255, 0.02);
-    }
-    .bp-table tr.sold-row td {
-      background: rgba(56, 189, 248, 0.02);
-    }
-    .bp-table tr.highlight-focus td {
-      background: rgba(192, 254, 4, 0.1) !important;
-    }
+    .bp-table tr:hover td { background: rgba(255, 255, 255, 0.02); }
 
     .tbl-input {
       background: transparent;
@@ -808,23 +648,8 @@
       background: var(--background-deep);
       border-color: var(--line-bright);
     }
-    .tbl-input.num-in {
-      text-align: right;
-    }
-    .tbl-input.sell-in {
-      color: var(--selection-bg);
-      font-weight: 700;
-      border: 1px solid rgba(192, 254, 4, 0.3);
-      background: rgba(192, 254, 4, 0.05);
-    }
-    .tbl-input.sell-in:focus {
-      border-color: var(--selection-bg);
-      background: rgba(192, 254, 4, 0.15);
-    }
 
-    /* =========================================================================
-       SECTION 2: EXECUTIVE FINANCIAL HUD
-       ========================================================================= */
+    /* Executive Financial HUD */
     .hud-grid-4 {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -832,12 +657,8 @@
       background: var(--line);
       border: 1px solid var(--line);
     }
-    @media (max-width: 900px) {
-      .hud-grid-4 { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 480px) {
-      .hud-grid-4 { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 900px) { .hud-grid-4 { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .hud-grid-4 { grid-template-columns: 1fr; } }
 
     .hud-tile {
       background: var(--background-elevated);
@@ -866,19 +687,87 @@
       color: var(--label-3);
     }
 
-    /* Loss Simulator Slider Box */
-    .sim-slider-box {
-      background: var(--background-deep);
-      border: 1px solid var(--line);
-      padding: 14px;
+    /* =========================================================================
+       PIN MODAL STYLES (SECURE NUMPAD)
+       ========================================================================= */
+    .pin-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .pin-modal-overlay.active {
+      display: flex;
+    }
+
+    .pin-modal-card {
+      background: #111414;
+      border: 1px solid var(--selection-bg);
+      box-shadow: 0 0 30px rgba(192, 254, 4, 0.2);
+      width: 100%;
+      max-width: 320px;
+      padding: 24px;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 16px;
+      align-items: center;
+      position: relative;
     }
-    .sim-slider-box input[type="range"] {
+
+    .pin-dots-row {
+      display: flex;
+      gap: 12px;
+      margin: 8px 0;
+    }
+    .pin-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 2px solid var(--selection-bg);
+      background: transparent;
+      transition: all 120ms ease;
+    }
+    .pin-dot.filled {
+      background: var(--selection-bg);
+      box-shadow: 0 0 8px var(--selection-bg);
+    }
+
+    .pin-numpad {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
       width: 100%;
-      accent-color: var(--selection-bg);
+    }
+    .btn-pin {
+      height: 48px;
+      background: var(--background-elevated);
+      border: 1px solid var(--line);
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 1.2rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       cursor: pointer;
+    }
+    .btn-pin:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--selection-bg);
+    }
+    .btn-pin.action {
+      font-size: 0.8rem;
+      color: var(--label-2);
+    }
+    .btn-pin.submit {
+      background: var(--selection-bg);
+      color: #000;
+      border-color: var(--selection-bg);
     }
 
     /* Notification toast */
@@ -886,7 +775,7 @@
       position: fixed;
       bottom: 20px;
       right: 20px;
-      z-index: 1000;
+      z-index: 10000;
       background: var(--background-elevated);
       border: 1px solid var(--selection-bg);
       color: #fff;
@@ -913,56 +802,65 @@
       <div class="brand-wrap">
         <h1 class="brand-title">
           DIWALI CRACKERS OS
-          <span class="tag">ARCHITECTURAL HUD // HAOQI GRID</span>
+          <span class="tag">POS &amp; ADMIN ARCHITECTURE</span>
         </h1>
       </div>
 
       <div class="header-actions">
+        <!-- Mode Badge Pill -->
+        <button id="btn-mode-toggle" class="mode-badge-pill locked hit" onclick="handleModeBadgeClick()">
+          <span id="mode-icon">🔒</span>
+          <span id="mode-text">STAFF MODE (POS)</span>
+          <span style="font-size:0.65rem; color:var(--label-3);">[ENTER PIN]</span>
+        </button>
+
         <!-- Live Google Sheet Status Pill -->
         <a href="https://docs.google.com/spreadsheets/d/1swTMlDSVKEHMPwIriVmvAsmaWXIO_DxwEzQ6vI9ZFQw/edit" 
            target="_blank" id="header-sheet-pill" class="sheet-sync-pill hit" title="Open Google Sheet in new tab">
           <span class="dot"></span>
-          <span>GOOGLE SHEET LIVE (1swTMlDS...)</span>
+          <span>SHEET LIVE</span>
           <span style="font-size:0.65rem;">↗</span>
         </a>
 
         <!-- Fast Search -->
         <div class="bp-search-bar">
           <span class="mono-2" style="color:var(--selection-bg); font-size:0.75rem;">/</span>
-          <input type="text" id="global-search-input" placeholder="Search Box #, Name, e.g. 46 or Lakshmi" oninput="onGlobalSearch(this.value)">
+          <input type="text" id="global-search-input" placeholder="Search Box #, Name, 46..." oninput="onGlobalSearch(this.value)">
           <button class="btn-bp hit" id="btn-voice-search" onclick="startVoiceSearch()" title="Speak Box Number or Name" style="padding:2px 6px;">
             🎤 VOICE
           </button>
         </div>
 
-        <!-- Action Buttons -->
-        <button class="btn-bp accent hit" onclick="addNewProduct()">[+ ADD BOX]</button>
-        <button class="btn-bp hit" id="btn-cloud-sync" onclick="syncDataToServer(true)">[SAVE &amp; SYNC]</button>
+        <!-- Sync Button -->
+        <button class="btn-bp hit" id="btn-cloud-sync" onclick="syncDataToServer(true)">[SYNC SHEETS]</button>
       </div>
     </div>
   </header>
 
   <!-- =========================================================================
-       MAIN NAVIGATION TABS (Tab 1 is PRODUCTS & PRICE CONTROLLER by default!)
+       MAIN NAVIGATION TABS (Tab 1 is STAFF COUNTER for everyone!)
        ========================================================================= -->
   <nav class="bp-tabs">
-    <button class="bp-tab active hit" id="tab-btn-products" onclick="switchTab('products')">
-      [01] Live Products &amp; Price Editor <span class="badge" id="tab-badge-items">94</span>
+    <button class="bp-tab active hit" id="tab-btn-staff" onclick="switchTab('staff')">
+      🛍️ [01] Staff Counter (POS) <span class="badge" id="tab-badge-staff-items">94</span>
     </button>
-    <button class="bp-tab hit" id="tab-btn-hud" onclick="switchTab('hud')">
-      [02] Executive Financial HUD &amp; Break-Even
+    <button class="bp-tab hit admin-locked" id="tab-btn-products" onclick="attemptAdminTab('products')">
+      🔒 [02] Master Price &amp; SKU Editor
     </button>
-    <button class="bp-tab hit" id="tab-btn-simulator" onclick="switchTab('simulator')">
-      [03] Loss Scenario Simulator
+    <button class="bp-tab hit admin-locked" id="tab-btn-hud" onclick="attemptAdminTab('hud')">
+      🔒 [03] Financial HUD &amp; Break-Even
     </button>
-    <button class="bp-tab hit" id="tab-btn-matrix" onclick="switchTab('matrix')">
-      [04] Cost Benchmark Matrix
+    <button class="bp-tab hit admin-locked" id="tab-btn-simulator" onclick="attemptAdminTab('simulator')">
+      🔒 [04] Loss Scenario Simulator
     </button>
-    <button class="bp-tab hit" id="tab-btn-expenses" onclick="switchTab('expenses')">
-      [05] Itemized Expenses Ledger
+    <button class="bp-tab hit admin-locked" id="tab-btn-matrix" onclick="attemptAdminTab('matrix')">
+      🔒 [05] Cost Benchmark Matrix
     </button>
-    <button class="bp-tab hit" id="tab-btn-sync" onclick="switchTab('sync')">
-      [06] Google Sheets &amp; Cloud Connect
+    <button class="bp-tab hit admin-locked" id="tab-btn-expenses" onclick="attemptAdminTab('expenses')">
+      🔒 [06] Itemized Expenses Ledger
+    </button>
+    <button class="bp-tab hit admin-locked" id="tab-btn-sync" onclick="attemptAdminTab('sync')">
+      🔒 [07] Google Sheets &amp; Cloud Sync
     </button>
   </nav>
 
@@ -972,20 +870,42 @@
   <main class="bp-main">
 
     <!-- ===================================================================
-         SECTION 1: PRODUCTS & LIVE PRICE EDITOR (ACTIVE ON LOAD)
+         SECTION 1: PUBLIC STAFF SALES COUNTER (NO PIN REQUIRED)
          =================================================================== -->
-    <section class="tab-section active" id="view-products">
+    <section class="tab-section active" id="view-staff">
+      <div class="staff-hero-bar">
+        <div>
+          <strong style="color:#fff; font-size:0.95rem; text-transform:uppercase;">Shop Counter Fast Sales Terminal</strong>
+          <div class="mono" style="font-size:0.72rem; color:var(--label-2);">
+            Search box number or name, tap to record sales. Data updates instantly to Google Sheets.
+          </div>
+        </div>
+        <div style="display:flex; gap:6px;">
+          <button class="btn-bp hit" onclick="setStaffFilter('all', this)">All Boxes (94)</button>
+          <button class="btn-bp hit" onclick="setStaffFilter('instock', this)">In Stock Only</button>
+          <button class="btn-bp hit" onclick="setStaffFilter('white', this)">White Bill</button>
+          <button class="btn-bp hit" onclick="setStaffFilter('pink', this)">Pink 1294</button>
+        </div>
+      </div>
 
-      <!-- MASTER PRICING ENGINE HERO CONTROLLER -->
+      <!-- Staff POS Product Cards Grid -->
+      <div class="staff-pos-grid" id="staff-pos-container">
+        <!-- Rendered by JavaScript -->
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SECTION 2: ADMIN PRICE & SKU EDITOR (LOCKED)
+         =================================================================== -->
+    <section class="tab-section" id="view-products">
+      <!-- Master Pricing Engine Hero Controller -->
       <div class="pricing-engine-hero">
         <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; flex-wrap:wrap;">
           <div style="display:flex; align-items:center; gap:8px;">
-            <span class="mono-2" style="font-size:0.75rem; color:var(--selection-bg); font-weight:700;">[PRICE ENGINE]</span>
+            <span class="mono-2" style="font-size:0.75rem; color:var(--selection-bg); font-weight:700;">[ADMIN PRICING ENGINE]</span>
             <strong style="font-size:0.9rem; text-transform:uppercase; letter-spacing:0.02em;">Wholesale + Driving Expenses + 3x Selling Price Pipeline</strong>
           </div>
-          <div class="mono" style="font-size:0.72rem; color:var(--label-2);">
-            Direct 2-Way Sync to <a href="https://docs.google.com/spreadsheets/d/1swTMlDSVKEHMPwIriVmvAsmaWXIO_DxwEzQ6vI9ZFQw/edit" target="_blank" style="color:var(--selection-bg); text-decoration:underline;">Google Sheet (1swTMlDS...)</a>
-          </div>
+          <button class="btn-bp hit" onclick="lockAdminMode()">[🔒 LOCK ADMIN NOW]</button>
         </div>
 
         <!-- Formula Banner -->
@@ -997,7 +917,7 @@
           <span class="formula-arrow">+</span>
           <div class="formula-step">
             <span class="mono-2" style="color:var(--label-3);">[02]</span>
-            <span>Driving/Overhead (+10%): <strong>₹110 Landed</strong></span>
+            <span>Driving (+10%): <strong>₹110 Landed</strong></span>
           </div>
           <span class="formula-arrow">×</span>
           <div class="formula-step">
@@ -1012,8 +932,8 @@
         </div>
 
         <!-- Global Interactive Knobs -->
-        <div class="pricing-controls-row">
-          <div class="controls-inputs-wrap">
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap;">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
             <div class="control-pill-input">
               <span>Driving Exp: +</span>
               <input type="number" id="g-overhead-input" value="10" step="1" onchange="applyGlobalFormula()">
@@ -1025,54 +945,36 @@
               <span>x</span>
             </div>
             <button class="btn-bp accent hit" onclick="applyGlobalFormula()">[⚡ RECALCULATE ALL TO 3X]</button>
-            <button class="btn-bp hit" onclick="setPresetMarkup(10, 3)">[PRESET: 10% × 3x]</button>
-            <button class="btn-bp hit" onclick="setPresetMarkup(20, 3)">[PRESET: 20% × 3x]</button>
           </div>
 
           <div style="display:flex; gap:6px; flex-wrap:wrap;">
-            <button class="btn-bp hit" onclick="syncDataToServer(true)">[💾 SAVE &amp; PUSH TO SHEETS]</button>
+            <button class="btn-bp hit" onclick="addNewProduct()">[+ ADD BOX]</button>
+            <button class="btn-bp hit" onclick="syncDataToServer(true)">[💾 PUSH TO SHEETS]</button>
             <button class="btn-bp hit" onclick="pullDataFromServer()">[🔄 PULL FROM SHEETS]</button>
-            <a href="https://docs.google.com/spreadsheets/d/1swTMlDSVKEHMPwIriVmvAsmaWXIO_DxwEzQ6vI9ZFQw/edit" target="_blank" class="btn-bp hit" style="color:var(--selection-bg); border-color:rgba(192,254,4,0.4);">
-              [📊 OPEN GOOGLE SHEET ↗]
-            </a>
           </div>
         </div>
       </div>
 
-      <!-- View Switcher & Filter Toolbar -->
-      <div class="view-switcher-bar">
-        <div class="view-mode-btns">
-          <button class="view-mode-btn active hit" id="btn-mode-cards" onclick="setViewMode('cards')">
-            📱 QUICK-EDIT CARDS (MOBILE OPTIMIZED)
-          </button>
-          <button class="view-mode-btn hit" id="btn-mode-table" onclick="setViewMode('table')">
-            📊 FULL SPREADSHEET GRID (EXCEL STYLE)
-          </button>
+      <!-- View Switcher -->
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; flex-wrap:wrap; border-bottom:1px solid var(--line); padding:8px 0;">
+        <div style="display:flex; gap:4px;">
+          <button class="btn-bp active hit" id="btn-mode-cards" onclick="setAdminViewMode('cards')">📱 DETAILED CARDS</button>
+          <button class="btn-bp hit" id="btn-mode-table" onclick="setAdminViewMode('table')">📊 FULL SPREADSHEET TABLE</button>
         </div>
-
-        <div style="display:flex; gap:6px; align-items:center;">
+        <div style="display:flex; gap:6px;">
           <button class="btn-bp hit" onclick="exportNativeExcel()">[EXPORT .XLSX]</button>
           <button class="btn-bp hit" onclick="copyTableForGoogleSheets()">[COPY FOR SHEETS]</button>
         </div>
       </div>
 
-      <!-- Filter Pills -->
-      <div class="filter-pills-row">
-        <button class="f-pill active hit" onclick="setProductFilter('all', this)">All SKUs (94)</button>
-        <button class="f-pill hit" onclick="setProductFilter('sold', this)">Has Sales 💰</button>
-        <button class="f-pill hit" onclick="setProductFilter('white', this)">White Bill (1–74)</button>
-        <button class="f-pill hit" onclick="setProductFilter('pink', this)">Pink Bill 1294 (20)</button>
-        <button class="f-pill hit" onclick="setProductFilter('soldout', this)">Sold Out / Low Stock</button>
-      </div>
-
-      <!-- View Container 1: Quick-Edit Cards (Default View) -->
+      <!-- Container 1: Detailed Cards -->
       <div id="container-cards-view" class="cards-grid-container">
-        <!-- Rendered by JavaScript -->
+        <!-- Rendered by JS -->
       </div>
 
-      <!-- View Container 2: Spreadsheet Table (Excel Grid) -->
+      <!-- Container 2: Spreadsheet Grid -->
       <div id="container-table-view" class="bp-table-wrap" style="display:none;">
-        <table class="bp-table" id="excel-data-table">
+        <table class="bp-table">
           <thead>
             <tr>
               <th style="width:36px;">✓</th>
@@ -1092,49 +994,42 @@
             </tr>
           </thead>
           <tbody id="spreadsheet-tbody">
-            <!-- Rendered by JavaScript -->
+            <!-- Rendered by JS -->
           </tbody>
         </table>
       </div>
-
     </section>
 
     <!-- ===================================================================
-         SECTION 2: EXECUTIVE FINANCIAL HUD & BREAK-EVEN
+         SECTION 3: EXECUTIVE FINANCIAL HUD (LOCKED)
          =================================================================== -->
     <section class="tab-section" id="view-hud">
-      <!-- 4 Core Questions Tiles -->
       <div class="hud-grid-4">
         <div class="hud-tile">
           <span class="tag">[Q1] Complete Expenses</span>
           <div class="num" id="tile-total-expenses" style="color:var(--accent-rose);">₹4,07,218</div>
           <span class="desc">Stock (₹3,32,518) + Shed &amp; Ops (₹74,700)</span>
         </div>
-
         <div class="hud-tile">
           <span class="tag">[Q2] Sales Needed to Break Even</span>
           <div class="num" id="tile-breakeven-sales" style="color:var(--accent-gold);">₹4,07,218</div>
           <span class="desc" id="tile-breakeven-pct">Only 34.0% of inventory at 3x</span>
         </div>
-
         <div class="hud-tile">
           <span class="tag">[Q3] Current Cash in Hand</span>
           <div class="num" id="tile-cash-collected" style="color:var(--accent-cyan);">₹0</div>
           <span class="desc" id="tile-units-sold-count">0 / 940 units sold</span>
         </div>
-
         <div class="hud-tile">
           <span class="tag">[Q4] Profit Realized / Upside</span>
           <div class="num" id="tile-profit-display" style="color:var(--selection-bg);">+₹7,90,172</div>
-          <span class="desc" id="tile-profit-sub">Max potential at full 3x sell-out</span>
+          <span class="desc">Max potential at full 3x sell-out</span>
         </div>
       </div>
 
-      <!-- Financial Progress Meter -->
       <div class="bp-card">
         <div class="bp-card-head">
           <h2><span>[PROGRESS]</span> Break-Even &amp; Net Revenue Target Meter</h2>
-          <span class="coord mono-2">TARGET: ₹4,07,218 (0.0% COVERED)</span>
         </div>
         <div class="bp-card-body" style="display:flex; flex-direction:column; gap:8px;">
           <div style="background:var(--background-deep); height:20px; border:1px solid var(--line); position:relative; overflow:hidden;">
@@ -1151,7 +1046,7 @@
     </section>
 
     <!-- ===================================================================
-         SECTION 3: LOSS SCENARIO SIMULATOR
+         SECTION 4: LOSS SCENARIO SIMULATOR (LOCKED)
          =================================================================== -->
     <section class="tab-section" id="view-simulator">
       <div class="bp-card">
@@ -1160,42 +1055,30 @@
           <span class="coord mono-2">SLIDER: 10% TO 100% INVENTORY SELL-THROUGH</span>
         </div>
         <div class="bp-card-body" style="display:flex; flex-direction:column; gap:16px;">
-          <div class="sim-slider-box">
+          <div style="background:var(--background-deep); border:1px solid var(--line); padding:14px; display:flex; flex-direction:column; gap:10px;">
             <div style="display:flex; justify-content:space-between; align-items:center;">
               <span class="mono-2 up" style="color:var(--selection-bg); font-size:0.8rem;">Select Sell-Through Scenario:</span>
               <span class="mono" style="font-size:1.1rem; font-weight:700; color:#fff;" id="sim-pct-label">35% Sold</span>
             </div>
-            <input type="range" id="sim-slider" min="10" max="100" step="5" value="35" oninput="updateScenarioSim(this.value)">
-            <div class="mono" style="display:flex; justify-content:space-between; font-size:0.68rem; color:var(--label-3);">
-              <span>10% (Severe Slump)</span>
-              <span>34% (Exact Break-Even)</span>
-              <span>50% (Solid Profit)</span>
-              <span>75% (Strong Sellout)</span>
-              <span>100% (Clean Sweep)</span>
-            </div>
+            <input type="range" id="sim-slider" min="10" max="100" step="5" value="35" oninput="updateScenarioSim(this.value)" style="width:100%; accent-color:var(--selection-bg); cursor:pointer;">
           </div>
 
-          <!-- Scenario Simulation Metrics -->
           <div class="hud-grid-4">
             <div class="hud-tile">
               <span class="tag">Simulated Revenue</span>
               <div class="num" id="sim-rev-val" style="color:var(--accent-cyan);">₹4,19,086</div>
-              <span class="desc">Cash collected at this %</span>
             </div>
             <div class="hud-tile">
               <span class="tag">Net Profit / Loss</span>
               <div class="num" id="sim-profit-val" style="color:var(--selection-bg);">+₹11,868</div>
-              <span class="desc">After ₹4,07,218 expenses</span>
             </div>
             <div class="hud-tile">
               <span class="tag">Unsold Stock (Wholesale)</span>
               <div class="num" id="sim-unsold-ws" style="color:var(--accent-rose);">₹2,16,137</div>
-              <span class="desc">Original purchase value</span>
             </div>
             <div class="hud-tile">
               <span class="tag">Unsold Stock (3x Value)</span>
               <div class="num" id="sim-unsold-3x" style="color:var(--accent-gold);">₹7,78,304</div>
-              <span class="desc">Potential retail value left</span>
             </div>
           </div>
         </div>
@@ -1203,13 +1086,12 @@
     </section>
 
     <!-- ===================================================================
-         SECTION 4: COST MATRIX & BENCHMARK
+         SECTION 5: COST BENCHMARK MATRIX (LOCKED)
          =================================================================== -->
     <section class="tab-section" id="view-matrix">
       <div class="bp-card">
         <div class="bp-card-head">
           <h2><span>[BENCHMARK]</span> Wholesale vs Landed Cost Tiers vs 3x Selling Value</h2>
-          <span class="coord mono-2">INDEX: PURCHASE TO RETAIL SPREAD</span>
         </div>
         <div class="bp-table-wrap">
           <table class="bp-table">
@@ -1252,12 +1134,6 @@
                 <td class="num" style="color:var(--selection-bg);">₹4,81,098</td>
                 <td class="num" style="color:var(--selection-bg); font-weight:800; font-size:0.95rem;">₹11,97,390</td>
               </tr>
-              <tr style="background:rgba(52,211,153,0.05);">
-                <td><strong>6. Net Potential Profit (After All Expenses)</strong></td>
-                <td class="num">—</td>
-                <td class="num">—</td>
-                <td class="num" style="color:var(--accent-emerald); font-weight:800; font-size:1rem;">+₹7,90,172</td>
-              </tr>
             </tbody>
           </table>
         </div>
@@ -1265,25 +1141,25 @@
     </section>
 
     <!-- ===================================================================
-         SECTION 5: ITEMIZED EXPENSES LEDGER
+         SECTION 6: ITEMIZED EXPENSES LEDGER (LOCKED)
          =================================================================== -->
     <section class="tab-section" id="view-expenses">
       <div class="bp-card">
         <div class="bp-card-head">
-          <h2><span>[EXPENSES]</span> Complete Outlay Breakdown (Stock + Operations)</h2>
+          <h2><span>[EXPENSES]</span> Complete Outlay Breakdown</h2>
           <span class="coord mono-2">TOTAL: ₹4,07,218</span>
         </div>
         <div class="bp-card-body" style="display:flex; flex-direction:column; gap:12px;">
           <div style="background:var(--background-deep); border:1px solid var(--line); padding:10px 12px; display:flex; justify-content:space-between; align-items:center;">
             <div>
               <strong style="color:#fff; font-size:0.85rem;">📦 FIREWORKS STOCK PURCHASE (94 SKUs)</strong>
-              <div class="mono" style="font-size:0.7rem; color:var(--label-3);">White Bill: ₹1,98,970 + Pink Bill 1294: ₹1,33,548 (Paid: ₹2,20,000 | Pending: ₹1,12,518)</div>
+              <div class="mono" style="font-size:0.7rem; color:var(--label-3);">White Bill: ₹1,98,970 + Pink Bill 1294: ₹1,33,548</div>
             </div>
             <div class="mono" style="font-size:1.1rem; font-weight:700; color:#fff;">₹3,32,518</div>
           </div>
 
           <div style="border-top:1px solid var(--line); padding-top:8px;">
-            <div class="mono-2 up" style="font-size:0.75rem; color:var(--selection-bg); margin-bottom:8px;">Operational, Transport &amp; Shed Outlays:</div>
+            <div class="mono-2 up" style="font-size:0.75rem; color:var(--selection-bg); margin-bottom:8px;">Operational &amp; Shed Outlays:</div>
             <div id="editable-expenses-list" style="display:flex; flex-direction:column; gap:6px;">
               <!-- Rendered by JS -->
             </div>
@@ -1294,49 +1170,36 @@
     </section>
 
     <!-- ===================================================================
-         SECTION 6: GOOGLE SHEETS & EXCEL SYNC
+         SECTION 7: GOOGLE SHEETS & CLOUD SYNC (LOCKED)
          =================================================================== -->
     <section class="tab-section" id="view-sync">
       <div class="bp-card">
         <div class="bp-card-head">
-          <h2><span>[SYNC]</span> Google Sheets &amp; Excel Direct Pipeline</h2>
-          <span class="coord mono-2">STATUS: CONNECTED</span>
+          <h2><span>[SYNC]</span> Google Sheets &amp; Cloud Connect</h2>
         </div>
         <div class="bp-card-body" style="display:flex; flex-direction:column; gap:14px;">
-          <!-- Primary Connected Sheet Link -->
           <div style="background:rgba(52,211,153,0.06); border:1px solid rgba(52,211,153,0.3); padding:12px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
             <div>
-              <strong style="color:var(--accent-emerald); font-size:0.85rem;">✓ ACTIVE GOOGLE SPREADSHEET</strong>
-              <div class="mono" style="font-size:0.72rem; color:var(--label-2); margin-top:2px;">Title: Diwali Crackers 2026 - Master Inventory &amp; Live Pricing</div>
+              <strong style="color:var(--accent-emerald); font-size:0.85rem;">✓ CONNECTED GOOGLE SHEET</strong>
+              <div class="mono" style="font-size:0.72rem; color:var(--label-2);">Diwali Crackers 2026 - Master Inventory &amp; Live Pricing</div>
               <div class="mono" style="font-size:0.68rem; color:var(--label-3);">ID: 1swTMlDSVKEHMPwIriVmvAsmaWXIO_DxwEzQ6vI9ZFQw</div>
             </div>
             <div style="display:flex; gap:6px;">
               <a href="https://docs.google.com/spreadsheets/d/1swTMlDSVKEHMPwIriVmvAsmaWXIO_DxwEzQ6vI9ZFQw/edit" target="_blank" class="btn-bp accent hit">
-                [OPEN IN GOOGLE SHEETS ↗]
+                [OPEN GOOGLE SHEET ↗]
               </a>
               <button class="btn-bp hit" onclick="syncDataToServer(true)">[FORCE PUSH]</button>
             </div>
           </div>
 
-          <!-- 1-Click Clipboard Copy -->
           <div style="background:var(--background-deep); border:1px solid var(--line); padding:12px; display:flex; flex-direction:column; gap:6px;">
-            <div class="mono-2 up" style="color:var(--accent-gold); font-size:0.78rem;">[01] 1-Click Copy for Google Sheets / Excel</div>
+            <div class="mono-2 up" style="color:var(--accent-gold); font-size:0.78rem;">[01] 1-Click Clipboard Copy</div>
             <div class="mono" style="font-size:0.72rem; color:var(--label-2);">
-              Copies all 94 rows formatted for spreadsheets. Open your Google Sheet and press <strong>Ctrl+V</strong>.
+              Copies all 94 rows formatted for Google Sheets or Excel. Press Ctrl+V in your sheet.
             </div>
             <div style="display:flex; gap:6px; margin-top:4px;">
               <button class="btn-bp hit" onclick="copyTableForGoogleSheets()">[COPY ALL 94 ROWS]</button>
               <button class="btn-bp hit" onclick="exportNativeExcel()">[DOWNLOAD .XLSX FILE]</button>
-            </div>
-          </div>
-
-          <!-- Apps Script Webhook -->
-          <div style="background:var(--background-deep); border:1px solid var(--line); padding:12px; display:flex; flex-direction:column; gap:8px;">
-            <div class="mono-2 up" style="color:#fff; font-size:0.78rem;">[02] Direct Google Apps Script Webhook (Optional Web App URL)</div>
-            <input type="url" id="webhook-url-input" class="tbl-input" style="background:var(--background-elevated); border:1px solid var(--line); padding:6px 8px; font-size:0.75rem;" placeholder="https://script.google.com/macros/s/.../exec" oninput="saveWebhookSetting(this.value)">
-            <div style="display:flex; gap:6px;">
-              <button class="btn-bp hit" onclick="pushToGoogleWebhook()">[PUSH VIA WEBHOOK]</button>
-              <button class="btn-bp hit" onclick="pullFromGoogleWebhook()">[PULL VIA WEBHOOK]</button>
             </div>
           </div>
         </div>
@@ -1344,6 +1207,43 @@
     </section>
 
   </main>
+
+  <!-- =========================================================================
+       ADMIN PIN UNLOCK MODAL
+       ========================================================================= -->
+  <div id="pin-modal" class="pin-modal-overlay">
+    <div class="pin-modal-card">
+      <span class="mono-2 up" style="color:var(--selection-bg); font-size:0.75rem;">[SECURITY LOCK]</span>
+      <strong style="color:#fff; font-size:1rem; text-transform:uppercase;">Enter Admin PIN</strong>
+      <div class="mono" style="font-size:0.72rem; color:var(--label-3); text-align:center;">
+        Enter 4-digit PIN to access prices, margins, expenses &amp; dashboard.
+      </div>
+
+      <div class="pin-dots-row">
+        <div class="pin-dot" id="pdot-0"></div>
+        <div class="pin-dot" id="pdot-1"></div>
+        <div class="pin-dot" id="pdot-2"></div>
+        <div class="pin-dot" id="pdot-3"></div>
+      </div>
+
+      <div class="pin-numpad">
+        <button class="btn-pin hit" onclick="pressPinDigit('1')">1</button>
+        <button class="btn-pin hit" onclick="pressPinDigit('2')">2</button>
+        <button class="btn-pin hit" onclick="pressPinDigit('3')">3</button>
+        <button class="btn-pin hit" onclick="pressPinDigit('4')">4</button>
+        <button class="btn-pin hit" onclick="pressPinDigit('5')">5</button>
+        <button class="btn-pin hit" onclick="pressPinDigit('6')">6</button>
+        <button class="btn-pin hit" onclick="pressPinDigit('7')">7</button>
+        <button class="btn-pin hit" onclick="pressPinDigit('8')">8</button>
+        <button class="btn-pin hit" onclick="pressPinDigit('9')">9</button>
+        <button class="btn-pin action hit" onclick="clearPin()">CLEAR</button>
+        <button class="btn-pin hit" onclick="pressPinDigit('0')">0</button>
+        <button class="btn-pin action hit" onclick="closePinModal()" style="color:var(--accent-rose);">CANCEL</button>
+      </div>
+
+      <div id="pin-error-msg" class="mono" style="color:var(--accent-rose); font-size:0.7rem; min-height:16px;"></div>
+    </div>
+  </div>
 
   <!-- Notification Toast -->
   <div id="bp-toast" class="toast">
@@ -1360,14 +1260,17 @@
     const SPREADSHEET_ID = "1swTMlDSVKEHMPwIriVmvAsmaWXIO_DxwEzQ6vI9ZFQw";
     const SPREADSHEET_URL = "https://docs.google.com/spreadsheets/d/1swTMlDSVKEHMPwIriVmvAsmaWXIO_DxwEzQ6vI9ZFQw/edit";
 
-    const STORAGE_KEY = 'diwali_master_haoqi_v2';
-    const EXPENSES_KEY = 'diwali_expenses_haoqi_v2';
-    const WEBHOOK_KEY = 'diwali_webhook_haoqi_v2';
+    const ADMIN_PIN = "2000"; // PIN defined by owner
+    const STORAGE_KEY = 'diwali_master_haoqi_v3';
+    const EXPENSES_KEY = 'diwali_expenses_haoqi_v3';
+    const AUTH_SESSION_KEY = 'diwali_admin_unlocked_v3';
 
     let items = [];
     let expensesList = [];
-    let currentFilter = 'all';
-    let currentViewMode = 'cards'; // 'cards' or 'table'
+    let isAdminUnlocked = false;
+    let pendingAdminTab = null;
+    let enteredPin = "";
+    let staffFilter = 'all';
     let recognition = null;
     let isListening = false;
     let autoSaveTimeout = null;
@@ -1388,15 +1291,133 @@
         expensesList = JSON.parse(JSON.stringify(EMBEDDED_EXPENSES));
       }
 
-      // Check URL search param or webhook
-      const webhook = localStorage.getItem(WEBHOOK_KEY);
-      const whInput = document.getElementById('webhook-url-input');
-      if (whInput && webhook) whInput.value = webhook;
+      // Check session auth
+      if (sessionStorage.getItem(AUTH_SESSION_KEY) === 'true') {
+        isAdminUnlocked = true;
+      }
+      updateAuthUIState();
 
       initSpeechRecognition();
-      renderAllViews();
+      renderStaffPos();
+      renderAdminCards();
+      renderAdminTable();
+      renderExpensesLedger();
       updateFinancialMetrics();
       updateScenarioSim(35);
+    }
+
+    /* =========================================================================
+       PIN AUTHENTICATION & ACCESS CONTROL
+       ========================================================================= */
+    function handleModeBadgeClick() {
+      if (isAdminUnlocked) {
+        lockAdminMode();
+      } else {
+        openPinModal(null);
+      }
+    }
+
+    function attemptAdminTab(tabId) {
+      if (isAdminUnlocked) {
+        switchTab(tabId);
+      } else {
+        openPinModal(tabId);
+      }
+    }
+
+    function openPinModal(targetTab) {
+      pendingAdminTab = targetTab;
+      enteredPin = "";
+      updatePinDots();
+      document.getElementById('pin-error-msg').textContent = "";
+      document.getElementById('pin-modal').classList.add('active');
+    }
+
+    function closePinModal() {
+      document.getElementById('pin-modal').classList.remove('active');
+      pendingAdminTab = null;
+      enteredPin = "";
+    }
+
+    function pressPinDigit(digit) {
+      if (enteredPin.length < 4) {
+        enteredPin += digit;
+        updatePinDots();
+        if (enteredPin.length === 4) {
+          setTimeout(verifyPin, 150);
+        }
+      }
+    }
+
+    function clearPin() {
+      enteredPin = "";
+      updatePinDots();
+      document.getElementById('pin-error-msg').textContent = "";
+    }
+
+    function updatePinDots() {
+      for (let i = 0; i < 4; i++) {
+        const dot = document.getElementById(`pdot-${i}`);
+        if (dot) {
+          if (i < enteredPin.length) dot.classList.add('filled');
+          else dot.classList.remove('filled');
+        }
+      }
+    }
+
+    function verifyPin() {
+      if (enteredPin === ADMIN_PIN) {
+        isAdminUnlocked = true;
+        sessionStorage.setItem(AUTH_SESSION_KEY, 'true');
+        updateAuthUIState();
+        closePinModal();
+        showToast('✓ Admin Mode Unlocked!');
+        if (pendingAdminTab) {
+          switchTab(pendingAdminTab);
+        } else {
+          switchTab('products');
+        }
+      } else {
+        const err = document.getElementById('pin-error-msg');
+        if (err) err.textContent = "INCORRECT PIN. TRY AGAIN.";
+        clearPin();
+      }
+    }
+
+    function lockAdminMode() {
+      isAdminUnlocked = false;
+      sessionStorage.removeItem(AUTH_SESSION_KEY);
+      updateAuthUIState();
+      switchTab('staff');
+      showToast('🔒 Locked back to Staff Sales Mode');
+    }
+
+    function updateAuthUIState() {
+      const toggleBtn = document.getElementById('btn-mode-toggle');
+      const modeIcon = document.getElementById('mode-icon');
+      const modeText = document.getElementById('mode-text');
+
+      if (isAdminUnlocked) {
+        if (toggleBtn) {
+          toggleBtn.className = "mode-badge-pill unlocked hit";
+        }
+        if (modeIcon) modeIcon.textContent = "🔓";
+        if (modeText) modeText.innerHTML = "ADMIN UNLOCKED <span style='font-size:0.65rem; color:var(--selection-bg);'>[CLICK TO LOCK]</span>";
+
+        document.querySelectorAll('.bp-tab.admin-locked').forEach(tab => {
+          tab.style.opacity = '1';
+        });
+      } else {
+        if (toggleBtn) {
+          toggleBtn.className = "mode-badge-pill locked hit";
+        }
+        if (modeIcon) modeIcon.textContent = "🔒";
+        if (modeText) modeText.innerHTML = "STAFF MODE <span style='font-size:0.65rem; color:var(--label-3);'>[ENTER PIN]</span>";
+
+        document.querySelectorAll('.bp-tab.admin-locked').forEach(tab => {
+          tab.style.opacity = '0.65';
+        });
+      }
     }
 
     /* Tab Switching */
@@ -1410,162 +1431,73 @@
       if (btn) btn.classList.add('active');
     }
 
-    /* View Mode: Cards vs Table */
-    function setViewMode(mode) {
-      currentViewMode = mode;
-      const cCards = document.getElementById('container-cards-view');
-      const cTable = document.getElementById('container-table-view');
-      const bCards = document.getElementById('btn-mode-cards');
-      const bTable = document.getElementById('btn-mode-table');
-
-      if (mode === 'cards') {
-        if (cCards) cCards.style.display = 'grid';
-        if (cTable) cTable.style.display = 'none';
-        if (bCards) bCards.classList.add('active');
-        if (bTable) bTable.classList.remove('active');
-        renderCardsView(document.getElementById('global-search-input').value.trim());
-      } else {
-        if (cCards) cCards.style.display = 'none';
-        if (cTable) cTable.style.display = 'block';
-        if (bCards) bCards.classList.remove('active');
-        if (bTable) bTable.classList.add('active');
-        renderTableView(document.getElementById('global-search-input').value.trim());
-      }
-    }
-
-    /* Global Search */
-    function onGlobalSearch(query) {
-      if (currentViewMode === 'cards') {
-        renderCardsView(query.trim());
-      } else {
-        renderTableView(query.trim());
-      }
-    }
-
-    /* Filter Pills */
-    function setProductFilter(filter, btn) {
-      currentFilter = filter;
-      document.querySelectorAll('.f-pill').forEach(p => p.classList.remove('active'));
-      if (btn) btn.classList.add('active');
-      const q = document.getElementById('global-search-input').value.trim();
-      if (currentViewMode === 'cards') renderCardsView(q); else renderTableView(q);
-    }
-
-    /* Render All Views */
-    function renderAllViews() {
-      const q = document.getElementById('global-search-input').value.trim();
-      renderCardsView(q);
-      renderTableView(q);
-      renderExpensesLedger();
-      const badge = document.getElementById('tab-badge-items');
-      if (badge) badge.textContent = items.length;
-    }
-
     /* =========================================================================
-       RENDERER: QUICK-EDIT CARDS VIEW (MOBILE OPTIMIZED)
+       STAFF SALES POS TERMINAL RENDERER
        ========================================================================= */
-    function renderCardsView(query = '') {
-      const container = document.getElementById('container-cards-view');
+    function renderStaffPos(query = '') {
+      const container = document.getElementById('staff-pos-container');
       if (!container) return;
       container.innerHTML = '';
       const q = query.toLowerCase();
 
       items.forEach((item, index) => {
-        if (!filterMatch(item, q)) return;
-
         const u = parseInt(item.total_units) || 0;
         const s = parseInt(item.units_sold) || 0;
         const left = Math.max(0, u - s);
-        const rate = parseFloat(item.rate) || 0;
-        const c10 = Math.round(rate * 1.10 * 100) / 100;
-        const sp = parseFloat(item.selling_price) || Math.round(c10 * 3);
+        const sp = parseFloat(item.selling_price) || 0;
         const isPink = item.bill_type === 'pink';
-        const profit = Math.round((sp - c10) * s);
-        const soldVal = Math.round(s * sp);
+
+        if (staffFilter === 'instock' && left <= 0) return;
+        if (staffFilter === 'white' && item.bill_type !== 'white') return;
+        if (staffFilter === 'pink' && item.bill_type !== 'pink') return;
+
+        if (q) {
+          const matchNo = String(item.sticker_no).toLowerCase().includes(q) ||
+                          (item.search_keys && item.search_keys.some(k => String(k).toLowerCase().includes(q)));
+          const matchName = String(item.name).toLowerCase().includes(q);
+          if (!matchNo && !matchName) return;
+        }
 
         const card = document.createElement('div');
-        card.className = `prod-card ${item.verified ? 'ticked' : ''} ${s > 0 ? 'has-sales' : ''}`;
-        card.id = `prod-card-${index}`;
+        card.className = `pos-card ${left <= 0 ? 'sold-out' : ''}`;
+        card.id = `staff-card-${index}`;
 
         card.innerHTML = `
-          <div class="prod-card-header">
-            <span class="box-badge ${isPink ? 'pink' : ''}">#${escapeAttr(item.sticker_no)}</span>
-            <div class="prod-title-wrap">
-              <input type="text" class="prod-title-input" value="${escapeAttr(item.name)}"
-                     oninput="onItemPropChange(${index}, 'name', this.value)">
-              <div class="prod-meta-line">
-                Pack: ${escapeAttr(item.pack_details || '1')} • ${isPink ? 'Pink Bill 1294' : 'White Bill'}
-              </div>
-            </div>
-            <input type="checkbox" ${item.verified ? 'checked' : ''} title="Mark Verified"
-                   onchange="toggleItemVerified(${index}, this.checked)"
-                   style="accent-color:var(--selection-bg); width:18px; height:18px; cursor:pointer;">
-          </div>
-
-          <!-- THE EDITABLE PRICING MATRIX BOX -->
-          <div class="prod-pricing-matrix">
-            <div class="price-unit-col">
-              <label>WHOLESALE (₹)</label>
-              <input type="number" class="bp-input-num" value="${rate}" step="any"
-                     oninput="onWholesaleChange(${index}, this.value)">
-            </div>
-
-            <span class="math-sym">+10%→</span>
-
-            <div class="price-unit-col">
-              <label>LANDED (+10%)</label>
-              <div class="cost-badge-c10" id="card-c10-${index}">₹${c10}</div>
-            </div>
-
-            <span class="math-sym">×3=</span>
-
-            <div class="price-unit-col">
-              <label style="color:var(--selection-bg); font-weight:700;">3x FINAL PRICE (₹)</label>
-              <input type="number" class="bp-input-sell" value="${sp}" step="any"
-                     id="card-sp-${index}"
-                     oninput="onSellingPriceChange(${index}, this.value)">
-            </div>
-          </div>
-
-          <!-- Quick Micro Adjusters -->
-          <div class="micro-adjust-row">
-            <span class="mono" style="font-size:0.65rem; color:var(--label-3);">Quick Adjust Price:</span>
-            <div class="micro-btns">
-              <button class="btn-micro hit" onclick="adjustSellPrice(${index}, -10)">-10</button>
-              <button class="btn-micro hit" onclick="adjustSellPrice(${index}, +10)">+10</button>
-              <button class="btn-micro hit" onclick="adjustSellPrice(${index}, -50)">-50</button>
-              <button class="btn-micro hit" onclick="adjustSellPrice(${index}, +50)">+50</button>
-              <button class="btn-micro reset hit" onclick="resetItemPriceTo3x(${index})">[RESET 3X]</button>
-            </div>
-          </div>
-
-          <!-- Stock & Sales Stepper -->
-          <div class="prod-stock-sales-row">
-            <div>
-              <span class="mono-2 up" style="font-size:0.6rem; color:var(--label-3);">Total Inventory Units:</span>
-              <input type="number" class="bp-input-num" value="${u}" style="margin-top:2px;"
-                     oninput="onTotalUnitsChange(${index}, this.value)">
-            </div>
-
-            <div>
-              <span class="mono-2 up" style="font-size:0.6rem; color:var(--label-3);">Units Sold Counter:</span>
-              <div class="stepper-wrap">
-                <button class="btn-step hit" onclick="stepItemSold(${index}, -1)">−</button>
-                <input type="number" class="stepper-in" value="${s}" id="card-sold-${index}"
-                       oninput="onSoldChange(${index}, this.value)">
-                <button class="btn-step hit" onclick="stepItemSold(${index}, 1)">+</button>
-                <span class="mono" style="font-size:0.75rem; color:var(--label-3); margin-left:4px;">/${u}</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Footer / Stats -->
-          <div class="prod-card-footer">
-            <span>Left: <strong style="color:#fff;" id="card-left-${index}">${left}</strong></span>
-            <span style="color:var(--accent-cyan);">Sold Cash: <strong id="card-cash-${index}">₹${soldVal.toLocaleString('en-IN')}</strong></span>
-            <span style="color:${profit >= 0 ? 'var(--selection-bg)' : 'var(--accent-rose)'};">
-              Profit: <strong id="card-profit-${index}">${profit >= 0 ? '+' : ''}₹${profit.toLocaleString('en-IN')}</strong>
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:8px;">
+            <span class="box-badge ${isPink ? 'pink' : ''}">BOX #${escapeAttr(item.sticker_no)}</span>
+            <span class="mono" style="font-size:0.75rem; color:${left > 0 ? 'var(--accent-emerald)' : 'var(--accent-rose)'}; font-weight:700;">
+              ${left > 0 ? `${left} IN STOCK` : 'SOLD OUT'}
             </span>
+          </div>
+
+          <div>
+            <strong style="color:#fff; font-size:1.05rem; display:block;">${escapeAttr(item.name)}</strong>
+            <span class="mono" style="font-size:0.7rem; color:var(--label-3);">Pack: ${escapeAttr(item.pack_details || '1')}</span>
+          </div>
+
+          <div class="pos-price-banner">
+            <div>
+              <span class="mono-2 up" style="font-size:0.6rem; color:var(--label-3); display:block;">Fixed Selling Price</span>
+              <span class="pos-price-val">₹${sp.toLocaleString('en-IN')}</span>
+            </div>
+            <div class="mono" style="font-size:0.75rem; color:var(--label-2); text-align:right;">
+              Sold: <strong>${s}</strong> / ${u}
+            </div>
+          </div>
+
+          <div class="pos-actions-row">
+            <button class="btn-sell-quick primary hit" onclick="recordStaffSale(${index}, 1)" ${left <= 0 ? 'disabled' : ''}>
+              +1 SOLD
+            </button>
+            <button class="btn-sell-quick hit" onclick="recordStaffSale(${index}, 2)" ${left < 2 ? 'disabled' : ''}>
+              +2 SOLD
+            </button>
+            <button class="btn-sell-quick hit" onclick="recordStaffSale(${index}, 5)" ${left < 5 ? 'disabled' : ''}>
+              +5 SOLD
+            </button>
+            <button class="btn-sell-quick hit" onclick="recordStaffSale(${index}, -1)" title="Undo 1 Sale" style="flex:0.6; color:var(--label-3);">
+              UNDO
+            </button>
           </div>
         `;
 
@@ -1573,440 +1505,37 @@
       });
     }
 
-    /* =========================================================================
-       RENDERER: FULL SPREADSHEET TABLE (EXCEL GRID)
-       ========================================================================= */
-    function renderTableView(query = '') {
-      const tbody = document.getElementById('spreadsheet-tbody');
-      if (!tbody) return;
-      tbody.innerHTML = '';
-      const q = query.toLowerCase();
-
-      items.forEach((item, index) => {
-        if (!filterMatch(item, q)) return;
-
-        const u = parseInt(item.total_units) || 0;
-        const s = parseInt(item.units_sold) || 0;
-        const left = Math.max(0, u - s);
-        const rate = parseFloat(item.rate) || 0;
-        const c10 = Math.round(rate * 1.10 * 100) / 100;
-        const sp = parseFloat(item.selling_price) || Math.round(c10 * 3);
-        const isPink = item.bill_type === 'pink';
-        const boxVal = Math.round(u * sp);
-        const soldVal = Math.round(s * sp);
-        const profit = Math.round((sp - c10) * s);
-
-        const tr = document.createElement('tr');
-        tr.id = `table-row-${index}`;
-        if (s > 0) tr.classList.add('sold-row');
-
-        tr.innerHTML = `
-          <td style="text-align:center;">
-            <input type="checkbox" ${item.verified ? 'checked' : ''}
-                   onchange="toggleItemVerified(${index}, this.checked)"
-                   style="accent-color:var(--selection-bg); cursor:pointer;">
-          </td>
-          <td>
-            <input type="text" class="tbl-input" value="${escapeAttr(item.sticker_no)}" style="width:50px; font-weight:700; color:${isPink ? 'var(--accent-rose)' : 'var(--selection-bg)'};"
-                   oninput="onItemPropChange(${index}, 'sticker_no', this.value)">
-          </td>
-          <td>
-            <input type="text" class="tbl-input" value="${escapeAttr(item.name)}"
-                   oninput="onItemPropChange(${index}, 'name', this.value)">
-          </td>
-          <td>
-            <input type="text" class="tbl-input" value="${escapeAttr(item.pack_details || '1')}" style="width:65px; color:var(--label-3);"
-                   oninput="onItemPropChange(${index}, 'pack_details', this.value)">
-          </td>
-          <td class="num">
-            <input type="number" class="tbl-input num-in" value="${u}" style="width:60px;"
-                   oninput="onTotalUnitsChange(${index}, this.value)">
-          </td>
-          <td class="num">
-            <div style="display:inline-flex; align-items:center; gap:2px;">
-              <button class="btn-micro hit" onclick="stepItemSold(${index}, -1)">−</button>
-              <input type="number" class="tbl-input num-in" value="${s}" style="width:48px; color:var(--accent-cyan); font-weight:700;"
-                     oninput="onSoldChange(${index}, this.value)">
-              <button class="btn-micro hit" onclick="stepItemSold(${index}, 1)">+</button>
-            </div>
-          </td>
-          <td class="num tnum" id="tbl-left-${index}">${left}</td>
-          <td class="num">
-            <input type="number" class="tbl-input num-in" value="${rate}" style="width:75px;" step="any"
-                   oninput="onWholesaleChange(${index}, this.value)">
-          </td>
-          <td class="num tnum" style="color:var(--accent-gold);" id="tbl-c10-${index}">₹${c10}</td>
-          <td class="num">
-            <input type="number" class="tbl-input num-in sell-in" value="${sp}" style="width:85px;" step="any"
-                   oninput="onSellingPriceChange(${index}, this.value)">
-          </td>
-          <td class="num tnum" id="tbl-boxval-${index}">₹${boxVal.toLocaleString('en-IN')}</td>
-          <td class="num tnum" style="color:var(--accent-cyan);" id="tbl-cash-${index}">₹${soldVal.toLocaleString('en-IN')}</td>
-          <td class="num tnum" style="color:${profit >= 0 ? 'var(--selection-bg)' : 'var(--accent-rose)'};" id="tbl-profit-${index}">
-            ${profit >= 0 ? '+' : ''}₹${profit.toLocaleString('en-IN')}
-          </td>
-          <td style="text-align:center;">
-            <button class="btn-micro hit" onclick="deleteItem(${index})" title="Delete SKU" style="color:var(--accent-rose);">✕</button>
-          </td>
-        `;
-
-        tbody.appendChild(tr);
-      });
-    }
-
-    /* Filter Helper */
-    function filterMatch(item, q) {
-      if (currentFilter === 'sold' && (parseInt(item.units_sold) || 0) <= 0) return false;
-      if (currentFilter === 'white' && item.bill_type !== 'white') return false;
-      if (currentFilter === 'pink' && item.bill_type !== 'pink') return false;
-      if (currentFilter === 'soldout') {
-        const rem = (parseInt(item.total_units) || 0) - (parseInt(item.units_sold) || 0);
-        if (rem > 2) return false;
-      }
-      if (q) {
-        const matchNo = String(item.sticker_no).toLowerCase().includes(q) ||
-                        (item.search_keys && item.search_keys.some(k => String(k).toLowerCase().includes(q)));
-        const matchName = String(item.name).toLowerCase().includes(q);
-        if (!matchNo && !matchName) return false;
-      }
-      return true;
-    }
-
-    /* =========================================================================
-       LIVE EDITING HANDLERS
-       ========================================================================= */
-
-    /* Wholesale Rate Change */
-    function onWholesaleChange(index, val) {
-      const rate = parseFloat(val) || 0;
-      items[index].rate = rate;
-      const ovh = parseFloat(document.getElementById('g-overhead-input').value) || 10;
-      const mult = parseFloat(document.getElementById('g-multiplier-input').value) || 3;
-      const c10 = Math.round(rate * (1 + ovh / 100) * 100) / 100;
-      items[index].rate_plus_10 = c10;
-      items[index].final_cost = c10;
-      items[index].selling_price = Math.round(c10 * mult);
-
-      refreshSingleItemRow(index);
-      triggerAutoSave();
-    }
-
-    /* Selling Price Change */
-    function onSellingPriceChange(index, val) {
-      items[index].selling_price = parseFloat(val) || 0;
-      refreshSingleItemRow(index);
-      triggerAutoSave();
-    }
-
-    /* Adjust Sell Price via Stepper */
-    function adjustSellPrice(index, delta) {
-      let sp = parseFloat(items[index].selling_price) || 0;
-      sp = Math.max(0, sp + delta);
-      items[index].selling_price = sp;
-      refreshSingleItemRow(index);
-      triggerAutoSave();
-    }
-
-    /* Reset Item to 3x Formula */
-    function resetItemPriceTo3x(index) {
-      const rate = parseFloat(items[index].rate) || 0;
-      const ovh = parseFloat(document.getElementById('g-overhead-input').value) || 10;
-      const mult = parseFloat(document.getElementById('g-multiplier-input').value) || 3;
-      const c10 = Math.round(rate * (1 + ovh / 100) * 100) / 100;
-      items[index].rate_plus_10 = c10;
-      items[index].final_cost = c10;
-      items[index].selling_price = Math.round(c10 * mult);
-      refreshSingleItemRow(index);
-      triggerAutoSave();
-      showToast(`Box #${items[index].sticker_no} reset to 3x: ₹${items[index].selling_price}`);
-    }
-
-    /* Total Units Change */
-    function onTotalUnitsChange(index, val) {
-      items[index].total_units = parseInt(val) || 0;
-      refreshSingleItemRow(index);
-      triggerAutoSave();
-    }
-
-    /* Sold Units Change */
-    function onSoldChange(index, val) {
-      items[index].units_sold = Math.max(0, parseInt(val) || 0);
-      refreshSingleItemRow(index);
-      triggerAutoSave();
-    }
-
-    /* Step Item Sold */
-    function stepItemSold(index, delta) {
+    function recordStaffSale(index, delta) {
       let s = parseInt(items[index].units_sold) || 0;
+      const u = parseInt(items[index].total_units) || 0;
       s = Math.max(0, s + delta);
       items[index].units_sold = s;
+
+      const sp = parseFloat(items[index].selling_price) || 0;
       refreshSingleItemRow(index);
+      renderStaffPos(document.getElementById('global-search-input').value.trim());
       triggerAutoSave();
-    }
 
-    /* Toggle Verified */
-    function toggleItemVerified(index, checked) {
-      items[index].verified = checked;
-      items[index].verified_at = checked ? new Date().toISOString() : null;
-      triggerAutoSave();
-    }
-
-    /* Generic Item Property Change */
-    function onItemPropChange(index, prop, val) {
-      items[index][prop] = val;
-      triggerAutoSave();
-    }
-
-    /* Refresh UI for a single item */
-    function refreshSingleItemRow(index) {
-      const it = items[index];
-      const u = parseInt(it.total_units) || 0;
-      const s = parseInt(it.units_sold) || 0;
-      const left = Math.max(0, u - s);
-      const rate = parseFloat(it.rate) || 0;
-      const c10 = Math.round(rate * 1.10 * 100) / 100;
-      const sp = parseFloat(it.selling_price) || 0;
-      const boxVal = Math.round(u * sp);
-      const soldVal = Math.round(s * sp);
-      const profit = Math.round((sp - c10) * s);
-
-      // Update Card View elements if exist
-      const cardC10 = document.getElementById(`card-c10-${index}`);
-      if (cardC10) cardC10.textContent = '₹' + c10;
-      const cardSp = document.getElementById(`card-sp-${index}`);
-      if (cardSp && document.activeElement !== cardSp) cardSp.value = sp;
-      const cardSold = document.getElementById(`card-sold-${index}`);
-      if (cardSold && document.activeElement !== cardSold) cardSold.value = s;
-      const cardLeft = document.getElementById(`card-left-${index}`);
-      if (cardLeft) cardLeft.textContent = left;
-      const cardCash = document.getElementById(`card-cash-${index}`);
-      if (cardCash) cardCash.textContent = '₹' + soldVal.toLocaleString('en-IN');
-      const cardProfit = document.getElementById(`card-profit-${index}`);
-      if (cardProfit) {
-        cardProfit.textContent = (profit >= 0 ? '+' : '') + '₹' + profit.toLocaleString('en-IN');
-        cardProfit.parentElement.style.color = profit >= 0 ? 'var(--selection-bg)' : 'var(--accent-rose)';
-      }
-
-      // Update Table View elements if exist
-      const tblC10 = document.getElementById(`tbl-c10-${index}`);
-      if (tblC10) tblC10.textContent = '₹' + c10;
-      const tblLeft = document.getElementById(`tbl-left-${index}`);
-      if (tblLeft) tblLeft.textContent = left;
-      const tblBoxval = document.getElementById(`tbl-boxval-${index}`);
-      if (tblBoxval) tblBoxval.textContent = '₹' + boxVal.toLocaleString('en-IN');
-      const tblCash = document.getElementById(`tbl-cash-${index}`);
-      if (tblCash) tblCash.textContent = '₹' + soldVal.toLocaleString('en-IN');
-      const tblProfit = document.getElementById(`tbl-profit-${index}`);
-      if (tblProfit) {
-        tblProfit.textContent = (profit >= 0 ? '+' : '') + '₹' + profit.toLocaleString('en-IN');
-        tblProfit.style.color = profit >= 0 ? 'var(--selection-bg)' : 'var(--accent-rose)';
-      }
-
-      updateFinancialMetrics();
-    }
-
-    /* Global Formula Application */
-    function applyGlobalFormula() {
-      const ovh = parseFloat(document.getElementById('g-overhead-input').value) || 10;
-      const mult = parseFloat(document.getElementById('g-multiplier-input').value) || 3;
-
-      items.forEach(it => {
-        const rate = parseFloat(it.rate) || 0;
-        const c10 = Math.round(rate * (1 + ovh / 100) * 100) / 100;
-        it.overhead_pct = ovh;
-        it.multiplier = mult;
-        it.rate_plus_10 = c10;
-        it.final_cost = c10;
-        it.selling_price = Math.round(c10 * mult);
-      });
-
-      renderAllViews();
-      triggerAutoSave();
-      showToast(`Applied: +${ovh}% Overhead & ${mult}x Selling Price to all ${items.length} items!`);
-    }
-
-    function setPresetMarkup(ovh, mult) {
-      document.getElementById('g-overhead-input').value = ovh;
-      document.getElementById('g-multiplier-input').value = mult;
-      applyGlobalFormula();
-    }
-
-    /* Add New Product */
-    function addNewProduct() {
-      const nextNum = items.length + 1;
-      items.unshift({
-        id: `CUST_${Date.now()}`,
-        sticker_no: String(nextNum),
-        bill_name: 'Custom Box',
-        bill_type: 'white',
-        name: `New Cracker Item #${nextNum}`,
-        pack_details: '10',
-        total_units: 10,
-        units_sold: 0,
-        rate: 100,
-        rate_plus_10: 110,
-        final_cost: 110,
-        selling_price: 330,
-        overhead_pct: 10,
-        multiplier: 3,
-        verified: false,
-        search_keys: [String(nextNum)]
-      });
-      renderAllViews();
-      triggerAutoSave();
-      showToast(`Added New SKU #${nextNum}`);
-    }
-
-    function deleteItem(index) {
-      if (!confirm(`Delete "${items[index].name}" (#${items[index].sticker_no})?`)) return;
-      items.splice(index, 1);
-      renderAllViews();
-      triggerAutoSave();
-    }
-
-    /* =========================================================================
-       FINANCIAL METRICS & HUD CALCULATION
-       ========================================================================= */
-    function updateFinancialMetrics() {
-      let stockWholesale = 0;
-      let target3xRev = 0;
-      let salesCollected = 0;
-      let soldUnitsCount = 0;
-      let totalUnitsCount = 0;
-
-      items.forEach(it => {
-        const u = parseInt(it.total_units) || 0;
-        const s = parseInt(it.units_sold) || 0;
-        const rate = parseFloat(it.rate) || 0;
-        const sp = parseFloat(it.selling_price) || 0;
-
-        stockWholesale += rate * u;
-        target3xRev += sp * u;
-        salesCollected += sp * s;
-        soldUnitsCount += s;
-        totalUnitsCount += u;
-      });
-
-      let opsExpenses = 0;
-      expensesList.forEach(e => { opsExpenses += parseFloat(e.amount) || 0; });
-      const totalExpenses = stockWholesale + opsExpenses;
-      const netProfitRealized = salesCollected - totalExpenses;
-      const maxProfitPotential = target3xRev - totalExpenses;
-
-      // Update HUD tiles
-      const tExp = document.getElementById('tile-total-expenses');
-      if (tExp) tExp.textContent = '₹' + Math.round(totalExpenses).toLocaleString('en-IN');
-
-      const tBe = document.getElementById('tile-breakeven-sales');
-      if (tBe) tBe.textContent = '₹' + Math.round(totalExpenses).toLocaleString('en-IN');
-
-      const bePct = target3xRev > 0 ? ((totalExpenses / target3xRev) * 100).toFixed(1) : '34.0';
-      const tBePct = document.getElementById('tile-breakeven-pct');
-      if (tBePct) tBePct.textContent = `Only ${bePct}% of inventory at 3x`;
-
-      const tCash = document.getElementById('tile-cash-collected');
-      if (tCash) tCash.textContent = '₹' + Math.round(salesCollected).toLocaleString('en-IN');
-
-      const tUnits = document.getElementById('tile-units-sold-count');
-      if (tUnits) tUnits.textContent = `${soldUnitsCount} / ${totalUnitsCount} units sold`;
-
-      const tProfit = document.getElementById('tile-profit-display');
-      if (tProfit) {
-        tProfit.textContent = (maxProfitPotential >= 0 ? '+' : '') + '₹' + Math.round(maxProfitPotential).toLocaleString('en-IN');
-      }
-
-      // Update Meter
-      const fill = document.getElementById('hud-progress-fill');
-      if (fill) {
-        const covPct = totalExpenses > 0 ? Math.min(100, (salesCollected / totalExpenses) * 100) : 0;
-        fill.style.width = covPct + '%';
+      if (delta > 0) {
+        showToast(`✓ Sold ${delta}x "${items[index].name}" (#${items[index].sticker_no}) for ₹${(sp * delta).toLocaleString('en-IN')}`);
+      } else {
+        showToast(`Undid 1 sale of #${items[index].sticker_no}`);
       }
     }
 
-    /* Scenario Simulation Slider */
-    function updateScenarioSim(pctVal) {
-      const pct = parseFloat(pctVal) / 100;
-      const lbl = document.getElementById('sim-pct-label');
-      if (lbl) lbl.textContent = `${pctVal}% Sold`;
-
-      let stockWholesale = 0;
-      let target3xRev = 0;
-      items.forEach(it => {
-        const u = parseInt(it.total_units) || 0;
-        const rate = parseFloat(it.rate) || 0;
-        const sp = parseFloat(it.selling_price) || 0;
-        stockWholesale += rate * u;
-        target3xRev += sp * u;
-      });
-
-      let opsExpenses = 0;
-      expensesList.forEach(e => { opsExpenses += parseFloat(e.amount) || 0; });
-      const totalExpenses = stockWholesale + opsExpenses;
-
-      const simRev = Math.round(target3xRev * pct);
-      const simProfit = Math.round(simRev - totalExpenses);
-      const unsoldWs = Math.round(stockWholesale * (1 - pct));
-      const unsold3x = Math.round(target3xRev * (1 - pct));
-
-      const rVal = document.getElementById('sim-rev-val');
-      if (rVal) rVal.textContent = '₹' + simRev.toLocaleString('en-IN');
-
-      const pVal = document.getElementById('sim-profit-val');
-      if (pVal) {
-        pVal.textContent = (simProfit >= 0 ? '+' : '') + '₹' + simProfit.toLocaleString('en-IN');
-        pVal.style.color = simProfit >= 0 ? 'var(--selection-bg)' : 'var(--accent-rose)';
-      }
-
-      const uWs = document.getElementById('sim-unsold-ws');
-      if (uWs) uWs.textContent = '₹' + unsoldWs.toLocaleString('en-IN');
-
-      const u3x = document.getElementById('sim-unsold-3x');
-      if (u3x) u3x.textContent = '₹' + unsold3x.toLocaleString('en-IN');
+    function setStaffFilter(f, btn) {
+      staffFilter = f;
+      renderStaffPos(document.getElementById('global-search-input').value.trim());
     }
 
-    /* Expenses Ledger */
-    function renderExpensesLedger() {
-      const container = document.getElementById('editable-expenses-list');
-      if (!container) return;
-      container.innerHTML = expensesList.map((exp, idx) => `
-        <div style="display:flex; gap:8px; align-items:center;">
-          <input type="text" class="tbl-input" value="${escapeAttr(exp.name)}" style="flex:1;"
-                 oninput="onExpenseChange(${idx}, 'name', this.value)">
-          <input type="number" class="tbl-input num-in" value="${exp.amount}" style="width:100px; color:var(--accent-rose); font-weight:700;"
-                 oninput="onExpenseChange(${idx}, 'amount', this.value)">
-          <button class="btn-micro hit" onclick="deleteExpenseItem(${idx})" style="color:var(--accent-rose);">✕</button>
-        </div>
-      `).join('');
+    /* Global Search */
+    function onGlobalSearch(query) {
+      renderStaffPos(query.trim());
+      renderAdminCards(query.trim());
+      renderAdminTable(query.trim());
     }
 
-    function onExpenseChange(index, prop, val) {
-      expensesList[index][prop] = prop === 'amount' ? (parseFloat(val) || 0) : val;
-      triggerAutoSave();
-      updateFinancialMetrics();
-    }
-
-    function addNewExpenseItem() {
-      expensesList.push({
-        id: `exp_${Date.now()}`,
-        name: 'New Expense Outlay',
-        amount: 500,
-        category: 'Misc'
-      });
-      renderExpensesLedger();
-      triggerAutoSave();
-      updateFinancialMetrics();
-    }
-
-    function deleteExpenseItem(index) {
-      expensesList.splice(index, 1);
-      renderExpensesLedger();
-      triggerAutoSave();
-      updateFinancialMetrics();
-    }
-
-    /* =========================================================================
-       VOICE RECOGNITION (SEARCH BOX # OR NAME)
-       ========================================================================= */
+    /* Voice Recognition */
     function initSpeechRecognition() {
       const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
       if (!SpeechRec) return;
@@ -2053,22 +1582,394 @@
         String(it.name).toLowerCase().includes(q)
       );
       if (matchIdx !== -1) {
-        if (currentViewMode === 'cards') {
-          const card = document.getElementById(`prod-card-${matchIdx}`);
-          if (card) {
-            card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            card.classList.add('highlight-focus');
-            setTimeout(() => card.classList.remove('highlight-focus'), 3000);
-          }
-        } else {
-          const row = document.getElementById(`table-row-${matchIdx}`);
-          if (row) {
-            row.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            row.classList.add('highlight-focus');
-            setTimeout(() => row.classList.remove('highlight-focus'), 3000);
-          }
+        const card = document.getElementById(`staff-card-${matchIdx}`);
+        if (card) {
+          card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          card.classList.add('highlight-focus');
+          setTimeout(() => card.classList.remove('highlight-focus'), 3000);
         }
       }
+    }
+
+    /* =========================================================================
+       ADMIN VIEW RENDERERS (CARDS & SPREADSHEET TABLE)
+       ========================================================================= */
+    function renderAdminCards(query = '') {
+      const container = document.getElementById('container-cards-view');
+      if (!container) return;
+      container.innerHTML = '';
+      const q = query.toLowerCase();
+
+      items.forEach((item, index) => {
+        if (q) {
+          const matchNo = String(item.sticker_no).toLowerCase().includes(q);
+          const matchName = String(item.name).toLowerCase().includes(q);
+          if (!matchNo && !matchName) return;
+        }
+
+        const u = parseInt(item.total_units) || 0;
+        const s = parseInt(item.units_sold) || 0;
+        const left = Math.max(0, u - s);
+        const rate = parseFloat(item.rate) || 0;
+        const c10 = Math.round(rate * 1.10 * 100) / 100;
+        const sp = parseFloat(item.selling_price) || Math.round(c10 * 3);
+        const isPink = item.bill_type === 'pink';
+        const profit = Math.round((sp - c10) * s);
+
+        const card = document.createElement('div');
+        card.className = 'prod-card';
+
+        card.innerHTML = `
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span class="box-badge ${isPink ? 'pink' : ''}">BOX #${escapeAttr(item.sticker_no)}</span>
+            <input type="text" class="tbl-input" value="${escapeAttr(item.name)}" style="font-weight:700; flex:1; margin-left:8px;"
+                   oninput="onItemPropChange(${index}, 'name', this.value)">
+          </div>
+
+          <div style="background:var(--background-deep); border:1px solid var(--line); padding:8px; display:grid; grid-template-columns:1fr auto 1fr auto 1.3fr; align-items:center; gap:6px;">
+            <div>
+              <span class="mono-2 up" style="font-size:0.58rem; color:var(--label-3);">Wholesale (₹)</span>
+              <input type="number" class="bp-input-num" value="${rate}" step="any" oninput="onWholesaleChange(${index}, this.value)">
+            </div>
+            <span class="mono-2" style="color:var(--label-4);">+10%→</span>
+            <div>
+              <span class="mono-2 up" style="font-size:0.58rem; color:var(--label-3);">Landed</span>
+              <div class="mono" style="font-size:0.85rem; color:var(--accent-gold); padding:4px 0;" id="adm-c10-${index}">₹${c10}</div>
+            </div>
+            <span class="mono-2" style="color:var(--label-4);">×3=</span>
+            <div>
+              <span class="mono-2 up" style="font-size:0.58rem; color:var(--selection-bg); font-weight:700;">3x Final Price (₹)</span>
+              <input type="number" class="bp-input-sell" value="${sp}" step="any" oninput="onSellingPriceChange(${index}, this.value)">
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; background:rgba(0,0,0,0.25); border:1px solid var(--line); padding:8px;">
+            <div>
+              <span class="mono-2 up" style="font-size:0.6rem; color:var(--label-3);">Total Units:</span>
+              <input type="number" class="bp-input-num" value="${u}" oninput="onTotalUnitsChange(${index}, this.value)">
+            </div>
+            <div>
+              <span class="mono-2 up" style="font-size:0.6rem; color:var(--label-3);">Sold Units:</span>
+              <input type="number" class="bp-input-num" value="${s}" oninput="onSoldChange(${index}, this.value)">
+            </div>
+          </div>
+
+          <div class="mono" style="display:flex; justify-content:space-between; font-size:0.7rem; color:var(--label-3);">
+            <span>Left: <strong style="color:#fff;">${left}</strong></span>
+            <span style="color:${profit >= 0 ? 'var(--selection-bg)' : 'var(--accent-rose)'};">
+              Profit: ${profit >= 0 ? '+' : ''}₹${profit.toLocaleString('en-IN')}
+            </span>
+          </div>
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    function renderAdminTable(query = '') {
+      const tbody = document.getElementById('spreadsheet-tbody');
+      if (!tbody) return;
+      tbody.innerHTML = '';
+      const q = query.toLowerCase();
+
+      items.forEach((item, index) => {
+        if (q) {
+          const matchNo = String(item.sticker_no).toLowerCase().includes(q);
+          const matchName = String(item.name).toLowerCase().includes(q);
+          if (!matchNo && !matchName) return;
+        }
+
+        const u = parseInt(item.total_units) || 0;
+        const s = parseInt(item.units_sold) || 0;
+        const left = Math.max(0, u - s);
+        const rate = parseFloat(item.rate) || 0;
+        const c10 = Math.round(rate * 1.10 * 100) / 100;
+        const sp = parseFloat(item.selling_price) || Math.round(c10 * 3);
+        const isPink = item.bill_type === 'pink';
+        const boxVal = Math.round(u * sp);
+        const soldVal = Math.round(s * sp);
+        const profit = Math.round((sp - c10) * s);
+
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td style="text-align:center;"><input type="checkbox" ${item.verified ? 'checked' : ''} onchange="toggleItemVerified(${index}, this.checked)"></td>
+          <td><input type="text" class="tbl-input" value="${escapeAttr(item.sticker_no)}" style="width:50px; font-weight:700; color:${isPink ? 'var(--accent-rose)' : 'var(--selection-bg)'};" oninput="onItemPropChange(${index}, 'sticker_no', this.value)"></td>
+          <td><input type="text" class="tbl-input" value="${escapeAttr(item.name)}" oninput="onItemPropChange(${index}, 'name', this.value)"></td>
+          <td><input type="text" class="tbl-input" value="${escapeAttr(item.pack_details || '1')}" style="width:65px;" oninput="onItemPropChange(${index}, 'pack_details', this.value)"></td>
+          <td class="num"><input type="number" class="tbl-input" value="${u}" style="width:60px; text-align:right;" oninput="onTotalUnitsChange(${index}, this.value)"></td>
+          <td class="num"><input type="number" class="tbl-input" value="${s}" style="width:60px; text-align:right; color:var(--accent-cyan); font-weight:700;" oninput="onSoldChange(${index}, this.value)"></td>
+          <td class="num tnum">${left}</td>
+          <td class="num"><input type="number" class="tbl-input" value="${rate}" style="width:75px; text-align:right;" step="any" oninput="onWholesaleChange(${index}, this.value)"></td>
+          <td class="num tnum" style="color:var(--accent-gold);">₹${c10}</td>
+          <td class="num"><input type="number" class="tbl-input" value="${sp}" style="width:85px; text-align:right; color:var(--selection-bg); font-weight:700;" step="any" oninput="onSellingPriceChange(${index}, this.value)"></td>
+          <td class="num tnum">₹${boxVal.toLocaleString('en-IN')}</td>
+          <td class="num tnum" style="color:var(--accent-cyan);">₹${soldVal.toLocaleString('en-IN')}</td>
+          <td class="num tnum" style="color:${profit >= 0 ? 'var(--selection-bg)' : 'var(--accent-rose)'};">${profit >= 0 ? '+' : ''}₹${profit.toLocaleString('en-IN')}</td>
+          <td style="text-align:center;"><button class="btn-bp hit" onclick="deleteItem(${index})" style="color:var(--accent-rose); padding:2px 5px;">✕</button></td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function setAdminViewMode(mode) {
+      const cCards = document.getElementById('container-cards-view');
+      const cTable = document.getElementById('container-table-view');
+      const bCards = document.getElementById('btn-mode-cards');
+      const bTable = document.getElementById('btn-mode-table');
+
+      if (mode === 'cards') {
+        if (cCards) cCards.style.display = 'grid';
+        if (cTable) cTable.style.display = 'none';
+        if (bCards) bCards.classList.add('active');
+        if (bTable) bTable.classList.remove('active');
+      } else {
+        if (cCards) cCards.style.display = 'none';
+        if (cTable) cTable.style.display = 'block';
+        if (bCards) bCards.classList.remove('active');
+        if (bTable) bTable.classList.add('active');
+      }
+    }
+
+    /* =========================================================================
+       LIVE EDITING HANDLERS
+       ========================================================================= */
+    function onWholesaleChange(index, val) {
+      const rate = parseFloat(val) || 0;
+      items[index].rate = rate;
+      const ovh = parseFloat(document.getElementById('g-overhead-input').value) || 10;
+      const mult = parseFloat(document.getElementById('g-multiplier-input').value) || 3;
+      const c10 = Math.round(rate * (1 + ovh / 100) * 100) / 100;
+      items[index].rate_plus_10 = c10;
+      items[index].final_cost = c10;
+      items[index].selling_price = Math.round(c10 * mult);
+
+      refreshSingleItemRow(index);
+      triggerAutoSave();
+    }
+
+    function onSellingPriceChange(index, val) {
+      items[index].selling_price = parseFloat(val) || 0;
+      refreshSingleItemRow(index);
+      triggerAutoSave();
+    }
+
+    function onTotalUnitsChange(index, val) {
+      items[index].total_units = parseInt(val) || 0;
+      refreshSingleItemRow(index);
+      triggerAutoSave();
+    }
+
+    function onSoldChange(index, val) {
+      items[index].units_sold = Math.max(0, parseInt(val) || 0);
+      refreshSingleItemRow(index);
+      triggerAutoSave();
+    }
+
+    function onItemPropChange(index, prop, val) {
+      items[index][prop] = val;
+      triggerAutoSave();
+    }
+
+    function toggleItemVerified(index, checked) {
+      items[index].verified = checked;
+      triggerAutoSave();
+    }
+
+    function refreshSingleItemRow(index) {
+      renderStaffPos(document.getElementById('global-search-input').value.trim());
+      updateFinancialMetrics();
+    }
+
+    function applyGlobalFormula() {
+      const ovh = parseFloat(document.getElementById('g-overhead-input').value) || 10;
+      const mult = parseFloat(document.getElementById('g-multiplier-input').value) || 3;
+
+      items.forEach(it => {
+        const rate = parseFloat(it.rate) || 0;
+        const c10 = Math.round(rate * (1 + ovh / 100) * 100) / 100;
+        it.overhead_pct = ovh;
+        it.multiplier = mult;
+        it.rate_plus_10 = c10;
+        it.final_cost = c10;
+        it.selling_price = Math.round(c10 * mult);
+      });
+
+      renderStaffPos();
+      renderAdminCards();
+      renderAdminTable();
+      triggerAutoSave();
+      showToast(`Applied +${ovh}% & ${mult}x to all 94 products!`);
+    }
+
+    function addNewProduct() {
+      const nextNum = items.length + 1;
+      items.unshift({
+        id: `CUST_${Date.now()}`,
+        sticker_no: String(nextNum),
+        bill_name: 'Custom Box',
+        bill_type: 'white',
+        name: `New Cracker Item #${nextNum}`,
+        pack_details: '10',
+        total_units: 10,
+        units_sold: 0,
+        rate: 100,
+        rate_plus_10: 110,
+        final_cost: 110,
+        selling_price: 330,
+        overhead_pct: 10,
+        multiplier: 3,
+        verified: false,
+        search_keys: [String(nextNum)]
+      });
+      renderStaffPos();
+      renderAdminCards();
+      renderAdminTable();
+      triggerAutoSave();
+      showToast(`Added SKU #${nextNum}`);
+    }
+
+    function deleteItem(index) {
+      if (!confirm(`Delete "${items[index].name}"?`)) return;
+      items.splice(index, 1);
+      renderStaffPos();
+      renderAdminCards();
+      renderAdminTable();
+      triggerAutoSave();
+    }
+
+    /* =========================================================================
+       FINANCIAL METRICS & HUD CALCULATION
+       ========================================================================= */
+    function updateFinancialMetrics() {
+      let stockWholesale = 0;
+      let target3xRev = 0;
+      let salesCollected = 0;
+      let soldUnitsCount = 0;
+      let totalUnitsCount = 0;
+
+      items.forEach(it => {
+        const u = parseInt(it.total_units) || 0;
+        const s = parseInt(it.units_sold) || 0;
+        const rate = parseFloat(it.rate) || 0;
+        const sp = parseFloat(it.selling_price) || 0;
+
+        stockWholesale += rate * u;
+        target3xRev += sp * u;
+        salesCollected += sp * s;
+        soldUnitsCount += s;
+        totalUnitsCount += u;
+      });
+
+      let opsExpenses = 0;
+      expensesList.forEach(e => { opsExpenses += parseFloat(e.amount) || 0; });
+      const totalExpenses = stockWholesale + opsExpenses;
+      const maxProfitPotential = target3xRev - totalExpenses;
+
+      const tExp = document.getElementById('tile-total-expenses');
+      if (tExp) tExp.textContent = '₹' + Math.round(totalExpenses).toLocaleString('en-IN');
+
+      const tBe = document.getElementById('tile-breakeven-sales');
+      if (tBe) tBe.textContent = '₹' + Math.round(totalExpenses).toLocaleString('en-IN');
+
+      const bePct = target3xRev > 0 ? ((totalExpenses / target3xRev) * 100).toFixed(1) : '34.0';
+      const tBePct = document.getElementById('tile-breakeven-pct');
+      if (tBePct) tBePct.textContent = `Only ${bePct}% of inventory at 3x`;
+
+      const tCash = document.getElementById('tile-cash-collected');
+      if (tCash) tCash.textContent = '₹' + Math.round(salesCollected).toLocaleString('en-IN');
+
+      const tUnits = document.getElementById('tile-units-sold-count');
+      if (tUnits) tUnits.textContent = `${soldUnitsCount} / ${totalUnitsCount} units sold`;
+
+      const tProfit = document.getElementById('tile-profit-display');
+      if (tProfit) {
+        tProfit.textContent = (maxProfitPotential >= 0 ? '+' : '') + '₹' + Math.round(maxProfitPotential).toLocaleString('en-IN');
+      }
+
+      const fill = document.getElementById('hud-progress-fill');
+      if (fill) {
+        const covPct = totalExpenses > 0 ? Math.min(100, (salesCollected / totalExpenses) * 100) : 0;
+        fill.style.width = covPct + '%';
+      }
+    }
+
+    function updateScenarioSim(pctVal) {
+      const pct = parseFloat(pctVal) / 100;
+      const lbl = document.getElementById('sim-pct-label');
+      if (lbl) lbl.textContent = `${pctVal}% Sold`;
+
+      let stockWholesale = 0;
+      let target3xRev = 0;
+      items.forEach(it => {
+        const u = parseInt(it.total_units) || 0;
+        const rate = parseFloat(it.rate) || 0;
+        const sp = parseFloat(it.selling_price) || 0;
+        stockWholesale += rate * u;
+        target3xRev += sp * u;
+      });
+
+      let opsExpenses = 0;
+      expensesList.forEach(e => { opsExpenses += parseFloat(e.amount) || 0; });
+      const totalExpenses = stockWholesale + opsExpenses;
+
+      const simRev = Math.round(target3xRev * pct);
+      const simProfit = Math.round(simRev - totalExpenses);
+      const unsoldWs = Math.round(stockWholesale * (1 - pct));
+      const unsold3x = Math.round(target3xRev * (1 - pct));
+
+      const rVal = document.getElementById('sim-rev-val');
+      if (rVal) rVal.textContent = '₹' + simRev.toLocaleString('en-IN');
+
+      const pVal = document.getElementById('sim-profit-val');
+      if (pVal) {
+        pVal.textContent = (simProfit >= 0 ? '+' : '') + '₹' + simProfit.toLocaleString('en-IN');
+        pVal.style.color = simProfit >= 0 ? 'var(--selection-bg)' : 'var(--accent-rose)';
+      }
+
+      const uWs = document.getElementById('sim-unsold-ws');
+      if (uWs) uWs.textContent = '₹' + unsoldWs.toLocaleString('en-IN');
+
+      const u3x = document.getElementById('sim-unsold-3x');
+      if (u3x) u3x.textContent = '₹' + unsold3x.toLocaleString('en-IN');
+    }
+
+    function renderExpensesLedger() {
+      const container = document.getElementById('editable-expenses-list');
+      if (!container) return;
+      container.innerHTML = expensesList.map((exp, idx) => `
+        <div style="display:flex; gap:8px; align-items:center;">
+          <input type="text" class="tbl-input" value="${escapeAttr(exp.name)}" style="flex:1;"
+                 oninput="onExpenseChange(${idx}, 'name', this.value)">
+          <input type="number" class="tbl-input" value="${exp.amount}" style="width:100px; color:var(--accent-rose); font-weight:700; text-align:right;"
+                 oninput="onExpenseChange(${idx}, 'amount', this.value)">
+          <button class="btn-bp hit" onclick="deleteExpenseItem(${idx})" style="color:var(--accent-rose); padding:2px 6px;">✕</button>
+        </div>
+      `).join('');
+    }
+
+    function onExpenseChange(index, prop, val) {
+      expensesList[index][prop] = prop === 'amount' ? (parseFloat(val) || 0) : val;
+      triggerAutoSave();
+      updateFinancialMetrics();
+    }
+
+    function addNewExpenseItem() {
+      expensesList.push({
+        id: `exp_${Date.now()}`,
+        name: 'New Expense Outlay',
+        amount: 500,
+        category: 'Misc'
+      });
+      renderExpensesLedger();
+      triggerAutoSave();
+      updateFinancialMetrics();
+    }
+
+    function deleteExpenseItem(index) {
+      expensesList.splice(index, 1);
+      renderExpensesLedger();
+      triggerAutoSave();
+      updateFinancialMetrics();
     }
 
     /* =========================================================================
@@ -2097,12 +1998,9 @@
 
         if (resp.ok) {
           if (showNotification) showToast('✓ Synced to Google Sheets & GitHub!');
-        } else {
-          // If server not running locally, try webhook if configured
-          tryWebhookPush();
         }
       } catch (err) {
-        tryWebhookPush();
+        // local server offline
       } finally {
         if (pill) pill.classList.remove('syncing');
       }
@@ -2116,74 +2014,18 @@
           if (Array.isArray(data) && data.length > 0) {
             items = data;
             localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
-            renderAllViews();
+            renderStaffPos();
+            renderAdminCards();
+            renderAdminTable();
             updateFinancialMetrics();
             showToast('✓ Pulled fresh data from server!');
           }
         }
       } catch(e) {
-        showToast('Server not reachable. Using local data.');
+        showToast('Server not reachable.');
       }
     }
 
-    function saveWebhookSetting(val) {
-      localStorage.setItem(WEBHOOK_KEY, val.trim());
-    }
-
-    async function pushToGoogleWebhook() {
-      const url = document.getElementById('webhook-url-input').value.trim();
-      if (!url) {
-        alert('Please paste a Google Apps Script Web App URL first.');
-        return;
-      }
-      showToast('Pushing to Google Sheet via Webhook...');
-      try {
-        await fetch(url, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ items, timestamp: new Date().toISOString() })
-        });
-        showToast('✓ Pushed to Google Sheet webhook!');
-      } catch (e) {
-        showToast('Webhook push failed: ' + e.message);
-      }
-    }
-
-    async function pullFromGoogleWebhook() {
-      const url = document.getElementById('webhook-url-input').value.trim();
-      if (!url) {
-        alert('Please paste a Google Apps Script Web App URL first.');
-        return;
-      }
-      showToast('Pulling from Google Sheet webhook...');
-      try {
-        const resp = await fetch(url);
-        const data = await resp.json();
-        if (data && data.items) {
-          items = data.items;
-          localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
-          renderAllViews();
-          showToast('✓ Updated from Google Sheet!');
-        }
-      } catch(e) {
-        showToast('Pull failed: ' + e.message);
-      }
-    }
-
-    function tryWebhookPush() {
-      const url = localStorage.getItem(WEBHOOK_KEY);
-      if (url) {
-        fetch(url, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ items, timestamp: new Date().toISOString() })
-        }).catch(() => {});
-      }
-    }
-
-    /* Copy table formatted for Google Sheets */
     function copyTableForGoogleSheets() {
       const headers = ['Box #', 'Item Name', 'Bill Type', 'Pack', 'Total Units', 'Units Sold', 'Units Left', 'Wholesale Rate', 'Landed (+10%)', 'Selling Price (3x)', 'Total 3x Value', 'Sold Cash', 'Profit'];
       const rows = [headers.join('\t')];
@@ -2200,27 +2042,18 @@
         const profit = Math.round((sp - c10) * s);
 
         rows.push([
-          it.sticker_no,
-          it.name,
-          it.bill_type || 'white',
-          it.pack_details || '1',
+          it.sticker_no, it.name, it.bill_type || 'white', it.pack_details || '1',
           u, s, left, rate, c10, sp, boxVal, soldVal, profit
         ].join('\t'));
       });
 
       navigator.clipboard.writeText(rows.join('\n')).then(() => {
         showToast('✓ Copied 94 rows to clipboard! Press Ctrl+V in Google Sheets.');
-      }).catch(() => {
-        alert('Clipboard write failed. Please check permissions.');
       });
     }
 
-    /* Native Excel .xlsx export */
     function exportNativeExcel() {
-      if (typeof XLSX === 'undefined') {
-        alert('SheetJS library is loading, please try again in a moment.');
-        return;
-      }
+      if (typeof XLSX === 'undefined') return;
       const data = items.map(it => {
         const u = parseInt(it.total_units) || 0;
         const s = parseInt(it.units_sold) || 0;
@@ -2241,8 +2074,7 @@
           '3x Final Selling Price (₹)': sp,
           'Total 3x Value (₹)': Math.round(u * sp),
           'Cash Collected (₹)': Math.round(s * sp),
-          'Margin Realized (₹)': Math.round((sp - c10) * s),
-          'Verified': it.verified ? 'YES' : 'NO'
+          'Margin Realized (₹)': Math.round((sp - c10) * s)
         };
       });
 
@@ -2253,7 +2085,6 @@
       showToast('✓ Downloaded Diwali_Crackers_Master_Inventory_2026.xlsx');
     }
 
-    /* UI Toast Notification */
     function showToast(msg) {
       const toast = document.getElementById('bp-toast');
       const msgEl = document.getElementById('bp-toast-msg');
@@ -2268,7 +2099,6 @@
       return String(str).replace(/"/g, '&quot;').replace(/'/g, '&#39;');
     }
 
-    // Boot
     window.addEventListener('DOMContentLoaded', initApp);
   </script>
 </body>

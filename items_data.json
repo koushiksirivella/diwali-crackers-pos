@@ -9,7 +9,7 @@
     "name": "3 1/2 Lakshmi (15P)",
     "pack_details": "20",
     "total_units": 20,
-    "units_sold": 0,
+    "units_sold": 1,
     "rate": 150,
     "rate_plus_10": 165,
     "bill_total": 3000,
@@ -24,7 +24,7 @@
     "rate_plus_20": 180,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 180,
+    "final_cost": 165,
     "selling_price_10_3x": 495,
     "selling_price_20_3x": 540
   },
@@ -53,7 +53,7 @@
     "rate_plus_20": 180,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 180,
+    "final_cost": 165,
     "selling_price_10_3x": 495,
     "selling_price_20_3x": 540
   },
@@ -82,7 +82,7 @@
     "rate_plus_20": 312,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 312,
+    "final_cost": 286,
     "selling_price_10_3x": 858,
     "selling_price_20_3x": 936
   },
@@ -111,7 +111,7 @@
     "rate_plus_20": 336,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 336,
+    "final_cost": 308,
     "selling_price_10_3x": 924,
     "selling_price_20_3x": 1008
   },
@@ -140,7 +140,7 @@
     "rate_plus_20": 336,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 336,
+    "final_cost": 308,
     "selling_price_10_3x": 924,
     "selling_price_20_3x": 1008
   },
@@ -169,7 +169,7 @@
     "rate_plus_20": 396,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 396,
+    "final_cost": 363,
     "selling_price_10_3x": 1089,
     "selling_price_20_3x": 1188
   },
@@ -198,7 +198,7 @@
     "rate_plus_20": 336,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 336,
+    "final_cost": 308,
     "selling_price_10_3x": 924,
     "selling_price_20_3x": 1008
   },
@@ -227,7 +227,7 @@
     "rate_plus_20": 420,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 420,
+    "final_cost": 385,
     "selling_price_10_3x": 1155,
     "selling_price_20_3x": 1260
   },
@@ -256,7 +256,7 @@
     "rate_plus_20": 300,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 300,
+    "final_cost": 275,
     "selling_price_10_3x": 825,
     "selling_price_20_3x": 900
   },
@@ -285,7 +285,7 @@
     "rate_plus_20": 660,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 660,
+    "final_cost": 605,
     "selling_price_10_3x": 1815,
     "selling_price_20_3x": 1980
   },
@@ -314,7 +314,7 @@
     "rate_plus_20": 660,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 660,
+    "final_cost": 605,
     "selling_price_10_3x": 1815,
     "selling_price_20_3x": 1980
   },
@@ -343,7 +343,7 @@
     "rate_plus_20": 540,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 540,
+    "final_cost": 495,
     "selling_price_10_3x": 1485,
     "selling_price_20_3x": 1620
   },
@@ -372,7 +372,7 @@
     "rate_plus_20": 540,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 540,
+    "final_cost": 495,
     "selling_price_10_3x": 1485,
     "selling_price_20_3x": 1620
   },
@@ -401,7 +401,7 @@
     "rate_plus_20": 420,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 420,
+    "final_cost": 385,
     "selling_price_10_3x": 1155,
     "selling_price_20_3x": 1260
   },
@@ -430,7 +430,7 @@
     "rate_plus_20": 84,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 84,
+    "final_cost": 77,
     "selling_price_10_3x": 231,
     "selling_price_20_3x": 252
   },
@@ -459,7 +459,7 @@
     "rate_plus_20": 60,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 60,
+    "final_cost": 55,
     "selling_price_10_3x": 165,
     "selling_price_20_3x": 180
   },
@@ -488,7 +488,7 @@
     "rate_plus_20": 26.4,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 26.4,
+    "final_cost": 24.2,
     "selling_price_10_3x": 73,
     "selling_price_20_3x": 79
   },
@@ -517,7 +517,7 @@
     "rate_plus_20": 32.4,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 32.4,
+    "final_cost": 29.7,
     "selling_price_10_3x": 89,
     "selling_price_20_3x": 97
   },
@@ -546,7 +546,7 @@
     "rate_plus_20": 60,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 60,
+    "final_cost": 55,
     "selling_price_10_3x": 165,
     "selling_price_20_3x": 180
   },
@@ -575,7 +575,7 @@
     "rate_plus_20": 72,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 72,
+    "final_cost": 66,
     "selling_price_10_3x": 198,
     "selling_price_20_3x": 216
   },
@@ -604,7 +604,7 @@
     "rate_plus_20": 108,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 108,
+    "final_cost": 99,
     "selling_price_10_3x": 297,
     "selling_price_20_3x": 324
   },
@@ -633,7 +633,7 @@
     "rate_plus_20": 144,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 144,
+    "final_cost": 132,
     "selling_price_10_3x": 396,
     "selling_price_20_3x": 432
   },
@@ -662,7 +662,7 @@
     "rate_plus_20": 43.2,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 43.2,
+    "final_cost": 39.6,
     "selling_price_10_3x": 119,
     "selling_price_20_3x": 130
   },
@@ -691,7 +691,7 @@
     "rate_plus_20": 78,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 78,
+    "final_cost": 71.5,
     "selling_price_10_3x": 214,
     "selling_price_20_3x": 234
   },
@@ -720,7 +720,7 @@
     "rate_plus_20": 144,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 144,
+    "final_cost": 132,
     "selling_price_10_3x": 396,
     "selling_price_20_3x": 432
   },
@@ -749,7 +749,7 @@
     "rate_plus_20": 144,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 144,
+    "final_cost": 132,
     "selling_price_10_3x": 396,
     "selling_price_20_3x": 432
   },
@@ -778,7 +778,7 @@
     "rate_plus_20": 192,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 192,
+    "final_cost": 176,
     "selling_price_10_3x": 528,
     "selling_price_20_3x": 576
   },
@@ -807,7 +807,7 @@
     "rate_plus_20": 396,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 396,
+    "final_cost": 363,
     "selling_price_10_3x": 1089,
     "selling_price_20_3x": 1188
   },
@@ -836,7 +836,7 @@
     "rate_plus_20": 420,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 420,
+    "final_cost": 385,
     "selling_price_10_3x": 1155,
     "selling_price_20_3x": 1260
   },
@@ -865,7 +865,7 @@
     "rate_plus_20": 396,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 396,
+    "final_cost": 363,
     "selling_price_10_3x": 1089,
     "selling_price_20_3x": 1188
   },
@@ -894,7 +894,7 @@
     "rate_plus_20": 78,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 78,
+    "final_cost": 71.5,
     "selling_price_10_3x": 214,
     "selling_price_20_3x": 234
   },
@@ -923,7 +923,7 @@
     "rate_plus_20": 78,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 78,
+    "final_cost": 71.5,
     "selling_price_10_3x": 214,
     "selling_price_20_3x": 234
   },
@@ -952,7 +952,7 @@
     "rate_plus_20": 115.2,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 115.2,
+    "final_cost": 105.6,
     "selling_price_10_3x": 317,
     "selling_price_20_3x": 346
   },
@@ -981,7 +981,7 @@
     "rate_plus_20": 120,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 120,
+    "final_cost": 110,
     "selling_price_10_3x": 330,
     "selling_price_20_3x": 360
   },
@@ -1010,7 +1010,7 @@
     "rate_plus_20": 192,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 192,
+    "final_cost": 176,
     "selling_price_10_3x": 528,
     "selling_price_20_3x": 576
   },
@@ -1039,7 +1039,7 @@
     "rate_plus_20": 168,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 168,
+    "final_cost": 154,
     "selling_price_10_3x": 462,
     "selling_price_20_3x": 504
   },
@@ -1068,7 +1068,7 @@
     "rate_plus_20": 21.6,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 21.6,
+    "final_cost": 19.8,
     "selling_price_10_3x": 59,
     "selling_price_20_3x": 65
   },
@@ -1097,7 +1097,7 @@
     "rate_plus_20": 72,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 72,
+    "final_cost": 66,
     "selling_price_10_3x": 198,
     "selling_price_20_3x": 216
   },
@@ -1126,7 +1126,7 @@
     "rate_plus_20": 96,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 96,
+    "final_cost": 88,
     "selling_price_10_3x": 264,
     "selling_price_20_3x": 288
   },
@@ -1155,7 +1155,7 @@
     "rate_plus_20": 45.6,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 45.6,
+    "final_cost": 41.8,
     "selling_price_10_3x": 125,
     "selling_price_20_3x": 137
   },
@@ -1184,7 +1184,7 @@
     "rate_plus_20": 60,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 60,
+    "final_cost": 55,
     "selling_price_10_3x": 165,
     "selling_price_20_3x": 180
   },
@@ -1213,7 +1213,7 @@
     "rate_plus_20": 90,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 90,
+    "final_cost": 82.5,
     "selling_price_10_3x": 248,
     "selling_price_20_3x": 270
   },
@@ -1242,7 +1242,7 @@
     "rate_plus_20": 180,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 180,
+    "final_cost": 165,
     "selling_price_10_3x": 495,
     "selling_price_20_3x": 540
   },
@@ -1271,7 +1271,7 @@
     "rate_plus_20": 84,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 84,
+    "final_cost": 77,
     "selling_price_10_3x": 231,
     "selling_price_20_3x": 252
   },
@@ -1300,7 +1300,7 @@
     "rate_plus_20": 84,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 84,
+    "final_cost": 77,
     "selling_price_10_3x": 231,
     "selling_price_20_3x": 252
   },
@@ -1329,7 +1329,7 @@
     "rate_plus_20": 240,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 240,
+    "final_cost": 220,
     "selling_price_10_3x": 660,
     "selling_price_20_3x": 720
   },
@@ -1358,7 +1358,7 @@
     "rate_plus_20": 912,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 912,
+    "final_cost": 836,
     "selling_price_10_3x": 2508,
     "selling_price_20_3x": 2736
   },
@@ -1387,7 +1387,7 @@
     "rate_plus_20": 1080,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 1080,
+    "final_cost": 990,
     "selling_price_10_3x": 2970,
     "selling_price_20_3x": 3240
   },
@@ -1416,7 +1416,7 @@
     "rate_plus_20": 15.6,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 15.6,
+    "final_cost": 14.3,
     "selling_price_10_3x": 43,
     "selling_price_20_3x": 47
   },
@@ -1445,7 +1445,7 @@
     "rate_plus_20": 54,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 54,
+    "final_cost": 49.5,
     "selling_price_10_3x": 148,
     "selling_price_20_3x": 162
   },
@@ -1474,7 +1474,7 @@
     "rate_plus_20": 110.4,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 110.4,
+    "final_cost": 101.2,
     "selling_price_10_3x": 304,
     "selling_price_20_3x": 331
   },
@@ -1503,7 +1503,7 @@
     "rate_plus_20": 198,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 198,
+    "final_cost": 181.5,
     "selling_price_10_3x": 544,
     "selling_price_20_3x": 594
   },
@@ -1532,7 +1532,7 @@
     "rate_plus_20": 192,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 192,
+    "final_cost": 176,
     "selling_price_10_3x": 528,
     "selling_price_20_3x": 576
   },
@@ -1561,7 +1561,7 @@
     "rate_plus_20": 228,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 228,
+    "final_cost": 209,
     "selling_price_10_3x": 627,
     "selling_price_20_3x": 684
   },
@@ -1590,7 +1590,7 @@
     "rate_plus_20": 216,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 216,
+    "final_cost": 198,
     "selling_price_10_3x": 594,
     "selling_price_20_3x": 648
   },
@@ -1619,7 +1619,7 @@
     "rate_plus_20": 3720,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 3720,
+    "final_cost": 3410,
     "selling_price_10_3x": 10230,
     "selling_price_20_3x": 11160
   },
@@ -1648,7 +1648,7 @@
     "rate_plus_20": 300,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 300,
+    "final_cost": 275,
     "selling_price_10_3x": 825,
     "selling_price_20_3x": 900
   },
@@ -1677,7 +1677,7 @@
     "rate_plus_20": 156,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 156,
+    "final_cost": 143,
     "selling_price_10_3x": 429,
     "selling_price_20_3x": 468
   },
@@ -1706,7 +1706,7 @@
     "rate_plus_20": 168,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 168,
+    "final_cost": 154,
     "selling_price_10_3x": 462,
     "selling_price_20_3x": 504
   },
@@ -1735,7 +1735,7 @@
     "rate_plus_20": 78,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 78,
+    "final_cost": 71.5,
     "selling_price_10_3x": 214,
     "selling_price_20_3x": 234
   },
@@ -1764,7 +1764,7 @@
     "rate_plus_20": 252,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 252,
+    "final_cost": 231,
     "selling_price_10_3x": 693,
     "selling_price_20_3x": 756
   },
@@ -1793,7 +1793,7 @@
     "rate_plus_20": 156,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 156,
+    "final_cost": 143,
     "selling_price_10_3x": 429,
     "selling_price_20_3x": 468
   },
@@ -1822,7 +1822,7 @@
     "rate_plus_20": 276,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 276,
+    "final_cost": 253,
     "selling_price_10_3x": 759,
     "selling_price_20_3x": 828
   },
@@ -1851,7 +1851,7 @@
     "rate_plus_20": 312,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 312,
+    "final_cost": 286,
     "selling_price_10_3x": 858,
     "selling_price_20_3x": 936
   },
@@ -1880,7 +1880,7 @@
     "rate_plus_20": 150,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 150,
+    "final_cost": 137.5,
     "selling_price_10_3x": 412,
     "selling_price_20_3x": 450
   },
@@ -1909,7 +1909,7 @@
     "rate_plus_20": 156,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 156,
+    "final_cost": 143,
     "selling_price_10_3x": 429,
     "selling_price_20_3x": 468
   },
@@ -1938,7 +1938,7 @@
     "rate_plus_20": 96,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 96,
+    "final_cost": 88,
     "selling_price_10_3x": 264,
     "selling_price_20_3x": 288
   },
@@ -1967,7 +1967,7 @@
     "rate_plus_20": 216,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 216,
+    "final_cost": 198,
     "selling_price_10_3x": 594,
     "selling_price_20_3x": 648
   },
@@ -1996,7 +1996,7 @@
     "rate_plus_20": 276,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 276,
+    "final_cost": 253,
     "selling_price_10_3x": 759,
     "selling_price_20_3x": 828
   },
@@ -2025,7 +2025,7 @@
     "rate_plus_20": 300,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 300,
+    "final_cost": 275,
     "selling_price_10_3x": 825,
     "selling_price_20_3x": 900
   },
@@ -2054,7 +2054,7 @@
     "rate_plus_20": 204,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 204,
+    "final_cost": 187,
     "selling_price_10_3x": 561,
     "selling_price_20_3x": 612
   },
@@ -2083,7 +2083,7 @@
     "rate_plus_20": 240,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 240,
+    "final_cost": 220,
     "selling_price_10_3x": 660,
     "selling_price_20_3x": 720
   },
@@ -2112,7 +2112,7 @@
     "rate_plus_20": 420,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 420,
+    "final_cost": 385,
     "selling_price_10_3x": 1155,
     "selling_price_20_3x": 1260
   },
@@ -2141,7 +2141,7 @@
     "rate_plus_20": 360,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 360,
+    "final_cost": 330,
     "selling_price_10_3x": 990,
     "selling_price_20_3x": 1080
   },
@@ -2175,7 +2175,7 @@
     "rate_plus_20": 30,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 30,
+    "final_cost": 27.5,
     "selling_price_10_3x": 82,
     "selling_price_20_3x": 90
   },
@@ -2209,7 +2209,7 @@
     "rate_plus_20": 192,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 192,
+    "final_cost": 176,
     "selling_price_10_3x": 528,
     "selling_price_20_3x": 576
   },
@@ -2243,7 +2243,7 @@
     "rate_plus_20": 102,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 102,
+    "final_cost": 93.5,
     "selling_price_10_3x": 280,
     "selling_price_20_3x": 306
   },
@@ -2277,7 +2277,7 @@
     "rate_plus_20": 1200,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 1200,
+    "final_cost": 1100,
     "selling_price_10_3x": 3300,
     "selling_price_20_3x": 3600
   },
@@ -2311,7 +2311,7 @@
     "rate_plus_20": 36,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 36,
+    "final_cost": 33,
     "selling_price_10_3x": 99,
     "selling_price_20_3x": 108
   },
@@ -2345,7 +2345,7 @@
     "rate_plus_20": 33.6,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 33.6,
+    "final_cost": 30.8,
     "selling_price_10_3x": 92,
     "selling_price_20_3x": 101
   },
@@ -2379,7 +2379,7 @@
     "rate_plus_20": 36,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 36,
+    "final_cost": 33,
     "selling_price_10_3x": 99,
     "selling_price_20_3x": 108
   },
@@ -2413,7 +2413,7 @@
     "rate_plus_20": 33.6,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 33.6,
+    "final_cost": 30.8,
     "selling_price_10_3x": 92,
     "selling_price_20_3x": 101
   },
@@ -2447,7 +2447,7 @@
     "rate_plus_20": 156,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 156,
+    "final_cost": 143,
     "selling_price_10_3x": 429,
     "selling_price_20_3x": 468
   },
@@ -2481,7 +2481,7 @@
     "rate_plus_20": 312,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 312,
+    "final_cost": 286,
     "selling_price_10_3x": 858,
     "selling_price_20_3x": 936
   },
@@ -2515,7 +2515,7 @@
     "rate_plus_20": 780,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 780,
+    "final_cost": 715,
     "selling_price_10_3x": 2145,
     "selling_price_20_3x": 2340
   },
@@ -2549,7 +2549,7 @@
     "rate_plus_20": 1560,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 1560,
+    "final_cost": 1430,
     "selling_price_10_3x": 4290,
     "selling_price_20_3x": 4680
   },
@@ -2583,7 +2583,7 @@
     "rate_plus_20": 456,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 456,
+    "final_cost": 418,
     "selling_price_10_3x": 1254,
     "selling_price_20_3x": 1368
   },
@@ -2617,7 +2617,7 @@
     "rate_plus_20": 912,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 912,
+    "final_cost": 836,
     "selling_price_10_3x": 2508,
     "selling_price_20_3x": 2736
   },
@@ -2651,7 +2651,7 @@
     "rate_plus_20": 1824,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 1824,
+    "final_cost": 1672,
     "selling_price_10_3x": 5016,
     "selling_price_20_3x": 5472
   },
@@ -2685,7 +2685,7 @@
     "rate_plus_20": 165.6,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 165.6,
+    "final_cost": 151.8,
     "selling_price_10_3x": 455,
     "selling_price_20_3x": 497
   },
@@ -2719,7 +2719,7 @@
     "rate_plus_20": 50.4,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 50.4,
+    "final_cost": 46.2,
     "selling_price_10_3x": 139,
     "selling_price_20_3x": 151
   },
@@ -2753,7 +2753,7 @@
     "rate_plus_20": 150,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 150,
+    "final_cost": 137.5,
     "selling_price_10_3x": 412,
     "selling_price_20_3x": 450
   },
@@ -2787,7 +2787,7 @@
     "rate_plus_20": 69.6,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 69.6,
+    "final_cost": 63.8,
     "selling_price_10_3x": 191,
     "selling_price_20_3x": 209
   },
@@ -2821,7 +2821,7 @@
     "rate_plus_20": 25.2,
     "overhead_pct": 10,
     "multiplier": 3,
-    "final_cost": 25.2,
+    "final_cost": 23.1,
     "selling_price_10_3x": 69,
     "selling_price_20_3x": 76
   }
