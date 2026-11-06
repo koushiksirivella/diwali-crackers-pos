@@ -1,7 +1,7 @@
 Box #,Item Name,Bill Type,Pack,Total Units,Units Sold,Units Left,Wholesale Rate (₹),Driving Exp (+10%) (₹),Final Selling Price (3x) (₹),Total 3x Value (₹),Cash Collected (₹),Status
 1,"3 1/2 Lakshmi (15P)",white,"20",20,1,19,150,165,550,11000,550,1/20 SOLD
 2,"4"" Laxmi",white,"25",25,0,25,150,165,700,17500,0,IN STOCK
-3,"4"" Dlx Lion",white,"10",10,0,10,260,286,65,650,0,IN STOCK
+3,"4"" Dlx Lion",white,"10",10,0,10,260,286,650,6500,0,IN STOCK
 4,"Gold Laxmi",white,"10",10,0,10,280,308,924,9240,0,IN STOCK
 5,"5"" Hulk",white,"10",10,0,10,280,308,924,9240,0,IN STOCK
 6,"6"" Bruslee",white,"10",10,0,10,330,363,1089,10890,0,IN STOCK
