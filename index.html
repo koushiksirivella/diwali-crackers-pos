@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>DIWALI CRACKERS OS — POS &amp; Executive Admin</title>
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#131515">
@@ -178,6 +178,18 @@
     }
     .nav-tabs::-webkit-scrollbar { display: none; }
 
+    .nav-tabs {
+      background: #181A1A;
+      border-bottom: 1px solid var(--line);
+      padding: 0 12px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .nav-tabs::-webkit-scrollbar { display: none; }
+
     .nav-tab-btn {
       background: transparent;
       border: none;
@@ -186,10 +198,11 @@
       font-family: var(--font-mono-2);
       font-size: 0.8rem;
       font-weight: 700;
-      padding: 12px 14px;
+      padding: 10px 14px;
       cursor: pointer;
       white-space: nowrap;
-      display: flex;
+      flex-shrink: 0;
+      display: inline-flex;
       align-items: center;
       gap: 8px;
       transition: all 0.2s;
@@ -671,48 +684,495 @@
       .top-bar { padding: 8px 12px; }
       .main-viewport { padding: 10px; }
     }
-  </style>
+  
+    /* ========================================================
+       MOBILE-FIRST RESPONSIVE ENGINE & ZERO-GLITCH STYLES
+       ======================================================== */
+    .top-bar {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 10px 14px;
+    }
+    .top-bar-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+    .top-bar-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .search-voice-bar {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      width: 100%;
+    }
+    .search-box {
+      flex: 1;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .search-input {
+      width: 100%;
+      background: #111414;
+      border: 1px solid var(--line);
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      padding: 9px 36px 9px 32px;
+      outline: none;
+      border-radius: 4px;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .search-input:focus {
+      border-color: var(--selection-bg);
+      box-shadow: 0 0 10px rgba(192, 254, 4, 0.3);
+      width: 100%;
+    }
+    .search-icon {
+      position: absolute;
+      left: 10px;
+      color: var(--selection-bg);
+      pointer-events: none;
+      font-size: 0.85rem;
+    }
+    #btn-clear-search {
+      position: absolute;
+      right: 8px;
+      background: transparent;
+      border: none;
+      color: var(--label-3);
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 800;
+      padding: 4px 6px;
+      display: none;
+    }
+    .btn-voice-pill {
+      background: rgba(255, 46, 147, 0.15);
+      border: 1px solid var(--accent-rose);
+      color: var(--accent-rose);
+      font-family: var(--font-mono-2);
+      font-size: 0.78rem;
+      font-weight: 800;
+      padding: 9px 12px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      white-space: nowrap;
+      border-radius: 4px;
+      transition: all 0.15s;
+    }
+    .btn-voice-pill:hover, .btn-voice-pill:active {
+      background: var(--accent-rose);
+      color: #000;
+    }
+
+    /* STAFF SHIFT BANNER GRID */
+    .staff-banner-grid {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .shift-stats-box {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .stat-cell {
+      display: flex;
+      flex-direction: column;
+    }
+    .stat-label {
+      font-family: var(--font-mono-2);
+      font-size: 0.65rem;
+      color: var(--label-3);
+      letter-spacing: 0.04em;
+    }
+    .stat-val {
+      font-family: var(--font-mono);
+      font-size: 1.4rem;
+      font-weight: 900;
+    }
+    .stat-val.emerald { color: var(--accent-emerald); }
+    .stat-val.cyan { color: var(--accent-cyan); }
+    .shift-actions-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .btn-clean-dash {
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+    }
+    .btn-clean-dash:hover {
+      background: var(--accent-gold);
+      color: #000;
+    }
+
+    /* CARD POS BUTTONS - ERGONOMIC TWO-ROW MOBILE LAYOUT */
+    .pos-card {
+      background: var(--background-surface);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .pos-actions-tier {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .pos-actions-main-row {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 6px;
+    }
+    .pos-actions-sub-row {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 6px;
+    }
+    .btn-sell-quick {
+      font-family: var(--font-mono-2);
+      font-weight: 800;
+      font-size: 0.82rem;
+      border: 1px solid var(--line);
+      background: var(--background-elevated);
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 4px;
+      border-radius: 4px;
+      white-space: nowrap;
+      transition: all 0.12s;
+    }
+    .btn-sell-quick.primary {
+      background: var(--accent-emerald);
+      color: #000;
+      border-color: var(--accent-emerald);
+      font-size: 0.95rem;
+      font-weight: 900;
+    }
+    .btn-sell-quick.primary:active {
+      filter: brightness(1.25);
+      transform: scale(0.98);
+    }
+    .btn-sell-quick.reset {
+      background: rgba(255, 230, 0, 0.1);
+      color: var(--accent-gold);
+      border-color: rgba(255, 230, 0, 0.4);
+      font-size: 0.75rem;
+    }
+    .btn-sell-quick.reset:active {
+      background: var(--accent-gold);
+      color: #000;
+    }
+
+    /* MODAL ACCESSIBILITY & SCROLL FIX */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.88);
+      backdrop-filter: blur(8px);
+      z-index: 10000;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      padding: 16px;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-card {
+      background: var(--background-surface);
+      border: 2px solid var(--selection-bg);
+      border-radius: 8px;
+      padding: 20px;
+      max-width: 340px;
+      width: 100%;
+      margin: auto;
+      max-height: 94vh;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      box-shadow: 0 0 40px rgba(192, 254, 4, 0.25);
+    }
+    .btn-modal-close {
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-size: 1.4rem;
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px 8px;
+    }
+    .pin-display-wrapper {
+      position: relative;
+    }
+    .pin-display {
+      background: #000;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 10px;
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 2.2rem;
+      letter-spacing: 0.35em;
+      color: var(--selection-bg);
+      min-height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .numpad-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    .btn-numpad {
+      background: var(--background-elevated);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      color: #fff;
+      font-family: var(--font-mono-2);
+      font-size: 1.35rem;
+      font-weight: 800;
+      padding: 12px 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      touch-action: manipulation;
+    }
+    .btn-numpad:active {
+      background: var(--selection-bg);
+      color: #000;
+    }
+    .btn-numpad.numpad-clear {
+      color: var(--accent-rose);
+      border-color: rgba(255, 46, 147, 0.4);
+    }
+    .btn-numpad.numpad-ok {
+      background: var(--selection-bg);
+      color: #000;
+      border-color: var(--selection-bg);
+    }
+
+    /* TOAST POSITION ON MOBILE */
+    .toast-box {
+      position: fixed;
+      bottom: max(20px, env(safe-area-inset-bottom));
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 32px);
+      max-width: 380px;
+      text-align: center;
+      background: #000;
+      border: 1.5px solid var(--selection-bg);
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      padding: 10px 16px;
+      z-index: 99999;
+      display: none;
+      box-shadow: 0 4px 25px rgba(0,0,0,0.85);
+      border-radius: 4px;
+    }
+
+    /* MOBILE BREAKPOINTS */
+    @media (max-width: 768px) {
+      input, select, textarea {
+        font-size: 16px !important;
+      }
+      .brand-title {
+        font-size: 1rem;
+      }
+      .main-viewport {
+        padding: 8px;
+        padding-bottom: max(24px, env(safe-area-inset-bottom));
+      }
+      .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      .staff-banner-grid {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .shift-stats-box {
+        justify-content: space-between;
+      }
+      .shift-actions-row {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      .shift-actions-row .btn-bp {
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+      }
+    }
+
+
+    /* HIDE LOCKED TABS ON MOBILE TO ELIMINATE SCREEN CLUTTER */
+    @media (max-width: 768px) {
+      .nav-tab-btn.locked {
+        display: none !important;
+      }
+    }
+
+
+    /* ========================================================
+       VOICE HERO & CLEAN ZERO-BLOAT MOBILE INTERFACE
+       ======================================================== */
+    .voice-hero-container {
+      background: linear-gradient(180deg, #1A1F1F 0%, #121414 100%);
+      border: 1.5px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+    .voice-hero-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .voice-hero-btn {
+      background: var(--accent-rose);
+      color: #fff;
+      font-family: var(--font-mono-2);
+      font-weight: 900;
+      font-size: 0.95rem;
+      border: none;
+      border-radius: 6px;
+      padding: 12px 18px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      box-shadow: 0 0 15px rgba(255, 46, 147, 0.4);
+      transition: all 0.15s;
+    }
+    .voice-hero-btn.listening {
+      background: #ff0055;
+      animation: pulseMic 1s infinite alternate;
+      box-shadow: 0 0 25px rgba(255, 0, 85, 0.8);
+    }
+    @keyframes pulseMic {
+      from { transform: scale(1); }
+      to { transform: scale(1.04); }
+    }
+    .voice-status-hint {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--label-3);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* DESKTOP VS MOBILE NAV TABS */
+    @media (max-width: 768px) {
+      /* Hide all bloated desktop tabs on mobile */
+      .nav-tabs {
+        display: none !important;
+      }
+      .section-banner h2, .section-banner > div > span {
+        display: none !important;
+      }
+      .section-banner {
+        padding: 8px 12px;
+        margin-bottom: 10px;
+      }
+      .voice-hero-container {
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+      .brand-title {
+        font-size: 0.95rem;
+      }
+      .pill-sheets {
+        font-size: 0.65rem;
+        padding: 4px 8px;
+      }
+      .btn-auth-toggle {
+        font-size: 0.65rem;
+        padding: 5px 8px;
+      }
+    }
+
+</style>
 </head>
 <body>
 
   <!-- TOP HEADER BAR -->
   <header class="top-bar">
-    <div style="display:flex; align-items:center; gap:12px;">
-      <span class="brand-title">DIWALI CRACKERS OS <span class="brand-badge">POS &amp; ADMIN</span></span>
-    </div>
-
-    <div class="header-actions">
-      <!-- GLOBAL SEARCH -->
-      <div class="search-box">
-        <span class="search-icon">🔍</span>
-        <input type="text" class="search-input hit" id="global-search-input"
-               placeholder="Search Box #, Name, DLX/FLP/CLK (e.g. 42, Flower Pot)..."
-               oninput="onGlobalSearch(this.value)" style="padding-right:30px;">
-        <button id="btn-clear-search" onclick="clearGlobalSearch()" title="Clear search"
-                style="display:none; position:absolute; right:8px; background:transparent; border:none; color:var(--label-3); cursor:pointer; font-size:0.95rem; font-weight:800;">✕</button>
+    <div class="top-bar-row">
+      <div class="brand-title">
+        <span>DIWALI CRACKERS OS</span>
+        <span class="brand-badge">POS &amp; ADMIN</span>
       </div>
 
-      <!-- VOICE SEARCH TRIGGER -->
-      <button class="btn-bp hit" id="btn-voice-search" onclick="startVoiceSearch()" title="Instant Voice Search by Box # or Product Name">
-        🎤 VOICE
-      </button>
+      <div class="top-bar-actions">
+        <!-- ADMIN PIN BUTTON -->
+        <button class="btn-auth-toggle hit" id="btn-admin-auth" onclick="handleAuthButtonClick()" title="Unlock Admin Mode">
+          🔒 ADMIN
+        </button>
 
-      <!-- AI ASSISTANT TRIGGER -->
-      <button class="btn-bp hit" id="btn-ai-assistant" onclick="openAiModal()" title="AI Voice & Chat Assistant (API Key)" style="border-color:var(--accent-cyan); color:var(--accent-cyan);">
-        🤖 AI ASSIST
-      </button>
-
-      <!-- ADMIN PIN STATUS BUTTON -->
-      <button class="btn-auth-toggle hit" id="btn-admin-auth" onclick="handleAuthButtonClick()">
-        🔒 ENTER PIN (2000)
-      </button>
-
-      <!-- GOOGLE SHEETS LIVE LINK -->
-      <a href="https://docs.google.com/spreadsheets/d/1swTMlDSVKEHMPwIriVmvAsmaWXIO_DxwEzQ6vI9ZFQw/edit" target="_blank" class="pill-sheets hit" title="Open master Google Sheet">
-        📊 GOOGLE SHEET ↗
-      </a>
+        <!-- GOOGLE SHEETS LIVE LINK -->
+        <a href="https://docs.google.com/spreadsheets/d/1swTMlDSVKEHMPwIriVmvAsmaWXIO_DxwEzQ6vI9ZFQw/edit" target="_blank" class="pill-sheets hit" title="Open master Google Sheet">
+          📊 SHEETS ↗
+        </a>
+      </div>
     </div>
-  </header>
+
+    <!-- FULL-WIDTH SEARCH & VOICE BAR -->
+    </header>
+
+    <!-- PROMINENT VOICE SEARCH HERO (MOBILE HIGHLIGHTED) -->
+  <div style="padding: 10px 14px 0 14px; max-width: 1700px; margin: 0 auto; width: 100%;">
+    <div class="voice-hero-container">
+      <div class="voice-hero-row">
+        <button class="voice-hero-btn hit" id="btn-hero-voice" onclick="startVoiceSearch()" title="Tap and speak any box number or name">
+          <span style="font-size:1.3rem;">🎙️</span>
+          <span id="hero-voice-text">TAP TO SPEAK</span>
+        </button>
+
+        <div class="search-box" style="flex:1;">
+          <span class="search-icon">🔍</span>
+          <input type="text" class="search-input hit" id="global-search-input"
+                 placeholder="Say or type e.g. 42, Ganga Jamuna, DLX..."
+                 oninput="onGlobalSearch(this.value)" autocomplete="off" autocapitalize="none">
+          <button id="btn-clear-search" onclick="clearGlobalSearch()" title="Clear search">✕</button>
+        </div>
+      </div>
+
+      <div class="voice-status-hint">
+        <span id="voice-hint-msg">💡 Speak box number (1-94) or name in English/Telugu</span>
+        <span style="color:var(--selection-bg); font-weight:700;">Offline Instant</span>
+      </div>
+    </div>
+  </div>
 
   <!-- NAVIGATION TABS -->
   <nav class="nav-tabs">
@@ -762,203 +1222,25 @@
          TAB 01: STAFF COUNTER (POS) — DEFAULT VIEW FOR WORKERS
          ======================================================== -->
     <section class="view-panel active" id="tab-staff-pos">
-      <div class="section-banner">
-        <div>
-          <h2 class="mono-2 up" style="font-size:1rem; color:#fff;">Staff Counter POS &amp; Instant Cash Register</h2>
-          <span class="mono" style="font-size:0.75rem; color:var(--label-3);">
-            Tap <strong>+1 SOLD 💰</strong> as customers buy boxes. Tap <strong>RESET (0)</strong> if nothing was sold or to clear.
-          </span>
+      <div class="section-banner staff-banner-grid">
+        <div class="shift-stats-box">
+          <div class="stat-cell">
+            <span class="stat-label">LIVE SHIFT CASH</span>
+            <span class="stat-val emerald" id="staff-live-cash">₹0</span>
+          </div>
+          <div class="stat-cell">
+            <span class="stat-label">BOXES SOLD</span>
+            <span class="stat-val cyan" id="staff-live-units">0</span>
+          </div>
         </div>
-        <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
-          <div class="mono" style="text-align:right;">
-            <span class="up" style="font-size:0.65rem; color:var(--label-3); display:block;">Live Shift Cash</span>
-            <span style="font-size:1.3rem; font-weight:900; color:var(--accent-emerald);" id="staff-live-cash">₹0</span>
-          </div>
-          <div class="mono" style="text-align:right;">
-            <span class="up" style="font-size:0.65rem; color:var(--label-3); display:block;">Total Units Sold</span>
-            <span style="font-size:1.3rem; font-weight:900; color:var(--accent-cyan);" id="staff-live-units">0</span>
-          </div>
-          <button class="btn-bp primary hit" onclick="requireAdminTab('tab-financial-hud')" title="Enter PIN 2000 to open Executive Dashboard">
+
+        <div class="shift-actions-row">
+          <button class="btn-bp primary hit" onclick="requireAdminTab('tab-financial-hud')" title="Open Executive Financial Dashboard">
             📊 DASHBOARD (PIN)
           </button>
-          <button class="btn-bp hit" onclick="handleCleanDashboardClick()" style="border-color:var(--accent-gold); color:var(--accent-gold);" title="Reset all sold counters to 0 (Requires Admin PIN)">
+          <button class="btn-bp hit btn-clean-dash" onclick="handleCleanDashboardClick()" title="Reset all box counters to 0 sold">
             🧹 CLEAN DASHBOARD (0)
           </button>
-        </div>
-      </div>
-
-      <!-- STAFF POS CARDS CONTAINER -->
-      <div class="cards-grid" id="staff-pos-container">
-        <!-- Rendered dynamically -->
-      </div>
-    </section>
-
-    <!-- ========================================================
-         TAB 02: MASTER PRICE & SKU EDITOR (ADMIN ONLY - PIN 2000)
-         ======================================================== -->
-    <section class="view-panel" id="tab-price-editor">
-      <!-- PRICING FORMULA ENGINE BANNER -->
-      <div class="price-engine-box">
-        <div class="engine-title">
-          <span>⚙️ [ADMIN PRICING ENGINE] WHOLESALE + 20% OVERHEAD + 3X SELLING PRICE PIPELINE</span>
-        </div>
-        <div class="engine-formula-visual" id="engine-formula-preview">
-          <span>[01] Wholesale Base: <strong>₹100</strong></span>
-          <span>+ [02] Overhead (<span id="preview-oh-pct">+20%</span>): <strong id="preview-landed">₹120 Landed Cost</strong></span>
-          <span>× [03] Multiplier: <strong id="preview-mult">3.0x</strong></span>
-          <span style="color:var(--selection-bg); font-weight:800;">= [RESULT] Selling Price: <span id="preview-result">₹360</span></span>
-        </div>
-
-        <div class="engine-controls-row">
-          <div style="display:flex; align-items:center; gap:6px;">
-            <label class="mono-2 up" style="font-size:0.75rem; color:var(--label-3);">Overhead %:</label>
-            <input type="number" id="global-overhead-pct" value="20" class="bp-input-num" style="width:65px;" onchange="recalculatePricesPreview()">
-          </div>
-          <div style="display:flex; align-items:center; gap:6px;">
-            <label class="mono-2 up" style="font-size:0.75rem; color:var(--label-3);">Markup Multiplier:</label>
-            <input type="number" id="global-multiplier" value="3.0" step="0.1" class="bp-input-num" style="width:65px;" onchange="recalculatePricesPreview()">
-          </div>
-          <button class="btn-bp primary hit" onclick="applyRecalculateAll(20, 3.0)">
-            ⚡ RECALCULATE ALL (20% + 3X)
-          </button>
-          <button class="btn-bp hit" onclick="applyRecalculateAll(10, 3.0)">
-            Preset: 10% + 3x
-          </button>
-          <button class="btn-bp hit" onclick="syncDataToServer(true)">
-            💾 SAVE &amp; PUSH TO SHEETS
-          </button>
-        </div>
-      </div>
-
-      <!-- VIEW TOGGLE BUTTONS -->
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-        <div style="display:flex; gap:6px;">
-          <button class="btn-bp primary hit" id="btn-view-cards" onclick="setAdminSubView('cards')">
-            📱 Detailed Cards View
-          </button>
-          <button class="btn-bp hit" id="btn-view-table" onclick="setAdminSubView('table')">
-            📊 Spreadsheet Table View
-          </button>
-        </div>
-        <div style="display:flex; gap:8px;">
-          <button class="btn-bp hit" onclick="exportToCsvDownload()">
-            📥 Export CSV
-          </button>
-        </div>
-      </div>
-
-      <!-- CARDS SUB-VIEW -->
-      <div id="admin-subview-cards" class="cards-grid">
-        <!-- Rendered dynamically -->
-      </div>
-
-      <!-- TABLE SUB-VIEW -->
-      <div id="admin-subview-table" style="display:none;" class="bp-table-wrap">
-        <table class="bp-table">
-          <thead>
-            <tr>
-              <th style="width:40px;">Ver</th>
-              <th style="width:70px;">Box #</th>
-              <th style="width:80px;">Bill S.No</th>
-              <th>Product Name</th>
-              <th style="width:80px;">Pack</th>
-              <th style="width:90px;">Total Qty</th>
-              <th style="width:90px;">Units Sold</th>
-              <th style="width:90px;">Stock Left</th>
-              <th style="width:110px;">Wholesale (₹)</th>
-              <th style="width:120px;">+20% Landed (₹)</th>
-              <th style="width:130px;">3x Final Price (₹)</th>
-              <th style="width:120px;">Total Box Val</th>
-              <th style="width:110px;">Sold Cash</th>
-            </tr>
-          </thead>
-          <tbody id="spreadsheet-tbody">
-            <!-- Rendered dynamically -->
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <!-- ========================================================
-         TAB 03: FINANCIAL HUD & BREAK-EVEN (ADMIN ONLY)
-         ======================================================== -->
-    <section class="view-panel" id="tab-financial-hud">
-      <div class="section-banner">
-        <div>
-          <h2 class="mono-2 up" style="font-size:1rem; color:#fff;">Executive Financial HUD &amp; Break-Even Engine</h2>
-          <span class="mono" style="font-size:0.75rem; color:var(--label-3);">Real-time profitability tracking against Nandigama shed logistics</span>
-        </div>
-        <div style="display:flex; gap:8px; flex-wrap:wrap;">
-          <button class="btn-bp hit" onclick="handleCleanDashboardClick()" style="border-color:var(--accent-gold); color:var(--accent-gold);">
-            🧹 CLEAN DASHBOARD (RESET ALL SOLD TO 0)
-          </button>
-          <button class="btn-bp primary hit" onclick="switchNavTab('tab-staff-pos')">
-            🛒 BACK TO HOME POS
-          </button>
-        </div>
-      </div>
-
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:12px; margin-bottom:20px;">
-        <div class="pos-card">
-          <span class="mono-2 up" style="font-size:0.7rem; color:var(--label-3);">Total Wholesale Procurement</span>
-          <span class="mono" style="font-size:1.5rem; font-weight:900; color:#fff;" id="hud-wholesale-cost">₹3,32,518</span>
-        </div>
-        <div class="pos-card">
-          <span class="mono-2 up" style="font-size:0.7rem; color:var(--label-3);">Overhead (+20% Landed Cost)</span>
-          <span class="mono" style="font-size:1.5rem; font-weight:900; color:var(--accent-gold);" id="hud-landed-cost">₹3,99,021</span>
-        </div>
-        <div class="pos-card">
-          <span class="mono-2 up" style="font-size:0.7rem; color:var(--label-3);">Potential 3x Sales Realization</span>
-          <span class="mono" style="font-size:1.5rem; font-weight:900; color:var(--selection-bg);" id="hud-potential-sales">₹11,97,063</span>
-        </div>
-        <div class="pos-card">
-          <span class="mono-2 up" style="font-size:0.7rem; color:var(--label-3);">Current Sales Revenue</span>
-          <span class="mono" style="font-size:1.5rem; font-weight:900; color:var(--accent-cyan);" id="hud-current-sales">₹0</span>
-        </div>
-        <div class="pos-card">
-          <span class="mono-2 up" style="font-size:0.7rem; color:var(--label-3);">Net Profit After All Expenses</span>
-          <span class="mono" style="font-size:1.5rem; font-weight:900; color:var(--accent-emerald);" id="hud-net-profit">₹0</span>
-        </div>
-      </div>
-
-      <div style="background:var(--background-surface); border:1px solid var(--line); padding:20px; margin-bottom:20px;">
-        <h3 class="mono-2 up" style="font-size:0.85rem; color:var(--selection-bg); margin-bottom:12px;">Break-Even Target Progress</h3>
-        <div style="background:#000; height:24px; border:1px solid var(--line); position:relative; overflow:hidden;">
-          <div id="break-even-bar" style="background:linear-gradient(90deg, var(--accent-rose), var(--accent-gold), var(--accent-emerald)); height:100%; width:0%; transition:width 0.4s;"></div>
-        </div>
-        <div style="display:flex; justify-content:space-between; margin-top:8px; font-family:var(--font-mono); font-size:0.75rem; color:var(--label-3);">
-          <span>Procurement + Shed Costs: <strong style="color:#fff;" id="break-even-target">₹4,01,218</strong></span>
-          <span>Progress: <strong style="color:var(--selection-bg);" id="break-even-pct">0.0%</strong></span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========================================================
-         TAB 04: LOSS SCENARIO SIMULATOR (ADMIN ONLY)
-         ======================================================== -->
-    <section class="view-panel" id="tab-loss-simulator">
-      <div class="section-banner">
-        <div>
-          <h2 class="mono-2 up" style="font-size:1rem; color:#fff;">Diwali Clearance &amp; Salvage Loss Simulator</h2>
-          <span class="mono" style="font-size:0.75rem; color:var(--label-3);">Simulate steep discount models on unsold stock during the final 48 hours</span>
-        </div>
-      </div>
-
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:14px;">
-        <div class="pos-card">
-          <h3 class="mono-2 up" style="color:var(--accent-cyan); font-size:0.9rem;">Model A: 20% Off 3X Selling Price</h3>
-          <p class="mono" style="font-size:0.75rem; color:var(--label-3);">Maintains ~140% net margin over wholesale base.</p>
-          <div class="mono" style="font-size:1.3rem; font-weight:800; color:#fff; margin-top:8px;" id="sim-model-a">₹9,57,650</div>
-        </div>
-        <div class="pos-card">
-          <h3 class="mono-2 up" style="color:var(--accent-gold); font-size:0.9rem;">Model B: 35% Clearance Discount</h3>
-          <p class="mono" style="font-size:0.75rem; color:var(--label-3);">Aggressive push on high-volume shots and rockets.</p>
-          <div class="mono" style="font-size:1.3rem; font-weight:800; color:#fff; margin-top:8px;" id="sim-model-b">₹7,78,090</div>
-        </div>
-        <div class="pos-card">
-          <h3 class="mono-2 up" style="color:var(--accent-rose); font-size:0.9rem;">Model C: At Landed Cost (+20%)</h3>
-          <p class="mono" style="font-size:0.75rem; color:var(--label-3);">100% capital recovery without taking operational losses.</p>
-          <div class="mono" style="font-size:1.3rem; font-weight:800; color:#fff; margin-top:8px;" id="sim-model-c">₹3,99,021</div>
         </div>
       </div>
     </section>
@@ -1063,13 +1345,20 @@
   </main>
 
   <!-- NUMPAD PIN MODAL (ADMIN AUTH) -->
-  <div class="modal-overlay" id="pin-modal">
+  <div class="modal-overlay" id="pin-modal" onclick="if(event.target===this) closePinModal()">
     <div class="modal-card">
       <div style="display:flex; justify-content:space-between; align-items:center;">
-        <span class="mono-2 up" style="color:var(--selection-bg); font-weight:800; font-size:0.9rem;">ADMIN PIN REQUIRED</span>
-        <button onclick="closePinModal()" style="background:transparent; border:none; color:#fff; font-size:1.2rem; cursor:pointer;">✕</button>
+        <span class="mono-2 up" style="color:var(--selection-bg); font-weight:800; font-size:0.95rem;">🔒 ENTER ADMIN PIN</span>
+        <button onclick="closePinModal()" class="btn-modal-close" title="Close">✕</button>
       </div>
-      <div class="pin-display" id="pin-dots">----</div>
+
+      <div class="pin-display-wrapper">
+        <div class="pin-display" id="pin-dots">----</div>
+        <input type="password" id="pin-hidden-input" inputmode="numeric" pattern="[0-9]*" maxlength="4"
+               style="position:absolute; opacity:0; pointer-events:none; width:1px; height:1px;"
+               oninput="onKeyboardPinInput(this.value)">
+      </div>
+
       <div class="numpad-grid">
         <button class="btn-numpad hit" onclick="pressPinDigit('1')">1</button>
         <button class="btn-numpad hit" onclick="pressPinDigit('2')">2</button>
@@ -1080,36 +1369,18 @@
         <button class="btn-numpad hit" onclick="pressPinDigit('7')">7</button>
         <button class="btn-numpad hit" onclick="pressPinDigit('8')">8</button>
         <button class="btn-numpad hit" onclick="pressPinDigit('9')">9</button>
-        <button class="btn-numpad hit" style="color:var(--accent-rose);" onclick="clearPin()">C</button>
+        <button class="btn-numpad hit numpad-clear" onclick="clearPin()">C</button>
         <button class="btn-numpad hit" onclick="pressPinDigit('0')">0</button>
-        <button class="btn-numpad hit" style="background:var(--selection-bg); color:#000;" onclick="submitPin()">OK</button>
+        <button class="btn-numpad hit numpad-ok" onclick="submitPin()">OK</button>
+      </div>
+
+      <div class="mono" style="font-size:0.7rem; color:var(--label-3); text-align:center;">
+        Enter secret Admin PIN to proceed
       </div>
     </div>
   </div>
 
-  <!-- AI VOICE & CHAT ASSISTANT MODAL -->
-  <div class="modal-overlay" id="ai-modal">
-    <div class="modal-card" style="max-width:520px; border-color:var(--accent-cyan); box-shadow:0 0 40px rgba(0,240,255,0.2);">
-      <div style="display:flex; justify-content:space-between; align-items:center;">
-        <span class="mono-2 up" style="color:var(--accent-cyan); font-weight:800; font-size:0.95rem;">🤖 AI CRACKER ASSISTANT &amp; SHORTCUT BRAIN</span>
-        <button onclick="closeAiModal()" style="background:transparent; border:none; color:#fff; font-size:1.2rem; cursor:pointer;">✕</button>
-      </div>
-      <div style="display:flex; gap:6px; align-items:center;">
-        <input type="password" id="ai-api-key-input" class="bp-input-num" placeholder="Paste Gemini (AIza...), Groq (gsk_...), or OpenAI (sk-...) API Key"
-               style="font-size:0.75rem;" onchange="saveAiApiKey(this.value)">
-        <button class="btn-bp hit" onclick="saveAiApiKey(document.getElementById('ai-api-key-input').value)" style="white-space:nowrap;">💾 SAVE KEY</button>
-      </div>
-      <div id="ai-chat-response" class="mono" style="background:#000; border:1px solid var(--line); padding:12px; font-size:0.82rem; color:var(--label-1); min-height:90px; max-height:240px; overflow-y:auto; line-height:1.5;">
-        Ready! Ask any product name, shortcut (DLX, FLP, CLK, GLC, SPL), box number, or profit question.
-      </div>
-      <div style="display:flex; gap:8px;">
-        <input type="text" id="ai-question-input" class="bp-input-num" placeholder="Ask e.g. 'Flower pot special price?' or 'Deluxe lion box?'"
-               onkeydown="if(event.key==='Enter') askAiAssistant()">
-        <button class="btn-bp hit" id="btn-ai-mic" onclick="startAiVoiceQuestion()" title="Speak to AI">🎤</button>
-        <button class="btn-bp primary hit" onclick="askAiAssistant()">ASK</button>
-      </div>
-    </div>
-  </div>
+  
 
   <!-- TOAST NOTIFICATION POPUP -->
   <div class="toast-box" id="app-toast"></div>
@@ -1118,7 +1389,7 @@
   <script>
     const EMBEDDED_ITEMS = [{"id": "W_1", "sticker_no": "1", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 1, "name": "3 1/2 Lakshmi (15P)", "pack_details": "20", "total_units": 20, "units_sold": 0, "rate": 150, "rate_plus_10": 165, "bill_total": 3000, "selling_price": 370, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#1", "1", "22", "3 1/2 lakshmi (15p)", "3 1/2 laxmi", "3 1/2 laxmi (15p)", "3.5 lakshmi", "3.5 laxmi", "box 1", "laxmi", "list 22", "small lakshmi", "sno 1", "three and half lakshmi"], "rate_plus_20": 180.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 180.0, "selling_price_10_3x": 495, "selling_price_20_3x": 540, "box_no": 1, "alt_sticker": "1", "stall_list_no": 22, "handwritten_name": "3 1/2 Laxmi", "is_stall_showcase": true, "is_custom_price": true}, {"id": "W_2", "sticker_no": "2", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 2, "name": "4\" Laxmi", "pack_details": "25", "total_units": 25, "units_sold": 0, "rate": 150, "rate_plus_10": 165, "bill_total": 3750, "selling_price": 370, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#2", "2", "21", "4 inch lakshmi", "4 inch laxmi", "4\" lakshmi", "4\" laxmi", "box 2", "four inch lakshmi", "lakshmi", "laxmi", "list 21", "sno 2"], "rate_plus_20": 180.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 180.0, "selling_price_10_3x": 495, "selling_price_20_3x": 540, "box_no": 2, "alt_sticker": "2", "stall_list_no": 21, "handwritten_name": "Laxmi", "is_stall_showcase": true, "is_custom_price": true}, {"id": "W_3", "sticker_no": "3", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 3, "name": "4\" Dlx Lion", "pack_details": "10", "total_units": 10, "units_sold": 0, "rate": 260, "rate_plus_10": 286, "bill_total": 2600, "selling_price": 650, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#3", "20", "3", "4 inch deluxe lion", "4\" delux lion", "4\" deluxe lion", "4\" dlx lion", "box 3", "delux", "deluxe", "deluxe lion", "lion", "list 20", "sno 3"], "rate_plus_20": 312.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 312.0, "selling_price_10_3x": 858, "selling_price_20_3x": 936, "box_no": 3, "alt_sticker": "3", "stall_list_no": 20, "handwritten_name": "Deluxe Lion", "is_stall_showcase": true, "is_custom_price": true}, {"id": "W_4", "sticker_no": "4", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 4, "name": "Gold Laxmi", "pack_details": "10", "total_units": 10, "units_sold": 0, "rate": 280, "rate_plus_10": 308, "bill_total": 2800, "selling_price": 700, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#4", "19", "4", "box 4", "gold lakshmi", "gold laxmi", "lakshmi", "list 19", "sno 4"], "rate_plus_20": 336.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 336.0, "selling_price_10_3x": 924, "selling_price_20_3x": 1008, "box_no": 4, "alt_sticker": "4", "stall_list_no": 19, "handwritten_name": "Gold lakshmi", "is_stall_showcase": true, "is_custom_price": true}, {"id": "W_5", "sticker_no": "5", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 5, "name": "5\" Hulk", "pack_details": "10", "total_units": 10, "units_sold": 0, "rate": 280, "rate_plus_10": 308, "bill_total": 2800, "selling_price": 650, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#5", "18", "5", "5 inch hulk", "5\" hulk", "box 5", "hulk", "list 18", "sno 5"], "rate_plus_20": 336.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 336.0, "selling_price_10_3x": 924, "selling_price_20_3x": 1008, "box_no": 5, "alt_sticker": "5", "stall_list_no": 18, "handwritten_name": "Hulk", "is_stall_showcase": true, "is_custom_price": true}, {"id": "W_6", "sticker_no": "6", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 6, "name": "6\" Bruslee", "pack_details": "10", "total_units": 10, "units_sold": 0, "rate": 330, "rate_plus_10": 363, "bill_total": 3300, "selling_price": 1188, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#6", "6", "6 inch bruce lee", "6\" bruce lee", "6\" brucelee", "6\" bruslee", "box 6", "bruce lee", "brucelee", "sno 6"], "rate_plus_20": 396.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 396.0, "selling_price_10_3x": 1089, "selling_price_20_3x": 1188, "box_no": 6, "alt_sticker": "6"}, {"id": "W_7", "sticker_no": "7", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 7, "name": "2 Sound Crackers", "pack_details": "10", "total_units": 10, "units_sold": 0, "rate": 280, "rate_plus_10": 308, "bill_total": 2800, "selling_price": 650, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#7", "17", "2 sound", "2 sound crackers", "2-sound", "7", "box 7", "double sound", "list 17", "sno 7", "two sound"], "rate_plus_20": 336.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 336.0, "selling_price_10_3x": 924, "selling_price_20_3x": 1008, "box_no": 7, "alt_sticker": "7", "stall_list_no": 17, "handwritten_name": "2-sound", "is_stall_showcase": true, "is_custom_price": true}, {"id": "W_8", "sticker_no": "8", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 8, "name": "3 Sound Colanatia", "pack_details": "10", "total_units": 10, "units_sold": 0, "rate": 350, "rate_plus_10": 385, "bill_total": 3500, "selling_price": 700, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#8", "16", "3 sound", "3 sound colanatia", "3-sound", "8", "box 8", "list 16", "sno 8", "three sound", "triple sound"], "rate_plus_20": 420.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 420.0, "selling_price_10_3x": 1155, "selling_price_20_3x": 1260, "box_no": 8, "alt_sticker": "8", "stall_list_no": 16, "handwritten_name": "3-sound", "is_stall_showcase": true, "is_custom_price": true}, {"id": "W_9", "sticker_no": "9", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 9, "name": "Smoke Bomb", "pack_details": "10", "total_units": 10, "units_sold": 0, "rate": 250, "rate_plus_10": 275, "bill_total": 2500, "selling_price": 900, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#9", "9", "box 9", "smoke bomb", "sno 9"], "rate_plus_20": 300.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 300.0, "selling_price_10_3x": 825, "selling_price_20_3x": 900, "box_no": 9, "alt_sticker": "9"}, {"id": "W_10", "sticker_no": "10", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 10, "name": "28 Cholasa", "pack_details": "10", "total_units": 10, "units_sold": 0, "rate": 550, "rate_plus_10": 605, "bill_total": 5500, "selling_price": 1980, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#10", "10", "28 cholasa", "box 10", "sno 10"], "rate_plus_20": 660.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 660.0, "selling_price_10_3x": 1815, "selling_price_20_3x": 1980, "box_no": 10, "alt_sticker": "10"}, {"id": "W_11", "sticker_no": "11", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 11, "name": "28 Gaint", "pack_details": "10", "total_units": 10, "units_sold": 0, "rate": 550, "rate_plus_10": 605, "bill_total": 5500, "selling_price": 1200, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#11", "11", "15", "28 big", "28 gaint", "28 giant", "big", "box 11", "giant", "list 15", "sno 11", "twenty eight giant"], "rate_plus_20": 660.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 660.0, "selling_price_10_3x": 1815, "selling_price_20_3x": 1980, "box_no": 11, "alt_sticker": "11", "stall_list_no": 15, "handwritten_name": "28 Gaint", "is_stall_showcase": true, "is_custom_price": true}, {"id": "W_12", "sticker_no": "12", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 12, "name": "24 Dlx", "pack_details": "5", "total_units": 5, "units_sold": 0, "rate": 450, "rate_plus_10": 495, "bill_total": 2250, "selling_price": 1620, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#12", "12", "24 delux", "24 deluxe", "24 dlx", "box 12", "delux", "deluxe", "sno 12"], "rate_plus_20": 540.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 540.0, "selling_price_10_3x": 1485, "selling_price_20_3x": 1620, "box_no": 12, "alt_sticker": "12"}, {"id": "W_13", "sticker_no": "13", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 13, "name": "50 Dlx", "pack_details": "5", "total_units": 5, "units_sold": 0, "rate": 450, "rate_plus_10": 495, "bill_total": 2250, "selling_price": 1620, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#13", "13", "50 delux", "50 deluxe", "50 dlx", "box 13", "delux", "deluxe", "sno 13"], "rate_plus_20": 540.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 540.0, "selling_price_10_3x": 1485, "selling_price_20_3x": 1620, "box_no": 13, "alt_sticker": "13"}, {"id": "W_14", "sticker_no": "14", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 14, "name": "100 mega Dlx", "pack_details": "10", "total_units": 10, "units_sold": 0, "rate": 350, "rate_plus_10": 385, "bill_total": 3500, "selling_price": 1260, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#14", "100 mega delux", "100 mega deluxe", "100 mega dlx", "14", "box 14", "delux", "deluxe", "sno 14"], "rate_plus_20": 420.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 420.0, "selling_price_10_3x": 1155, "selling_price_20_3x": 1260, "box_no": 14, "alt_sticker": "14"}, {"id": "W_15", "sticker_no": "15", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 15, "name": "18 cm pencil", "pack_details": "50", "total_units": 50, "units_sold": 0, "rate": 70, "rate_plus_10": 77, "bill_total": 3500, "selling_price": 252, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#15", "15", "18 centimeter pencil", "18 cm pencil", "18 sparklers pencil", "box 15", "centimeter", "sno 15", "sparklers"], "rate_plus_20": 84.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 84.0, "selling_price_10_3x": 231, "selling_price_20_3x": 252, "box_no": 15, "alt_sticker": "15"}, {"id": "W_16", "sticker_no": "16", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 16, "name": "12 cm Pencil Gaint", "pack_details": "20", "total_units": 20, "units_sold": 0, "rate": 50, "rate_plus_10": 55, "bill_total": 1000, "selling_price": 180, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#16", "12 centimeter pencil gaint", "12 cm pencil big", "12 cm pencil gaint", "12 cm pencil giant", "12 sparklers pencil gaint", "16", "big", "box 16", "centimeter", "giant", "sno 16", "sparklers"], "rate_plus_20": 60.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 60.0, "selling_price_10_3x": 165, "selling_price_20_3x": 180, "box_no": 16, "alt_sticker": "16"}, {"id": "W_17", "sticker_no": "17", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 17, "name": "7 cm Pencil", "pack_details": "50", "total_units": 50, "units_sold": 0, "rate": 22, "rate_plus_10": 24.2, "bill_total": 1100, "selling_price": 130, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#17", "17", "26", "7 centimeter pencil", "7 cm pencil", "7 sparklers pencil", "box 17", "centimeter", "jolly pencil", "list 26", "small pencil", "sno 17", "sparklers"], "rate_plus_20": 26.4, "overhead_pct": 20, "multiplier": 3, "final_cost": 26.4, "selling_price_10_3x": 73, "selling_price_20_3x": 79, "box_no": 17, "alt_sticker": "17", "stall_list_no": 26, "handwritten_name": "Jolly Pencil", "is_stall_showcase": true, "is_custom_price": true}, {"id": "W_18", "sticker_no": "18", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 18, "name": "100 wala", "pack_details": "50", "total_units": 50, "units_sold": 0, "rate": 27, "rate_plus_10": 29.7, "bill_total": 1350, "selling_price": 97, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#18", "100 wala", "18", "box 18", "sno 18"], "rate_plus_20": 32.4, "overhead_pct": 20, "multiplier": 3, "final_cost": 32.4, "selling_price_10_3x": 89, "selling_price_20_3x": 97, "box_no": 18, "alt_sticker": "18"}, {"id": "W_19", "sticker_no": "19", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 19, "name": "200 wala", "pack_details": "25", "total_units": 25, "units_sold": 0, "rate": 50, "rate_plus_10": 55, "bill_total": 1250, "selling_price": 180, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#19", "19", "200 wala", "box 19", "sno 19"], "rate_plus_20": 60.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 60.0, "selling_price_10_3x": 165, "selling_price_20_3x": 180, "box_no": 19, "alt_sticker": "19"}, {"id": "W_20", "sticker_no": "20", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 20, "name": "Rocket Bomb", "pack_details": "50", "total_units": 50, "units_sold": 0, "rate": 60, "rate_plus_10": 66, "bill_total": 3000, "selling_price": 216, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#20", "20", "box 20", "rocket bomb", "sno 20"], "rate_plus_20": 72.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 72.0, "selling_price_10_3x": 198, "selling_price_20_3x": 216, "box_no": 20, "alt_sticker": "20"}, {"id": "W_21", "sticker_no": "21", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 21, "name": "Lunik Rocket", "pack_details": "25", "total_units": 25, "units_sold": 0, "rate": 90, "rate_plus_10": 99, "bill_total": 2250, "selling_price": 324, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#21", "21", "box 21", "lunik rocket", "sno 21"], "rate_plus_20": 108.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 108.0, "selling_price_10_3x": 297, "selling_price_20_3x": 324, "box_no": 21, "alt_sticker": "21"}, {"id": "W_22", "sticker_no": "22", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 22, "name": "Music Rocket", "pack_details": "10", "total_units": 10, "units_sold": 0, "rate": 120, "rate_plus_10": 132, "bill_total": 1200, "selling_price": 432, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#22", "22", "box 22", "music rocket", "sno 22"], "rate_plus_20": 144.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 144.0, "selling_price_10_3x": 396, "selling_price_20_3x": 432, "box_no": 22, "alt_sticker": "22"}, {"id": "W_23", "sticker_no": "23", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 23, "name": "Flp Small", "pack_details": "100", "total_units": 100, "units_sold": 0, "rate": 36, "rate_plus_10": 39.6, "bill_total": 3600, "selling_price": 140, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#23", "10", "23", "box 23", "flap", "flap small", "flower pot", "flower pot small", "flowerpot", "flowerpot small", "flp small", "kundi", "kundi small", "list 10", "poola kundi", "poola kundi small", "small flower pot", "sno 23"], "rate_plus_20": 43.2, "overhead_pct": 20, "multiplier": 3, "final_cost": 43.2, "selling_price_10_3x": 119, "selling_price_20_3x": 130, "box_no": 23, "alt_sticker": "23", "stall_list_no": 10, "handwritten_name": "Flower pot small", "is_stall_showcase": true, "is_custom_price": true}, {"id": "W_24", "sticker_no": "24", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 24, "name": "Flp Spl", "pack_details": "125", "total_units": 125, "units_sold": 0, "rate": 65, "rate_plus_10": 71.5, "bill_total": 8125, "selling_price": 200, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#24", "11", "24", "box 24", "flap", "flap spl", "flower pot", "flower pot special", "flower pot spl", "flowerpot", "flowerpot spl", "flp special", "flp spl", "kundi", "kundi spl", "list 11", "poola kundi", "poola kundi spl", "sno 24", "special", "special flower pot"], "rate_plus_20": 78.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 78.0, "selling_price_10_3x": 214, "selling_price_20_3x": 234, "box_no": 24, "alt_sticker": "24", "stall_list_no": 11, "handwritten_name": "Flower pot special", "is_stall_showcase": true, "is_custom_price": true}, {"id": "W_25", "sticker_no": "25", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 25, "name": "Flp Gaint", "pack_details": "20", "total_units": 20, "units_sold": 0, "rate": 120, "rate_plus_10": 132, "bill_total": 2400, "selling_price": 300, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#25", "25", "9", "big", "box 25", "flap", "flap gaint", "flap giant", "flower pot", "flower pot gaint", "flower pot giant", "flowerpot", "flowerpot gaint", "flp big", "flp gaint", "flp giant", "giant", "giant flower pot", "kundi", "kundi gaint", "list 9", "poola kundi", "poola kundi gaint", "sno 25"], "rate_plus_20": 144.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 144.0, "selling_price_10_3x": 396, "selling_price_20_3x": 432, "box_no": 25, "alt_sticker": "25", "stall_list_no": 9, "handwritten_name": "Flap gaint", "is_stall_showcase": true, "is_custom_price": true}, {"id": "W_26", "sticker_no": "26", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 26, "name": "WiFi", "pack_details": "10", "total_units": 10, "units_sold": 0, "rate": 120, "rate_plus_10": 132, "bill_total": 1200, "selling_price": 300, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#26", "14", "26", "box 26", "list 14", "sno 26", "wi-fi", "wifi"], "rate_plus_20": 144.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 144.0, "selling_price_10_3x": 396, "selling_price_20_3x": 432, "box_no": 26, "alt_sticker": "26", "stall_list_no": 14, "handwritten_name": "wifi", "is_stall_showcase": true, "is_custom_price": true}, {"id": "W_27", "sticker_no": "27", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 27, "name": "5 Colour mini fountain", "pack_details": "30", "total_units": 30, "units_sold": 0, "rate": 160, "rate_plus_10": 176, "bill_total": 4800, "selling_price": 450, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#27", "23", "27", "5 color mini fountain", "5 color mini mountain", "5 colour mini fountain", "box 27", "list 23", "mini fountain", "mini mountain", "sno 27"], "rate_plus_20": 192.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 192.0, "selling_price_10_3x": 528, "selling_price_20_3x": 576, "box_no": 27, "alt_sticker": "27", "stall_list_no": 23, "handwritten_name": "5 color mini fountain", "is_stall_showcase": true, "is_custom_price": true}, {"id": "W_28", "sticker_no": "28", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 28, "name": "Clk Dlx Royal", "pack_details": "12", "total_units": 12, "units_sold": 0, "rate": 330, "rate_plus_10": 363, "bill_total": 3960, "selling_price": 900, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#28", "12", "28", "box 28", "chakkar", "chakkar deluxe royal", "chakkar dlx royal", "chakkara", "chakkara dlx royal", "clk delux royal", "clk deluxe royal", "clk dlx royal", "color koti", "color koti dlx royal", "colour koti", "colour koti dlx royal", "delux", "deluxe", "deluxe royal", "koti", "koti dlx royal", "list 12", "royal deluxe", "sno 28"], "rate_plus_20": 396.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 396.0, "selling_price_10_3x": 1089, "selling_price_20_3x": 1188, "box_no": 28, "alt_sticker": "28", "stall_list_no": 12, "handwritten_name": "Deluxe Royal", "is_stall_showcase": true, "is_custom_price": true}, {"id": "W_29", "sticker_no": "29", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 29, "name": "Clk Dlx (Leo)", "pack_details": "12", "total_units": 12, "units_sold": 0, "rate": 350, "rate_plus_10": 385, "bill_total": 4200, "selling_price": 900, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#29", "24", "29", "box 29", "chakkar", "chakkar deluxe leo", "chakkar dlx (leo)", "chakkara", "chakkara dlx (leo)", "clk delux (leo)", "clk deluxe (leo)", "clk dlx (leo)", "clk leo", "color koti", "color koti dlx (leo)", "colour koti", "colour koti dlx (leo)", "delux", "deluxe", "koti", "koti dlx (leo)", "leo deluxe", "list 24", "sno 29"], "rate_plus_20": 420.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 420.0, "selling_price_10_3x": 1155, "selling_price_20_3x": 1260, "box_no": 29, "alt_sticker": "29", "stall_list_no": 24, "handwritten_name": "Leo Deluxe", "is_stall_showcase": true, "is_custom_price": true}, {"id": "W_30", "sticker_no": "30", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 30, "name": "Clk Mega Dlx mithra", "pack_details": "10", "total_units": 10, "units_sold": 0, "rate": 330, "rate_plus_10": 363, "bill_total": 3300, "selling_price": 950, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#30", "25", "30", "box 30", "chakkar", "chakkar mega deluxe", "chakkar mega dlx mithra", "chakkara", "chakkara mega dlx mithra", "clk mega delux mithra", "clk mega deluxe mithra", "clk mega dlx mithra", "color koti", "color koti mega dlx mithra", "colour koti", "colour koti mega dlx mithra", "delux", "deluxe", "koti", "koti mega dlx mithra", "list 25", "mega deluxe", "mithra", "sno 30"], "rate_plus_20": 396.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 396.0, "selling_price_10_3x": 1089, "selling_price_20_3x": 1188, "box_no": 30, "alt_sticker": "30", "stall_list_no": 25, "handwritten_name": "mega deluxe", "is_stall_showcase": true, "is_custom_price": true}, {"id": "W_31", "sticker_no": "31", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 31, "name": "Glc Big (25P)", "pack_details": "24", "total_units": 24, "units_sold": 0, "rate": 65, "rate_plus_10": 71.5, "bill_total": 1560, "selling_price": 234, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#31", "31", "bhuchakram", "bhuchakram big (25p)", "box 31", "chakkar", "chakkar big (25p)", "glc big", "glc big (25p)", "ground chakkar", "ground chakkar big", "ground chakkar big (25p)", "ground chakkara", "ground chakkara big (25p)", "sno 31"], "rate_plus_20": 78.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 78.0, "selling_price_10_3x": 214, "selling_price_20_3x": 234, "box_no": 31, "alt_sticker": "31"}, {"id": "W_32", "sticker_no": "32", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 32, "name": "Glc Spl Leo", "pack_details": "75", "total_units": 75, "units_sold": 0, "rate": 65, "rate_plus_10": 71.5, "bill_total": 4875, "selling_price": 234, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#32", "32", "bhuchakram", "bhuchakram spl leo", "box 32", "chakkar", "chakkar spl leo", "glc special leo", "glc spl leo", "ground chakkar", "ground chakkar special", "ground chakkar spl leo", "ground chakkara", "ground chakkara spl leo", "sno 32", "special"], "rate_plus_20": 78.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 78.0, "selling_price_10_3x": 214, "selling_price_20_3x": 234, "box_no": 32, "alt_sticker": "32"}, {"id": "W_33", "sticker_no": "33", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 33, "name": "Glc Dlx", "pack_details": "75", "total_units": 75, "units_sold": 0, "rate": 96, "rate_plus_10": 105.6, "bill_total": 7200, "selling_price": 346, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#33", "33", "bhuchakram", "bhuchakram dlx", "box 33", "chakkar", "chakkar dlx", "delux", "deluxe", "glc delux", "glc deluxe", "glc dlx", "ground chakkar", "ground chakkar deluxe", "ground chakkar dlx", "ground chakkara", "ground chakkara dlx", "sno 33"], "rate_plus_20": 115.2, "overhead_pct": 20, "multiplier": 3, "final_cost": 115.2, "selling_price_10_3x": 317, "selling_price_20_3x": 346, "box_no": 33, "alt_sticker": "33"}, {"id": "W_34", "sticker_no": "34", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 34, "name": "Wheel Spinner", "pack_details": "30", "total_units": 30, "units_sold": 0, "rate": 100, "rate_plus_10": 110, "bill_total": 3000, "selling_price": 250, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#34", "34", "7", "box 34", "list 7", "sno 34", "spinner wheel", "wheel spinner"], "rate_plus_20": 120.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 120.0, "selling_price_10_3x": 330, "selling_price_20_3x": 360, "box_no": 34, "alt_sticker": "34", "stall_list_no": 7, "handwritten_name": "wheel spinner", "is_stall_showcase": true, "is_custom_price": true}, {"id": "W_35", "sticker_no": "35", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 35, "name": "Spinner Spl Royal", "pack_details": "20", "total_units": 20, "units_sold": 0, "rate": 160, "rate_plus_10": 176, "bill_total": 3200, "selling_price": 576, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#35", "35", "box 35", "royal spinner", "sno 35", "special", "spinner special royal", "spinner spl royal"], "rate_plus_20": 192.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 192.0, "selling_price_10_3x": 528, "selling_price_20_3x": 576, "box_no": 35, "alt_sticker": "35"}, {"id": "W_36", "sticker_no": "36", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 36, "name": "Wire Chakkar", "pack_details": "10", "total_units": 10, "units_sold": 0, "rate": 140, "rate_plus_10": 154, "bill_total": 1400, "selling_price": 504, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#36", "36", "box 36", "sno 36", "wire chakkar"], "rate_plus_20": 168.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 168.0, "selling_price_10_3x": 462, "selling_price_20_3x": 504, "box_no": 36, "alt_sticker": "36"}, {"id": "W_37", "sticker_no": "37", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 37, "name": "1 1/2 Twinkling", "pack_details": "100", "total_units": 100, "units_sold": 0, "rate": 18, "rate_plus_10": 19.8, "bill_total": 1800, "selling_price": 150, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#37", "1 1/2 twinkling", "1.5 twinkling", "27", "37", "box 37", "list 27", "small twinkling", "sno 37", "twinkling", "twinkling star"], "rate_plus_20": 21.6, "overhead_pct": 20, "multiplier": 3, "final_cost": 21.6, "selling_price_10_3x": 59, "selling_price_20_3x": 65, "box_no": 37, "alt_sticker": "37", "stall_list_no": 27, "handwritten_name": "Twinkling", "is_stall_showcase": true, "is_custom_price": true}, {"id": "W_38", "sticker_no": "38", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 38, "name": "4\" Twinkling", "pack_details": "150", "total_units": 150, "units_sold": 0, "rate": 60, "rate_plus_10": 66, "bill_total": 9000, "selling_price": 216, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#38", "38", "4 inch twinkling", "4\" twinkling", "big twinkling", "box 38", "sno 38"], "rate_plus_20": 72.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 72.0, "selling_price_10_3x": 198, "selling_price_20_3x": 216, "box_no": 38, "alt_sticker": "38"}, {"id": "W_39", "sticker_no": "39", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 39, "name": "Hele copter", "pack_details": "20", "total_units": 20, "units_sold": 0, "rate": 80, "rate_plus_10": 88, "bill_total": 1600, "selling_price": 300, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#39", "28", "39", "box 39", "electric", "electric sparklers", "hele copter", "hele helicopter", "helectric copter", "helectric sparklers copter", "helicopter", "helicopter copter", "hsparklers copter", "list 28", "sno 39", "sparklers"], "rate_plus_20": 96.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 96.0, "selling_price_10_3x": 264, "selling_price_20_3x": 288, "box_no": 39, "alt_sticker": "39", "stall_list_no": 28, "handwritten_name": "Helicopter", "is_stall_showcase": true, "is_custom_price": true}, {"id": "W_40", "sticker_no": "40", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 40, "name": "Dola Dola Leo", "pack_details": "100", "total_units": 100, "units_sold": 0, "rate": 38, "rate_plus_10": 41.8, "bill_total": 3800, "selling_price": 200, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#40", "1", "40", "box 40", "dola dola", "dola dola dola dola leo", "dola dola leo", "dora", "dora dora", "dora dora dora dora leo", "dora dora leo", "list 1", "sno 40"], "rate_plus_20": 45.6, "overhead_pct": 20, "multiplier": 3, "final_cost": 45.6, "selling_price_10_3x": 125, "selling_price_20_3x": 137, "box_no": 40, "alt_sticker": "40", "stall_list_no": 1, "handwritten_name": "Dola Dola", "is_stall_showcase": true, "is_custom_price": true}, {"id": "W_41", "sticker_no": "41", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 41, "name": "Mega kit kat", "pack_details": "50", "total_units": 50, "units_sold": 0, "rate": 50, "rate_plus_10": 55, "bill_total": 2500, "selling_price": 200, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#41", "2", "41", "box 41", "kit kat", "kitkat", "list 2", "mega", "mega kit kat", "sno 41"], "rate_plus_20": 60.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 60.0, "selling_price_10_3x": 165, "selling_price_20_3x": 180, "box_no": 41, "alt_sticker": "41", "stall_list_no": 2, "handwritten_name": "mega", "is_stall_showcase": true, "is_custom_price": true}, {"id": "W_42", "sticker_no": "42", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 42, "name": "Ganga Jamuna", "pack_details": "30", "total_units": 30, "units_sold": 0, "rate": 75, "rate_plus_10": 82.5, "bill_total": 2250, "selling_price": 300, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#42", "4", "42", "box 42", "ganga jammuna", "ganga jamuna", "list 4", "sno 42"], "rate_plus_20": 90.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 90.0, "selling_price_10_3x": 248, "selling_price_20_3x": 270, "box_no": 42, "alt_sticker": "42", "stall_list_no": 4, "handwritten_name": "Ganga Jamuna", "is_stall_showcase": true, "is_custom_price": true}, {"id": "W_43", "sticker_no": "43", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 43, "name": "Flower Bomb vcl", "pack_details": "20", "total_units": 20, "units_sold": 0, "rate": 150, "rate_plus_10": 165, "bill_total": 3000, "selling_price": 450, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#43", "43", "5", "box 43", "flower bomb", "flower bomb flower bomb", "flower bomb vcl", "list 5", "sno 43"], "rate_plus_20": 180.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 180.0, "selling_price_10_3x": 495, "selling_price_20_3x": 540, "box_no": 43, "alt_sticker": "43", "stall_list_no": 5, "handwritten_name": "Flower Bomb", "is_stall_showcase": true, "is_custom_price": true}, {"id": "W_44", "sticker_no": "44", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 44, "name": "Butterfly Yuva", "pack_details": "30", "total_units": 30, "units_sold": 0, "rate": 70, "rate_plus_10": 77, "bill_total": 2100, "selling_price": 300, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#44", "3", "44", "box 44", "butterfly", "butterfly yuva", "list 3", "sno 44"], "rate_plus_20": 84.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 84.0, "selling_price_10_3x": 231, "selling_price_20_3x": 252, "box_no": 44, "alt_sticker": "44", "stall_list_no": 3, "handwritten_name": "Butterfly", "is_stall_showcase": true, "is_custom_price": true}, {"id": "W_45", "sticker_no": "45", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 45, "name": "2 Comment (P) Window", "pack_details": "10", "total_units": 10, "units_sold": 0, "rate": 70, "rate_plus_10": 77, "bill_total": 700, "selling_price": 250, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#45", "2 comet (p) window", "2 comment (p) window", "2 comment window", "2 sky shot (p) window", "2 window (p) window", "45", "8", "box 45", "comet", "list 8", "sky shot", "sno 45", "window"], "rate_plus_20": 84.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 84.0, "selling_price_10_3x": 231, "selling_price_20_3x": 252, "box_no": 45, "alt_sticker": "45", "stall_list_no": 8, "handwritten_name": "Window", "is_stall_showcase": true, "is_custom_price": true}, {"id": "W_46", "sticker_no": "46", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 46, "name": "7 shot (10P)", "pack_details": "5", "total_units": 5, "units_sold": 0, "rate": 200, "rate_plus_10": 220, "bill_total": 1000, "selling_price": 720, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#46", "46", "7 shot (10p)", "box 46", "sno 46"], "rate_plus_20": 240.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 240.0, "selling_price_10_3x": 660, "selling_price_20_3x": 720, "box_no": 46, "alt_sticker": "46"}, {"id": "W_47", "sticker_no": "47", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 47, "name": "4\" comment (1P)", "pack_details": "2", "total_units": 2, "units_sold": 0, "rate": 760, "rate_plus_10": 836, "bill_total": 1520, "selling_price": 2736, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#47", "4\" comet (1p)", "4\" comment (1p)", "4\" sky shot (1p)", "4\" window (1p)", "47", "box 47", "comet", "sky shot", "sno 47", "window"], "rate_plus_20": 912.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 912.0, "selling_price_10_3x": 2508, "selling_price_20_3x": 2736, "box_no": 47, "alt_sticker": "47"}, {"id": "W_48", "sticker_no": "48", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 48, "name": "4\" Comment (3P)", "pack_details": "2", "total_units": 2, "units_sold": 0, "rate": 900, "rate_plus_10": 990, "bill_total": 1800, "selling_price": 3240, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#48", "4\" comet (3p)", "4\" comment (3p)", "4\" sky shot (3p)", "4\" window (3p)", "48", "box 48", "comet", "sky shot", "sno 48", "window"], "rate_plus_20": 1080.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 1080.0, "selling_price_10_3x": 2970, "selling_price_20_3x": 3240, "box_no": 48, "alt_sticker": "48"}, {"id": "W_49", "sticker_no": "49", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 49, "name": "Small Bullet Bomb", "pack_details": "150", "total_units": 150, "units_sold": 0, "rate": 13, "rate_plus_10": 14.3, "bill_total": 1950, "selling_price": 60, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#49", "49", "6", "box 49", "bullet", "bullet bomb", "list 6", "small bullet bomb", "sno 49"], "rate_plus_20": 15.6, "overhead_pct": 20, "multiplier": 3, "final_cost": 15.6, "selling_price_10_3x": 43, "selling_price_20_3x": 47, "box_no": 49, "alt_sticker": "49", "stall_list_no": 6, "handwritten_name": "Small Bullet Bomb", "is_stall_showcase": true, "is_custom_price": true}, {"id": "W_50", "sticker_no": "50", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 50, "name": "Solar Bomb", "pack_details": "50", "total_units": 50, "units_sold": 0, "rate": 45, "rate_plus_10": 49.5, "bill_total": 2250, "selling_price": 162, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#50", "50", "box 50", "sno 50", "solar bomb"], "rate_plus_20": 54.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 54.0, "selling_price_10_3x": 148, "selling_price_20_3x": 162, "box_no": 50, "alt_sticker": "50"}, {"id": "W_51", "sticker_no": "51", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 51, "name": "Classic Bomb", "pack_details": "50", "total_units": 50, "units_sold": 0, "rate": 92, "rate_plus_10": 101.2, "bill_total": 4600, "selling_price": 331, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#51", "51", "box 51", "classic bomb", "sno 51"], "rate_plus_20": 110.4, "overhead_pct": 20, "multiplier": 3, "final_cost": 110.4, "selling_price_10_3x": 304, "selling_price_20_3x": 331, "box_no": 51, "alt_sticker": "51"}, {"id": "W_52", "sticker_no": "52", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 52, "name": "Military Bomb", "pack_details": "10", "total_units": 10, "units_sold": 0, "rate": 165, "rate_plus_10": 181.5, "bill_total": 1650, "selling_price": 594, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#52", "52", "box 52", "military bomb", "sno 52"], "rate_plus_20": 198.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 198.0, "selling_price_10_3x": 544, "selling_price_20_3x": 594, "box_no": 52, "alt_sticker": "52"}, {"id": "W_53", "sticker_no": "53", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 53, "name": "Marshal Black", "pack_details": "25", "total_units": 25, "units_sold": 0, "rate": 160, "rate_plus_10": 176, "bill_total": 4000, "selling_price": 576, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#53", "53", "box 53", "marshal black", "sno 53"], "rate_plus_20": 192.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 192.0, "selling_price_10_3x": 528, "selling_price_20_3x": 576, "box_no": 53, "alt_sticker": "53"}, {"id": "W_54", "sticker_no": "54", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 54, "name": "Digital Bomb", "pack_details": "20", "total_units": 20, "units_sold": 0, "rate": 190, "rate_plus_10": 209, "bill_total": 3800, "selling_price": 684, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#54", "54", "box 54", "digital bomb", "sno 54"], "rate_plus_20": 228.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 228.0, "selling_price_10_3x": 627, "selling_price_20_3x": 684, "box_no": 54, "alt_sticker": "54"}, {"id": "W_55", "sticker_no": "55", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 55, "name": "Jurassic Marshal", "pack_details": "20", "total_units": 20, "units_sold": 0, "rate": 180, "rate_plus_10": 198, "bill_total": 3600, "selling_price": 600, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#55", "13", "55", "box 55", "jurasic martial", "jurassic", "jurassic marshal", "list 13", "sno 55"], "rate_plus_20": 216.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 216.0, "selling_price_10_3x": 594, "selling_price_20_3x": 648, "box_no": 55, "alt_sticker": "55", "stall_list_no": 13, "handwritten_name": "Jurasic martial", "is_stall_showcase": true, "is_custom_price": true}, {"id": "W_56", "sticker_no": "56", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 56, "name": "240 Shot (Jyothi)", "pack_details": "3", "total_units": 3, "units_sold": 0, "rate": 3100, "rate_plus_10": 3410, "bill_total": 9300, "selling_price": 11160, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#56", "240 shot (jyothi)", "56", "box 56", "sno 56"], "rate_plus_20": 3720.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 3720.0, "selling_price_10_3x": 10230, "selling_price_20_3x": 11160, "box_no": 56, "alt_sticker": "56"}, {"id": "W_57", "sticker_no": "57", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 57, "name": "Lamp", "pack_details": "15", "total_units": 15, "units_sold": 0, "rate": 250, "rate_plus_10": 275, "bill_total": 3750, "selling_price": 900, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#57", "57", "box 57", "lamp", "sno 57"], "rate_plus_20": 300.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 300.0, "selling_price_10_3x": 825, "selling_price_20_3x": 900, "box_no": 57, "alt_sticker": "57"}, {"id": "W_58", "sticker_no": "58", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 58, "name": "50 Ele", "pack_details": "10", "total_units": 10, "units_sold": 0, "rate": 130, "rate_plus_10": 143, "bill_total": 1300, "selling_price": 468, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#58", "50 ele", "50 electric", "50 electric sparklers", "50 sparklers", "58", "box 58", "electric", "electric sparklers", "sno 58", "sparklers"], "rate_plus_20": 156.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 156.0, "selling_price_10_3x": 429, "selling_price_20_3x": 468, "box_no": 58, "alt_sticker": "58"}, {"id": "W_59", "sticker_no": "59", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 59, "name": "50 Colour", "pack_details": "10", "total_units": 10, "units_sold": 0, "rate": 140, "rate_plus_10": 154, "bill_total": 1400, "selling_price": 504, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#59", "50 colour", "59", "box 59", "sno 59"], "rate_plus_20": 168.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 168.0, "selling_price_10_3x": 462, "selling_price_20_3x": 504, "box_no": 59, "alt_sticker": "59"}, {"id": "W_60", "sticker_no": "60", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 60, "name": "Robin King Siren", "pack_details": "5", "total_units": 5, "units_sold": 0, "rate": 65, "rate_plus_10": 71.5, "bill_total": 325, "selling_price": 234, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#60", "60", "box 60", "robin king siren", "sno 60"], "rate_plus_20": 78.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 78.0, "selling_price_10_3x": 214, "selling_price_20_3x": 234, "box_no": 60, "alt_sticker": "60"}, {"id": "W_61", "sticker_no": "61", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 61, "name": "Dil Se (1P)", "pack_details": "5", "total_units": 5, "units_sold": 0, "rate": 210, "rate_plus_10": 231, "bill_total": 1050, "selling_price": 756, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#61", "61", "box 61", "dil se (1p)", "sno 61"], "rate_plus_20": 252.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 252.0, "selling_price_10_3x": 693, "selling_price_20_3x": 756, "box_no": 61, "alt_sticker": "61"}, {"id": "W_62", "sticker_no": "62", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 62, "name": "Cukoo", "pack_details": "5", "total_units": 5, "units_sold": 0, "rate": 130, "rate_plus_10": 143, "bill_total": 650, "selling_price": 468, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#62", "62", "box 62", "cukoo", "sno 62"], "rate_plus_20": 156.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 156.0, "selling_price_10_3x": 429, "selling_price_20_3x": 468, "box_no": 62, "alt_sticker": "62"}, {"id": "W_63", "sticker_no": "63", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 63, "name": "Butterscotch", "pack_details": "5", "total_units": 5, "units_sold": 0, "rate": 230, "rate_plus_10": 253, "bill_total": 1150, "selling_price": 828, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#63", "63", "box 63", "butterscotch", "sno 63"], "rate_plus_20": 276.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 276.0, "selling_price_10_3x": 759, "selling_price_20_3x": 828, "box_no": 63, "alt_sticker": "63"}, {"id": "W_64", "sticker_no": "64", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 64, "name": "Golden Rabbit", "pack_details": "5", "total_units": 5, "units_sold": 0, "rate": 260, "rate_plus_10": 286, "bill_total": 1300, "selling_price": 936, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#64", "64", "box 64", "golden rabbit", "sno 64"], "rate_plus_20": 312.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 312.0, "selling_price_10_3x": 858, "selling_price_20_3x": 936, "box_no": 64, "alt_sticker": "64"}, {"id": "W_65", "sticker_no": "65", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 65, "name": "Speed Test mithra", "pack_details": "15", "total_units": 15, "units_sold": 0, "rate": 125, "rate_plus_10": 137.5, "bill_total": 1875, "selling_price": 450, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#65", "65", "box 65", "sno 65", "speed test mithra"], "rate_plus_20": 150.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 150.0, "selling_price_10_3x": 412, "selling_price_20_3x": 450, "box_no": 65, "alt_sticker": "65"}, {"id": "W_66", "sticker_no": "66", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 66, "name": "900 cc", "pack_details": "10", "total_units": 10, "units_sold": 0, "rate": 130, "rate_plus_10": 143, "bill_total": 1300, "selling_price": 468, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#66", "66", "900 cc", "box 66", "sno 66"], "rate_plus_20": 156.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 156.0, "selling_price_10_3x": 429, "selling_price_20_3x": 468, "box_no": 66, "alt_sticker": "66"}, {"id": "W_67", "sticker_no": "67", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 67, "name": "Turbo wheel", "pack_details": "10", "total_units": 10, "units_sold": 0, "rate": 80, "rate_plus_10": 88, "bill_total": 800, "selling_price": 288, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#67", "67", "box 67", "sno 67", "turbo wheel"], "rate_plus_20": 96.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 96.0, "selling_price_10_3x": 264, "selling_price_20_3x": 288, "box_no": 67, "alt_sticker": "67"}, {"id": "W_68", "sticker_no": "68", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 68, "name": "Top Gun", "pack_details": "5", "total_units": 5, "units_sold": 0, "rate": 180, "rate_plus_10": 198, "bill_total": 900, "selling_price": 648, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#68", "68", "box 68", "sno 68", "top gun"], "rate_plus_20": 216.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 216.0, "selling_price_10_3x": 594, "selling_price_20_3x": 648, "box_no": 68, "alt_sticker": "68"}, {"id": "W_69", "sticker_no": "69", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 69, "name": "Pistol 58", "pack_details": "5", "total_units": 5, "units_sold": 0, "rate": 230, "rate_plus_10": 253, "bill_total": 1150, "selling_price": 828, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#69", "69", "box 69", "pistol 58", "sno 69"], "rate_plus_20": 276.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 276.0, "selling_price_10_3x": 759, "selling_price_20_3x": 828, "box_no": 69, "alt_sticker": "69"}, {"id": "W_70", "sticker_no": "70", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 70, "name": "Bada Peacock Standard", "pack_details": "5", "total_units": 5, "units_sold": 0, "rate": 250, "rate_plus_10": 275, "bill_total": 1250, "selling_price": 900, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#70", "70", "bada peacock standard", "box 70", "sno 70"], "rate_plus_20": 300.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 300.0, "selling_price_10_3x": 825, "selling_price_20_3x": 900, "box_no": 70, "alt_sticker": "70"}, {"id": "W_71", "sticker_no": "71", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 71, "name": "Chota Bhai Siren", "pack_details": "9", "total_units": 9, "units_sold": 0, "rate": 170, "rate_plus_10": 187, "bill_total": 1530, "selling_price": 612, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#71", "71", "box 71", "chota bhai siren", "sno 71"], "rate_plus_20": 204.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 204.0, "selling_price_10_3x": 561, "selling_price_20_3x": 612, "box_no": 71, "alt_sticker": "71"}, {"id": "W_72", "sticker_no": "72", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 72, "name": "Big Elephant", "pack_details": "5", "total_units": 5, "units_sold": 0, "rate": 200, "rate_plus_10": 220, "bill_total": 1000, "selling_price": 720, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#72", "72", "big electric sparklersphant", "big electricphant", "big elephant", "big sparklersphant", "box 72", "electric", "electric sparklers", "sno 72", "sparklers"], "rate_plus_20": 240.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 240.0, "selling_price_10_3x": 660, "selling_price_20_3x": 720, "box_no": 72, "alt_sticker": "72"}, {"id": "W_73", "sticker_no": "73", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 73, "name": "Bat & Ball", "pack_details": "2", "total_units": 2, "units_sold": 0, "rate": 350, "rate_plus_10": 385, "bill_total": 700, "selling_price": 1260, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#73", "73", "bat & ball", "box 73", "sno 73"], "rate_plus_20": 420.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 420.0, "selling_price_10_3x": 1155, "selling_price_20_3x": 1260, "box_no": 73, "alt_sticker": "73"}, {"id": "W_74", "sticker_no": "74", "lot_no": "WHITE", "bill_type": "white", "bill_name": "White Bill (Nandigama)", "bill_item_no": 74, "name": "Wicked Willow Rocket", "pack_details": "6", "total_units": 6, "units_sold": 0, "rate": 300, "rate_plus_10": 330, "bill_total": 1800, "selling_price": 1080, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#74", "74", "box 74", "sno 74", "wicked willow rocket"], "rate_plus_20": 360.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 360.0, "selling_price_10_3x": 990, "selling_price_20_3x": 1080, "box_no": 74, "alt_sticker": "74"}, {"id": "P_1", "sticker_no": "75", "lot_no": "1294", "bill_type": "pink", "bill_name": "Pink Bill 1294 (Chilakaluripet)", "bill_item_no": 1, "name": "100 Bijili", "pack_details": "1 x 300", "total_units": 300, "units_sold": 0, "rate": 25, "rate_plus_10": 27.5, "bill_total": 7500, "selling_price": 90, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#75", "1", "100 bijili", "75", "box 75", "p-1", "p1", "pink 1", "sno 1"], "rate_plus_20": 30.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 30.0, "selling_price_10_3x": 82, "selling_price_20_3x": 90, "box_no": 75, "alt_sticker": "P1"}, {"id": "P_2", "sticker_no": "76", "lot_no": "1294", "bill_type": "pink", "bill_name": "Pink Bill 1294 (Chilakaluripet)", "bill_item_no": 2, "name": "CLK Ishwarya", "pack_details": "1 x 60", "total_units": 60, "units_sold": 0, "rate": 160, "rate_plus_10": 176, "bill_total": 9600, "selling_price": 576, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#76", "2", "76", "aishwarya", "box 76", "chakkar", "chakkar ishwarya", "chakkara", "chakkara ishwarya", "clk ishwarya", "color koti", "color koti ishwarya", "colour koti", "colour koti ishwarya", "koti", "koti ishwarya", "p-2", "p2", "pink 2", "sno 2"], "rate_plus_20": 192.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 192.0, "selling_price_10_3x": 528, "selling_price_20_3x": 576, "box_no": 76, "alt_sticker": "P2"}, {"id": "P_3", "sticker_no": "77", "lot_no": "1294", "bill_type": "pink", "bill_name": "Pink Bill 1294 (Chilakaluripet)", "bill_item_no": 3, "name": "FLP Ashoka", "pack_details": "1 x 100", "total_units": 100, "units_sold": 0, "rate": 85, "rate_plus_10": 93.5, "bill_total": 8500, "selling_price": 306, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#77", "3", "77", "ashoka", "box 77", "flap", "flap ashoka", "flower pot", "flower pot ashoka", "flowerpot", "flowerpot ashoka", "flp ashoka", "kundi", "kundi ashoka", "p-3", "p3", "pink 3", "poola kundi", "poola kundi ashoka", "sno 3"], "rate_plus_20": 102.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 102.0, "selling_price_10_3x": 280, "selling_price_20_3x": 306, "box_no": 77, "alt_sticker": "P3"}, {"id": "P_4", "sticker_no": "78", "lot_no": "1294", "bill_type": "pink", "bill_name": "Pink Bill 1294 (Chilakaluripet)", "bill_item_no": 4, "name": "7 CM Electric", "pack_details": "4", "total_units": 4, "units_sold": 0, "rate": 1000, "rate_plus_10": 1100, "bill_total": 4000, "selling_price": 3600, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#78", "4", "7 centimeter electric", "7 cm electric", "7 cm electric sparklersctric", "7 cm electricctric", "7 cm sparklersctric", "7 sparklers electric", "78", "7cm electric sparklers", "7cm en", "box 78", "centimeter", "electric", "electric sparklers", "p-4", "p4", "pink 4", "sno 4", "sparklers"], "rate_plus_20": 1200.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 1200.0, "selling_price_10_3x": 3300, "selling_price_20_3x": 3600, "box_no": 78, "alt_sticker": "P4"}, {"id": "P_5", "sticker_no": "79", "lot_no": "1294", "bill_type": "pink", "bill_name": "Pink Bill 1294 (Chilakaluripet)", "bill_item_no": 5, "name": "15 CM Colour", "pack_details": "3 x 100", "total_units": 300, "units_sold": 0, "rate": 30, "rate_plus_10": 33, "bill_total": 9000, "selling_price": 108, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#79", "15 centimeter colour", "15 cm colour", "15 sparklers colour", "5", "79", "box 79", "centimeter", "p-5", "p5", "pink 5", "sno 5", "sparklers"], "rate_plus_20": 36.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 36.0, "selling_price_10_3x": 99, "selling_price_20_3x": 108, "box_no": 79, "alt_sticker": "P5"}, {"id": "P_6", "sticker_no": "80", "lot_no": "1294", "bill_type": "pink", "bill_name": "Pink Bill 1294 (Chilakaluripet)", "bill_item_no": 6, "name": "15 CM Electric", "pack_details": "3 x 100", "total_units": 300, "units_sold": 0, "rate": 28, "rate_plus_10": 30.8, "bill_total": 8400, "selling_price": 101, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#80", "15 centimeter electric", "15 cm electric", "15 cm electric sparklersctric", "15 cm electricctric", "15 cm sparklersctric", "15 sparklers electric", "6", "80", "box 80", "centimeter", "electric", "electric sparklers", "p-6", "p6", "pink 6", "sno 6", "sparklers"], "rate_plus_20": 33.6, "overhead_pct": 20, "multiplier": 3, "final_cost": 33.6, "selling_price_10_3x": 92, "selling_price_20_3x": 101, "box_no": 80, "alt_sticker": "P6"}, {"id": "P_7", "sticker_no": "81", "lot_no": "1294", "bill_type": "pink", "bill_name": "Pink Bill 1294 (Chilakaluripet)", "bill_item_no": 7, "name": "30 CM Colour", "pack_details": "3 x 100", "total_units": 300, "units_sold": 0, "rate": 30, "rate_plus_10": 33, "bill_total": 9000, "selling_price": 108, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#81", "30 centimeter colour", "30 cm colour", "30 sparklers colour", "7", "81", "box 81", "centimeter", "p-7", "p7", "pink 7", "sno 7", "sparklers"], "rate_plus_20": 36.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 36.0, "selling_price_10_3x": 99, "selling_price_20_3x": 108, "box_no": 81, "alt_sticker": "P7"}, {"id": "P_8", "sticker_no": "82", "lot_no": "1294", "bill_type": "pink", "bill_name": "Pink Bill 1294 (Chilakaluripet)", "bill_item_no": 8, "name": "30 CM Electric", "pack_details": "3 x 100", "total_units": 300, "units_sold": 0, "rate": 28, "rate_plus_10": 30.8, "bill_total": 8400, "selling_price": 101, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#82", "30 centimeter electric", "30 cm electric", "30 cm electric sparklersctric", "30 cm electricctric", "30 cm sparklersctric", "30 sparklers electric", "8", "82", "box 82", "centimeter", "electric", "electric sparklers", "p-8", "p8", "pink 8", "sno 8", "sparklers"], "rate_plus_20": 33.6, "overhead_pct": 20, "multiplier": 3, "final_cost": 33.6, "selling_price_10_3x": 92, "selling_price_20_3x": 101, "box_no": 82, "alt_sticker": "P8"}, {"id": "P_9", "sticker_no": "83", "lot_no": "1294", "bill_type": "pink", "bill_name": "Pink Bill 1294 (Chilakaluripet)", "bill_item_no": 9, "name": "1K Wala", "pack_details": "1 x 36", "total_units": 36, "units_sold": 0, "rate": 130, "rate_plus_10": 143, "bill_total": 4680, "selling_price": 468, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#83", "1000", "1000 wala", "1k wala", "83", "9", "box 83", "one thousand", "one thousand wala", "p-9", "p9", "pink 9", "sno 9", "thousand", "thousand wala"], "rate_plus_20": 156.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 156.0, "selling_price_10_3x": 429, "selling_price_20_3x": 468, "box_no": 83, "alt_sticker": "P9"}, {"id": "P_10", "sticker_no": "84", "lot_no": "1294", "bill_type": "pink", "bill_name": "Pink Bill 1294 (Chilakaluripet)", "bill_item_no": 10, "name": "2K Wala", "pack_details": "1 x 20", "total_units": 20, "units_sold": 0, "rate": 260, "rate_plus_10": 286, "bill_total": 5200, "selling_price": 936, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#84", "10", "2000", "2000 wala", "2k wala", "84", "box 84", "p-10", "p10", "pink 10", "sno 10", "two thousand", "two thousand wala"], "rate_plus_20": 312.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 312.0, "selling_price_10_3x": 858, "selling_price_20_3x": 936, "box_no": 84, "alt_sticker": "P10"}, {"id": "P_11", "sticker_no": "85", "lot_no": "1294", "bill_type": "pink", "bill_name": "Pink Bill 1294 (Chilakaluripet)", "bill_item_no": 11, "name": "5K Wala", "pack_details": "1 x 8", "total_units": 8, "units_sold": 0, "rate": 650, "rate_plus_10": 715, "bill_total": 5200, "selling_price": 2340, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#85", "11", "5000", "5000 wala", "5k wala", "85", "box 85", "five thousand", "five thousand wala", "p-11", "p11", "pink 11", "sno 11"], "rate_plus_20": 780.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 780.0, "selling_price_10_3x": 2145, "selling_price_20_3x": 2340, "box_no": 85, "alt_sticker": "P11"}, {"id": "P_12", "sticker_no": "86", "lot_no": "1294", "bill_type": "pink", "bill_name": "Pink Bill 1294 (Chilakaluripet)", "bill_item_no": 12, "name": "10K Wala", "pack_details": "1 x 5", "total_units": 5, "units_sold": 0, "rate": 1300, "rate_plus_10": 1430, "bill_total": 6500, "selling_price": 4680, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#86", "10000", "10000 wala", "10k wala", "12", "86", "box 86", "p-12", "p12", "pink 12", "sno 12", "ten thousand", "ten thousand wala"], "rate_plus_20": 1560.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 1560.0, "selling_price_10_3x": 4290, "selling_price_20_3x": 4680, "box_no": 86, "alt_sticker": "P12"}, {"id": "P_13", "sticker_no": "87", "lot_no": "1294", "bill_type": "pink", "bill_name": "Pink Bill 1294 (Chilakaluripet)", "bill_item_no": 13, "name": "30 Shot", "pack_details": "1 x 18", "total_units": 18, "units_sold": 0, "rate": 380, "rate_plus_10": 418, "bill_total": 6840, "selling_price": 1368, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#87", "13", "30 shot", "87", "box 87", "p-13", "p13", "pink 13", "sno 13"], "rate_plus_20": 456.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 456.0, "selling_price_10_3x": 1254, "selling_price_20_3x": 1368, "box_no": 87, "alt_sticker": "P13"}, {"id": "P_14", "sticker_no": "88", "lot_no": "1294", "bill_type": "pink", "bill_name": "Pink Bill 1294 (Chilakaluripet)", "bill_item_no": 14, "name": "60 Shot", "pack_details": "1 x 12", "total_units": 12, "units_sold": 0, "rate": 760, "rate_plus_10": 836, "bill_total": 9120, "selling_price": 2736, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#88", "14", "60 shot", "88", "box 88", "p-14", "p14", "pink 14", "sno 14"], "rate_plus_20": 912.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 912.0, "selling_price_10_3x": 2508, "selling_price_20_3x": 2736, "box_no": 88, "alt_sticker": "P14"}, {"id": "P_15", "sticker_no": "89", "lot_no": "1294", "bill_type": "pink", "bill_name": "Pink Bill 1294 (Chilakaluripet)", "bill_item_no": 15, "name": "120 Shot", "pack_details": "1 x 6", "total_units": 6, "units_sold": 0, "rate": 1520, "rate_plus_10": 1672, "bill_total": 9120, "selling_price": 5472, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#89", "120 shot", "15", "89", "box 89", "p-15", "p15", "pink 15", "sno 15"], "rate_plus_20": 1824.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 1824.0, "selling_price_10_3x": 5016, "selling_price_20_3x": 5472, "box_no": 89, "alt_sticker": "P15"}, {"id": "P_16", "sticker_no": "90", "lot_no": "1294", "bill_type": "pink", "bill_name": "Pink Bill 1294 (Chilakaluripet)", "bill_item_no": 16, "name": "12 Shot Himalaya", "pack_details": "1 x 36", "total_units": 36, "units_sold": 0, "rate": 138, "rate_plus_10": 151.8, "bill_total": 4968, "selling_price": 497, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#90", "12 shot himalaya", "16", "90", "box 90", "p-16", "p16", "pink 16", "sno 16"], "rate_plus_20": 165.6, "overhead_pct": 20, "multiplier": 3, "final_cost": 165.6, "selling_price_10_3x": 455, "selling_price_20_3x": 497, "box_no": 90, "alt_sticker": "P16"}, {"id": "P_17", "sticker_no": "91", "lot_no": "1294", "bill_type": "pink", "bill_name": "Pink Bill 1294 (Chilakaluripet)", "bill_item_no": 17, "name": "Robin Big Kids", "pack_details": "1 x 60", "total_units": 60, "units_sold": 0, "rate": 42, "rate_plus_10": 46.2, "bill_total": 2520, "selling_price": 151, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#91", "17", "91", "box 91", "p-17", "p17", "pink 17", "robin big kids", "sno 17"], "rate_plus_20": 50.4, "overhead_pct": 20, "multiplier": 3, "final_cost": 50.4, "selling_price_10_3x": 139, "selling_price_20_3x": 151, "box_no": 91, "alt_sticker": "P17"}, {"id": "P_18", "sticker_no": "92", "lot_no": "1294", "bill_type": "pink", "bill_name": "Pink Bill 1294 (Chilakaluripet)", "bill_item_no": 18, "name": "Robin 5 Star", "pack_details": "1 x 40", "total_units": 40, "units_sold": 0, "rate": 125, "rate_plus_10": 137.5, "bill_total": 5000, "selling_price": 450, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#92", "18", "92", "box 92", "p-18", "p18", "pink 18", "robin 5 star", "sno 18"], "rate_plus_20": 150.0, "overhead_pct": 20, "multiplier": 3, "final_cost": 150.0, "selling_price_10_3x": 412, "selling_price_20_3x": 450, "box_no": 92, "alt_sticker": "P18"}, {"id": "P_19", "sticker_no": "93", "lot_no": "1294", "bill_type": "pink", "bill_name": "Pink Bill 1294 (Chilakaluripet)", "bill_item_no": 19, "name": "Mathabu", "pack_details": "2 x 50", "total_units": 100, "units_sold": 0, "rate": 58, "rate_plus_10": 63.8, "bill_total": 5800, "selling_price": 209, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#93", "19", "93", "box 93", "mathabu", "p-19", "p19", "pink 19", "sno 19"], "rate_plus_20": 69.6, "overhead_pct": 20, "multiplier": 3, "final_cost": 69.6, "selling_price_10_3x": 191, "selling_price_20_3x": 209, "box_no": 93, "alt_sticker": "P19"}, {"id": "P_20", "sticker_no": "94", "lot_no": "1294", "bill_type": "pink", "bill_name": "Pink Bill 1294 (Chilakaluripet)", "bill_item_no": 20, "name": "Look Pots", "pack_details": "2 x 100", "total_units": 200, "units_sold": 0, "rate": 21, "rate_plus_10": 23.1, "bill_total": 4200, "selling_price": 76, "verified": false, "verified_at": null, "notes": "", "search_keys": ["#94", "20", "94", "box 94", "look pots", "p-20", "p20", "pink 20", "sno 20"], "rate_plus_20": 25.2, "overhead_pct": 20, "multiplier": 3, "final_cost": 25.2, "selling_price_10_3x": 69, "selling_price_20_3x": 76, "box_no": 94, "alt_sticker": "P20"}];
     const EMBEDDED_EXPENSES = [{"id": "exp_1", "name": "Bolero Max Auto Transport (Chilakaluripet → Nandigama)", "amount": 10000, "category": "Transport"}, {"id": "exp_2", "name": "Unloading Labour (4 Workers x ₹500)", "amount": 2000, "category": "Labour"}, {"id": "exp_3", "name": "Car Petrol (Up & Down Trip)", "amount": 2200, "category": "Transport"}, {"id": "exp_4", "name": "Workers Food & Tiffin", "amount": 1000, "category": "Food"}, {"id": "exp_5", "name": "Return Auto Charge (ఆటో ఆయనకి ఇచ్చాం ₹500)", "amount": 500, "category": "Transport"}, {"id": "exp_6", "name": "Shed Setup & Ground Preparation", "amount": 3000, "category": "Shed"}, {"id": "exp_7", "name": "Wooden Poles & Tarpaulin Advance", "amount": 5000, "category": "Shed"}, {"id": "exp_8", "name": "Ropes & Miscellaneous Hardware", "amount": 1000, "category": "Shed"}, {"id": "exp_9", "name": "Official Shed Permissions & Licensing", "amount": 50000, "category": "Permissions"}];
-    const CURRENT_STORAGE_VER = 'diwali_crackers_v6_master';
+    const CURRENT_STORAGE_VER = 'diwali_crackers_v7_mobile_clean';
     const EXPENSES_KEY = 'diwali_crackers_expenses_v6';
     const AUTH_SESSION_KEY = 'diwali_admin_auth_v6';
 
@@ -1137,12 +1408,14 @@
     }
 
     // TOAST
-    function showToast(msg) {
+    let toastTimer = null;
+    function showToast(msg, duration = 1500) {
       const t = document.getElementById('app-toast');
       if (!t) return;
+      clearTimeout(toastTimer);
       t.textContent = msg;
       t.style.display = 'block';
-      setTimeout(() => { t.style.display = 'none'; }, 2400);
+      toastTimer = setTimeout(() => { t.style.display = 'none'; }, duration);
     }
 
     // ========================================================
@@ -1252,18 +1525,32 @@
       updatePinDisplay();
     }
 
+    
+    function onKeyboardPinInput(val) {
+      enteredPin = String(val || '').trim().slice(0, 4);
+      updatePinDisplay();
+      if (enteredPin.length === 4) {
+        submitPin();
+      }
+    }
+
     function updatePinDisplay() {
       const dots = document.getElementById('pin-dots');
       dots.textContent = enteredPin.padEnd(4, '-');
     }
 
     function submitPin() {
-      if (enteredPin === '2000') {
+      const _SEC_PIN_HASH = 'MjAwMA==';
+      if (btoa(enteredPin) === _SEC_PIN_HASH) {
         isAdminUnlocked = true;
         sessionStorage.setItem(AUTH_SESSION_KEY, 'true');
         closePinModal();
         updateAuthUIState();
         showToast('🔓 Admin Unlocked Successfully!');
+        if (window.pendingCleanDashboard) {
+          window.pendingCleanDashboard = false;
+          executeCleanDashboard();
+        }
         if (targetAdminTab) {
           switchNavTab(targetAdminTab);
           targetAdminTab = '';
@@ -1287,7 +1574,7 @@
           if (el) el.classList.remove('locked');
         });
       } else {
-        btn.textContent = '🔒 ENTER PIN (2000)';
+        btn.textContent = '🔒 ADMIN';
         btn.classList.remove('unlocked');
         lockedTabs.forEach(id => {
           const el = document.getElementById(id);
@@ -1378,21 +1665,17 @@
         totalCash += (s * sp);
         totalSold += s;
 
-        // Apply stall showcase filter
-        if (isStallShowcaseOnly && !item.is_stall_showcase) return;
-
-        // Apply numeric range filter
-        if (currentBoxFilterRange.start > 0) {
-          if (boxNo < currentBoxFilterRange.start || boxNo > currentBoxFilterRange.end) return;
-        }
-
-        // Apply search query
+        // When a search query is active, search across ALL 94 boxes so nothing is hidden in a rush!
         if (q) {
-          const matchBox = String(boxNo) === q || String(boxNo).includes(q);
-          const matchBill = String(billNo) === q || (isPink && `p${billNo}`.includes(q));
-          const matchName = String(item.name).toLowerCase().includes(q);
-          const matchKeys = item.search_keys && item.search_keys.some(k => String(k).toLowerCase().includes(q));
-          if (!matchBox && !matchBill && !matchName && !matchKeys) return;
+          if (!smartMatchItem(item, index, q)) return;
+        } else {
+          // Apply stall showcase filter
+          if (isStallShowcaseOnly && !item.is_stall_showcase) return;
+
+          // Apply numeric range filter
+          if (currentBoxFilterRange.start > 0) {
+            if (boxNo < currentBoxFilterRange.start || boxNo > currentBoxFilterRange.end) return;
+          }
         }
 
         const card = document.createElement('div');
@@ -1431,23 +1714,27 @@
             </div>
           </div>
 
-          <!-- PROMINENT SALES ACTION BUTTONS -->
-          <div class="pos-actions-row">
-            <button class="btn-sell-quick primary hit" onclick="recordStaffSale(${index}, 1)" ${left <= 0 ? 'disabled' : ''}>
-              +1 SOLD 💰
-            </button>
-            <button class="btn-sell-quick hit" onclick="recordStaffSale(${index}, 2)" ${left < 2 ? 'disabled' : ''}>
-              +2
-            </button>
-            <button class="btn-sell-quick hit" onclick="recordStaffSale(${index}, 5)" ${left < 5 ? 'disabled' : ''}>
-              +5
-            </button>
-            <button class="btn-sell-quick hit" onclick="recordStaffSale(${index}, -1)" title="Undo 1" style="color:var(--label-3);">
-              -1
-            </button>
-            <button class="btn-sell-quick reset hit" onclick="resetItemSoldToZero(${index})" title="Reset to 0 (Mark None Sold)">
-              RESET (0)
-            </button>
+          <!-- PROMINENT SALES ACTION BUTTONS (ERGONOMIC 2-TIER MOBILE LAYOUT) -->
+          <div class="pos-actions-tier">
+            <div class="pos-actions-main-row">
+              <button class="btn-sell-quick primary hit" onclick="recordStaffSale(${index}, 1)" ${left <= 0 ? 'disabled' : ''}>
+                +1 SOLD 💰
+              </button>
+              <button class="btn-sell-quick hit" onclick="recordStaffSale(${index}, 2)" ${left < 2 ? 'disabled' : ''}>
+                +2
+              </button>
+              <button class="btn-sell-quick hit" onclick="recordStaffSale(${index}, 5)" ${left < 5 ? 'disabled' : ''}>
+                +5
+              </button>
+            </div>
+            <div class="pos-actions-sub-row">
+              <button class="btn-sell-quick hit" onclick="recordStaffSale(${index}, -1)" title="Undo 1 sale" style="color:var(--label-2);">
+                ↩ UNDO (-1)
+              </button>
+              <button class="btn-sell-quick reset hit" onclick="resetItemSoldToZero(${index})" title="Reset to 0 (Mark None Sold)">
+                RESET (0 SOLD)
+              </button>
+            </div>
           </div>
         `;
 
@@ -1460,25 +1747,60 @@
 
     function recordStaffSale(index, delta) {
       let s = parseInt(items[index].units_sold) || 0;
-      s = Math.max(0, s + delta);
+      const u = parseInt(items[index].total_units) || 0;
+      s = Math.max(0, Math.min(u > 0 ? u : 9999, s + delta));
       items[index].units_sold = s;
 
-      const sp = parseFloat(items[index].selling_price) || 0;
+      localStorage.setItem(CURRENT_STORAGE_VER, JSON.stringify(items));
+      const q = document.getElementById('global-search-input').value.trim();
       refreshSingleItemRow(index);
-      renderStaffPos(document.getElementById('global-search-input').value.trim());
+      renderStaffPos(q);
+      renderAdminCards(q);
+      renderAdminTable(q);
+      updateFinancialHud();
       triggerAutoSave();
 
       if (delta > 0) {
-        showToast(`✓ Sold ${delta}x Box #${items[index].box_no} (${items[index].name})`);
+        // silent update on screen without annoying popup
+      } else {
+        showToast(`↩ Undid 1 sale on Box #${items[index].box_no}`);
       }
     }
 
     function resetItemSoldToZero(index) {
       items[index].units_sold = 0;
+      localStorage.setItem(CURRENT_STORAGE_VER, JSON.stringify(items));
+      const q = document.getElementById('global-search-input').value.trim();
       refreshSingleItemRow(index);
-      renderStaffPos(document.getElementById('global-search-input').value.trim());
+      renderStaffPos(q);
+      renderAdminCards(q);
+      renderAdminTable(q);
+      updateFinancialHud();
       triggerAutoSave();
-      showToast(`✓ Reset Box #${items[index].box_no} to 0 sold (Unsold).`);
+      showToast(`✓ Reset Box #${items[index].box_no} to 0 sold.`);
+    }
+
+    function handleCleanDashboardClick() {
+      if (isAdminUnlocked) {
+        executeCleanDashboard();
+      } else {
+        window.pendingCleanDashboard = true;
+        targetAdminTab = 'tab-financial-hud';
+        openPinModal();
+        showToast('🔒 Enter Admin PIN to Clean & Open Dashboard');
+      }
+    }
+
+    function executeCleanDashboard() {
+      items.forEach(it => { it.units_sold = 0; });
+      localStorage.setItem(CURRENT_STORAGE_VER, JSON.stringify(items));
+      const q = document.getElementById('global-search-input').value.trim();
+      renderStaffPos(q);
+      renderAdminCards(q);
+      renderAdminTable(q);
+      updateFinancialHud();
+      syncDataToServer(true);
+      showToast('🧹 Dashboard Cleaned! All 94 boxes reset to 0 sold (₹0).');
     }
 
     // ========================================================
@@ -1502,21 +1824,13 @@
         const isPink = item.bill_type === 'pink';
         const profit = Math.round((sp - c20) * s);
 
-        // Apply stall showcase filter
-        if (isStallShowcaseOnly && !item.is_stall_showcase) return;
-
-        // Apply numeric range filter
-        if (currentBoxFilterRange.start > 0) {
-          if (boxNo < currentBoxFilterRange.start || boxNo > currentBoxFilterRange.end) return;
-        }
-
-        // Apply search query
         if (q) {
-          const matchBox = String(boxNo) === q || String(boxNo).includes(q);
-          const matchBill = String(billNo) === q || (isPink && `p${billNo}`.includes(q));
-          const matchName = String(item.name).toLowerCase().includes(q);
-          const matchKeys = item.search_keys && item.search_keys.some(k => String(k).toLowerCase().includes(q));
-          if (!matchBox && !matchBill && !matchName && !matchKeys) return;
+          if (!smartMatchItem(item, index, q)) return;
+        } else {
+          if (isStallShowcaseOnly && !item.is_stall_showcase) return;
+          if (currentBoxFilterRange.start > 0) {
+            if (boxNo < currentBoxFilterRange.start || boxNo > currentBoxFilterRange.end) return;
+          }
         }
 
         const card = document.createElement('div');
@@ -1620,19 +1934,18 @@
         delete pendingPriceEdits[index];
       }
 
-      // Persist permanently to localStorage
       localStorage.setItem(CURRENT_STORAGE_VER, JSON.stringify(items));
 
-      // Hide the save popup
       const saveRow = document.getElementById(`card-save-row-${index}`);
       if (saveRow) saveRow.style.display = 'none';
 
+      const q = document.getElementById('global-search-input').value.trim();
       refreshSingleItemRow(index);
-      renderAdminCards(document.getElementById('global-search-input').value.trim());
-      renderAdminTable(document.getElementById('global-search-input').value.trim());
-      renderStaffPos();
+      renderAdminCards(q);
+      renderAdminTable(q);
+      renderStaffPos(q);
+      updateFinancialHud();
 
-      // Trigger server & sheets sync
       syncDataToServer(true);
       showToast(`✓ Saved Box #${items[index].box_no} price: ₹${items[index].selling_price} permanently!`);
     }
@@ -1653,9 +1966,12 @@
       items[index].is_custom_price = true;
 
       localStorage.setItem(CURRENT_STORAGE_VER, JSON.stringify(items));
+      const q = document.getElementById('global-search-input').value.trim();
       refreshSingleItemRow(index);
-      renderAdminCards(document.getElementById('global-search-input').value.trim());
-      renderStaffPos();
+      renderAdminCards(q);
+      renderAdminTable(q);
+      renderStaffPos(q);
+      updateFinancialHud();
       syncDataToServer(true);
       showToast(`✓ Updated Box #${items[index].box_no} to ₹${sp}`);
     }
@@ -1669,9 +1985,12 @@
       items[index].is_custom_price = false;
 
       localStorage.setItem(CURRENT_STORAGE_VER, JSON.stringify(items));
+      const q = document.getElementById('global-search-input').value.trim();
       refreshSingleItemRow(index);
-      renderAdminCards(document.getElementById('global-search-input').value.trim());
-      renderStaffPos();
+      renderAdminCards(q);
+      renderAdminTable(q);
+      renderStaffPos(q);
+      updateFinancialHud();
       syncDataToServer(true);
       showToast(`✓ Reset Box #${items[index].box_no} to 3x formula (₹${sp})`);
     }
@@ -1685,24 +2004,40 @@
         items[index].selling_price = Math.round(c20 * 3);
       }
       localStorage.setItem(CURRENT_STORAGE_VER, JSON.stringify(items));
+      const q = document.getElementById('global-search-input').value.trim();
       refreshSingleItemRow(index);
+      renderStaffPos(q);
+      renderAdminTable(q);
+      updateFinancialHud();
+      triggerAutoSave();
     }
 
     function onTotalUnitsChange(index, val) {
       items[index].total_units = parseInt(val) || 0;
       localStorage.setItem(CURRENT_STORAGE_VER, JSON.stringify(items));
+      const q = document.getElementById('global-search-input').value.trim();
+      renderStaffPos(q);
+      renderAdminTable(q);
+      updateFinancialHud();
       triggerAutoSave();
     }
 
     function onSoldChange(index, val) {
       items[index].units_sold = parseInt(val) || 0;
       localStorage.setItem(CURRENT_STORAGE_VER, JSON.stringify(items));
+      const q = document.getElementById('global-search-input').value.trim();
+      renderStaffPos(q);
+      renderAdminTable(q);
+      updateFinancialHud();
       triggerAutoSave();
     }
 
     function onItemPropChange(index, prop, val) {
       items[index][prop] = val;
       localStorage.setItem(CURRENT_STORAGE_VER, JSON.stringify(items));
+      const q = document.getElementById('global-search-input').value.trim();
+      renderStaffPos(q);
+      updateFinancialHud();
       triggerAutoSave();
     }
 
@@ -1735,21 +2070,13 @@
         const boxVal = Math.round(u * sp);
         const soldVal = Math.round(s * sp);
 
-        // Apply stall showcase filter
-        if (isStallShowcaseOnly && !item.is_stall_showcase) return;
-
-        // Apply numeric range filter
-        if (currentBoxFilterRange.start > 0) {
-          if (boxNo < currentBoxFilterRange.start || boxNo > currentBoxFilterRange.end) return;
-        }
-
-        // Apply search query
         if (q) {
-          const matchBox = String(boxNo) === q || String(boxNo).includes(q);
-          const matchBill = String(billNo) === q || (isPink && `p${billNo}`.includes(q));
-          const matchName = String(item.name).toLowerCase().includes(q);
-          const matchKeys = item.search_keys && item.search_keys.some(k => String(k).toLowerCase().includes(q));
-          if (!matchBox && !matchBill && !matchName && !matchKeys) return;
+          if (!smartMatchItem(item, index, q)) return;
+        } else {
+          if (isStallShowcaseOnly && !item.is_stall_showcase) return;
+          if (currentBoxFilterRange.start > 0) {
+            if (boxNo < currentBoxFilterRange.start || boxNo > currentBoxFilterRange.end) return;
+          }
         }
 
         const tr = document.createElement('tr');
@@ -1802,9 +2129,25 @@
     // ========================================================
     // BULK RECALCULATE PRICING (ADMIN)
     // ========================================================
+    function recalculatePricesPreview() {
+      const oh = parseFloat(document.getElementById('global-overhead-pct').value) || 0;
+      const mult = parseFloat(document.getElementById('global-multiplier').value) || 1;
+      const landed = Math.round(100 * (1 + oh / 100));
+      const res = Math.round(landed * mult);
+      const ohEl = document.getElementById('preview-oh-pct');
+      const lEl = document.getElementById('preview-landed');
+      const mEl = document.getElementById('preview-mult');
+      const rEl = document.getElementById('preview-result');
+      if (ohEl) ohEl.textContent = `+${oh}%`;
+      if (lEl) lEl.textContent = `₹${landed} Landed Cost`;
+      if (mEl) mEl.textContent = `${mult}x`;
+      if (rEl) rEl.textContent = `₹${res}`;
+    }
+
     function applyRecalculateAll(overheadPct, multiplier) {
       document.getElementById('global-overhead-pct').value = overheadPct;
       document.getElementById('global-multiplier').value = multiplier;
+      recalculatePricesPreview();
 
       items.forEach(item => {
         const rate = parseFloat(item.rate) || 0;
@@ -1818,9 +2161,11 @@
       });
 
       localStorage.setItem(CURRENT_STORAGE_VER, JSON.stringify(items));
-      renderAdminCards(document.getElementById('global-search-input').value.trim());
-      renderAdminTable(document.getElementById('global-search-input').value.trim());
-      renderStaffPos();
+      const q = document.getElementById('global-search-input').value.trim();
+      renderAdminCards(q);
+      renderAdminTable(q);
+      renderStaffPos(q);
+      updateFinancialHud();
       syncDataToServer(true);
       showToast(`✓ Recalculated all 94 items with +${overheadPct}% overhead and ${multiplier}x markup!`);
     }
@@ -1911,7 +2256,6 @@
       document.getElementById('hud-current-sales').textContent = `₹${Math.round(currentSales).toLocaleString('en-IN')}`;
       document.getElementById('hud-net-profit').textContent = `₹${Math.round(netProfit).toLocaleString('en-IN')}`;
 
-      // Break-even progress bar
       const pct = breakEvenCost > 0 ? Math.min(100, Math.round((currentSales / breakEvenCost) * 1000) / 10) : 0;
       const bar = document.getElementById('break-even-bar');
       if (bar) bar.style.width = `${pct}%`;
@@ -1920,7 +2264,6 @@
       const pctEl = document.getElementById('break-even-pct');
       if (pctEl) pctEl.textContent = `${pct}%`;
 
-      // Loss simulator numbers
       const simA = document.getElementById('sim-model-a');
       if (simA) simA.textContent = `₹${Math.round(potentialSales * 0.80).toLocaleString('en-IN')}`;
       const simB = document.getElementById('sim-model-b');
@@ -1930,43 +2273,189 @@
     }
 
     // ========================================================
-    // SEARCH & VOICE
+    // ULTRA-FAST VOICE, SHORTCUT EXPANSION & SMART SEARCH
     // ========================================================
+    const SHORTCUT_DICTIONARY = {
+      'dlx': ['deluxe', 'delux'],
+      'deluxe': ['dlx', 'delux'],
+      'spl': ['special'],
+      'special': ['spl'],
+      'flp': ['flower pot', 'flowerpot', 'flap', 'kundi'],
+      'flower': ['flp'],
+      'pot': ['flp'],
+      'flap': ['flp', 'flower pot'],
+      'clk': ['chakkar', 'chakkara', 'colour koti', 'color koti'],
+      'chakkar': ['clk', 'glc', 'chakkara'],
+      'chakkara': ['clk', 'glc', 'chakkar'],
+      'glc': ['ground chakkar', 'ground chakkara', 'bhuchakram'],
+      'ele': ['electric', 'sparklers'],
+      'electric': ['ele', 'en'],
+      'en': ['electric', 'ele'],
+      'gaint': ['giant', 'big'],
+      'giant': ['gaint'],
+      'laxmi': ['lakshmi'],
+      'lakshmi': ['laxmi'],
+      'dora': ['dola'],
+      'dola': ['dora'],
+      'jolly': ['7 cm', '7cm'],
+      'helicopter': ['hele copter', 'hele'],
+      'bruce': ['bruslee'],
+      'martial': ['marshal'],
+      'marshal': ['martial'],
+      'mountain': ['fountain'],
+      'fountain': ['mountain'],
+      '1k': ['1000', 'thousand'],
+      '2k': ['2000', 'two thousand'],
+      '5k': ['5000', 'five thousand'],
+      '10k': ['10000', 'ten thousand']
+    };
+
+    const SPOKEN_WORD_NUMBERS = {
+      'zero': '0', 'one': '1', 'two': '2', 'to': '2', 'too': '2', 'three': '3', 'four': '4', 'for': '4',
+      'five': '5', 'six': '6', 'seven': '7', 'eight': '8', 'nine': '9', 'ten': '10',
+      'eleven': '11', 'twelve': '12', 'thirteen': '13', 'fourteen': '14', 'fifteen': '15',
+      'sixteen': '16', 'seventeen': '17', 'eighteen': '18', 'nineteen': '19',
+      'twenty': '20', 'thirty': '30', 'forty': '40', 'fourty': '40', 'fifty': '50',
+      'sixty': '60', 'seventy': '70', 'eighty': '80', 'ninety': '90', 'hundred': '100', 'thousand': '1000'
+    };
+
+    const TENS_MAP = { 'twenty': 20, 'thirty': 30, 'forty': 40, 'fourty': 40, 'fifty': 50, 'sixty': 60, 'seventy': 70, 'eighty': 80, 'ninety': 90 };
+    const ONES_MAP = { 'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5, 'six': 6, 'seven': 7, 'eight': 8, 'nine': 9 };
+
+    function normalizeSearchQuery(raw) {
+      if (!raw) return '';
+      let s = String(raw).toLowerCase().replace(/[.,?!:;()"']/g, ' ').trim();
+      // Convert compound spoken numbers e.g. "forty two" -> "42"
+      s = s.replace(/\b(twenty|thirty|forty|fourty|fifty|sixty|seventy|eighty|ninety)[\s-]+(one|two|three|four|five|six|seven|eight|nine)\b/g,
+        (_, t, o) => String(TENS_MAP[t] + ONES_MAP[o]));
+      // Strip common voice command filler words
+      const tokens = s.split(/\s+/).filter(w => !['box', 'number', 'no', 'item', 'sticker', 'sno', 'show', 'me', 'tell', 'price', 'rate', 'of', 'the', 'please'].includes(w));
+      const converted = tokens.map(w => SPOKEN_WORD_NUMBERS[w] || w);
+      return converted.join(' ').trim();
+    }
+
+    function smartMatchItem(item, index, rawQuery) {
+      const qNorm = normalizeSearchQuery(rawQuery);
+      const qRaw = String(rawQuery).toLowerCase().trim();
+      if (!qNorm && !qRaw) return true;
+
+      const boxNo = String(item.box_no || (index + 1));
+      const billNo = String(item.bill_item_no || (index + 1));
+      const isPink = item.bill_type === 'pink';
+      const nameLower = String(item.name || '').toLowerCase();
+      const keys = (item.search_keys || []).map(k => String(k).toLowerCase());
+
+      // 1. Exact numeric match on Box # or Bill S.No
+      if (/^\d+$/.test(qNorm)) {
+        if (boxNo === qNorm || billNo === qNorm) return true;
+        // Also match if product name starts with that number (e.g. "28" -> 28 Giant, "100" -> 100 wala)
+        if (nameLower.split(/\s+/)[0] === qNorm) return true;
+        return false;
+      }
+
+      // 2. Pink bill shorthand e.g. "p1", "pink 4"
+      if (isPink && (`p${billNo}` === qNorm.replace(/\s+/g, '') || `pink${billNo}` === qNorm.replace(/\s+/g, ''))) {
+        return true;
+      }
+
+      // 3. Direct substring match on name or search_keys
+      if (nameLower.includes(qNorm) || nameLower.includes(qRaw)) return true;
+      if (keys.some(k => k.includes(qNorm) || qNorm.includes(k))) return true;
+
+      // 4. Token + Shortcut Expansion match (every query word matches name, keys, or shortcut expansion)
+      const qWords = qNorm.split(/\s+/).filter(Boolean);
+      const searchableBlob = [nameLower, ...keys].join(' ');
+      const allWordsMatch = qWords.every(w => {
+        if (searchableBlob.includes(w)) return true;
+        const expansions = SHORTCUT_DICTIONARY[w] || [];
+        return expansions.some(exp => searchableBlob.includes(exp));
+      });
+      if (allWordsMatch) return true;
+
+      return false;
+    }
+
+    function clearGlobalSearch() {
+      const inp = document.getElementById('global-search-input');
+      if (inp) inp.value = '';
+      onGlobalSearch('');
+    }
+
     function onGlobalSearch(query) {
+      const clearBtn = document.getElementById('btn-clear-search');
+      if (clearBtn) clearBtn.style.display = query && query.trim().length > 0 ? 'block' : 'none';
       renderStaffPos(query);
       renderAdminCards(query);
       renderAdminTable(query);
     }
 
+    let activeRecognition = null;
     function startVoiceSearch() {
       const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
       if (!SpeechRecognition) {
-        alert('Voice recognition not supported in this browser. Please use Google Chrome.');
+        alert('Voice recognition not supported in this browser. Please use Chrome or Edge.');
         return;
       }
-      const recognition = new SpeechRecognition();
-      recognition.lang = 'en-IN';
-      recognition.interimResults = false;
 
-      const btn = document.getElementById('btn-voice-search');
-      btn.textContent = '🎙️ LISTENING...';
+      const btn = document.getElementById('btn-hero-voice') || document.getElementById('btn-voice-search');
+      const textEl = document.getElementById('hero-voice-text');
+      const hintEl = document.getElementById('voice-hint-msg');
+      if (activeRecognition) {
+        try { activeRecognition.stop(); } catch(e) {}
+        activeRecognition = null;
+        if(textEl) textEl.textContent = 'TAP TO SPEAK'; btn.classList.remove('listening'); if(hintEl) hintEl.textContent = '💡 Speak box number (1-94) or product name';
+        btn.style.borderColor = '';
+        return;
+      }
+
+      const recognition = new SpeechRecognition();
+      activeRecognition = recognition;
+      recognition.lang = 'en-IN';
+      recognition.continuous = false;
+      recognition.interimResults = true;
+      recognition.maxAlternatives = 5;
+
+      if(textEl) textEl.textContent = 'LISTENING...'; btn.classList.add('listening'); if(hintEl) hintEl.textContent = '🎙️ Listening... speak now!';
       btn.style.borderColor = 'var(--accent-rose)';
+      btn.style.background = 'rgba(255, 46, 147, 0.2)';
 
       recognition.onresult = (event) => {
-        const transcript = event.results[0][0].transcript;
-        document.getElementById('global-search-input').value = transcript;
-        onGlobalSearch(transcript);
-        showToast(`🎤 Voice: "${transcript}"`);
+        const res = event.results[event.results.length - 1];
+        let chosenTranscript = res[0].transcript.trim();
+
+        // Check all alternatives to pick the one that matches our 94 products best
+        for (let a = 0; a < res.length; a++) {
+          const candidate = res[a].transcript.trim();
+          const norm = normalizeSearchQuery(candidate);
+          const hasMatch = items.some((it, idx) => smartMatchItem(it, idx, norm));
+          if (hasMatch) {
+            chosenTranscript = norm;
+            break;
+          }
+        }
+
+        const cleaned = normalizeSearchQuery(chosenTranscript) || chosenTranscript;
+        const inputEl = document.getElementById('global-search-input');
+        inputEl.value = cleaned;
+        onGlobalSearch(cleaned);
+
+        if (res.isFinal) {
+          showToast(`🎤 ${cleaned}`, 1000);
+        }
       };
 
       recognition.onend = () => {
-        btn.textContent = '🎤 VOICE';
+        activeRecognition = null;
+        if(textEl) textEl.textContent = 'TAP TO SPEAK'; btn.classList.remove('listening'); if(hintEl) hintEl.textContent = '💡 Speak box number (1-94) or product name';
         btn.style.borderColor = '';
+        btn.style.background = '';
       };
 
       recognition.onerror = () => {
-        btn.textContent = '🎤 VOICE';
+        activeRecognition = null;
+        if(textEl) textEl.textContent = 'TAP TO SPEAK'; btn.classList.remove('listening'); if(hintEl) hintEl.textContent = '💡 Speak box number (1-94) or product name';
         btn.style.borderColor = '';
+        btn.style.background = '';
       };
 
       recognition.start();
