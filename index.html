@@ -434,6 +434,43 @@
       filter: brightness(1.15);
       box-shadow: 0 0 12px rgba(0, 255, 133, 0.4);
     }
+    @keyframes salePulse {
+      0% { transform: scale(1); box-shadow: 0 0 0 rgba(0, 255, 133, 0); }
+      50% { transform: scale(0.92); box-shadow: 0 0 25px rgba(0, 255, 133, 0.9); background: #fff !important; color: #000 !important; }
+      100% { transform: scale(1); }
+    }
+    @keyframes cardFlash {
+      0% { border-color: var(--accent-emerald) !important; box-shadow: 0 0 24px rgba(0, 255, 133, 0.5) !important; }
+      100% { }
+    }
+    @keyframes floatUpFade {
+      0% { opacity: 1; transform: translate(-50%, 0) scale(0.8); }
+      40% { opacity: 1; transform: translate(-50%, -24px) scale(1.15); }
+      100% { opacity: 0; transform: translate(-50%, -48px) scale(1); }
+    }
+    .btn-sell-animating {
+      animation: salePulse 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .card-sale-flash {
+      animation: cardFlash 0.6s ease;
+    }
+    .floating-sale-pill {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, 0);
+      background: var(--accent-emerald);
+      color: #000;
+      font-family: var(--font-mono);
+      font-weight: 900;
+      font-size: 0.95rem;
+      padding: 6px 16px;
+      border-radius: 20px;
+      pointer-events: none;
+      z-index: 99;
+      box-shadow: 0 4px 20px rgba(0, 255, 133, 0.7);
+      animation: floatUpFade 0.8s ease forwards;
+    }
     .btn-sell-quick.reset {
       background: rgba(255, 230, 0, 0.1);
       color: var(--accent-gold);
@@ -2122,18 +2159,18 @@
           <!-- PROMINENT SALES ACTION BUTTONS -->
           <div class="pos-actions-tier">
             <div class="pos-actions-main-row">
-              <button class="btn-sell-quick primary hit" onclick="recordStaffSale(${index}, 1)" ${left <= 0 ? 'disabled' : ''}>
+              <button class="btn-sell-quick primary hit" onclick="recordStaffSale(${index}, 1, this)" ${left <= 0 ? 'disabled' : ''}>
                 +1 SOLD 💰
               </button>
-              <button class="btn-sell-quick hit" onclick="recordStaffSale(${index}, 2)" ${left < 2 ? 'disabled' : ''}>
+              <button class="btn-sell-quick hit" onclick="recordStaffSale(${index}, 2, this)" ${left < 2 ? 'disabled' : ''}>
                 +2
               </button>
-              <button class="btn-sell-quick hit" onclick="recordStaffSale(${index}, 5)" ${left < 5 ? 'disabled' : ''}>
+              <button class="btn-sell-quick hit" onclick="recordStaffSale(${index}, 5, this)" ${left < 5 ? 'disabled' : ''}>
                 +5
               </button>
             </div>
             <div class="pos-actions-sub-row">
-              <button class="btn-sell-quick hit" onclick="recordStaffSale(${index}, -1)" title="Undo 1 sale" style="color:var(--label-2);">
+              <button class="btn-sell-quick hit" onclick="recordStaffSale(${index}, -1, this)" title="Undo 1 sale" style="color:var(--label-2);">
                 ↩ UNDO (-1)
               </button>
               <button class="btn-sell-quick reset hit" onclick="resetItemSoldToZero(${index})" title="Reset this box to 0 sold">
@@ -2177,18 +2214,54 @@
       if (elBarFill) elBarFill.style.width = `${soldPct}%`;
     }
 
-    function recordStaffSale(index, delta) {
+    function recordStaffSale(index, delta, btnEl) {
       let s = parseInt(items[index].units_sold) || 0;
       const u = parseInt(items[index].total_units) || 0;
+      const prevSold = s;
       s = Math.max(0, Math.min(u > 0 ? u : 9999, s + delta));
       items[index].units_sold = s;
+
+      const sp = parseFloat(items[index].selling_price) || 0;
+      const boxNo = items[index].box_no;
 
       persistItemsLocally();
       refreshAllViewsLive();
       syncDataToServer(false);
 
-      if (delta < 0) {
-        showToast(`↩ Undid 1 sale on Box #${items[index].box_no}`);
+      // Trigger tactile haptics if supported
+      if (typeof navigator !== 'undefined' && navigator.vibrate) {
+        try { navigator.vibrate(delta > 0 ? [30, 40, 30] : [20]); } catch (e) {}
+      }
+
+      // Visual button animation & floating cash pop
+      if (btnEl) {
+        btnEl.classList.remove('btn-sell-animating');
+        void btnEl.offsetWidth; // trigger reflow
+        btnEl.classList.add('btn-sell-animating');
+        setTimeout(() => btnEl.classList.remove('btn-sell-animating'), 350);
+      }
+
+      const card = document.getElementById(`staff-card-${index}`);
+      if (card) {
+        card.classList.remove('card-sale-flash');
+        void card.offsetWidth;
+        card.classList.add('card-sale-flash');
+        setTimeout(() => card.classList.remove('card-sale-flash'), 600);
+
+        if (delta > 0 && s > prevSold) {
+          const pill = document.createElement('div');
+          pill.className = 'floating-sale-pill';
+          pill.textContent = `+${delta} SOLD (₹${Math.round(delta * sp).toLocaleString('en-IN')}) 💰`;
+          card.style.position = 'relative';
+          card.appendChild(pill);
+          setTimeout(() => pill.remove(), 800);
+        }
+      }
+
+      if (delta > 0) {
+        showToast(`💰 Box #${boxNo}: +${delta} Sold! (₹${Math.round(delta * sp).toLocaleString('en-IN')})`, 1200);
+      } else if (delta < 0) {
+        showToast(`↩ Undid 1 sale on Box #${boxNo}`);
       }
     }
 
